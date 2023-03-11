@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38011bc6216c04e4692470e10f9c76d5, type: 3}
+  m_Name: GuidedBulletPool
+  m_EditorClassIdentifier: 
+  tag: Guided Bullet
+  prefab: {fileID: 689144320124950397, guid: 23a3656b83258784691df74562f6b80c, type: 3}
