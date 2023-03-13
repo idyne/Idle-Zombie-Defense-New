@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(SphereCollider))]
 public class UnguidedProjectile : Projectile
 {
+    private IEnumerator releaseAfterSecondRoutine = null;
     private SphereCollider sphereCollider;
     private void OnEnable()
     {
@@ -19,6 +20,25 @@ public class UnguidedProjectile : Projectile
     {
         base.OnObjectSpawn();
         sphereCollider.enabled = true;
+        releaseAfterSecondRoutine = ReleaseAfterSeconds(5);
+        StartCoroutine(releaseAfterSecondRoutine);
+    }
+
+    private IEnumerator ReleaseAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Release();
+        releaseAfterSecondRoutine = null;
+    }
+
+    public override void OnReached()
+    {
+        if (releaseAfterSecondRoutine != null)
+        {
+            StopCoroutine(releaseAfterSecondRoutine);
+            releaseAfterSecondRoutine = null;
+        }
+        base.OnReached();
     }
 
     protected class UnguidedMotion : Motion
@@ -27,7 +47,7 @@ public class UnguidedProjectile : Projectile
         public readonly Vector3 direction;
         public UnguidedMotion(Projectile projectile, Vector3 direction) : base(projectile)
         {
-            this.direction = direction;
+            this.direction = direction.normalized;
         }
         public override void Update()
         {
@@ -40,7 +60,8 @@ public class UnguidedProjectile : Projectile
     private void OnTriggerEnter(Collider other)
     {
         sphereCollider.enabled = false;
-        target = other.GetComponent<Damageable>();
+        if (other.CompareTag("Zombie"))
+            target = other.GetComponent<Damageable>();
         OnReached();
     }
 }

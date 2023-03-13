@@ -77,12 +77,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxCooldown: 0.5
+  damage: 10
   projectilePool: {fileID: 11400000, guid: 202ae1ccb8b85ea4ca86add4fc8b3bcb, type: 2}
   mode: 1
   muzzle: {fileID: 6937212512565088998}
   burstSize: 3
   burstPeriod: 0.1
-  shootPeriod: 0
 --- !u!1 &4433078739572382037
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,17 +130,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 095d846029ba112478d9b2ddb34d11e8,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.1555
+      value: 1.7533758
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 095d846029ba112478d9b2ddb34d11e8,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4.1555
+      value: 1.7533758
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 095d846029ba112478d9b2ddb34d11e8,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 4.1555
+      value: 1.7533758
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 095d846029ba112478d9b2ddb34d11e8,
         type: 3}

@@ -3,7 +3,7 @@
 // Flick Shot Games
 // http://www.flickshotgames.com
 //----------------------------------------------
-
+#pragma warning disable CS0642 // Hatalı olabilecek boş deyim
 using UnityEngine;
 using UnityEditor;
 using System.IO;
@@ -291,6 +291,7 @@ namespace FSG.MeshAnimator
 
         #region GUI
         /// Draw the UI
+        [System.Obsolete]
         private void OnGUI()
         {
             GUI.skin.label.wordWrap = true;
@@ -406,7 +407,9 @@ namespace FSG.MeshAnimator
                             }
                         }
                     }
+
                 })) ;
+
                 EditorGUI.BeginChangeCheck();
                 if (prefab != null)
                 {
@@ -1469,6 +1472,7 @@ namespace FSG.MeshAnimator
         #endregion
 
         #region Baking Methods
+        [System.Obsolete]
         private void CreateSnapshots()
         {
             switch (selectedAnimatorType)
@@ -1485,7 +1489,9 @@ namespace FSG.MeshAnimator
                     }
             }
         }
+
         /// Create the MeshAnimator prefab, baking all the animations
+        [System.Obsolete]
         private void CreateSnapshots<MeshAnimatorType, MeshAnimationType>()
             where MeshAnimatorType : MeshAnimatorBase where MeshAnimationType : MeshAnimationBase
         {
@@ -2208,3 +2214,4 @@ namespace FSG.MeshAnimator
         #endregion
     }
 }
+#pragma warning restore CS0642 // Hatalı olabilecek boş deyim

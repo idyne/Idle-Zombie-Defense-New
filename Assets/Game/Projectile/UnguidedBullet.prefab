@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 6638721768011526736}
   - component: {fileID: 1225931687866748472}
   - component: {fileID: 557734010429374575}
-  m_Layer: 0
+  - component: {fileID: 8780257627181960036}
+  m_Layer: 6
   m_Name: UnguidedBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,10 +43,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 689144320124950397}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &557734010429374575
 MonoBehaviour:
@@ -63,7 +64,25 @@ MonoBehaviour:
   areaRadius: 1
   speed: 40
   vfxPool: {fileID: 0}
+  trailRenderer: {fileID: 0}
   Damage: 1
+  AddToTargetFutureHealth: 1
+--- !u!54 &8780257627181960036
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689144320124950397}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2539910452874697275
 PrefabInstance:
   m_ObjectHideFlags: 0

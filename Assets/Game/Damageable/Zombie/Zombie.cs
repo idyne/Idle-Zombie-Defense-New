@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public class Zombie : Damageable, IPooledObject
 {
+    [SerializeField] protected SaveDataVariable saveData;
     [SerializeField] protected ZombieSet zombieSet;
     public event Action OnRelease;
 
@@ -37,8 +38,16 @@ public class Zombie : Damageable, IPooledObject
 #if DEBUG
         logs.Add("Die");
 #endif
+        DropMoney();
         Release();
         OnDied.Invoke();
+    }
+
+    public void DropMoney()
+    {
+        // TODO change to real money
+        int money = 50001;
+        saveData.AddMoney(money);
     }
 
     public void OnObjectSpawn()
@@ -46,15 +55,17 @@ public class Zombie : Damageable, IPooledObject
 #if DEBUG
         logs.Add("OnObjectSpawn");
 #endif
+        Activate();
         zombieSet.Add(this);
     }
 
     public void Release()
     {
-        Deactivate();
 #if DEBUG
         logs.Add("Release");
 #endif
+        Deactivate();
+        OnRelease.Invoke();
     }
 
 }

@@ -46,13 +46,14 @@ public abstract class Damageable : FateMonoBehaviour
         OnGoingToDie.Invoke();
     }
 
-    public virtual void Hit(int damage)
+    public virtual void Hit(int damage, bool addFutureHealth = false)
     {
 #if DEBUG
         logs.Add("Hit");
 #endif
         if (health <= 0) return;
         SetHealth(health - damage);
+        if (addFutureHealth) AddFutureHealth(-damage);
     }
 
     public void SetHealth(int health)

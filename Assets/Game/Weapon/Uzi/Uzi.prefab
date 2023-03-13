@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5002909584882375499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5191181822297570938}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5191181822297570938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5002909584882375499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.225, z: 0.33}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 862182228950498806}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6822859591687478169
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1847436111546791551}
+  - component: {fileID: 7846253876758703514}
   m_Layer: 0
   m_Name: Uzi
   m_TagString: Untagged
@@ -32,6 +64,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7846253876758703514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6822859591687478169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1870f044037a12408ef7a56019a0282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCooldown: 0.5
+  damage: 10
+  projectilePool: {fileID: 11400000, guid: 202ae1ccb8b85ea4ca86add4fc8b3bcb, type: 2}
+  mode: 0
+  muzzle: {fileID: 5191181822297570938}
+  burstSize: 3
+  burstPeriod: 0.1
 --- !u!1 &6859883247022957930
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,6 +126,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.753376
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.753376
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.753376
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,
         type: 3}
@@ -126,6 +192,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,
         type: 3}
       propertyPath: m_Name
@@ -133,6 +204,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d2f918f6d3a386409ff5bc00a20c4b1, type: 3}
+--- !u!4 &862182228950498806 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7583016445318327640, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 2104483480768655198}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1927006201029707957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,

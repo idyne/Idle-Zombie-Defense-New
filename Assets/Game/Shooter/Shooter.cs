@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using FateGames.Core;
 using DG.Tweening;
-public class Shooter : FateMonoBehaviour
+public abstract class Shooter : FateMonoBehaviour
 {
     [SerializeField] protected float range = 10;
     [SerializeField] protected ZombieSet zombieSet;
     [SerializeField] protected WaveStateVariable waveState;
     [SerializeField] protected Gun gun;
+
     protected Zombie target;
-    protected WaitUntil waitUntilReadyToShoot;
+    protected WaitUntil waitUntilReadyToShoot, waitUntilGunNotInCooldown;
     protected IEnumerator shootCoroutine;
 #if DEBUG
     public List<string> logs = new();
@@ -35,13 +36,14 @@ public class Shooter : FateMonoBehaviour
         }
     }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
 #if DEBUG
         logs.Add("OnEnable");
 #endif
         // Wait until  gun is not in cooldown and the shooter is faced to the target
         waitUntilReadyToShoot = new WaitUntil(() => !gun.InCooldown && FacedTarget);
+        waitUntilGunNotInCooldown = new WaitUntil(() => !gun.InCooldown);
     }
 
     // TODO Add listener to OnWaveStart event
@@ -92,10 +94,16 @@ public class Shooter : FateMonoBehaviour
 #if DEBUG
         logs.Add("SetTarget");
 #endif
+        StartCoroutine(SetTargetRoutine());
+    }
+
+    protected IEnumerator SetTargetRoutine()
+    {
+        yield return waitUntilGunNotInCooldown;
         // Set target to the nearest zombie
         target = FindNearestZombieInRange();
         // Return if there is no zombie in range
-        if (!target) return;
+        if (!target) yield break;
         StopTargeting();
         target.OnDied.AddListener(OnTargetDied);
         target.OnGoingToDie.AddListener(OnTargetGoingToDie);
@@ -105,12 +113,7 @@ public class Shooter : FateMonoBehaviour
         StartShooting();
     }
 
-    public void FaceTarget()
-    {
-        Vector3 direction = target.ShotPoint.position - transform.position;
-        direction.y = 0;
-        transform.DORotateQuaternion(Quaternion.LookRotation(direction), 0.2f);
-    }
+    public abstract void FaceTarget();
 
     public void StartShooting()
     {
@@ -129,7 +132,8 @@ public class Shooter : FateMonoBehaviour
 #if DEBUG
         logs.Add("StopShooting");
 #endif
-        StopCoroutine(shootCoroutine);
+        if (shootCoroutine != null)
+            StopCoroutine(shootCoroutine);
     }
 
     public void RemoveTarget()
@@ -158,17 +162,18 @@ public class Shooter : FateMonoBehaviour
 #if DEBUG
         logs.Add("OnTargetGoingToDie");
 #endif
+        gun.Stop();
         RemoveTarget();
         StartTargeting();
     }
 
-    public virtual void Shoot()
+    public virtual IEnumerator Shoot()
     {
 #if DEBUG
         logs.Add("Shoot");
 #endif
-        if (!target) return;
-        gun.Use(target);
+        if (!target) yield break;
+        yield return gun.Use(target);
     }
 
     private IEnumerator ShootRoutine()
@@ -179,7 +184,7 @@ public class Shooter : FateMonoBehaviour
         if (!target)
             Debug.LogError("There is no target!", this);
         yield return waitUntilReadyToShoot;
-        Shoot();
+        yield return Shoot();
         shootCoroutine = ShootRoutine();
         yield return shootCoroutine;
     }

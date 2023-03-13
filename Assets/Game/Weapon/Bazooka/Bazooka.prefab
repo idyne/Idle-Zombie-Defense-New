@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &560528892138067406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2143512637050633684}
+  m_Layer: 0
+  m_Name: Muzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2143512637050633684
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 560528892138067406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.172, z: 0.599}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5435932593486204824}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1254573792539369742
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1574657729762967301}
+  - component: {fileID: 5049688345651846684}
   m_Layer: 0
   m_Name: Bazooka
   m_TagString: Untagged
@@ -32,6 +64,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5049688345651846684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254573792539369742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3386062bba0b18344b7a107c048febf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxCooldown: 1
+  damage: 10
+  projectilePool: {fileID: 11400000, guid: b44479880d433e14f8a007e0820d5eca, type: 2}
+  mode: 1
+  muzzle: {fileID: 2143512637050633684}
+  burstSize: 1
+  burstPeriod: 0.1
 --- !u!1 &2809895758677394260
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,6 +126,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d7178c7b84bb524459e5bc80bb8b7dfd,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.753376
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d7178c7b84bb524459e5bc80bb8b7dfd,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.753376
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d7178c7b84bb524459e5bc80bb8b7dfd,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.753376
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: d7178c7b84bb524459e5bc80bb8b7dfd,
         type: 3}
@@ -126,6 +192,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d7178c7b84bb524459e5bc80bb8b7dfd,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d7178c7b84bb524459e5bc80bb8b7dfd,
         type: 3}
       propertyPath: m_Name
@@ -136,6 +207,12 @@ PrefabInstance:
 --- !u!4 &53764859477902378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d7178c7b84bb524459e5bc80bb8b7dfd,
+    type: 3}
+  m_PrefabInstance: {fileID: 519527660786361281}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5435932593486204824 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3727304547146683303, guid: d7178c7b84bb524459e5bc80bb8b7dfd,
     type: 3}
   m_PrefabInstance: {fileID: 519527660786361281}
   m_PrefabAsset: {fileID: 0}

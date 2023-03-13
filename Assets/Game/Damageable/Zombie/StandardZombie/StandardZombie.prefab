@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2562514304527079015}
   - component: {fileID: 6516568371753610549}
-  m_Layer: 0
+  - component: {fileID: 3430168074463370963}
+  m_Layer: 7
   m_Name: StandardZombie
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,7 +49,21 @@ MonoBehaviour:
   maxHealth: 40
   shotPoint: {fileID: 4745582626099157814}
   logs: []
+  saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   zombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c, type: 2}
+--- !u!135 &3430168074463370963
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145090285323611670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &3112475686417156297
 GameObject:
   m_ObjectHideFlags: 0

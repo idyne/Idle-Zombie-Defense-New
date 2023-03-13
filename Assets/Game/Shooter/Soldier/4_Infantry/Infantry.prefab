@@ -1,0 +1,179 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4313341542573511478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5064988154481463286}
+  m_Layer: 0
+  m_Name: Mesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5064988154481463286
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4313341542573511478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5877938011919983649}
+  m_Father: {fileID: 400489313510445580}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7892615209185785116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 400489313510445580}
+  - component: {fileID: 6530169430314784374}
+  m_Layer: 0
+  m_Name: Infantry
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &400489313510445580
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892615209185785116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5064988154481463286}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6530169430314784374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892615209185785116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b7145d9e0275c54f9f1bdb7fd116758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  range: 10
+  zombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c, type: 2}
+  waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
+  gun: {fileID: 496832365385467075}
+  logs: []
+  animator: {fileID: 7238910840676952798}
+  soldierSet: {fileID: 11400000, guid: d2a2217d31c39ee4587b9aa3fdfd80b5, type: 2}
+--- !u!1001 &6060846269576836653
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 5064988154481463286}
+    m_Modifications:
+    - target: {fileID: 400489313510445580, guid: 57f4554727e246740bc9e51ec0407ef7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400489313510445580, guid: 57f4554727e246740bc9e51ec0407ef7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400489313510445580, guid: 57f4554727e246740bc9e51ec0407ef7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400489313510445580, guid: 57f4554727e246740bc9e51ec0407ef7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400489313510445580, guid: 57f4554727e246740bc9e51ec0407ef7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400489313510445580, guid: 57f4554727e246740bc9e51ec0407ef7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400489313510445580, guid: 57f4554727e246740bc9e51ec0407ef7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400489313510445580, guid: 57f4554727e246740bc9e51ec0407ef7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400489313510445580, guid: 57f4554727e246740bc9e51ec0407ef7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400489313510445580, guid: 57f4554727e246740bc9e51ec0407ef7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400489313510445580, guid: 57f4554727e246740bc9e51ec0407ef7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7892615209185785116, guid: 57f4554727e246740bc9e51ec0407ef7,
+        type: 3}
+      propertyPath: m_Name
+      value: InfantryMechanim
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 57f4554727e246740bc9e51ec0407ef7, type: 3}
+--- !u!114 &496832365385467075 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5978926482973995758, guid: 57f4554727e246740bc9e51ec0407ef7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6060846269576836653}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1870f044037a12408ef7a56019a0282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &5877938011919983649 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400489313510445580, guid: 57f4554727e246740bc9e51ec0407ef7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6060846269576836653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &7238910840676952798 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3488517970280766707, guid: 57f4554727e246740bc9e51ec0407ef7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6060846269576836653}
+  m_PrefabAsset: {fileID: 0}

@@ -5,19 +5,32 @@ using FateGames.Core;
 
 public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] protected float maxCooldown;
-    protected float cooldown;
-    protected float lastUseTime = float.MinValue;
-    public bool InCooldown { get => Time.time < lastUseTime + cooldown; }
+    [SerializeField] protected float cooldown = 1;
+    protected WaitForSeconds waitForCooldown;
+    protected IEnumerator useRoutine = null;
+    public bool InCooldown { get; protected set; }
 
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         ResetCooldown();
+        waitForCooldown = new WaitForSeconds(cooldown);
     }
-    public abstract void Use(Damageable target);
+    public abstract IEnumerator Use(Damageable target);
 
     public void ResetCooldown()
     {
-        cooldown = maxCooldown;
+        InCooldown = false;
+    }
+
+    public IEnumerator Cooldown()
+    {
+        InCooldown = true;
+        yield return waitForCooldown;
+        InCooldown = false;
+    }
+
+    public void Stop()
+    {
+        StopCoroutine(useRoutine);
     }
 }

@@ -11,11 +11,13 @@ public abstract class Projectile : FateMonoBehaviour, IPooledObject
     [SerializeField] protected float speed = 40;
     [SerializeField] protected ObjectPool vfxPool;
     [SerializeField] protected TrailRenderer trailRenderer;
+    [SerializeField] protected LayerMask areaOfEffectLayerMask;
 
     protected Motion motion;
-    public int Damage = 1;
+    [HideInInspector] public int Damage = 1;
     public Action<Damageable> specialEffect;
     protected Damageable target;
+    public bool AddToTargetFutureHealth = false;
 
     public float Speed { get => speed; }
     public float AreaRadius { get => areaRadius; }
@@ -41,7 +43,7 @@ public abstract class Projectile : FateMonoBehaviour, IPooledObject
         if (trailRenderer)
             trailRenderer.emitting = false;
     }
-    public void Release()
+    public virtual void Release()
     {
         Deactivate();
         OnRelease.Invoke();
@@ -70,17 +72,18 @@ public abstract class Projectile : FateMonoBehaviour, IPooledObject
 
     public void HitArea()
     {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, areaRadius);
+        Collider[] colliders = Physics.OverlapSphere(transform.position, areaRadius, areaOfEffectLayerMask);
         foreach (Collider collider in colliders)
         {
             Damageable damageable = collider.GetComponent<Damageable>();
-            damageable.Hit(Damage);
+            damageable.Hit(Damage, AddToTargetFutureHealth);
         }
     }
 
     public void HitTarget()
     {
-        target.Hit(Damage);
+        if (!target) return;
+        target.Hit(Damage, AddToTargetFutureHealth);
     }
 
     public void Move(Vector3 to)
