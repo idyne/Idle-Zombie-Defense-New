@@ -4,7 +4,7 @@ using UnityEngine;
 using FateGames.Core;
 
 [CreateAssetMenu(menuName = "Wave/Wave State Variable")]
-public class WaveStateVariable : Variable<Wave.WaveState>
+public class WaveStateVariable : Variable<WaveController.WaveState>
 {
 }
 

@@ -9,7 +9,7 @@ public abstract class Damageable : FateMonoBehaviour
     [SerializeField] protected int maxHealth;
     [SerializeField] protected Transform shotPoint;
     protected int health;
-    public readonly UnityEvent OnDied = new();
+    public UnityEvent OnDied = new();
     public int FutureHealth { get; private set; }
     public bool GoingToDie { get => FutureHealth <= 0; }
     public Transform ShotPoint { get => shotPoint; }
@@ -46,14 +46,15 @@ public abstract class Damageable : FateMonoBehaviour
         OnGoingToDie.Invoke();
     }
 
-    public virtual void Hit(int damage, bool addFutureHealth = false)
+    public virtual bool Hit(int damage, bool addFutureHealth = false)
     {
 #if DEBUG
         logs.Add("Hit");
 #endif
-        if (health <= 0) return;
+        if (health <= 0) return false;
         SetHealth(health - damage);
         if (addFutureHealth) AddFutureHealth(-damage);
+        return true;
     }
 
     public void SetHealth(int health)

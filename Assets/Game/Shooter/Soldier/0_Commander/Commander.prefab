@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1311336946272044402}
   - component: {fileID: 9192851853786183914}
+  - component: {fileID: 7815167482230068340}
   m_Layer: 0
   m_Name: Commander
   m_TagString: Untagged
@@ -53,11 +54,41 @@ MonoBehaviour:
   logs: []
   animator: {fileID: 1976924628748228754}
   soldierSet: {fileID: 11400000, guid: 53d6897387af5d74787ed8bab2e4665d, type: 2}
-  throwableWeapon: {fileID: 0}
+  throwableWeaponPool: {fileID: 11400000, guid: 1947140f79c8f4d44960066203c85593,
+    type: 2}
   cooldown:
     UseConstant: 0
     ConstantValue: 3
     Variable: {fileID: 11400000, guid: 5632b308d70cd7b47acf50e89519cc3f, type: 2}
+  throwableContainer: {fileID: 1683932054200074937}
+--- !u!114 &7815167482230068340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68260588937678669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1c3dff14c4d127543af94261684cf03b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9192851853786183914}
+        m_TargetAssemblyTypeName: Soldier, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1092000010515748747
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +120,37 @@ Transform:
   - {fileID: 3256303998801864384}
   m_Father: {fileID: 1311336946272044402}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8436647988456132670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1683932054200074937}
+  m_Layer: 0
+  m_Name: ThrowableContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1683932054200074937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8436647988456132670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4691730843062836621}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &923067348665642968
 PrefabInstance:
@@ -179,6 +241,12 @@ Animator:
 --- !u!4 &3256303998801864384 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2449909711768570136, guid: 9c24d47f2a4f26a4e91b85dfff3ea445,
+    type: 3}
+  m_PrefabInstance: {fileID: 923067348665642968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4691730843062836621 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5607830929855427157, guid: 9c24d47f2a4f26a4e91b85dfff3ea445,
     type: 3}
   m_PrefabInstance: {fileID: 923067348665642968}
   m_PrefabAsset: {fileID: 0}

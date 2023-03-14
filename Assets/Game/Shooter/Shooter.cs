@@ -9,7 +9,7 @@ public abstract class Shooter : FateMonoBehaviour
     [SerializeField] protected ZombieSet zombieSet;
     [SerializeField] protected WaveStateVariable waveState;
     [SerializeField] protected Gun gun;
-
+    protected IEnumerator faceTargetRoutine;
     protected Zombie target;
     protected WaitUntil waitUntilReadyToShoot, waitUntilGunNotInCooldown;
     protected IEnumerator shootCoroutine;
@@ -52,7 +52,7 @@ public abstract class Shooter : FateMonoBehaviour
 #if DEBUG
         logs.Add("StartTargeting");
 #endif
-        if (waveState.Value != Wave.WaveState.STARTED) return;
+        if (waveState.Value != WaveController.WaveState.STARTED) return;
         float period = Random.Range(1.5f, 2f);
         InvokeRepeating(nameof(SetTarget), 0, period);
     }
@@ -67,6 +67,15 @@ public abstract class Shooter : FateMonoBehaviour
     }
 
     protected Zombie FindNearestZombieInRange()
+    {
+#if DEBUG
+        logs.Add("FindNearestZombieInRange");
+#endif
+        // Find the nearest zombie in range
+        return FindNearestZombie(range);
+    }
+
+    protected Zombie FindNearestZombie(float range = float.MaxValue)
     {
 #if DEBUG
         logs.Add("FindNearestZombieInRange");
@@ -113,7 +122,19 @@ public abstract class Shooter : FateMonoBehaviour
         StartShooting();
     }
 
-    public abstract void FaceTarget();
+    public void FaceTarget()
+    {
+        StopFacingTarget();
+        faceTargetRoutine = FaceTargetRoutine();
+        StartCoroutine(faceTargetRoutine);
+    }
+    protected WaitForSeconds waitForFaceTargetPeriod = new(0.3f);
+    public abstract IEnumerator FaceTargetRoutine();
+    protected void StopFacingTarget()
+    {
+        if (faceTargetRoutine != null)
+            StopCoroutine(faceTargetRoutine);
+    }
 
     public void StartShooting()
     {
@@ -143,6 +164,7 @@ public abstract class Shooter : FateMonoBehaviour
 #endif
         if (!target) return;
         StopShooting();
+        StopFacingTarget();
         target.OnDied.RemoveListener(OnTargetDied);
         target.OnGoingToDie.RemoveListener(OnTargetGoingToDie);
         target = null;

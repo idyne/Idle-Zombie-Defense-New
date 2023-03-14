@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using FateGames.Core;
 using UnityEngine.Events;
+using DG.Tweening;
 
-public partial class Tower : MonoBehaviour
+public partial class Tower : Damageable
 {
     [SerializeField] private Transform pointContainer;
     private readonly List<Transform> points = new();
     [SerializeField] private SaveDataVariable saveData;
     [SerializeField] private UnityEvent OnMergeAvailable;
+    [SerializeField] private LevelManager levelManager;
 
     private void Start()
     {
         AddSoldier(0);
     }
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         SetPoints();
     }
 
@@ -33,7 +36,7 @@ public partial class Tower : MonoBehaviour
         AddSoldier(saveData.Value.SoldierBuyingLevel);
     }
 
-    
+
 
     private Transform GetPoint(int index)
     {
@@ -55,5 +58,17 @@ public partial class Tower : MonoBehaviour
             Soldier soldier = soldiers[i];
             soldier.SetPosition(points[i].position);
         }
+    }
+
+    public override void Die()
+    {
+        Debug.Log("Die", this);
+        OnDied.Invoke();
+        IEnumerator finishLevelAfterSeconds(float t)
+        {
+            yield return new WaitForSeconds(t);
+            levelManager.FinishLevel(false);
+        }
+        StartCoroutine(finishLevelAfterSeconds(3));
     }
 }

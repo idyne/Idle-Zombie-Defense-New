@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8066e8530565d0d4798dd1b5385bb057, type: 3}
   m_Name: GameManager
   m_EditorClassIdentifier: 
-  targetFrameRate: -1
+  targetFrameRate: 60
   gameState: {fileID: 11400000, guid: 35af722527cf21148bdd90a70a23f45e, type: 2}
   OnPause:
     m_PersistentCalls:

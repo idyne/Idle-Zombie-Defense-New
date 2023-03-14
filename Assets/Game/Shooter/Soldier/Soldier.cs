@@ -9,7 +9,7 @@ public class Soldier : Shooter, IPooledObject
 {
     [SerializeField] protected Animator animator;
     [SerializeField] protected SoldierSet soldierSet;
-    
+
 
     public event Action OnRelease;
 
@@ -66,13 +66,27 @@ public class Soldier : Shooter, IPooledObject
         yield return gun.Use(target);
     }
 
-    public override void FaceTarget()
+    public override IEnumerator FaceTargetRoutine()
     {
 #if DEBUG
         logs.Add("FaceTarget");
 #endif
-        Vector3 direction = target.ShotPoint.position - transform.position;
+        Face(target.ShotPoint.position, 0.2f);
+        yield return waitForFaceTargetPeriod;
+        faceTargetRoutine = FaceTargetRoutine();
+        yield return faceTargetRoutine;
+    }
+
+    public void Face(Vector3 to, float time)
+    {
+        Vector3 direction = to - transform.position;
         direction.y = 0;
-        transform.DORotateQuaternion(Quaternion.LookRotation(direction), 0.2f);
+        transform.DORotateQuaternion(Quaternion.LookRotation(direction), time);
+    }
+
+    public virtual void Die()
+    {
+        StopTargeting();
+        StopShooting();
     }
 }

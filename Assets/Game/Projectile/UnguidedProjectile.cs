@@ -7,7 +7,7 @@ public class UnguidedProjectile : Projectile
 {
     private IEnumerator releaseAfterSecondRoutine = null;
     private SphereCollider sphereCollider;
-    private void OnEnable()
+    private void Awake()
     {
         sphereCollider = GetComponent<SphereCollider>();
     }

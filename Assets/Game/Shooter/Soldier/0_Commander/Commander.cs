@@ -12,6 +12,10 @@ public class Commander : Soldier
 
     public void UseSkill()
     {
+        if (target)
+            RemoveTarget();
+        else
+            StopTargeting();
         ThrowWeapon();
     }
     public void ThrowWeapon()
@@ -19,15 +23,31 @@ public class Commander : Soldier
 #if DEBUG
         logs.Add("ThrowWeapon");
 #endif
-        if (!target) return;
         IEnumerator throwWeapon()
         {
             animator.SetTrigger("Throw");
+            gun.Deactivate();
+            yield return new WaitForSeconds(0.3f);
             ThrowableProjectile throwableWeapon = throwableWeaponPool.Get<ThrowableProjectile>(throwableContainer.position, throwableContainer.rotation);
-            yield return null;
-            //yield return throwableWeapon.Use(target);
+            throwableWeapon.transform.SetParent(throwableContainer);
+            Zombie nearestZombie = FindNearestZombie();
+            Vector3 position = nearestZombie.transform.position;
+            yield return new WaitForSeconds(0.63f);
+            
+            Face(position, 0.2f);
+            throwableWeapon.transform.SetParent(null);
+            throwableWeapon.Shoot(position);
+            yield return new WaitForSeconds(0.28f);
+            gun.Activate();
+            yield return new WaitForSeconds(0.39f);
+            StartTargeting();
         }
         StartCoroutine(throwWeapon());
+    }
+
+    public void Test()
+    {
+        Debug.Log("Test worked!", this);
     }
 
 }

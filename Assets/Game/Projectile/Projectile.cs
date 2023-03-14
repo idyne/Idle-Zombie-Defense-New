@@ -51,7 +51,7 @@ public abstract class Projectile : FateMonoBehaviour, IPooledObject
 
     private void Update()
     {
-        motion.Update();
+        motion?.Update();
     }
 
     public virtual void OnReached()

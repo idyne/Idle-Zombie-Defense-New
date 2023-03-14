@@ -186,6 +186,54 @@ Transform:
   m_Father: {fileID: 1499537041417938583}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2227581634777629096
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3839607977556421843}
+  - component: {fileID: 4234617694640203930}
+  m_Layer: 0
+  m_Name: NavMeshVolume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3839607977556421843
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2227581634777629096}
+  m_LocalRotation: {x: 0.7071067, y: 0.000000030908616, z: -0.000000030908623, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.7857144, y: 1.7774024, z: 1.7774024}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1978081050914424988}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4234617694640203930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2227581634777629096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 8, y: 6.4628983, z: 8}
+  m_Center: {x: 0, y: 2.7314491, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &2248352873373806599
 GameObject:
   m_ObjectHideFlags: 0
@@ -688,7 +736,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7336757220522171086}
   - component: {fileID: -9184724100183440281}
-  m_Layer: 0
+  - component: {fileID: 5200958413720753571}
+  m_Layer: 9
   m_Name: BigBunker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -725,6 +774,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beab38429e3a9d443bd540834765c98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 50
+  shotPoint: {fileID: 0}
+  OnDied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 1c3dff14c4d127543af94261684cf03b, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  logs: []
   soldierTable:
   - {fileID: 11400000, guid: 53d6897387af5d74787ed8bab2e4665d, type: 2}
   - {fileID: 11400000, guid: cc873bbec39b274438140899d92f41e8, type: 2}
@@ -775,6 +842,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  levelManager: {fileID: 11400000, guid: e819ee089d988a04689f8f12ac7edac1, type: 2}
+--- !u!135 &5200958413720753571
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7628675649601210332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5.544365
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7874456176458499295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,6 +1124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigBunkerOneMaterial
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 89668d3187b44fc41bb434abf6b7f7af,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89668d3187b44fc41bb434abf6b7f7af, type: 3}
 --- !u!4 &1978081050914424988 stripped
@@ -1136,7 +1222,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e476b5895781f91479b87c63aa91af2f,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e476b5895781f91479b87c63aa91af2f, type: 3}

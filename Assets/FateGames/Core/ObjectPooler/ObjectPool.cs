@@ -19,6 +19,7 @@ namespace FateGames.Core
         private void OnEnable()
         {
             totalSize = 0;
+            ClearPool();
         }
 
         public T Get<T>(Vector3 position, Quaternion rotation) where T : Component
