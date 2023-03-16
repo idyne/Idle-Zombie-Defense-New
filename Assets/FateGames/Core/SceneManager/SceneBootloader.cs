@@ -32,6 +32,7 @@ namespace FateGames.Core
         {
             if (sceneManager.IsLevel(scene))
             {
+                ObjectPooler.OnNewLevel();
                 gameState.Value = GameState.BEFORE_START;
                 onLevelFinishedLoading.Invoke();
                 if (levelManager.AutoStart)

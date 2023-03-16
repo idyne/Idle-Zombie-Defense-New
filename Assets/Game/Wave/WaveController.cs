@@ -15,11 +15,13 @@ public class WaveController : MonoBehaviour
     [SerializeField] private float spawnCircleRadius = 30;
     [SerializeField] private float spawnCircleWidth = 5;
     private List<Transform> spawnPoints = new();
+    private IEnumerator zombieSpawningCoroutine = null;
 
     private bool spawnOnRandomPoint { get => spawnPointContainer == null || spawnPointContainer.childCount == 0; }
 
     private void Awake()
     {
+        waveState.Value = WaveState.NONE;
         InitializeSpawnPoints();
     }
 
@@ -36,13 +38,14 @@ public class WaveController : MonoBehaviour
     {
         Debug.Log("StartWave", this);
         onWaveStarted.Invoke();
+        waveState.Value = WaveState.STARTED;
         SpawnZombies();
     }
 
     public void SpawnZombies()
     {
         Debug.Log("SpawnZombies", this);
-        List<int> zombieTable = GenerateZombieTable(200, 6, out int numberOfZombies);
+        List<int> zombieTable = GenerateZombieTable(2000, 6, out int numberOfZombies);
         // Gets a random zombie level from the zombie table
         int getRandomZombieLevel()
         {
@@ -63,11 +66,20 @@ public class WaveController : MonoBehaviour
             zombieTable[level]--;
             SpawnZombie(level, ZombieType.STANDARD);
             yield return waitForSeconds;
-            yield return spawnZombies(count - 1);
+            zombieSpawningCoroutine = spawnZombies(count - 1);
+            yield return zombieSpawningCoroutine;
         }
-        StartCoroutine(spawnZombies(numberOfZombies));
+        zombieSpawningCoroutine = spawnZombies(numberOfZombies);
+        StartCoroutine(zombieSpawningCoroutine);
         // Checks if the phase is night, if so spawn boss
         // TODO implement here
+    }
+
+    public void StopSpawning()
+    {
+        if (zombieSpawningCoroutine == null) return;
+        StopCoroutine(zombieSpawningCoroutine);
+        zombieSpawningCoroutine = null;
     }
 
     public void SpawnZombie(int level, ZombieType type)

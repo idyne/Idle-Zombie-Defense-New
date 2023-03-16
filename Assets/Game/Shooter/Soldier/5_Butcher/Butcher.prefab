@@ -42,6 +42,9 @@ GameObject:
   m_Component:
   - component: {fileID: 400489313510445580}
   - component: {fileID: 2379981601662592070}
+  - component: {fileID: 4399612284534070751}
+  - component: {fileID: 6165554289089231067}
+  - component: {fileID: 630355079482864269}
   m_Layer: 0
   m_Name: Butcher
   m_TagString: Untagged
@@ -78,13 +81,97 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 30
-  zombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c, type: 2}
-  waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
-  gun: {fileID: 4263210660786158744}
+  shootPeriod: 0.5
+  targetableZombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c,
+    type: 2}
   logs: []
-  animator: {fileID: 203700710949936164}
+  waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
   soldierSet: {fileID: 11400000, guid: 8480f48440b8b3c4cadf88acf24dfbba, type: 2}
-  throwableWeapon: {fileID: 0}
+  animator: {fileID: 203700710949936164}
+--- !u!114 &4399612284534070751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892615209185785116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 246559e1bd32c6f4491852722a988087, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2379981601662592070}
+        m_TargetAssemblyTypeName: Shooter, Assembly-CSharp
+        m_MethodName: StartTargeting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6165554289089231067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892615209185785116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: fc7b558fab1305d40b5cda144921ed37, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2379981601662592070}
+        m_TargetAssemblyTypeName: Shooter, Assembly-CSharp
+        m_MethodName: StopTargeting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &630355079482864269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7892615209185785116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1c3dff14c4d127543af94261684cf03b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2379981601662592070}
+        m_TargetAssemblyTypeName: Soldier, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1105308878843787318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -166,15 +253,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1105308878843787318}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4263210660786158744 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3782793973286864046, guid: 5ae51306385e3d94a934154fc0725a98,
-    type: 3}
-  m_PrefabInstance: {fileID: 1105308878843787318}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72767f8c6583642438a30aae3fee52cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

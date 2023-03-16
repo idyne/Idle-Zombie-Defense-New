@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class Shotgun : Gun
 {
-    [SerializeField] protected int numberOfShots = 7;
-    protected override IEnumerator ShootSingle(Damageable target)
+    [SerializeField] protected int shotSize = 7;
+
+    public override void Shoot(Damageable target)
     {
-        for (int i = 0; i < numberOfShots; i++)
+        for (int i = 0; i < shotSize; i++)
         {
-            UnguidedProjectile projectile = projectilePool.Get<UnguidedProjectile>(muzzle.position, muzzle.rotation);
-            projectile.Damage = damage;
-            //target.AddFutureHealth(-damage);
-            Vector3 difference = target.ShotPoint.position - muzzle.position;
-            Vector3 direction = RandomPointOnPlane(muzzle.position + difference.normalized * 5, -difference, 0.5f) - muzzle.position;
-            //Debug.DrawRay(muzzle.position, difference, Color.red, 0.5f);
-            projectile.Shoot(direction);
+            Vector3 difference = target.ShotPoint.position - Muzzle.position;
+            Vector3 shootDirection = RandomPointOnPlane(target.ShotPoint.position, -difference, 0.5f) - Muzzle.position;
+            Bullet bullet = bulletPool.Get<Bullet>(Muzzle.position, Quaternion.LookRotation(shootDirection));
+            bullet.Shoot(shootDirection, damage);
         }
-        yield return null;
+        shotCount++;
     }
+
     private Vector3 RandomPointOnPlane(Vector3 position, Vector3 normal, float radius)
     {
         Vector3 randomPoint;

@@ -5,6 +5,7 @@ using FateGames.Core;
 
 public abstract class Weapon : FateMonoBehaviour
 {
+    /*
     [SerializeField] protected float cooldown = 1;
     protected WaitForSeconds waitForCooldown;
     protected IEnumerator useRoutine = null;
@@ -38,4 +39,5 @@ public abstract class Weapon : FateMonoBehaviour
         }
         StopCoroutine(useRoutine);
     }
+    */
 }

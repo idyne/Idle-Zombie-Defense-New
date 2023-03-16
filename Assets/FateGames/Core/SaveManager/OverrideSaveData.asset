@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Level: 1
-    SoldierBuyingLevel: 1
-    Money: 10350097
+    SoldierBuyingLevel: 7
+    Money: 28400578
     Tools: 0
   OnValueChanged:
     m_PersistentCalls:

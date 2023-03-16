@@ -14,40 +14,42 @@ public class Commander : Soldier
     {
         if (target)
             RemoveTarget();
-        else
+        else if (Targeting)
             StopTargeting();
         ThrowWeapon();
     }
     public void ThrowWeapon()
     {
-#if DEBUG
-        logs.Add("ThrowWeapon");
-#endif
+        Log("ThrowWeapon", false);
+
         IEnumerator throwWeapon()
         {
             animator.SetTrigger("Throw");
             gun.Deactivate();
             yield return new WaitForSeconds(0.3f);
-            ThrowableProjectile throwableWeapon = throwableWeaponPool.Get<ThrowableProjectile>(throwableContainer.position, throwableContainer.rotation);
+            Throwable throwableWeapon = throwableWeaponPool.Get<Throwable>(throwableContainer.position, throwableContainer.rotation);
             throwableWeapon.transform.SetParent(throwableContainer);
             Zombie nearestZombie = FindNearestZombie();
-            Vector3 position = nearestZombie.transform.position;
+            Vector3 lastKnownPosition = nearestZombie.transform.position;
+            void onTargetDied()
+            {
+                lastKnownPosition = nearestZombie.transform.position;
+                OnTargetDied();
+            }
+            SetTarget(nearestZombie, onTargetDied);
             yield return new WaitForSeconds(0.63f);
-            
-            Face(position, 0.2f);
+
+
             throwableWeapon.transform.SetParent(null);
-            throwableWeapon.Shoot(position);
+            throwableWeapon.Throw(lastKnownPosition);
             yield return new WaitForSeconds(0.28f);
             gun.Activate();
             yield return new WaitForSeconds(0.39f);
+            if (target)
+                RemoveTarget();
             StartTargeting();
         }
         StartCoroutine(throwWeapon());
-    }
-
-    public void Test()
-    {
-        Debug.Log("Test worked!", this);
     }
 
 }

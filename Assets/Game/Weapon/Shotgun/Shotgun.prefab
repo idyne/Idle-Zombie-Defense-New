@@ -76,14 +76,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72767f8c6583642438a30aae3fee52cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCooldown: 0.5
-  damage: 1
-  projectilePool: {fileID: 11400000, guid: d6f11182c8ecf3746a0064d72ded379d, type: 2}
-  mode: 1
-  muzzle: {fileID: 5725749850130728894}
-  burstSize: 3
-  burstPeriod: 0.1
-  numberOfShots: 7
+  damage: 5
+  bulletPool: {fileID: 11400000, guid: b9ddf22c1afccad47a5b50cf9c2f3e2c, type: 2}
+  muzzles:
+  - {fileID: 5725749850130728894}
+  shotSize: 7
 --- !u!1 &6261293226920618064
 GameObject:
   m_ObjectHideFlags: 0

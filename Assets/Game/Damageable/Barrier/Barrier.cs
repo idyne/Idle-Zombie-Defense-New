@@ -6,7 +6,7 @@ public class Barrier : Damageable
 {
     public override void Die()
     {
-        throw new System.NotImplementedException();
+        Deactivate();
     }
 
 }

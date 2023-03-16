@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1847436111546791551}
-  - component: {fileID: 7846253876758703514}
+  - component: {fileID: 6527458516507082860}
   m_Layer: 0
   m_Name: Uzi
   m_TagString: Untagged
@@ -64,7 +64,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7846253876758703514
+--- !u!114 &6527458516507082860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,15 +73,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6822859591687478169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1870f044037a12408ef7a56019a0282, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bff24276de20054ebf286249c8a7d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCooldown: 0.5
   damage: 10
-  projectilePool: {fileID: 11400000, guid: 202ae1ccb8b85ea4ca86add4fc8b3bcb, type: 2}
-  mode: 0
-  muzzle: {fileID: 5191181822297570938}
-  burstSize: 3
+  bulletPool: {fileID: 11400000, guid: b9ddf22c1afccad47a5b50cf9c2f3e2c, type: 2}
+  muzzles:
+  - {fileID: 5191181822297570938}
+  burstCount: 3
   burstPeriod: 0.1
 --- !u!1 &6859883247022957930
 GameObject:

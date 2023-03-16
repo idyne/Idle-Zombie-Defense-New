@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63d25a224d785ae4e9f466c66d5b1ae1, type: 3}
   m_Name: WaveState
   m_EditorClassIdentifier: 
-  value: 1
+  value: 0
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

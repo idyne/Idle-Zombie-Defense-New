@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2562514304527079015}
   - component: {fileID: 6516568371753610549}
-  - component: {fileID: 3430168074463370963}
-  - component: {fileID: 7442051950940776772}
   - component: {fileID: 5479262175502859983}
   - component: {fileID: 8034595111802152454}
+  - component: {fileID: 4833101697241027688}
+  - component: {fileID: 6415437468304720868}
   m_Layer: 7
   m_Name: StandardZombie
   m_TagString: Zombie
@@ -55,6 +55,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   logs: []
+  deadZombiePool: {fileID: 11400000, guid: bb7cd5b345e4ac146bfd6fabf9b7eef8, type: 2}
   levelData:
   - {fileID: 0}
   - {fileID: 11400000, guid: 239aef0f903af504689440ca36efce86, type: 2}
@@ -70,41 +71,6 @@ MonoBehaviour:
     m_Bits: 1536
   meshRenderer: {fileID: 7479532135112553127}
   meshAnimator: {fileID: 5549350997571715631}
---- !u!135 &3430168074463370963
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145090285323611670}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 1, z: 0}
---- !u!195 &7442051950940776772
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1145090285323611670}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.25
-  m_Speed: 3.5
-  m_Acceleration: 50
-  avoidancePriority: 50
-  m_AngularSpeed: 1440
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
 --- !u!114 &5479262175502859983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +127,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!136 &4833101697241027688
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145090285323611670}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
+--- !u!54 &6415437468304720868
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145090285323611670}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 14
+  m_CollisionDetection: 2
 --- !u!1 &5199429951844344117
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745312566652920352, guid: 8254a0829e9ad6e45ace2a5287bda44b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7391042679409125936, guid: 8254a0829e9ad6e45ace2a5287bda44b,
         type: 3}

@@ -3,19 +3,39 @@ using System.Collections.Generic;
 using UnityEngine;
 using FateGames.Core;
 using DG.Tweening;
+using UnityEngine.Events;
+
 public abstract class Shooter : FateMonoBehaviour
 {
-    [SerializeField] protected float range = 10;
-    [SerializeField] protected ZombieSet zombieSet;
-    [SerializeField] protected WaveStateVariable waveState;
-    [SerializeField] protected Gun gun;
+    [SerializeField] protected float range = 25;
+    [SerializeField] protected float shootPeriod = 0.5f;
+    [SerializeField] protected ZombieSet targetableZombieSet;
+
+    protected Gun gun;
     protected IEnumerator faceTargetRoutine;
     protected Zombie target;
-    protected WaitUntil waitUntilReadyToShoot, waitUntilGunNotInCooldown;
+    protected WaitUntil waitUntilReadyToShoot;
+    protected WaitForSeconds waitForFaceTargetPeriod = new(0.3f);
     protected IEnumerator shootCoroutine;
-#if DEBUG
-    public List<string> logs = new();
-#endif
+    protected IEnumerator targetingRoutine;
+    protected float lastShootTime = float.MinValue;
+    protected bool InCooldown { get => Time.time < lastShootTime + shootPeriod; }
+    protected bool Shooting { get => shootCoroutine != null; }
+    protected bool Targeting { get => targetingRoutine != null; }
+    public UnityAction onTargetDied;
+
+    protected virtual void Awake()
+    {
+        gun = GetComponentInChildren<Gun>();
+        // Wait until  gun is not in cooldown and the shooter is faced to the target
+        waitUntilReadyToShoot = new WaitUntil(() => !InCooldown && FacedTarget);
+    }
+
+    private void Update()
+    {
+        FaceTarget();
+    }
+
     protected virtual bool FacedTarget
     {
         get
@@ -36,56 +56,56 @@ public abstract class Shooter : FateMonoBehaviour
         }
     }
 
-    protected virtual void OnEnable()
-    {
-#if DEBUG
-        logs.Add("OnEnable");
-#endif
-        // Wait until  gun is not in cooldown and the shooter is faced to the target
-        waitUntilReadyToShoot = new WaitUntil(() => !gun.InCooldown && FacedTarget);
-        waitUntilGunNotInCooldown = new WaitUntil(() => !gun.InCooldown);
-    }
-
     // TODO Add listener to OnWaveStart event
     public void StartTargeting()
     {
-#if DEBUG
-        logs.Add("StartTargeting");
-#endif
-        if (waveState.Value != WaveController.WaveState.STARTED) return;
+        Log("StartTargeting", false);
+        if (this.targetingRoutine != null)
+        {
+            Debug.LogError("Already targeting!", this);
+        }
         float period = Random.Range(1.5f, 2f);
-        InvokeRepeating(nameof(SetTarget), 0, period);
+        WaitForSeconds waitForTargetingPeriod = new(period);
+        IEnumerator targetingRoutine()
+        {
+            FindTarget();
+            yield return waitForTargetingPeriod;
+            this.targetingRoutine = targetingRoutine();
+            yield return this.targetingRoutine;
+        }
+        this.targetingRoutine = targetingRoutine();
+        StartCoroutine(this.targetingRoutine);
     }
 
     // TODO Add listener to OnWaveCleared and OnTowerDestroyed events
     public void StopTargeting()
     {
-#if DEBUG
-        logs.Add("StopTargeting");
-#endif
-        CancelInvoke(nameof(SetTarget));
+        Log("StopTargeting", false);
+        if (targetingRoutine == null)
+        {
+            Debug.LogError("Was not targeting!", this);
+            return;
+        }
+        StopCoroutine(targetingRoutine);
+        targetingRoutine = null;
     }
 
     protected Zombie FindNearestZombieInRange()
     {
-#if DEBUG
-        logs.Add("FindNearestZombieInRange");
-#endif
+        Log("FindNearestZombieInRange", false);
         // Find the nearest zombie in range
         return FindNearestZombie(range);
     }
 
     protected Zombie FindNearestZombie(float range = float.MaxValue)
     {
-#if DEBUG
-        logs.Add("FindNearestZombieInRange");
-#endif
+        Log("FindNearestZombie", false);
         // Find the nearest zombie in range
         Zombie nearestZombie = null;
         float minDistance = float.MaxValue;
-        for (int i = 0; i < zombieSet.Items.Count; i++)
+        for (int i = 0; i < targetableZombieSet.Items.Count; i++)
         {
-            Zombie zombie = zombieSet.Items[i];
+            Zombie zombie = targetableZombieSet.Items[i];
             float distance = Vector3.Distance(transform.position, zombie.transform.position);
             if (distance < minDistance && distance <= range)
             {
@@ -96,118 +116,116 @@ public abstract class Shooter : FateMonoBehaviour
         return nearestZombie;
     }
 
-
-
-    public void SetTarget()
+    public void FindTarget()
     {
-#if DEBUG
-        logs.Add("SetTarget");
-#endif
-        StartCoroutine(SetTargetRoutine());
-    }
-
-    protected IEnumerator SetTargetRoutine()
-    {
-        yield return waitUntilGunNotInCooldown;
-        // Set target to the nearest zombie
-        target = FindNearestZombieInRange();
-        // Return if there is no zombie in range
-        if (!target) yield break;
+        Log("FindTarget", false);
+        if (target != null)
+        {
+            Debug.LogError("Already has a target!", this);
+            return;
+        }
+        Zombie nearestZombieInRange = FindNearestZombieInRange();
+        if (!nearestZombieInRange) return;
         StopTargeting();
-        target.OnDied.AddListener(OnTargetDied);
-        target.OnGoingToDie.AddListener(OnTargetGoingToDie);
-        // TODO face target
-        FaceTarget();
-        // Start shooting
+        SetTarget(nearestZombieInRange);
         StartShooting();
     }
 
-    public void FaceTarget()
+    protected void SetTarget(Zombie zombie)
     {
-        StopFacingTarget();
-        faceTargetRoutine = FaceTargetRoutine();
-        StartCoroutine(faceTargetRoutine);
-    }
-    protected WaitForSeconds waitForFaceTargetPeriod = new(0.3f);
-    public abstract IEnumerator FaceTargetRoutine();
-    protected void StopFacingTarget()
-    {
-        if (faceTargetRoutine != null)
-            StopCoroutine(faceTargetRoutine);
+        Log("SetTarget", false);
+        SetTarget(zombie, OnTargetDied);
     }
 
+    protected void SetTarget(Zombie zombie, UnityAction onTargetDied)
+    {
+        Log("SetTarget", false);
+        if (target != null)
+        {
+            Debug.LogError("Already has a target!", this);
+            return;
+        }
+        target = zombie;
+        this.onTargetDied = onTargetDied;
+        target.OnDied.AddListener(this.onTargetDied);
+    }
+
+    public abstract void Face(Vector3 to);
+
+    public void FaceTarget()
+    {
+        // Called in Update()
+        if (!target) return;
+        Face(target.ShotPoint.position);
+    }
     public void StartShooting()
     {
-#if DEBUG
-        logs.Add("StartShooting");
-#endif
-        if (target)
+        Log("StartShooting", false);
+        if (!target)
         {
-            shootCoroutine = ShootRoutine();
-            StartCoroutine(shootCoroutine);
+            Debug.LogError("Does not have a target!", this);
+            return;
         }
+        IEnumerator shootRoutine()
+        {
+            if (!target)
+            {
+                Debug.LogError("There is no target!", this);
+                yield break;
+            }
+            yield return waitUntilReadyToShoot;
+            Shoot();
+            shootCoroutine = shootRoutine();
+            yield return shootCoroutine;
+        }
+        shootCoroutine = shootRoutine();
+        StartCoroutine(shootCoroutine);
+
     }
 
     public void StopShooting()
     {
-#if DEBUG
-        logs.Add("StopShooting");
-#endif
-        if (shootCoroutine != null)
-            StopCoroutine(shootCoroutine);
+        Log("StopShooting", false);
+        if (shootCoroutine == null)
+        {
+            Debug.LogError("Was not shooting!", this);
+            return;
+        }
+        StopCoroutine(shootCoroutine);
+        shootCoroutine = null;
     }
 
     public void RemoveTarget()
     {
-#if DEBUG
-        logs.Add("RemoveTarget");
-#endif
-        if (!target) return;
-        StopShooting();
-        StopFacingTarget();
-        target.OnDied.RemoveListener(OnTargetDied);
-        target.OnGoingToDie.RemoveListener(OnTargetGoingToDie);
+        Log("RemoveTarget", false);
+        if (!target)
+        {
+            Debug.LogError("There is no target!", this);
+            return;
+        }
+        if (Shooting)
+            StopShooting();
+        target.OnDied.RemoveListener(onTargetDied);
         target = null;
     }
 
     public void OnTargetDied()
     {
-#if DEBUG
-        logs.Add("OnTargetDied");
-#endif
+        Log("OnTargetDied", false);
         RemoveTarget();
         StartTargeting();
     }
 
-    public void OnTargetGoingToDie()
-    {
-#if DEBUG
-        logs.Add("OnTargetGoingToDie");
-#endif
-        gun.Stop();
-        RemoveTarget();
-        StartTargeting();
-    }
 
-    public virtual IEnumerator Shoot()
+    public virtual void Shoot()
     {
-#if DEBUG
-        logs.Add("Shoot");
-#endif
-        if (!target) yield break;
-        yield return gun.Use(target);
-    }
-
-    private IEnumerator ShootRoutine()
-    {
-#if DEBUG
-        logs.Add("ShootRoutine");
-#endif
+        Log("Shoot", false);
         if (!target)
+        {
             Debug.LogError("There is no target!", this);
-        yield return waitUntilReadyToShoot;
-        yield return Shoot();
-        shootCoroutine = ShootRoutine();
-        yield return shootCoroutine;
+            return;
+        }
+        gun.Shoot(target);
+        lastShootTime = Time.time;
     }
 }
