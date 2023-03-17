@@ -7,7 +7,9 @@ using DG.Tweening;
 
 public class PooledEffect : FateMonoBehaviour, IPooledObject
 {
+#pragma warning disable CS0108 
     [SerializeField] private ParticleSystem particleSystem;
+#pragma warning restore CS0108 
     public event Action OnRelease;
 
     public void OnObjectSpawn()

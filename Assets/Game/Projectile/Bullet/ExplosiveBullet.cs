@@ -9,20 +9,9 @@ public class ExplosiveBullet : Bullet, IPooledObject
 {
     [SerializeField] private ObjectPool visualEffectPool;
     [SerializeField] private float areaOfEffectRadius = 2.5f;
-    [SerializeField] private LayerMask damageableLayerMask;
     [SerializeField] private Transform trailTransform;
     [SerializeField] private GameObject meshObject;
     private Tween delayedReleaseTween = null;
-
-    protected override void OnCollisionEnter(Collision collision)
-    {
-        Log("OnCollisionEnter", false);
-        StopRigidbody();
-        DisableCollider();
-        Explode();
-        delayedReleaseTween = DOVirtual.DelayedCall(1, Release);
-        //Release();
-    }
 
     public override void OnObjectSpawn()
     {
@@ -30,6 +19,35 @@ public class ExplosiveBullet : Bullet, IPooledObject
         ActivateMesh();
         AttachTrail();
         base.OnObjectSpawn();
+    }
+
+    protected override void OnReached()
+    {
+        Log("OnReached", false);
+        int maxColliders = 1;
+        Collider[] hitColliders = new Collider[maxColliders];
+        int numColliders = Physics.OverlapSphereNonAlloc(transform.position, radius, hitColliders, damageableLayerMask);
+        if (numColliders > 0)
+        {
+            Explode();
+        }
+        else
+        {
+            ShootToDamageable();
+        }
+    }
+
+    protected override void ShootToGround()
+    {
+        if (Physics.Raycast(transform.position, direction, out RaycastHit hit, 100, groundLayerMask))
+        {
+            float time = hit.distance / speed;
+            transform.DOMove(hit.point, time).OnComplete(Explode);
+        }
+        else
+        {
+            Explode();
+        }
     }
 
     public override void Release()
@@ -71,10 +89,12 @@ public class ExplosiveBullet : Bullet, IPooledObject
                 Damageable damageable = hitColliders[i].GetComponent<Damageable>();
                 Hit(damageable);
             }
-            // TODO change here when implemented the PooledEffect
-            if (visualEffectPool)
-                visualEffectPool.Get<Transform>(transform.position, Quaternion.identity);
+
         }
+        // TODO change here when implemented the PooledEffect
+        if (visualEffectPool)
+            visualEffectPool.Get<Transform>(transform.position, Quaternion.identity);
+        delayedReleaseTween = DOVirtual.DelayedCall(1, Release);
     }
 
 }

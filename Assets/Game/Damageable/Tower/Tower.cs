@@ -5,7 +5,7 @@ using FateGames.Core;
 using UnityEngine.Events;
 using DG.Tweening;
 
-public partial class Tower : Damageable
+public partial class Tower : DamageableStructure
 {
     [SerializeField] private Transform pointContainer;
     private readonly List<Transform> points = new();

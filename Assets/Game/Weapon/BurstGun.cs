@@ -15,16 +15,16 @@ public class BurstGun : Gun
 
     public override void Shoot(Damageable target)
     {
-        StartCoroutine(Burst(burstCount, target));
+        StartCoroutine(Burst(burstCount, target.ShotPoint.position - Muzzle.position));
     }
 
-    private IEnumerator Burst(int count, Damageable target)
+    private IEnumerator Burst(int count, Vector3 direction)
     {
         if (count <= 0)
             yield break;
-        base.Shoot(target);
+        base.ShootTo(direction);
         yield return waitForBurstPeriod;
-        yield return Burst(count - 1, target);
+        yield return Burst(count - 1, direction);
     }
 
 }

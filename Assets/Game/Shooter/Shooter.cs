@@ -9,6 +9,7 @@ public abstract class Shooter : FateMonoBehaviour
 {
     [SerializeField] protected float range = 25;
     [SerializeField] protected float shootPeriod = 0.5f;
+    [SerializeField] protected WaveStateVariable waveState;
     [SerializeField] protected ZombieSet targetableZombieSet;
 
     protected Gun gun;
@@ -33,7 +34,7 @@ public abstract class Shooter : FateMonoBehaviour
 
     private void Update()
     {
-        FaceTarget();
+        //FaceTarget();
     }
 
     protected virtual bool FacedTarget
@@ -88,6 +89,13 @@ public abstract class Shooter : FateMonoBehaviour
         }
         StopCoroutine(targetingRoutine);
         targetingRoutine = null;
+    }
+
+    public void OnWaveCleared()
+    {
+        Log("OnWaveCleared", false);
+        if (Targeting)
+            StopTargeting();
     }
 
     protected Zombie FindNearestZombieInRange()
@@ -213,7 +221,8 @@ public abstract class Shooter : FateMonoBehaviour
     {
         Log("OnTargetDied", false);
         RemoveTarget();
-        StartTargeting();
+        if (waveState.Value == WaveController.WaveState.STARTED)
+            StartTargeting();
     }
 
 

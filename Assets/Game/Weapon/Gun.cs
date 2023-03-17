@@ -14,8 +14,13 @@ public class Gun : FateMonoBehaviour
     public virtual void Shoot(Damageable target)
     {
         Vector3 shootDirection = target.ShotPoint.position - Muzzle.position;
-        Bullet bullet = bulletPool.Get<Bullet>(Muzzle.position, Quaternion.LookRotation(shootDirection));
-        bullet.Shoot(shootDirection, damage);
+        ShootTo(shootDirection);
+    }
+
+    public virtual void ShootTo(Vector3 direction)
+    {
+        Bullet bullet = bulletPool.Get<Bullet>(Muzzle.position, Quaternion.LookRotation(direction));
+        bullet.Shoot(direction, damage);
         shotCount++;
     }
 

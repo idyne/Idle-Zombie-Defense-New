@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FateGames.Core;
+using DG.Tweening;
 
 public class Bullet : FateMonoBehaviour, IPooledObject
 {
@@ -17,69 +18,70 @@ public class Bullet : FateMonoBehaviour, IPooledObject
      */
     [SerializeField] protected float speed = 40;
     [SerializeField] protected float radius = 0.5f;
-    [SerializeField] protected bool piercing = false;
-    private IEnumerator releaseAfterSecondsCoroutine = null;
+    [SerializeField] protected LayerMask damageableLayerMask, groundLayerMask;
     private int damage = 1;
-    private SphereCollider sphereCollider;
-#pragma warning disable CS0108 
-    private Rigidbody rigidbody;
-#pragma warning restore CS0108 
     private List<Damageable> hitDamageables = new();
-
+    protected Vector3 direction;
     public event Action OnRelease;
 
     private void Awake()
     {
         Log("Awake", false);
-        InitializeSphereCollider();
-        InitializeRigidbody();
     }
-    private void InitializeSphereCollider()
-    {
-        Log("InitializeSphereCollider", false);
-        sphereCollider = gameObject.AddComponent<SphereCollider>();
-        sphereCollider.isTrigger = false;
-        sphereCollider.radius = radius;
-    }
-    private void InitializeRigidbody()
-    {
-        Log("InitializeRigidbody", false);
-        rigidbody = gameObject.AddComponent<Rigidbody>();
-        rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous;
-        rigidbody.constraints = RigidbodyConstraints.FreezeRotation;
-        rigidbody.useGravity = false;
-        //rigidbody.isKinematic = true;
-    }
+
     public void Shoot(Vector3 direction, int damage)
     {
         Log("Shoot", false);
         SetDamage(damage);
-        StartRigidbody();
-        rigidbody.AddForce(direction * speed, ForceMode.VelocityChange);
-        IEnumerator releaseAfterSecondsRoutine()
-        {
-            yield return new WaitForSeconds(4);
-            Release();
-        }
-        releaseAfterSecondsCoroutine = releaseAfterSecondsRoutine();
-        StartCoroutine(releaseAfterSecondsCoroutine);
+        this.direction = direction;
+        ShootToDamageable();
     }
 
-    protected virtual void OnCollisionEnter(Collision collision)
+    protected void ShootToDamageable()
     {
-        Log("OnCollisionEnter", false);
-        Damageable damageable = collision.transform.GetComponent<Damageable>();
-        if (damageable)
+        if (Physics.Raycast(transform.position, direction, out RaycastHit hit, 100, damageableLayerMask))
         {
-            Hit(damageable);
-            // If not piercing bullet, release bullet to the pool
-            if (!piercing)
-                Release();
+            float time = hit.distance / speed;
+            transform.DOMove(hit.point, time).OnComplete(OnReached);
         }
-        // If hit the ground, release bullet to the pool
         else
-            Release();
+        {
+            ShootToGround();
+        }
     }
+
+    protected virtual void OnReached()
+    {
+        int maxColliders = 1;
+        Collider[] hitColliders = new Collider[maxColliders];
+        int numColliders = Physics.OverlapSphereNonAlloc(transform.position, radius, hitColliders, damageableLayerMask);
+        if (numColliders > 0)
+        {
+            for (int i = 0; i < numColliders; i++)
+            {
+                Damageable damageable = hitColliders[i].GetComponent<Damageable>();
+                Hit(damageable);
+            }
+        }
+        else
+        {
+            ShootToDamageable();
+        }
+    }
+
+    protected virtual void ShootToGround()
+    {
+        if (Physics.Raycast(transform.position, direction, out RaycastHit hit, 100, groundLayerMask))
+        {
+            float time = hit.distance / speed;
+            transform.DOMove(hit.point, time).OnComplete(Release);
+        }
+        else
+        {
+            Release();
+        }
+    }
+
 
     protected void Hit(Damageable damageable)
     {
@@ -89,19 +91,10 @@ public class Bullet : FateMonoBehaviour, IPooledObject
         hitDamageables.Add(damageable);
     }
 
-
-    protected void DisableCollider() => sphereCollider.enabled = false;
-    protected void EnableCollider() => sphereCollider.enabled = true;
-
     public virtual void Release()
     {
         Log("Release", false);
-        if (releaseAfterSecondsCoroutine != null)
-            StopCoroutine(releaseAfterSecondsCoroutine);
-        releaseAfterSecondsCoroutine = null;
-        DisableCollider();
         Deactivate();
-        StopRigidbody();
         OnRelease.Invoke();
     }
 
@@ -111,23 +104,11 @@ public class Bullet : FateMonoBehaviour, IPooledObject
         this.damage = damage;
     }
 
-    protected void StopRigidbody()
-    {
-        rigidbody.velocity = Vector3.zero;
-        rigidbody.isKinematic = true;
-    }
-
-    protected void StartRigidbody()
-    {
-        rigidbody.isKinematic = false;
-    }
-
     public virtual void OnObjectSpawn()
     {
         Log("OnObjectSpawn", false);
         ResetHitDamageables();
         Activate();
-        EnableCollider();
     }
 
     private void ResetHitDamageables()

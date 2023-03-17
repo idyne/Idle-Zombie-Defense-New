@@ -16,6 +16,7 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] protected LayerMask enemyLayerMask;
     [SerializeField] protected MeshRenderer meshRenderer;
     [SerializeField] protected SnapshotMeshAnimator meshAnimator;
+
     private IEnumerator flashCoroutine = null;
     public event Action OnRelease;
     private int level = 1;
@@ -43,6 +44,7 @@ public class Zombie : Damageable, IPooledObject
         agent.angularSpeed = 1440;
         agent.acceleration = 50;
         agent.radius = 0.25f;
+        agent.autoRepath = false;
         agent.enabled = false;
     }
 
@@ -108,7 +110,7 @@ public class Zombie : Damageable, IPooledObject
     protected void CheckEnemies()
     {
         Log("CheckEnemies", false);
-        float radius = 0.5f;
+        float radius = 1f;
         int maxColliders = 1;
         Collider[] hitColliders = new Collider[maxColliders];
         int numColliders = Physics.OverlapSphereNonAlloc(transform.position, radius, hitColliders, enemyLayerMask);
@@ -122,8 +124,23 @@ public class Zombie : Damageable, IPooledObject
                 Hit(damageable);
             }
         }
-        else if (Stopped) SetDestinationToCenter();
+        else
+        {
+            StopCheckingEnemies();
+            SetDestinationToCenter();
+        }
 
+    }
+
+    public override void OnTriggerEnterNotification()
+    {
+        StartCheckingEnemies();
+    }
+
+    public override void OnTriggerExitNotification()
+    {
+        if (CheckingEnemies)
+            StopCheckingEnemies();
     }
 
     public void Stop()
@@ -219,7 +236,6 @@ public class Zombie : Damageable, IPooledObject
         agent.enabled = true;
         zombieSet.Add(this);
         SetDestinationToCenter();
-        StartCheckingEnemies();
     }
 
     public void StartCheckingEnemies()

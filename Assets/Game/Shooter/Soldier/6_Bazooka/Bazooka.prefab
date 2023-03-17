@@ -84,7 +84,6 @@ MonoBehaviour:
   shootPeriod: 0.5
   targetableZombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c,
     type: 2}
-  logs: []
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
   soldierSet: {fileID: 11400000, guid: 9fb6b273a33aedf4f8957795017522c3, type: 2}
   animator: {fileID: 4855780812226405099}
@@ -134,7 +133,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 543115288863518671}
         m_TargetAssemblyTypeName: Shooter, Assembly-CSharp
-        m_MethodName: StopTargeting
+        m_MethodName: OnWaveCleared
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

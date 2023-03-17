@@ -116,7 +116,7 @@ MonoBehaviour:
   - {fileID: 4888570318563127821}
   - {fileID: 1409757291965166717}
   burstCount: 4
-  burstPeriod: 0.1
+  burstPeriod: 0.2
 --- !u!1 &5024563041210946584
 GameObject:
   m_ObjectHideFlags: 0

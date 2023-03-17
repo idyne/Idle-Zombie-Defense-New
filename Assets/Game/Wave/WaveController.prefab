@@ -80,9 +80,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onWaveClearPercentChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 02078ab84611a8c46b10660b40be8cdb, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   spawnPointContainer: {fileID: 0}
   spawnCircleRadius: 30
   spawnCircleWidth: 5
+  waveCleanPercentage: {fileID: 11400000, guid: e830386b94b6a3f42b2ba75e072da906,
+    type: 2}
 --- !u!114 &-1964519365130282699
 MonoBehaviour:
   m_ObjectHideFlags: 0

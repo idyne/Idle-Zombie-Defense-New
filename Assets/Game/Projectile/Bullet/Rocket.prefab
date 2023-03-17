@@ -46,14 +46,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41bbec64df8ac8840ae08cc375d38777, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 40
   radius: 0.5
-  piercing: 0
-  visualEffectPool: {fileID: 11400000, guid: 09a2947094954e344bf54a393841cca4, type: 2}
-  areaOfEffectRadius: 2.5
   damageableLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  visualEffectPool: {fileID: 11400000, guid: 09a2947094954e344bf54a393841cca4, type: 2}
+  areaOfEffectRadius: 2.5
   trailTransform: {fileID: 654307622474939204}
   meshObject: {fileID: 4818732919063186914}
 --- !u!1 &4818732919063186914

@@ -133,7 +133,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4510502536853486724}
         m_TargetAssemblyTypeName: Shooter, Assembly-CSharp
-        m_MethodName: StopTargeting
+        m_MethodName: OnWaveCleared
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

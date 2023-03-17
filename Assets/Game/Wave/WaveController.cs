@@ -11,11 +11,16 @@ public class WaveController : MonoBehaviour
     [SerializeField] private WaveStateVariable waveState;
     [SerializeField] private UnityEvent onWaveStarted = new();
     [SerializeField] private UnityEvent onWaveCleared = new();
+    [SerializeField] private UnityEvent onWaveClearPercentChanged = new();
     [SerializeField] private Transform spawnPointContainer;
     [SerializeField] private float spawnCircleRadius = 30;
     [SerializeField] private float spawnCircleWidth = 5;
     private List<Transform> spawnPoints = new();
     private IEnumerator zombieSpawningCoroutine = null;
+    private int numberOfZombiesInWave = 0;
+    private int numberOfDeadZombiesInWave = 0;
+    private int remainingZombiesToSpawn = 0;
+    [SerializeField] private FloatVariable waveCleanPercentage;
 
     private bool spawnOnRandomPoint { get => spawnPointContainer == null || spawnPointContainer.childCount == 0; }
 
@@ -44,26 +49,21 @@ public class WaveController : MonoBehaviour
 
     public void SpawnZombies()
     {
+        numberOfDeadZombiesInWave = 0;
+        numberOfZombiesInWave = 0;
+        waveCleanPercentage.Value = 0;
+        onWaveClearPercentChanged.Invoke();
         Debug.Log("SpawnZombies", this);
         List<int> zombieTable = GenerateZombieTable(2000, 6, out int numberOfZombies);
-        // Gets a random zombie level from the zombie table
-        int getRandomZombieLevel()
-        {
-            int level;
-            do
-            {
-                level = Random.Range(1, zombieTable.Count);
-            } while (zombieTable[level] <= 0);
-            return level;
-        }
+        remainingZombiesToSpawn = numberOfZombies;
         // Spawns zombies from the zombie table in random order
-        float spawnPeriod = 0.1f;
+        float spawnPeriod = 0.01f;
         WaitForSeconds waitForSeconds = new(spawnPeriod);
         IEnumerator spawnZombies(int count)
         {
             if (count <= 0) yield break;
-            int level = getRandomZombieLevel();
-            zombieTable[level]--;
+            int level = zombieTable[^1];
+            zombieTable.RemoveAt(zombieTable.Count - 1);
             SpawnZombie(level, ZombieType.STANDARD);
             yield return waitForSeconds;
             zombieSpawningCoroutine = spawnZombies(count - 1);
@@ -80,6 +80,7 @@ public class WaveController : MonoBehaviour
         if (zombieSpawningCoroutine == null) return;
         StopCoroutine(zombieSpawningCoroutine);
         zombieSpawningCoroutine = null;
+        remainingZombiesToSpawn = 0;
     }
 
     public void SpawnZombie(int level, ZombieType type)
@@ -100,6 +101,21 @@ public class WaveController : MonoBehaviour
                 break;
         }
         zombie.SetLevel(level);
+        numberOfZombiesInWave++;
+        remainingZombiesToSpawn--;
+        zombie.OnDied.AddListener(OnSpawnedZombieDied);
+    }
+
+    private bool IsWaveCleared { get => numberOfZombiesInWave == 0 && remainingZombiesToSpawn == 0; }
+
+    private void OnSpawnedZombieDied()
+    {
+        numberOfDeadZombiesInWave++;
+        numberOfZombiesInWave--;
+        waveCleanPercentage.Value = 1f - numberOfZombiesInWave / (float)(numberOfZombiesInWave + remainingZombiesToSpawn + numberOfDeadZombiesInWave);
+        onWaveClearPercentChanged.Invoke();
+        if (IsWaveCleared)
+            OnWaveCleared();
     }
 
     private List<int> GenerateZombieTable(int power, int maxZombieLevel, out int numberOfZombies)
@@ -115,7 +131,17 @@ public class WaveController : MonoBehaviour
         zombieTable[1] += power - currentPower;
         for (int i = 1; i < zombieTable.Count; i++)
             numberOfZombies += zombieTable[i];
-        return zombieTable;
+        List<int> result = new();
+        for (int i = 1; i < zombieTable.Count; i++)
+        {
+            int zombieCount = zombieTable[i];
+            for (int j = 0; j < zombieCount; j++)
+            {
+                result.Add(i);
+            }
+        }
+        result.Shuffle();
+        return result;
     }
 
     public void OnWaveCleared()

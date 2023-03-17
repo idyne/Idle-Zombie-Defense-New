@@ -7,7 +7,6 @@ using DG.Tweening;
 
 public class Soldier : Shooter, IPooledObject
 {
-    [SerializeField] protected WaveStateVariable waveState;
     [SerializeField] protected SoldierSet soldierSet;
     [SerializeField] protected Animator animator;
 

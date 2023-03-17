@@ -6,7 +6,9 @@ using DG.Tweening;
 
 public class DeadStandardZombie : FateMonoBehaviour, IPooledObject
 {
+#pragma warning disable CS0108 
     [SerializeField] private Animation animation;
+#pragma warning restore CS0108 
     private Rigidbody[] rigidbodies;
 
     public event System.Action OnRelease;
