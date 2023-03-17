@@ -7,72 +7,68 @@ using DG.Tweening;
 
 public class Soldier : Shooter, IPooledObject
 {
-    [SerializeField] protected Animator animator;
     [SerializeField] protected SoldierSet soldierSet;
-    
+    [SerializeField] protected Animator animator;
+
 
     public event Action OnRelease;
 
-    protected override void OnEnable()
+    protected void OnEnable()
     {
-        base.OnEnable();
+        Log("OnEnable", false);
         soldierSet.Add(this);
     }
 
     protected virtual void OnDisable()
     {
-#if DEBUG
-        logs.Add("OnDisable");
-#endif
+        Log("OnDisable", false);
         soldierSet.Remove(this);
     }
 
     public void SetPosition(Vector3 position)
     {
-#if DEBUG
-        logs.Add("SetPosition");
-#endif
+        Log("SetPosition", false);
         transform.position = position;
     }
     public void OnObjectSpawn()
     {
-#if DEBUG
-        logs.Add("SetPosition");
-#endif
+        Log("OnObjectSpawn", false);
         Activate();
-        StartTargeting();
+        if (waveState.Value == WaveController.WaveState.STARTED)
+            StartTargeting();
     }
 
     public void Release()
     {
-#if DEBUG
-        logs.Add("Release");
-#endif
-        RemoveTarget();
-        StopShooting();
-        CancelInvoke();
+        Log("Release", false);
+        if (Targeting)
+            StopTargeting();
+        if (target)
+            RemoveTarget();
         Deactivate();
         OnRelease.Invoke();
     }
 
 
-    public override IEnumerator Shoot()
+    public override void Shoot()
     {
-#if DEBUG
-        logs.Add("Shoot");
-#endif
-        if (!target) yield break;
         animator.SetTrigger("Shoot");
-        yield return gun.Use(target);
+        base.Shoot();
     }
 
-    public override void FaceTarget()
+    public override void Face(Vector3 to)
     {
-#if DEBUG
-        logs.Add("FaceTarget");
-#endif
-        Vector3 direction = target.ShotPoint.position - transform.position;
+        // Called in Update()
+        Vector3 direction = to - transform.position;
         direction.y = 0;
-        transform.DORotateQuaternion(Quaternion.LookRotation(direction), 0.2f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 3f);
+    }
+
+    public virtual void Die()
+    {
+        if (Targeting)
+            StopTargeting();
+        if (target)
+            RemoveTarget();
     }
 }

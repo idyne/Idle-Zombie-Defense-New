@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using FateGames.Core;
 
-public abstract class Weapon : MonoBehaviour
+public abstract class Weapon : FateMonoBehaviour
 {
+    /*
     [SerializeField] protected float cooldown = 1;
     protected WaitForSeconds waitForCooldown;
     protected IEnumerator useRoutine = null;
@@ -31,6 +32,12 @@ public abstract class Weapon : MonoBehaviour
 
     public void Stop()
     {
+        if(useRoutine == null)
+        {
+            Debug.LogWarning("Routine is null", this);
+            return;
+        }
         StopCoroutine(useRoutine);
     }
+    */
 }

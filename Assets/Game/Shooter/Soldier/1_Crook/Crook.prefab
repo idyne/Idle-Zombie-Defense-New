@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7798598707111449053}
   - component: {fileID: 5099925889480508768}
   - component: {fileID: 7670327276089975434}
+  - component: {fileID: 7402138834912766802}
   m_Layer: 0
   m_Name: Crook
   m_TagString: Untagged
@@ -48,13 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 30
-  zombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c, type: 2}
+  shootPeriod: 0.5
+  targetableZombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c,
+    type: 2}
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
-  gun: {fileID: 7760448079160563172}
-  logs: []
-  animator: {fileID: 150326328184618436}
   soldierSet: {fileID: 11400000, guid: cc873bbec39b274438140899d92f41e8, type: 2}
-  throwableWeapon: {fileID: 0}
+  animator: {fileID: 150326328184618436}
 --- !u!114 &5099925889480508768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +101,35 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7798598707111449053}
         m_TargetAssemblyTypeName: Shooter, Assembly-CSharp
-        m_MethodName: StopTargeting
+        m_MethodName: OnWaveCleared
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7402138834912766802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68260588937678669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1c3dff14c4d127543af94261684cf03b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7798598707111449053}
+        m_TargetAssemblyTypeName: Soldier, Assembly-CSharp
+        m_MethodName: Die
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -714,15 +742,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 171533788927987086}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7760448079160563172 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7625666721998559338, guid: eef02af2c5f398f48aa8e66fe383a69f,
-    type: 3}
-  m_PrefabInstance: {fileID: 171533788927987086}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1870f044037a12408ef7a56019a0282, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

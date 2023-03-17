@@ -3,64 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using FateGames.Core;
 
-public class Gun : Weapon
+public class Gun : FateMonoBehaviour
 {
     [SerializeField] protected int damage = 10;
-    [SerializeField] protected ObjectPool projectilePool;
-    [SerializeField] protected ShootMode mode = ShootMode.SINGLE;
-    [SerializeField] protected Transform muzzle;
-    [SerializeField] protected int burstSize;
-    [SerializeField] protected float burstCooldown = 0.1f;
-    protected WaitForSeconds waitForBurstCooldown;
-    public ShootMode Mode { get => mode; }
+    [SerializeField] protected ObjectPool bulletPool;
+    [SerializeField] protected Transform[] muzzles;
+    protected int shotCount = 0;
+    protected Transform Muzzle { get => muzzles[shotCount % muzzles.Length]; }
 
-    protected override void OnEnable()
+    public virtual void Shoot(Damageable target)
     {
-        base.OnEnable();
-        waitForBurstCooldown = new WaitForSeconds(burstCooldown);
+        Vector3 shootDirection = target.ShotPoint.position - Muzzle.position;
+        ShootTo(shootDirection);
     }
 
-    public override IEnumerator Use(Damageable target)
+    public virtual void ShootTo(Vector3 direction)
     {
-        IEnumerator use()
-        {
-            if (InCooldown) yield break;
-            StartCoroutine(Cooldown());
-            switch (mode)
-            {
-                case ShootMode.BURST:
-                    yield return ShootBurst(target, burstSize);
-                    break;
-                case ShootMode.SINGLE:
-                    yield return ShootSingle(target);
-                    break;
-            }
-        }
-        useRoutine = use();
-        yield return useRoutine;
+        Bullet bullet = bulletPool.Get<Bullet>(Muzzle.position, Quaternion.LookRotation(direction));
+        bullet.Shoot(direction, damage);
+        shotCount++;
     }
 
-    protected virtual IEnumerator ShootSingle(Damageable target)
-    {
-        GuidedProjectile projectile = projectilePool.Get<GuidedProjectile>(muzzle.position, muzzle.rotation);
-        projectile.Damage = damage;
-        target.AddFutureHealth(-damage);
-        projectile.Shoot(target);
-        yield return null;
-    }
 
-    protected virtual IEnumerator ShootBurst(Damageable target, int count)
-    {
-        if (count <= 0)
-        {
-            yield break;
-        }
-        yield return ShootSingle(target);
-        yield return waitForBurstCooldown;
-        yield return ShootBurst(target, count - 1);
-    }
-
-    
-
-    public enum ShootMode { BURST, SINGLE }
 }

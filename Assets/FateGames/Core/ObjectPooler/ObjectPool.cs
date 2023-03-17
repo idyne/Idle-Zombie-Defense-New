@@ -13,13 +13,10 @@ namespace FateGames.Core
         [SerializeField] private GameObject prefab;
         [SerializeField] private int startSize = 0;
         protected int totalSize = 0;
+        protected Transform poolContainer = null;
 
         public string Tag { get => tag; }
 
-        private void OnEnable()
-        {
-            totalSize = 0;
-        }
 
         public T Get<T>(Vector3 position, Quaternion rotation) where T : Component
         {
@@ -27,8 +24,12 @@ namespace FateGames.Core
                 AddObjectToPool(true);
             if (pool.Count == 0)
                 AddObjectToPool();
+            if (poolContainer == null)
+                poolContainer = new GameObject(tag + " Pool").transform;
             GameObject obj = pool.Dequeue();
-            obj.transform.SetPositionAndRotation(position, rotation);
+            Transform objTransform = obj.transform;
+            objTransform.SetParent(poolContainer);
+            objTransform.SetPositionAndRotation(position, rotation);
             IPooledObject pooledObject = obj.GetComponent<IPooledObject>();
             if (pooledObject != null)
                 pooledObject.OnObjectSpawn();
@@ -49,6 +50,13 @@ namespace FateGames.Core
         public void ClearPool()
         {
             pool = new();
+        }
+
+        public void OnNewLevel()
+        {
+            poolContainer = null;
+            totalSize = 0;
+            ClearPool();
         }
 
     }

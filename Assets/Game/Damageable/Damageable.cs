@@ -8,80 +8,58 @@ public abstract class Damageable : FateMonoBehaviour
 {
     [SerializeField] protected int maxHealth;
     [SerializeField] protected Transform shotPoint;
+    [SerializeField] private HealthBar healthBar;
     protected int health;
-    public readonly UnityEvent OnDied = new();
-    public int FutureHealth { get; private set; }
-    public bool GoingToDie { get => FutureHealth <= 0; }
+    public UnityEvent OnDied = new();
     public Transform ShotPoint { get => shotPoint; }
 
-    public readonly UnityEvent OnGoingToDie = new();
-#if DEBUG
-    public List<string> logs = new();
-#endif
     protected virtual void OnEnable()
     {
-#if DEBUG
-        logs.Add("OnEnable");
-#endif
+        Log("OnEnable", false);
         ResetHealth();
-        ResetFutureHealth();
-    }
-    public void AddFutureHealth(int gain)
-    {
-#if DEBUG
-        logs.Add("AddFutureHealth");
-#endif
-        FutureHealth = Mathf.Clamp(FutureHealth + gain, 0, maxHealth);
-        if (FutureHealth <= 0)
-        {
-            AnnounceFutureDeath();
-        }
     }
 
-    public virtual void AnnounceFutureDeath()
+    public virtual bool Hit(int damage)
     {
-#if DEBUG
-        logs.Add("AnnounceFutureDeath");
-#endif
-        OnGoingToDie.Invoke();
-    }
-
-    public virtual void Hit(int damage, bool addFutureHealth = false)
-    {
-#if DEBUG
-        logs.Add("Hit");
-#endif
-        if (health <= 0) return;
+        Log("Hit", false);
+        if (health <= 0) return false;
         SetHealth(health - damage);
-        if (addFutureHealth) AddFutureHealth(-damage);
+        return true;
     }
 
     public void SetHealth(int health)
     {
-#if DEBUG
-        logs.Add("SetHealth");
-#endif
+        Log("SetHealth", false);
         health = Mathf.Clamp(health, 0, maxHealth);
         this.health = health;
+        if (healthBar)
+        {
+            healthBar.SetPercent(this.health / (float)maxHealth);
+            healthBar.Show(4);
+        }
         if (health <= 0)
+        {
+            if (healthBar)
+                healthBar.Hide();
             Die();
+        }
+    }
+
+    public virtual void OnTriggerEnterNotification()
+    {
+
+    }
+
+    public virtual void OnTriggerExitNotification()
+    {
+
     }
 
     public void ResetHealth()
     {
-#if DEBUG
-        logs.Add("ResetHealth");
-#endif
+        Log("ResetHealth", false);
         health = maxHealth;
     }
-    public void ResetFutureHealth()
-    {
-#if DEBUG
-        logs.Add("ResetFutureHealth");
-#endif
-        FutureHealth = maxHealth;
-    }
-
     public abstract void Die();
 
 }

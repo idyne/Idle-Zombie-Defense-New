@@ -3,7 +3,12 @@ guid: 7b7145d9e0275c54f9f1bdb7fd116758
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - targetableZombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c,
+      type: 2}
+  - waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
+  - soldierSet: {instanceID: 0}
+  - animator: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

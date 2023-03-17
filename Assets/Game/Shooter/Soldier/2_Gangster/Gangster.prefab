@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1311336946272044402}
   - component: {fileID: 4131061610439449547}
+  - component: {fileID: 4358438500517152227}
+  - component: {fileID: 2325273821705424794}
+  - component: {fileID: 6256889556060611087}
   m_Layer: 0
   m_Name: Gangster
   m_TagString: Untagged
@@ -45,13 +48,97 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b7145d9e0275c54f9f1bdb7fd116758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
-  zombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c, type: 2}
+  range: 30
+  shootPeriod: 1
+  targetableZombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c,
+    type: 2}
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
-  gun: {fileID: 4115153728767181100}
-  logs: []
-  animator: {fileID: 3799828649227633453}
   soldierSet: {fileID: 11400000, guid: 91eb11bacb4585843a7384b0c1fb1de6, type: 2}
+  animator: {fileID: 3799828649227633453}
+--- !u!114 &4358438500517152227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68260588937678669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 246559e1bd32c6f4491852722a988087, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4131061610439449547}
+        m_TargetAssemblyTypeName: Shooter, Assembly-CSharp
+        m_MethodName: StartTargeting
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2325273821705424794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68260588937678669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: fc7b558fab1305d40b5cda144921ed37, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4131061610439449547}
+        m_TargetAssemblyTypeName: Shooter, Assembly-CSharp
+        m_MethodName: OnWaveCleared
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6256889556060611087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68260588937678669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1c3dff14c4d127543af94261684cf03b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4131061610439449547}
+        m_TargetAssemblyTypeName: Soldier, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2084489087267207560
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,15 +252,3 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 8587408002410230906}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4115153728767181100 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5636092858269758806, guid: 6e02cde4b389d80488aed0b7df014270,
-    type: 3}
-  m_PrefabInstance: {fileID: 8587408002410230906}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1870f044037a12408ef7a56019a0282, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -3,48 +3,227 @@ using System.Collections.Generic;
 using UnityEngine;
 using FateGames.Core;
 using System;
+using UnityEngine.AI;
 using UnityEngine.Events;
+using FSG.MeshAnimator.Snapshot;
 
 public class Zombie : Damageable, IPooledObject
 {
+    [SerializeField] protected ObjectPool deadZombiePool;
+    [SerializeField] protected List<ZombieLevelData> levelData;
     [SerializeField] protected SaveDataVariable saveData;
     [SerializeField] protected ZombieSet zombieSet;
+    [SerializeField] protected LayerMask enemyLayerMask;
+    [SerializeField] protected MeshRenderer meshRenderer;
+    [SerializeField] protected SnapshotMeshAnimator meshAnimator;
+
+    private IEnumerator flashCoroutine = null;
     public event Action OnRelease;
+    private int level = 1;
+    protected NavMeshAgent agent;
+    protected float cooldown = 5;
+    protected int damage = 5;
+    private IEnumerator checkEnemiesRoutine = null;
+    private WaitForSeconds waitForCheckEnemiesPeriod = new(0.2f);
+    protected float lastHitTime = float.MinValue;
+    protected bool Stopped { get => agent.isStopped; }
+    public bool InCooldown { get => Time.time < lastHitTime + cooldown; }
+    public bool Flashing { get => flashCoroutine != null; }
+    public bool CheckingEnemies { get => checkEnemiesRoutine != null; }
 
-
-    protected override void OnEnable()
+    private void Awake()
     {
-        base.OnEnable();
+        Log("Awake", false);
+        InitializeNavMeshAgent();
+    }
 
+    private void InitializeNavMeshAgent()
+    {
+        agent = gameObject.AddComponent<NavMeshAgent>();
+        agent.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
+        agent.angularSpeed = 1440;
+        agent.acceleration = 50;
+        agent.radius = 0.25f;
+        agent.autoRepath = false;
+        agent.enabled = false;
+    }
+
+    private void SetColor(Color color)
+    {
+        Log("SetColor", false);
+        meshRenderer.material.color = color;
     }
 
     private void OnDisable()
     {
-#if DEBUG
-        logs.Add("OnDisable");
-#endif
+        Log("OnDisable", false);
         zombieSet.Remove(this);
     }
 
-    public override void AnnounceFutureDeath()
+    public void SetLevel(int level)
     {
-        zombieSet.Remove(this);
-        base.AnnounceFutureDeath();
+        Log("SetLevel", false);
+        this.level = Mathf.Clamp(level, 1, levelData.Count);
+        SetAttributes(levelData[this.level]);
+    }
+
+    public void SetAttributes(ZombieLevelData data)
+    {
+        Log("SetAttributes", false);
+        SetSpeed(data.Speed);
+        cooldown = data.Cooldown;
+        damage = data.Damage;
+        SetColor(data.Color);
+        maxHealth = data.MaxHealth;
+        transform.localScale = data.Scale * Vector3.one;
+    }
+
+    public void OnTowerDestroyed()
+    {
+        Log("OnTowerDestroyed", false);
+        StopCheckingEnemies();
+        SetSpeed(0.8f);
+        SetDestinationToCenter();
+    }
+
+    public void StopCheckingEnemies()
+    {
+        Log("StopCheckingEnemies", false);
+        if (!CheckingEnemies) return;
+        StopCoroutine(checkEnemiesRoutine);
+        checkEnemiesRoutine = null;
+    }
+
+    public void OnLoseScreenShowed()
+    {
+        Log("OnLoseScreenShowed", false);
+        Stop();
+    }
+
+    public void SetSpeed(float speed)
+    {
+        Log("SetSpeed", false);
+        meshAnimator.speed = speed;
+        agent.speed = speed;
+    }
+
+    protected void CheckEnemies()
+    {
+        Log("CheckEnemies", false);
+        float radius = 1f;
+        int maxColliders = 1;
+        Collider[] hitColliders = new Collider[maxColliders];
+        int numColliders = Physics.OverlapSphereNonAlloc(transform.position, radius, hitColliders, enemyLayerMask);
+        if (numColliders > 0)
+        {
+            Stop();
+
+            for (int i = 0; i < numColliders; i++)
+            {
+                Damageable damageable = hitColliders[i].GetComponent<Damageable>();
+                Hit(damageable);
+            }
+        }
+        else
+        {
+            StopCheckingEnemies();
+            SetDestinationToCenter();
+        }
+
+    }
+
+    public override void OnTriggerEnterNotification()
+    {
+        StartCheckingEnemies();
+    }
+
+    public override void OnTriggerExitNotification()
+    {
+        if (CheckingEnemies)
+            StopCheckingEnemies();
+    }
+
+    public void Stop()
+    {
+        Log("Stop", false);
+        if (Stopped) return;
+        agent.isStopped = true;
+        //StopCheckingEnemies();
+    }
+
+    public override bool Hit(int damage)
+    {
+        if (health <= 0) return false;
+        Flash();
+        if (!base.Hit(damage)) return false;
+        return true;
+    }
+
+    public void Push(float value)
+    {
+        Log("Push", false);
+        if (!agent.enabled) { Debug.LogError("Agent is not enabled!", this); return; }
+        value = Mathf.Clamp(value, 0, 1);
+        agent.Move(-transform.forward.normalized * value);
+    }
+
+    public void Flash()
+    {
+        Log("Flash", false);
+        if (Flashing) CancelFlash();
+        IEnumerator flash()
+        {
+            SetColor(Color.white);
+            yield return new WaitForSeconds(0.05f);
+            SetColor(levelData[level].Color);
+        }
+        flashCoroutine = flash();
+        StartCoroutine(flashCoroutine);
+    }
+
+    public void CancelFlash()
+    {
+        Log("CancelFlash", false);
+        if (!Flashing) return;
+        StopCoroutine(flashCoroutine);
+        flashCoroutine = null;
+    }
+
+    protected void Hit(Damageable damageable)
+    {
+        Log("Hit", false);
+        if (InCooldown) return;
+        PlayAnimation("Attack");
+        damageable.Hit(damage);
+        lastHitTime = Time.time;
+    }
+
+    protected void PlayAnimation(string name)
+    {
+        Log("PlayAnimation", false);
+        //Debug.Log("PlayAnimation " + name, this);
+        if (name == meshAnimator.currentAnimation.AnimationName)
+            meshAnimator.RestartAnim();
+        else
+            meshAnimator.Play(name);
     }
 
 
     public override void Die()
     {
-#if DEBUG
-        logs.Add("Die");
-#endif
+        Log("Die", false);
         DropMoney();
-        Release();
+        zombieSet.Remove(this);
+        DeadStandardZombie deadZombie = deadZombiePool.Get<DeadStandardZombie>(transform.position, Quaternion.identity);
+        deadZombie.Initialize(levelData[level], transform);
+        deadZombie.Animate();
         OnDied.Invoke();
+        Release();
     }
 
     public void DropMoney()
     {
+        Log("DropMoney", false);
         // TODO change to real money
         int money = 50001;
         saveData.AddMoney(money);
@@ -52,20 +231,58 @@ public class Zombie : Damageable, IPooledObject
 
     public void OnObjectSpawn()
     {
-#if DEBUG
-        logs.Add("OnObjectSpawn");
-#endif
+        Log("OnObjectSpawn", false);
         Activate();
+        agent.enabled = true;
         zombieSet.Add(this);
+        SetDestinationToCenter();
+    }
+
+    public void StartCheckingEnemies()
+    {
+        Log("StartCheckingEnemies", false);
+        if (CheckingEnemies)
+        {
+            Debug.LogError("Already checking enemies!", this);
+            return;
+        }
+        IEnumerator checkEnemies()
+        {
+            CheckEnemies();
+            yield return waitForCheckEnemiesPeriod;
+            checkEnemiesRoutine = checkEnemies();
+            yield return checkEnemiesRoutine;
+        }
+        checkEnemiesRoutine = checkEnemies();
+        StartCoroutine(checkEnemiesRoutine);
+    }
+
+    public void SetDestinationToCenter()
+    {
+        Log("StartCheckinSetDestinationToCentergEnemies", false);
+        Vector3 destination;
+        if (NavMesh.SamplePosition(transform.position.normalized, out NavMeshHit hit, 10, NavMesh.AllAreas))
+        {
+            destination = hit.position;
+        }
+        else destination = Vector3.zero;
+        Debug.DrawRay(destination, Vector3.up, Color.white, 10);
+        agent.isStopped = false;
+        agent.SetDestination(Vector3.zero);
+        PlayAnimation("Walk");
     }
 
     public void Release()
     {
-#if DEBUG
-        logs.Add("Release");
-#endif
+        Log("Release", false);
+        StopCheckingEnemies();
+        agent.enabled = false;
         Deactivate();
+        CancelFlash();
+        OnDied.RemoveAllListeners();
         OnRelease.Invoke();
     }
+
+
 
 }

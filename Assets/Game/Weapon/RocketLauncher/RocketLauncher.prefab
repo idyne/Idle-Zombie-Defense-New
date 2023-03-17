@@ -72,7 +72,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3315086011950761123}
-  - component: {fileID: 2194221985499707803}
+  - component: {fileID: 5855555313455033283}
   m_Layer: 0
   m_Name: RocketLauncher
   m_TagString: Untagged
@@ -96,7 +96,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2194221985499707803
+--- !u!114 &5855555313455033283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,21 +105,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3713291440107249264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85c1a556fb5a0c1489c3bff9dbedac60, type: 3}
+  m_Script: {fileID: 11500000, guid: 7bff24276de20054ebf286249c8a7d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCooldown: 2
-  damage: 15
-  projectilePool: {fileID: 11400000, guid: cb0788f30f9d5754b8e0c106796c87c8, type: 2}
-  mode: 0
-  muzzle: {fileID: 5230555925036929005}
-  burstSize: 4
-  burstPeriod: 0.2
+  damage: 10
+  bulletPool: {fileID: 11400000, guid: cb0788f30f9d5754b8e0c106796c87c8, type: 2}
   muzzles:
   - {fileID: 5230555925036929005}
   - {fileID: 8200050456364462724}
   - {fileID: 4888570318563127821}
   - {fileID: 1409757291965166717}
+  burstCount: 4
+  burstPeriod: 0.2
 --- !u!1 &5024563041210946584
 GameObject:
   m_ObjectHideFlags: 0

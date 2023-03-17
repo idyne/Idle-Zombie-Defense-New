@@ -12,12 +12,12 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Unguided Bullet
+  - 
   - Zombie
-  - 
-  - 
-  - 
-  - 
+  - Ignore Navmesh
+  - Tower
+  - Barrier
+  - Dead Zombie
   - 
   - 
   - 

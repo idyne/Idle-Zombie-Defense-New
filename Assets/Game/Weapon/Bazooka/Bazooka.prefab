@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1574657729762967301}
-  - component: {fileID: 5049688345651846684}
+  - component: {fileID: 269483828605959576}
   m_Layer: 0
   m_Name: Bazooka
   m_TagString: Untagged
@@ -64,7 +64,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5049688345651846684
+--- !u!114 &269483828605959576
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,16 +73,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1254573792539369742}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3386062bba0b18344b7a107c048febf6, type: 3}
+  m_Script: {fileID: 11500000, guid: b1870f044037a12408ef7a56019a0282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxCooldown: 1
   damage: 10
-  projectilePool: {fileID: 11400000, guid: b44479880d433e14f8a007e0820d5eca, type: 2}
-  mode: 1
-  muzzle: {fileID: 2143512637050633684}
-  burstSize: 1
-  burstPeriod: 0.1
+  bulletPool: {fileID: 11400000, guid: b44479880d433e14f8a007e0820d5eca, type: 2}
+  muzzles:
+  - {fileID: 2143512637050633684}
 --- !u!1 &2809895758677394260
 GameObject:
   m_ObjectHideFlags: 0

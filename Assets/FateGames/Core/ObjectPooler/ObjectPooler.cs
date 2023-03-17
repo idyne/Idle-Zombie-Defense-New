@@ -6,35 +6,18 @@ namespace FateGames.Core
 {
     public static class ObjectPooler
     {
-        private static Dictionary<string, ObjectPool> table;
+        private static ObjectPool[] pools;
 
         public static void Initialize()
         {
-            table = new();
-            ObjectPool[] pools = Resources.FindObjectsOfTypeAll<ObjectPool>();
-            for (int i = 0; i < pools.Length; i++)
-            {
-                ObjectPool pool = pools[i];
-                table.Add(pool.Tag, pool);
-            }
+            pools = Resources.FindObjectsOfTypeAll<ObjectPool>();
         }
 
-        public static T Get<T>(string tag, Vector3 position, Quaternion rotation) where T : Component
+        public static void OnNewLevel()
         {
-            if (table.ContainsKey(tag))
-                return table[tag].Get<T>(position, rotation);
-            else
+            foreach (ObjectPool pool in pools)
             {
-                Debug.LogError(tag + " pool does not exist");
-                return default;
-            }
-        }
-
-        public static void ClearPools()
-        {
-            foreach (ObjectPool pool in table.Values)
-            {
-                pool.ClearPool();
+                pool.OnNewLevel();
             }
         }
     }

@@ -8,7 +8,7 @@ namespace FateGames.Core
     [CustomEditor(typeof(GameManager))]
     public class GameManagerEditor : Editor
     {
-        [SerializeField] private BoolVariable paused;
+        //[SerializeField] private BoolVariable paused;
         private GameManager gameManager;
         private void OnEnable()
         {
@@ -17,7 +17,7 @@ namespace FateGames.Core
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
-            if (paused.Value)
+            /*if (paused.Value)
             {
                 if (GUILayout.Button("Resume"))
                     gameManager.ResumeGame();
@@ -26,7 +26,7 @@ namespace FateGames.Core
             {
                 if (GUILayout.Button("Pause"))
                     gameManager.PauseGame();
-            }
+            }*/
         }
     }
 
