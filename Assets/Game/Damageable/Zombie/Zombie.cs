@@ -44,6 +44,7 @@ public class Zombie : Damageable, IPooledObject
         agent.angularSpeed = 1440;
         agent.acceleration = 50;
         agent.radius = 0.25f;
+        agent.autoRepath = false;
         agent.enabled = false;
     }
 
@@ -139,10 +140,7 @@ public class Zombie : Damageable, IPooledObject
     public override void OnTriggerExitNotification()
     {
         if (CheckingEnemies)
-        {
             StopCheckingEnemies();
-            SetDestinationToCenter();
-        }
     }
 
     public void Stop()

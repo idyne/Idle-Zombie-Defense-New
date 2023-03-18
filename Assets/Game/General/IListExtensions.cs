@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 public static class IListExtensions
@@ -17,58 +16,5 @@ public static class IListExtensions
             ts[i] = ts[r];
             ts[r] = tmp;
         }
-    }
-    public static int IndexOfMin(this IList<int> self, int startIndexInclusive, int endIndexInclusive)
-    {
-        if (self == null)
-        {
-            throw new ArgumentNullException("self");
-        }
-
-        if (self.Count == 0)
-        {
-            throw new ArgumentException("List is empty.", "self");
-        }
-
-        int min = self[startIndexInclusive];
-        int minIndex = startIndexInclusive;
-
-        for (int i = startIndexInclusive + 1; i <= endIndexInclusive; ++i)
-        {
-            if (self[i] < min)
-            {
-                min = self[i];
-                minIndex = i;
-            }
-        }
-
-        return minIndex;
-    }
-
-    public static int IndexOfMax(this IList<int> self, int startIndexInclusive, int endIndexInclusive)
-    {
-        if (self == null)
-        {
-            throw new ArgumentNullException("self");
-        }
-
-        if (self.Count == 0)
-        {
-            throw new ArgumentException("List is empty.", "self");
-        }
-
-        int max = self[startIndexInclusive];
-        int maxIndex = startIndexInclusive;
-
-        for (int i = startIndexInclusive + 1; i <= endIndexInclusive; ++i)
-        {
-            if (self[i] > max)
-            {
-                max = self[i];
-                maxIndex = i;
-            }
-        }
-
-        return maxIndex;
     }
 }

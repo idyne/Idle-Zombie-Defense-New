@@ -4,7 +4,6 @@ using UnityEngine;
 using FateGames.Core;
 using UnityEngine.Events;
 using UnityEngine.AI;
-using System.Linq;
 
 public class WaveController : MonoBehaviour
 {
@@ -31,78 +30,6 @@ public class WaveController : MonoBehaviour
         InitializeSpawnPoints();
     }
 
-    private List<int> _GenerateZombieTable(int power, int maxZombieLevel, int maxNumberOfZombies, out int numberOfZombies)
-    {
-        power = Mathf.Clamp(power, 1, maxNumberOfZombies * maxZombieLevel);
-        int groupPower = power / maxZombieLevel;
-        List<int> zombieTable = new() { 0 };
-        int total = 0;
-        for (int i = 1; i <= maxZombieLevel; i++)
-        {
-            int number = groupPower / i;
-            total += number;
-            zombieTable.Add(number);
-        }
-
-        int currentPower = 0;
-
-        for (int i = 1; i < zombieTable.Count; i++)
-        {
-            currentPower += zombieTable[i] * i;
-        }
-
-        zombieTable[1] += power - currentPower;
-
-        int count = 0;
-        while (zombieTable.Sum() > maxNumberOfZombies && count++ < 500)
-        {
-            int maxIndex = zombieTable.IndexOfMax(1, maxZombieLevel - 1);
-            int minIndex = zombieTable.IndexOfMin(maxIndex + 1, maxZombieLevel);
-            if (maxIndex > minIndex)
-            {
-                maxIndex = zombieTable.IndexOfMax(1, maxZombieLevel);
-                minIndex = zombieTable.IndexOfMin(1, maxZombieLevel);
-            }
-            int[] numbers = new int[] { minIndex, maxIndex };
-            int lcm = test(numbers);
-            zombieTable[minIndex] += lcm / minIndex;
-            zombieTable[maxIndex] -= lcm / maxIndex;
-        }
-
-
-        numberOfZombies = zombieTable.Sum();
-        List<int> result = new();
-        for (int i = 1; i < zombieTable.Count; i++)
-        {
-            int zombieCount = zombieTable[i];
-            for (int j = 0; j < zombieCount; j++)
-            {
-                result.Add(i);
-            }
-        }
-        result.Shuffle();
-
-        return result;
-
-    }
-
-    static int gcd(int n1, int n2)
-    {
-        if (n2 == 0)
-        {
-            return n1;
-        }
-        else
-        {
-            return gcd(n2, n1 % n2);
-        }
-    }
-
-    public static int test(int[] numbers)
-    {
-        return numbers.Aggregate((S, val) => S * val / gcd(S, val));
-    }
-
     private void InitializeSpawnPoints()
     {
         if (!spawnOnRandomPoint)
@@ -127,10 +54,10 @@ public class WaveController : MonoBehaviour
         waveCleanPercentage.Value = 0;
         onWaveClearPercentChanged.Invoke();
         Debug.Log("SpawnZombies", this);
-        List<int> zombieTable = _GenerateZombieTable(1000, 6, 250, out int numberOfZombies);
+        List<int> zombieTable = GenerateZombieTable(2000, 6, out int numberOfZombies);
         remainingZombiesToSpawn = numberOfZombies;
         // Spawns zombies from the zombie table in random order
-        float spawnPeriod = 0.02f;
+        float spawnPeriod = 0.01f;
         WaitForSeconds waitForSeconds = new(spawnPeriod);
         IEnumerator spawnZombies(int count)
         {
