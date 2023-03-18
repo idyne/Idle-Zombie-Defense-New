@@ -34,7 +34,7 @@ public abstract class Shooter : FateMonoBehaviour
 
     private void Update()
     {
-        //FaceTarget();
+        FaceTarget();
     }
 
     protected virtual bool FacedTarget
@@ -166,7 +166,7 @@ public abstract class Shooter : FateMonoBehaviour
         if (!target) return;
         Face(target.ShotPoint.position);
     }
-    public void StartShooting()
+    public virtual void StartShooting()
     {
         Log("StartShooting", false);
         if (!target)
@@ -191,7 +191,7 @@ public abstract class Shooter : FateMonoBehaviour
 
     }
 
-    public void StopShooting()
+    public virtual void StopShooting()
     {
         Log("StopShooting", false);
         if (shootCoroutine == null)
