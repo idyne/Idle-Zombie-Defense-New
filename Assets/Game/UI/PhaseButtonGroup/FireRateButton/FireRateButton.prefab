@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1221088412700834199}
   - component: {fileID: 8835890484389324463}
   - component: {fileID: 582799812911105760}
+  - component: {fileID: 9180385344808074115}
   m_Layer: 0
   m_Name: FireRateButton
   m_TagString: Untagged
@@ -52,10 +53,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4da31f62f55efdc4fb20bce47c3069f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  button: {fileID: 8807769960452494938}
   onClick:
     m_PersistentCalls:
-      m_Calls: []
-  button: {fileID: 8807769960452494938}
+      m_Calls:
+      - m_Target: {fileID: 9180385344808074115}
+        m_TargetAssemblyTypeName: FireRateButton, Assembly-CSharp
+        m_MethodName: IncreaseFireRate
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!223 &8835890484389324463
 Canvas:
   m_ObjectHideFlags: 0
@@ -94,6 +107,35 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &9180385344808074115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368281472265015822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d40d90b14ce8cb34abe9e06474755112, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 8835890484389324463}
+  onFireRateIncreased:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8599fd48156863e4d8c089957a1e1edd, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
 --- !u!1001 &440273714492746429
 PrefabInstance:
   m_ObjectHideFlags: 0
