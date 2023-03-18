@@ -6,6 +6,7 @@ using System;
 using UnityEngine.AI;
 using UnityEngine.Events;
 using FSG.MeshAnimator.Snapshot;
+using DG.Tweening;
 
 public class Zombie : Damageable, IPooledObject
 {
@@ -26,6 +27,7 @@ public class Zombie : Damageable, IPooledObject
     private IEnumerator checkEnemiesRoutine = null;
     private WaitForSeconds waitForCheckEnemiesPeriod = new(0.2f);
     protected float lastHitTime = float.MinValue;
+    private Tween freezeTween = null;
     protected bool Stopped { get => agent.isStopped; }
     public bool InCooldown { get => Time.time < lastHitTime + cooldown; }
     public bool Flashing { get => flashCoroutine != null; }
@@ -52,7 +54,30 @@ public class Zombie : Damageable, IPooledObject
         Log("SetColor", false);
         meshRenderer.material.color = color;
     }
-
+    public bool Frozen { get => freezeTween != null; }
+    public void Freeze(float duration)
+    {
+        Unfreeze();
+        ZombieLevelData data = levelData[level];
+        SetSpeed(data.Speed / 2f);
+        SetCooldown(data.Cooldown * 2f);
+        Color originalColor = data.Color;
+        print(originalColor);
+        Color frozenColor = new Color(originalColor.r, originalColor.g, originalColor.b + 10f, 1);
+        print(frozenColor);
+        SetColor(frozenColor);
+        freezeTween = DOVirtual.DelayedCall(duration, Unfreeze);
+    }
+    public void Unfreeze()
+    {
+        if (!Frozen) return;
+        freezeTween.Kill();
+        freezeTween = null;
+        ZombieLevelData data = levelData[level];
+        SetSpeed(data.Speed);
+        SetColor(data.Color);
+        SetCooldown(data.Cooldown);
+    }
     private void OnDisable()
     {
         Log("OnDisable", false);
@@ -70,11 +95,16 @@ public class Zombie : Damageable, IPooledObject
     {
         Log("SetAttributes", false);
         SetSpeed(data.Speed);
-        cooldown = data.Cooldown;
+        SetCooldown(data.Cooldown);
         damage = data.Damage;
         SetColor(data.Color);
         maxHealth = data.MaxHealth;
         transform.localScale = data.Scale * Vector3.one;
+    }
+
+    public void SetCooldown(float cooldown)
+    {
+        this.cooldown = cooldown;
     }
 
     public void OnTowerDestroyed()
