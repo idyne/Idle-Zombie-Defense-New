@@ -12,9 +12,17 @@ public partial class Tower : DamageableStructure
     [SerializeField] private SaveDataVariable saveData;
     [SerializeField] private UnityEvent OnMergeAvailable;
     [SerializeField] private LevelManager levelManager;
-
+    [SerializeField] private GameObject meshObject;
+    [SerializeField] private Transform structurePartsContainer;
+    private StructurePart[] structureParts = null;
+    private void Awake()
+    {
+        InitializeStructureParts();
+    }
     private void Start()
     {
+        InputManager.GetKeyDownEvent(KeyCode.C).AddListener(Collapse);
+        InputManager.GetKeyDownEvent(KeyCode.R).AddListener(Rewind);
         AddSoldier(0);
     }
     protected override void OnEnable()
@@ -63,6 +71,7 @@ public partial class Tower : DamageableStructure
     public override void Die()
     {
         Debug.Log("Die", this);
+        Collapse();
         OnDied.Invoke();
         IEnumerator finishLevelAfterSeconds(float t)
         {
@@ -70,5 +79,73 @@ public partial class Tower : DamageableStructure
             levelManager.FinishLevel(false);
         }
         StartCoroutine(finishLevelAfterSeconds(3));
+    }
+
+    public void Collapse()
+    {
+        meshObject.SetActive(false);
+        structurePartsContainer.gameObject.SetActive(true);
+        if (structureParts == null) InitializeStructureParts();
+        for (int i = 0; i < structureParts.Length; i++)
+        {
+            StructurePart structurePart = structureParts[i];
+            structurePart.Collapse();
+        }
+    }
+    public void Rewind()
+    {
+        for (int i = 0; i < structureParts.Length; i++)
+        {
+            StructurePart structurePart = structureParts[i];
+            structurePart.Rewind();
+        }
+    }
+    private void InitializeStructureParts()
+    {
+        structureParts = new StructurePart[structurePartsContainer.childCount];
+        for (int i = 0; i < structureParts.Length; i++)
+        {
+            Transform structurePartTransform = structurePartsContainer.GetChild(i);
+            structureParts[i] = new(structurePartTransform);
+        }
+    }
+    private class StructurePart
+    {
+        public Transform transform;
+        public Rigidbody rigidbody;
+        public MeshCollider meshCollider;
+        public Vector3 originalPosition;
+        public Quaternion originalRotation;
+
+        public StructurePart(Transform transform)
+        {
+            this.transform = transform;
+            originalPosition = transform.position;
+            originalRotation = transform.rotation;
+            InitializeRigidbody();
+            InitializeMeshCollider();
+            transform.gameObject.layer = 12;
+        }
+        private void InitializeRigidbody()
+        {
+            rigidbody = transform.gameObject.AddComponent<Rigidbody>();
+            rigidbody.isKinematic = true;
+        }
+        private void InitializeMeshCollider()
+        {
+            meshCollider = transform.gameObject.AddComponent<MeshCollider>();
+            meshCollider.convex = true;
+        }
+
+        public void Collapse()
+        {
+            rigidbody.isKinematic = false;
+        }
+        public void Rewind()
+        {
+            rigidbody.isKinematic = true;
+            transform.DOMove(originalPosition, 3);
+            transform.DORotateQuaternion(originalRotation, 3);
+        }
     }
 }
