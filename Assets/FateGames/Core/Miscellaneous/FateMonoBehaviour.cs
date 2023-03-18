@@ -25,6 +25,7 @@ namespace FateGames.Core
 #endif
         public void Log(string message, bool printOnConsole = true)
         {
+            //return
             if (printOnConsole)
                 Debug.Log(message, this);
 #if DEBUG

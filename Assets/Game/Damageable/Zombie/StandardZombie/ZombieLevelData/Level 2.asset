@@ -15,6 +15,6 @@ MonoBehaviour:
   Cooldown: 2
   Color: {r: 0.19353484, g: 0.73, b: 0, a: 1}
   MaxHealth: 50
-  Speed: 1.5
+  Speed: 2
   Damage: 5
   Scale: 1.2
