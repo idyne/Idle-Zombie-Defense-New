@@ -30,7 +30,7 @@ namespace FateGames.Tweening
             if (callBack != null) callBack();
         }
 
-        public FaCore OnComplate(Action callBack)
+        public FaCore OnComplete(Action callBack)
         {
             this.callBack += callBack;
             return this;
