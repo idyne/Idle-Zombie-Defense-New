@@ -262,6 +262,16 @@ namespace FateGames.Tweening
                 },
                 target, duration);
         }
+
+        public static FaTweener<Color> FaColor(this Image image, Color target, float duration, bool ignoreTimeScale = false)
+        {
+            return To(() => image.color,
+                (Color v) =>
+                {
+                    image.color = v;
+                },
+                target, duration);
+        }
         #endregion
 
         #region Projectile Motion

@@ -39,7 +39,7 @@ namespace FateGames.Tweening
             if (tweens.Contains(tween))
                 tweens.Remove(tween);
             else
-                Debug.Log("FaTween Error");
+                Debug.Log("FaTween remove Error");
         }
 
         private void Awake()
