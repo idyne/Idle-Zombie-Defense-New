@@ -12,7 +12,7 @@ public abstract class Throwable : FateMonoBehaviour
     public void Throw(Vector3 to)
     {
         float time = 2;
-        transform.FaProjectileMotion(to, time, gravity: -25).OnComplate(OnReached);
+        transform.FaProjectileMotion(to, time, gravity: -25).OnComplete(OnReached);
     }
 
     protected abstract void OnReached();
