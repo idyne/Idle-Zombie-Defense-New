@@ -27,7 +27,7 @@ public class CircleCameraController : CameraController
     {
         base.Awake();
         Init();
-        swerve = InputManager.GetSwerve(Screen.width / 2);
+        swerve = InputManager.GetSwerve(Screen.height);
         swerve.OnStart.AddListener(SetAnchorAngle);
         swerve.OnStart.AddListener(SetAnchorDistance);
         swerve.OnStart.AddListener(() => { onUI = EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject != null; });
