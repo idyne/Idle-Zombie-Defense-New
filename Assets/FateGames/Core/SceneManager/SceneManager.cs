@@ -37,9 +37,20 @@ namespace FateGames.Core
             Instantiate(sceneBootloaderPrefab);
         }
 
+        public void LoadNextLevel()
+        {
+            saveData.Value.Level++;
+            LoadCurrentLevel();
+        }
+
         public void LoadCurrentLevel(bool async = true)
         {
-            LoadScene(currentLevelSceneIndex, async);
+            LoadLevel(currentLevelSceneIndex);
+        }
+
+        public void LoadLevel(int level, bool async = true)
+        {
+            LoadScene(level, async);
             onLevelStartedLoading.Invoke();
         }
 
