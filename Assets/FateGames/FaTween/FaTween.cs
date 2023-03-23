@@ -250,6 +250,23 @@ namespace FateGames.Tweening
         }
         #endregion
 
+
+        #region RectTransform
+        public static FaTweener<Vector3> FaMove(this RectTransform trans, Vector3 target, float duration, bool ignoreTimeScale = false)
+        {
+            return To(() => trans.position,
+                (Vector3 x) => trans.position = x,
+                target, duration);
+        }
+        public static FaTweener<Vector3> FaLocalScale(this RectTransform trans, Vector3 target, float duration, bool ignoreTimeScale = false)
+        {
+            return To(() => trans.localScale,
+                (Vector3 x) => trans.localScale = x,
+                target, duration);
+        }
+
+        #endregion
+
         #region Color
         public static FaTweener<float> FaFade(this Image image, float target, float duration, bool ignoreTimeScale = false)
         {
