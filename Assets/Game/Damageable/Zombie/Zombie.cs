@@ -17,6 +17,7 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] protected LayerMask enemyLayerMask;
     [SerializeField] protected MeshRenderer meshRenderer;
     [SerializeField] protected SnapshotMeshAnimator meshAnimator;
+    [SerializeField] private MoneyBurster moneyBurster;
 
     private IEnumerator flashCoroutine = null;
     public event Action OnRelease;
@@ -256,9 +257,8 @@ public class Zombie : Damageable, IPooledObject
     public void DropMoney()
     {
         Log("DropMoney", false);
-        // TODO change to real money
         int money = 50001;
-        saveData.AddMoney(money);
+        if (moneyBurster) moneyBurster.Burst(money, level, transform.position, Vector3.up);
     }
 
     public void OnObjectSpawn()
