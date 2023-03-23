@@ -4,22 +4,36 @@ using UnityEngine;
 using FateGames.Core;
 using TMPro;
 using System;
+using DG.Tweening;
 
-public class MoneyField : MonoBehaviour
+public class MoneyField : FateMonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private SaveDataVariable saveData;
+    [SerializeField] private Transform imageTransform;
+    private bool animating = false;
 
     void Start()
     {
         saveData.OnMoneyChanged.AddListener((previous, current) => SetMoney());
         SetMoney();
+
+        saveData.OnMoneyChanged.AddListener(BounceMoney);
+    }
+
+    private void BounceMoney(int before, int after)
+    {
+        int change = after - before;
+        if (animating || change == 0) return;
+        animating = true;
+        imageTransform.DOScale(1.2f, 0.05f).SetLoops(2, LoopType.Yoyo).OnComplete(() => { animating = false; });
     }
 
     public void SetMoney()
     {
         moneyText.text = numberFormat(saveData.Value.Money).Replace(",", ".");
     }
+
     public enum suffixes
     {
         p, // p is a placeholder if the value is under 1 thousand
@@ -27,7 +41,7 @@ public class MoneyField : MonoBehaviour
         M, // Million
         B, // Billion
         T, // Trillion
-        Q, //Quadrillion
+        Q, // Quadrillion
     }
 
     //Formats numbers in Millions, Billions, etc.

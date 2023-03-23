@@ -70,6 +70,7 @@ MonoBehaviour:
     m_Bits: 1536
   meshRenderer: {fileID: 7479532135112553127}
   meshAnimator: {fileID: 5549350997571715631}
+  moneyBurster: {fileID: 11400000, guid: a7e2b78f74b35d4428d1c70bd1838f46, type: 2}
 --- !u!114 &5479262175502859983
 MonoBehaviour:
   m_ObjectHideFlags: 0

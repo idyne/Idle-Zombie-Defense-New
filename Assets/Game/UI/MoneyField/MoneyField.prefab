@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moneyText: {fileID: 8766047497124488435}
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
+  imageTransform: {fileID: 4040279269206168624}
 --- !u!1 &269600213458042130
 GameObject:
   m_ObjectHideFlags: 0
