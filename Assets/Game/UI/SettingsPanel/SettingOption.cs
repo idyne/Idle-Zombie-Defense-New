@@ -4,13 +4,13 @@ using FateGames.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SettingOption : MonoBehaviour
 {
     [SerializeField] BoolReference variable;
-    [SerializeField] GameEvent onEvent;
-    [SerializeField] GameEvent offEvent;
+    [SerializeField] private UnityEvent onTurnedOn, onTurnedOff;
     [SerializeField] private Image toggleBack;
     [SerializeField] private RectTransform toggle;
     [SerializeField] private float moveDistanceFromCenter = 45;
@@ -38,13 +38,13 @@ public class SettingOption : MonoBehaviour
         {
             toggle.transform.localPosition = Vector3.right * moveDistanceFromCenter;
             toggleBack.color = activeColor;
-            onEvent.Raise();
+            onTurnedOn.Invoke();
         }
         else
         {
             toggle.transform.localPosition = Vector3.left * moveDistanceFromCenter;
             toggleBack.color = disabledColor;
-            offEvent.Raise();
+            onTurnedOff.Invoke();
         }
     }
 }
