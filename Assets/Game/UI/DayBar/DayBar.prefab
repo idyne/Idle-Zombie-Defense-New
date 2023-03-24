@@ -144,8 +144,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: DAY 99
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b1bda9db42d58494a822510e43f4ed39, type: 2}
-  m_sharedMaterial: {fileID: -2189104513073893485, guid: b1bda9db42d58494a822510e43f4ed39,
+  m_fontAsset: {fileID: 11400000, guid: 72ded621a6e095f458748adab70a5bc9, type: 2}
+  m_sharedMaterial: {fileID: -1516197902706687054, guid: 72ded621a6e095f458748adab70a5bc9,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
