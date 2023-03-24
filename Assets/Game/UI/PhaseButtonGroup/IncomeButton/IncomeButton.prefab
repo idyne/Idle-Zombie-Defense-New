@@ -53,6 +53,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 47.77298
       objectReference: {fileID: 0}
+    - target: {fileID: 4625831444126040862, guid: 1ad009be1d3fd394da6648f95826b2df,
+        type: 3}
+      propertyPath: m_text
+      value: Income
+      objectReference: {fileID: 0}
+    - target: {fileID: 4625831444126040862, guid: 1ad009be1d3fd394da6648f95826b2df,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 45.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5116736190543305971, guid: 1ad009be1d3fd394da6648f95826b2df,
         type: 3}
       propertyPath: m_Pivot.x
@@ -193,6 +203,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_fontSize
       value: 62.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206921639387717309, guid: 1ad009be1d3fd394da6648f95826b2df,
+        type: 3}
+      propertyPath: m_text
+      value: Income
       objectReference: {fileID: 0}
     - target: {fileID: 8368281472265015822, guid: 1ad009be1d3fd394da6648f95826b2df,
         type: 3}

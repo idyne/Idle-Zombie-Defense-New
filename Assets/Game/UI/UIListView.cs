@@ -4,6 +4,7 @@ using UnityEngine;
 using FateGames.Core;
 public class UIListView : FateMonoBehaviour
 {
+    [SerializeField] private float padding = 20;
     private void Start()
     {
         RearrangeItems();
@@ -23,8 +24,8 @@ public class UIListView : FateMonoBehaviour
             RectTransform child = transform.GetChild(i).GetComponent<RectTransform>();
             Vector3 anchoredPosition = child.anchoredPosition;
             anchoredPosition.y = -current;
-            child.localPosition = anchoredPosition;
-            current += child.sizeDelta.y;
+            child.anchoredPosition = anchoredPosition;
+            current += child.sizeDelta.y + padding;
         }
         RectTransform rectTransform = GetComponent<RectTransform>();
         Vector2 sizeDelta = rectTransform.sizeDelta;
