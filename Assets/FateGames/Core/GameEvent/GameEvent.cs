@@ -10,6 +10,7 @@ namespace FateGames.Core
         private List<GameEventListener> listeners = new List<GameEventListener>();
         public void Raise()
         {
+            Debug.Log(name + " raised!", this);
             for (int i = listeners.Count - 1; i >= 0; i--)
                 listeners[i].OnEventRaised();
         }

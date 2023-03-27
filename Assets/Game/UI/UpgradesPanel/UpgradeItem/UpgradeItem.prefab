@@ -477,6 +477,8 @@ GameObject:
   - component: {fileID: 9184052804905871952}
   - component: {fileID: 2419612748918180855}
   - component: {fileID: 6568425736288565142}
+  - component: {fileID: 4366174008608934776}
+  - component: {fileID: 1596026991437305249}
   m_Layer: 0
   m_Name: UpgradeItem
   m_TagString: Untagged
@@ -566,6 +568,52 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &4366174008608934776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8942810526086870947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5ee8c7498c39d4581605b82fee94cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 9184052804905871952}
+  icon: {fileID: 6945451823372790723}
+  nameText: {fileID: 8796993644978374668}
+  description: {fileID: 4976396614487650328}
+  costText: {fileID: 8837657860787941768}
+  upgradeButton: {fileID: 6267157948258961296}
+--- !u!114 &1596026991437305249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8942810526086870947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: bc996635b8f79ba44a55a38215ffab27, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4366174008608934776}
+        m_TargetAssemblyTypeName: UpgradeItem, Assembly-CSharp
+        m_MethodName: UpdateElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &508468400971331764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -691,3 +739,27 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 508468400971331764}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6267157948258961296 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5906219827144818468, guid: 75f1180ec7d11364f8021f2094f806ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 508468400971331764}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 574f184a1d681094a90b9f347d77eea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8837657860787941768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9055571517418244412, guid: 75f1180ec7d11364f8021f2094f806ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 508468400971331764}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
