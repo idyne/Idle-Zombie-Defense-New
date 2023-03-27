@@ -7,6 +7,7 @@ namespace FateGames.Core
 {
     public class SceneBootloader : MonoBehaviour
     {
+        [SerializeField] private UpgradeListEntityRuntimeSet baseUpgrades, commanderUpgrades;
         [SerializeField] private GameObject billboardUpdaterPrefab;
         [SerializeField] private SceneManager sceneManager;
         [SerializeField] private LevelManager levelManager;
@@ -36,6 +37,8 @@ namespace FateGames.Core
                 Instantiate(billboardUpdaterPrefab);
                 ObjectPooler.OnNewLevel();
                 gameState.Value = GameState.BEFORE_START;
+                baseUpgrades.InitializeItems();
+                commanderUpgrades.InitializeItems();
                 onLevelFinishedLoading.Invoke();
                 if (levelManager.AutoStart)
                     levelManager.StartLevel();

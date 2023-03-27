@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Level: 1
-    SoldierBuyingLevel: 1
-    Money: 364857282
-    Tools: 0
+    SoldierBuyingLevel: 5
+    CommanderDamageLevel: 30
+    TurretCount: 34
+    TurretDamageLevel: 42
+    Money: 1300026
+    Tools: 170
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

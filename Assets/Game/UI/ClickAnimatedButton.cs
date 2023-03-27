@@ -7,24 +7,22 @@ using UnityEngine.UI;
 public class ClickAnimatedButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private Button button;
-    [SerializeField] private GameObject container, pressedContainer;
+    [SerializeField] private RectTransform container;
+    [SerializeField] private float offset = 30;
+    private Vector2 initialContainerPosition = Vector2.zero;
+
+    private void Awake()
+    {
+        initialContainerPosition = container.anchoredPosition;
+    }
     public void OnPointerDown(PointerEventData eventData)
     {
         if (!button.interactable) return;
-        container.SetActive(false);
-        pressedContainer.SetActive(true);
+        container.anchoredPosition = initialContainerPosition + Vector2.down * offset;
     }
-
     public void OnPointerUp(PointerEventData eventData)
     {
-        container.SetActive(true);
-        pressedContainer.SetActive(false);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-            button.interactable = !button.interactable;
+        container.anchoredPosition = initialContainerPosition;
     }
 
 }
