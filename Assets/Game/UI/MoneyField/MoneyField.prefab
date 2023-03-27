@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1210844734679887123}
   - component: {fileID: 9089823914636567902}
+  - component: {fileID: 6568384924455078323}
   m_Layer: 0
   m_Name: MoneyField
   m_TagString: Untagged
@@ -48,6 +49,46 @@ MonoBehaviour:
   moneyText: {fileID: 8766047497124488435}
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   imageTransform: {fileID: 4040279269206168624}
+--- !u!114 &6568384924455078323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263366502162660791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: eb9d876282664e3458cdcda958768725, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9089823914636567902}
+        m_TargetAssemblyTypeName: MoneyField, Assembly-CSharp
+        m_MethodName: SetMoney
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9089823914636567902}
+        m_TargetAssemblyTypeName: MoneyField, Assembly-CSharp
+        m_MethodName: BounceMoney
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &269600213458042130
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,7 +424,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &4991601539824274539
 MonoBehaviour:

@@ -11,12 +11,6 @@ namespace FateGames.Core
         public UnityEvent<int, int> OnMoneyChanged = new();
         public UnityEvent<int, int> OnToolsChanged = new();
 
-        private void OnEnable()
-        {
-            OnMoneyChanged.RemoveAllListeners();
-            OnToolsChanged.RemoveAllListeners();
-        }
-
         public bool SpendMoney(int cost)
         {
             if (!CanAffordMoney(cost)) return false;
