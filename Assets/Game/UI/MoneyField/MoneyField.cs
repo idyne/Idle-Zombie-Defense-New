@@ -15,16 +15,12 @@ public class MoneyField : FateMonoBehaviour
 
     void Start()
     {
-        saveData.OnMoneyChanged.AddListener((previous, current) => SetMoney());
         SetMoney();
-
-        saveData.OnMoneyChanged.AddListener(BounceMoney);
     }
 
-    private void BounceMoney(int before, int after)
+    public void BounceMoney()
     {
-        int change = after - before;
-        if (animating || change == 0) return;
+        if (animating) return;
         animating = true;
         imageTransform.DOScale(1.2f, 0.05f).SetLoops(2, LoopType.Yoyo).OnComplete(() => { animating = false; });
     }

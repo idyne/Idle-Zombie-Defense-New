@@ -35,7 +35,7 @@ public class Money3D : FateMonoBehaviour, IPooledObject
     private IEnumerator WaitAndTurnToUI()
     {
         yield return new WaitForSeconds(2f);
-        money2DPool.Get<Money2D>(Vector3.zero, Quaternion.identity).AnimateGoOnUI(Camera.main.WorldToScreenPoint(transform.position), Gain);
+        money2DPool.Get<Money2D>(Vector3.zero, Quaternion.identity).DirectGoToUI(Camera.main.WorldToScreenPoint(transform.position), Gain);
         Release();
     }
 
