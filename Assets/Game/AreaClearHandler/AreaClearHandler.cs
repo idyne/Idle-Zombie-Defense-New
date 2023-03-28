@@ -57,10 +57,15 @@ public class AreaClearHandler : MonoBehaviour
     public void WaveClear(int moneyAmount, int toolAmount)
     {
         waveClearEffect.SetActive(true);
-        FaTween.DelayedCall(0.2f, () =>
+        FaTween.DelayedCall(0.5f, () =>
         {
             SpreadMoney(defaultSpawnPosition.position, moneyAmount);
             SpreadTool(defaultSpawnPosition.position, toolAmount);
+        });
+
+        FaTween.DelayedCall(3f, () =>
+        {
+            waveClearEffect.SetActive(false);
         });
     }
 
