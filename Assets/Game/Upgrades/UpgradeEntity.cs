@@ -47,7 +47,7 @@ public abstract class UpgradeEntity : ScriptableObject
     public Sprite Icon { get => icon; }
     public string UpgradeName { get => upgradeName; }
     public string Description { get => description; }
-    public int Cost { get => Level * 10; }
+    public abstract int Cost { get; }
     public UpgradeListEntityRuntimeSet RuntimeSet { get => runtimeSet; }
 
     public void Awake()

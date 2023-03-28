@@ -16,10 +16,10 @@ MonoBehaviour:
     Level: 1
     SoldierBuyingLevel: 5
     CommanderDamageLevel: 30
-    TurretCount: 34
+    TurretCount: 4
     TurretDamageLevel: 42
-    Money: 1300026
-    Tools: 170
+    Money: 13800276
+    Tools: 70
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
