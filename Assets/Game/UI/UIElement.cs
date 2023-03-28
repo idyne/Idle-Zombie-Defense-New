@@ -10,8 +10,8 @@ public class UIElement : FateMonoBehaviour
     private GameObject backgroundObject = null;
     private int originalOrder = 0;
 
-    public virtual void Hide() => canvas.enabled = false;
-    public virtual void Show() => canvas.enabled = true;
+    public virtual void Hide() { canvas.enabled = false; canvas.gameObject.SetActive(false); }
+    public virtual void Show() { canvas.enabled = true; canvas.gameObject.SetActive(true); }
 
     public void Highlight()
     {

@@ -14,10 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Level: 1
-    SoldierBuyingLevel: 7
-    Money: 10350307
-    Tools: 0
+    SoldierBuyingLevel: 5
+    TurretCount: 3
+    TurretDamageLevel: 1
+    Money: 850017
+    FireRateLevel: 1
+    Tools: 5
   OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  OnMoneyChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: eb9d876282664e3458cdcda958768725, type: 2}
@@ -32,9 +38,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnMoneyChanged:
-    m_PersistentCalls:
-      m_Calls: []
   OnToolsChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: bc996635b8f79ba44a55a38215ffab27, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

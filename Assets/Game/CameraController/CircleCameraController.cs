@@ -27,10 +27,10 @@ public class CircleCameraController : CameraController
     {
         base.Awake();
         Init();
-        swerve = InputManager.GetSwerve(Screen.width / 2);
+        swerve = InputManager.GetSwerve(Screen.height);
         swerve.OnStart.AddListener(SetAnchorAngle);
         swerve.OnStart.AddListener(SetAnchorDistance);
-        swerve.OnStart.AddListener(() => { onUI = EventSystem.current.IsPointerOverGameObject() && EventSystem.current.currentSelectedGameObject != null; });
+        swerve.OnStart.AddListener(() => { onUI = EventSystem.current.IsPointerOverGameObject(); });
         swerve.OnSwerve.AddListener(() =>
         {
             if (zoomingOut || onUI) return;
@@ -50,7 +50,7 @@ public class CircleCameraController : CameraController
             //DayCycler.Instance.ChangeFogOffset(-zoomDistance);
             cameraTransform.localPosition = initialCameraPosition + direction * zoomDistance;
         }
-            
+
     }
 
     private void SetAnchorAngle()

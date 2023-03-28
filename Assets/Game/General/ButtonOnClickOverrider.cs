@@ -10,6 +10,10 @@ public class ButtonOnClickOverrider : MonoBehaviour
     public virtual void OnEnable()
     {
         button.onClick = onClick;
-        onClick.AddListener(() => { Debug.Log(name + " clicked!", this); });
+        //onClick.AddListener(() => { Debug.Log(name + " clicked!", this); });
+    }
+    public virtual void OnDisable()
+    {
+
     }
 }
