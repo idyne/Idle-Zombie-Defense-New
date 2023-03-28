@@ -16,7 +16,9 @@ namespace FateGames.Core
             {
                 Items.Add(t);
                 OnChange.Invoke();
+#if DEBUG
                 Debug.Log(name + " changed!", this);
+#endif
             }
         }
 
@@ -26,7 +28,9 @@ namespace FateGames.Core
             {
                 Items.Remove(t);
                 OnChange.Invoke();
+#if DEBUG
                 Debug.Log(name + " changed!", this);
+#endif
             }
         }
     }

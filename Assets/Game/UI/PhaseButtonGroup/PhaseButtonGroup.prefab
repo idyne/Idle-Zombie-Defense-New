@@ -254,6 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1793547845924633139}
+  deactivateOnHide: 0
 --- !u!114 &1528561295248099640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -620,6 +621,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoldierButton
       objectReference: {fileID: 0}
+    - target: {fileID: 3770576888209545826, guid: 4d061a43abab3254bbaa59222eca56a6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d061a43abab3254bbaa59222eca56a6, type: 3}
 --- !u!224 &6033013769412542083 stripped
@@ -889,6 +895,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: IncomeButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 3770576888209545826, guid: 455ac06c3b19b4f4cbc8423956de4451,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 455ac06c3b19b4f4cbc8423956de4451, type: 3}
