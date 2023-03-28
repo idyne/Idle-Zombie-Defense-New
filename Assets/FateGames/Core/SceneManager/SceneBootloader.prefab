@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: -3233653356790301180}
   - component: {fileID: 3721649516836036569}
   - component: {fileID: 644491749452756402}
+  - component: {fileID: 8220555143217553912}
   m_Layer: 0
   m_Name: SceneBootloader
   m_TagString: Untagged
@@ -97,6 +98,7 @@ MonoBehaviour:
   billboardUpdaterPrefab: {fileID: 219382712683867375, guid: cc6ebcfa196c10f498eced1c8ab7f3a1,
     type: 3}
   sceneManager: {fileID: 11400000, guid: 30f4fb8e342857543a5c7983051b6c66, type: 2}
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
   levelManager: {fileID: 11400000, guid: e819ee089d988a04689f8f12ac7edac1, type: 2}
   gameState: {fileID: 11400000, guid: 35af722527cf21148bdd90a70a23f45e, type: 2}
   onLevelFinishedLoading:
@@ -169,6 +171,34 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8220555143217553912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468232153951217328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: fc7b558fab1305d40b5cda144921ed37, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: e819ee089d988a04689f8f12ac7edac1, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.LevelManager, Assembly-CSharp
+        m_MethodName: FinishLevel
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &9173196850426447436
 GameObject:

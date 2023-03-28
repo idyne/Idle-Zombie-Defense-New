@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: InfantryPool
   m_EditorClassIdentifier: 
   tag: Infantry
-  prefab: {fileID: 7892615209185785116, guid: 910279db9c29d644ebda3a9045963d37, type: 3}
+  prefab: {fileID: 2160567342785072776, guid: c397b8fb4254e9a4f9c824df032ff4eb, type: 3}
+  startSize: 0

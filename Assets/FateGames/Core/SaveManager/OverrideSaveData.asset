@@ -13,17 +13,18 @@ MonoBehaviour:
   m_Name: OverrideSaveData
   m_EditorClassIdentifier: 
   value:
-    Level: 1
-    SoldierBuyingLevel: 1
-    SoldierTable: 0100000006000000000000000200000000000000000000000000000000000000
+    Level: 5
+    SoldierBuyingLevel: 7
+    SoldierTable: 0100000000000000000000000000000000000000000000000000000018000000
     CommanderDamageLevel: 30
     TurretCount: 4
     TurretDamageLevel: 42
-    Money: 4378
-    FireRateLevel: 25
+    Money: 92376
+    FireRateLevel: 43
     IncomeLevel: 2
-    SoldierBuyingCount: 21
+    SoldierBuyingCount: 55
     Tools: 70
+    WaveLevel: 105
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

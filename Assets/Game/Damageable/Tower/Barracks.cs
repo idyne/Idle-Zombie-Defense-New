@@ -83,6 +83,7 @@ public partial class Tower
     {
         soldierTable[level].Items[^1].Release();
         NumberOfSoldiers--;
+        isTowerFull.Value = NumberOfSoldiers >= points.Count;
         saveData.Value.SoldierTable[level]--;
     }
 

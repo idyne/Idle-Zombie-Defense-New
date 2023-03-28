@@ -307,10 +307,7 @@ MonoBehaviour:
   costText: {fileID: 4301106722427122826}
   nameText: {fileID: 19031628011981682}
   button: {fileID: 4347814892803814539}
-  isTowerFull:
-    UseConstant: 0
-    ConstantValue: 1
-    Variable: {fileID: 11400000, guid: 14f07f2cdf1006e42859a1687fccb90f, type: 2}
+  isTowerFull: {fileID: 11400000, guid: 14f07f2cdf1006e42859a1687fccb90f, type: 2}
 --- !u!223 &4246542115776392899 stripped
 Canvas:
   m_CorrespondingSourceObject: {fileID: 8835890484389324463, guid: 1ad009be1d3fd394da6648f95826b2df,

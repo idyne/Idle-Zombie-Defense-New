@@ -261,3 +261,10 @@ public class WaveController : MonoBehaviour
         Gizmos.DrawSphere(Vector3.zero, spawnCircleRadius + spawnCircleWidth);
     }
 }
+
+
+
+public partial class SaveData
+{
+    public int WaveLevel = 1;
+}

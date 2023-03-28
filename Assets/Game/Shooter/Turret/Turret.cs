@@ -49,4 +49,11 @@ public class Turret : Shooter
         Vector3 direction = to - head.position;
         head.rotation = Quaternion.Lerp(head.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 3f);
     }
+    public virtual void Die()
+    {
+        if (Targeting)
+            StopTargeting();
+        if (target)
+            RemoveTarget();
+    }
 }

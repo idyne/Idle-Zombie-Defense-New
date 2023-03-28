@@ -10,6 +10,7 @@ namespace FateGames.Core
         [SerializeField] private UpgradeListEntityRuntimeSet baseUpgrades, commanderUpgrades;
         [SerializeField] private GameObject billboardUpdaterPrefab;
         [SerializeField] private SceneManager sceneManager;
+        [SerializeField] private ZoneManager zoneManager;
         [SerializeField] private LevelManager levelManager;
         [SerializeField] private GameStateVariable gameState;
         [SerializeField] private UnityEvent onLevelFinishedLoading = new();
@@ -37,6 +38,7 @@ namespace FateGames.Core
                 Instantiate(billboardUpdaterPrefab);
                 ObjectPooler.OnNewLevel();
                 gameState.Value = GameState.BEFORE_START;
+                zoneManager.Initialize();
                 baseUpgrades.InitializeItems();
                 commanderUpgrades.InitializeItems();
                 onLevelFinishedLoading.Invoke();

@@ -6,13 +6,13 @@ using UnityEngine.UI;
 
 public class ZoneBar : UIElement
 {
+    [SerializeField] private ZoneManager zoneManager;
     [SerializeField] private Transform barContainer;
     [Header("Colors")]
     [SerializeField] private Color pastColor, presentColor, futureColor;
     private Image[] bars;
-    //TODO
-    private int Day { get => 6; }
-    private int ZoneLength { get => 7; }
+    private int Day { get => zoneManager.NormalizedDay; }
+    private int ZoneLength { get => zoneManager.ZoneLength; }
 
     private void Awake()
     {
