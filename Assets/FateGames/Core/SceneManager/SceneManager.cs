@@ -50,6 +50,7 @@ namespace FateGames.Core
 
         public void LoadLevel(int level, bool async = true)
         {
+            DG.Tweening.DOTween.KillAll();
             LoadScene(level, async);
             onLevelStartedLoading.Invoke();
         }
