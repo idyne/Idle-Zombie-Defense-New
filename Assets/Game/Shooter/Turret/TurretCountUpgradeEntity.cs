@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Upgrades/Turret/Turret Count")]
 public class TurretCountUpgradeEntity : UpgradeEntity
 {
+    public override int Cost => Level * 10;
     protected override int Level { get => saveData.Value.TurretCount; set => saveData.Value.TurretCount = value; }
     public override void Initialize()
     {

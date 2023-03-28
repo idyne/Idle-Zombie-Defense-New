@@ -17,4 +17,16 @@ MonoBehaviour:
   icon: {fileID: 4279260276780606416, guid: 3da05e9f66c9f254c8875335e7e9179e, type: 3}
   upgradeName: Turret Count
   description: Place +1 turret
-  cost: 15
+  OnUpgrade:
+    m_PersistentCalls:
+      m_Calls: []
+  Limit: 4
+  dayLimits:
+  - Day: 5
+    Limit: 4
+  - Day: 10
+    Limit: 2
+  - Day: 15
+    Limit: 3
+  - Day: 20
+    Limit: 4
