@@ -22,12 +22,14 @@ namespace FateGames.Core
         {
             if (gameState.Value == GameState.PAUSED) return;
             gameState.Value = GameState.PAUSED;
+            Time.timeScale = 0;
             OnPause.Invoke();
         }
 
         public void ResumeGame()
         {
             if (gameState.Value != GameState.PAUSED) return;
+            Time.timeScale = 1;
             gameState.Value = GameState.IN_GAME;
             OnResume.Invoke();
         }

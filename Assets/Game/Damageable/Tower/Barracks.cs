@@ -51,7 +51,12 @@ public partial class Tower
         return canMerge;
     }
 
-    public void AddSoldier(int level)
+    public void AddSoldier()
+    {
+        AddSoldier(saveData.Value.SoldierBuyingLevel);
+    }
+
+    public void AddSoldier(int level, bool save = true)
     {
         if (NumberOfSoldiers >= points.Count)
         {
@@ -61,14 +66,24 @@ public partial class Tower
         Vector3 position = GetPoint(NumberOfSoldiers).position;
         soldierPools[level].Get<Soldier>(position, Quaternion.identity);
         NumberOfSoldiers++;
+        isTowerFull.Value = NumberOfSoldiers >= points.Count;
+        if (save)
+        {
+            saveData.Value.SoldierTable[level]++;
+        }
         OnNewSoldier.Invoke();
-        if (CanMerge(out _)) OnMergeAvailable.Invoke();
+        if (CanMerge(out _))
+        {
+            print("merge");
+            OnMergeAvailable.Invoke();
+        }
     }
 
     public void RemoveSoldier(int level)
     {
         soldierTable[level].Items[^1].Release();
         NumberOfSoldiers--;
+        saveData.Value.SoldierTable[level]--;
     }
 
     public List<Soldier> GetSortedSoldierList()

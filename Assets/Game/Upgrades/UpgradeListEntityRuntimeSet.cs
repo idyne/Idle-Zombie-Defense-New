@@ -4,7 +4,7 @@ using UnityEngine;
 using FateGames.Core;
 
 [CreateAssetMenu(menuName = "Upgrades/Upgrade List Entity Runtime Set")]
-public class UpgradeListEntityRuntimeSet : RuntimeSet<UpgradeEntity>
+public class UpgradeListEntityRuntimeSet : RuntimeSet<PreparationUpgradeEntity>
 {
     public void InitializeItems()
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FateGames.Core;
 
-public class MergeButton : UIElement
+public class MergeButton : DynamicUIElement
 {
     [SerializeField] private SaveDataVariable saveData;
 
@@ -14,14 +14,12 @@ public class MergeButton : UIElement
 
     public override void Show()
     {
-        UpdateButton();
+        UpdateElement();
         base.Show();
     }
 
-    public void UpdateButton()
+    public override void UpdateElement()
     {
-
+        
     }
-
-
 }

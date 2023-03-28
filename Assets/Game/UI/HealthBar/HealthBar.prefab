@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 4893823620517595477}
   - component: {fileID: 3329764791331709870}
   - component: {fileID: 5453606733829278926}
-  m_Layer: 21
+  m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -9,9 +9,9 @@ public class UpgradeItem : DynamicUIElement
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI nameText, description, costText;
     [SerializeField] private UpgradeButton upgradeButton;
-    private UpgradeEntity upgradeEntity = null;
+    private PreparationUpgradeEntity upgradeEntity = null;
 
-    public void Set(UpgradeEntity entity)
+    public void Set(PreparationUpgradeEntity entity)
     {
         Unset();
         upgradeEntity = entity;
@@ -46,7 +46,7 @@ public class UpgradeItem : DynamicUIElement
         }
         else
         {
-            upgradeButton.SwitchToCost(upgradeEntity.Cost);
+            upgradeButton.SwitchToCost(upgradeEntity.Cost, upgradeEntity.Affordable);
         }
     }
 }

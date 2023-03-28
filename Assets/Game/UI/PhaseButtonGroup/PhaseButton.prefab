@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 8946214298328808679}
   container: {fileID: 2842520864422838649}
+  offset: 30
 --- !u!1 &2426650568380612335
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,9 +782,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5116736190543305971}
-  - component: {fileID: -406095430976666583}
+  - component: {fileID: 5571430238649236470}
   - component: {fileID: 8835890484389324463}
   - component: {fileID: 582799812911105760}
+  - component: {fileID: 210331004386827898}
   m_Layer: 0
   m_Name: PhaseButton
   m_TagString: Untagged
@@ -812,7 +814,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &-406095430976666583
+--- !u!114 &5571430238649236470
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -821,13 +823,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 8368281472265015822}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4da31f62f55efdc4fb20bce47c3069f6, type: 3}
+  m_Script: {fileID: 11500000, guid: f5f0c880a0fb4aa43b74e21f1b2bc7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 8835890484389324463}
+  phaseUpgrade: {fileID: 0}
+  infoField: {fileID: 6615250497504028070}
+  costField: {fileID: 6444857287043910881}
+  infoText: {fileID: 6811658118437390788}
+  costText: {fileID: 8917485549330234598}
+  nameText: {fileID: 4625831444126040862}
   button: {fileID: 8946214298328808679}
-  onClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!223 &8835890484389324463
 Canvas:
   m_ObjectHideFlags: 0
@@ -866,3 +872,31 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &210331004386827898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8368281472265015822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: eb9d876282664e3458cdcda958768725, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5571430238649236470}
+        m_TargetAssemblyTypeName: PhaseButton, Assembly-CSharp
+        m_MethodName: UpdateElement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

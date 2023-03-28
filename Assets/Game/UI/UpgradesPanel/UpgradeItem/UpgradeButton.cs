@@ -7,7 +7,6 @@ using TMPro;
 
 public class UpgradeButton : UIElement
 {
-    [SerializeField] private SaveDataVariable saveData;
     [SerializeField] private Button button;
     [SerializeField] private GameObject costField, infoField;
     [SerializeField] private TextMeshProUGUI moneyText, infoText;
@@ -20,9 +19,9 @@ public class UpgradeButton : UIElement
         infoField.SetActive(true);
         costField.SetActive(false);
     }
-    public void SwitchToCost(int cost)
+    public void SwitchToCost(int cost, bool affordable)
     {
-        button.interactable = saveData.CanAffordTools(cost);
+        button.interactable = affordable;
         moneyText.text = cost.ToString();
         infoField.SetActive(false);
         costField.SetActive(true);
