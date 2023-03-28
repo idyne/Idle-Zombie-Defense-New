@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38011bc6216c04e4692470e10f9c76d5, type: 3}
-  m_Name: MissileLauncherPool
+  m_Script: {fileID: 11500000, guid: cf1b913aecea33b43b13696d1ee7fdc9, type: 3}
+  m_Name: ZoneManager
   m_EditorClassIdentifier: 
-  tag: Missile Launcher
-  prefab: {fileID: 1794549139579198762, guid: 364b89545b22acc4cb15151e122cde1d, type: 3}
-  startSize: 0
+  saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
+  zoneLengths: 070000000700000007000000070000000700000007000000
+  Day: 0
+  Zone: 0

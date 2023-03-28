@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: ButcherPool
   m_EditorClassIdentifier: 
   tag: Butcher
-  prefab: {fileID: 7892615209185785116, guid: 9298433ad80a37844850d701804cc5f9, type: 3}
+  prefab: {fileID: 2136893495749683307, guid: e15e8df36e7624d4fb49faaa4ecb41d4, type: 3}
+  startSize: 0

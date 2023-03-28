@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CommanderPool
   m_EditorClassIdentifier: 
   tag: Commander
-  prefab: {fileID: 68260588937678669, guid: d601259a0d1db0f469589e6bbecfb853, type: 3}
+  prefab: {fileID: 8420011667890961608, guid: eabb8609eb62aa54b841d57184bfa6b6, type: 3}
   startSize: 0

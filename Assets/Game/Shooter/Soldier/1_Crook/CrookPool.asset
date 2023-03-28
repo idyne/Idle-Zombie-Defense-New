@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: CrookPool
   m_EditorClassIdentifier: 
   tag: Crook
-  prefab: {fileID: 68260588937678669, guid: 451793a3fc870ee43998c361e6c1082d, type: 3}
+  prefab: {fileID: 8098316651475652805, guid: e8adf504e9adb844cabbe7366c0e6382, type: 3}
+  startSize: 0

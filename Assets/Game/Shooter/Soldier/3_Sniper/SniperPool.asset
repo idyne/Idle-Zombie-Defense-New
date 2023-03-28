@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: SniperPool
   m_EditorClassIdentifier: 
   tag: Sniper
-  prefab: {fileID: 7892615209185785116, guid: 50b4cf62d18824742a82c366d82f1605, type: 3}
+  prefab: {fileID: 9149840722064795416, guid: bb076dbfd31f7f3468a829b9b2c95cf8, type: 3}
+  startSize: 0

@@ -5,7 +5,20 @@ using FateGames.Core;
 
 public class SoldierButton : PhaseButton
 {
-    [SerializeField] private BoolReference isTowerFull;
+    [SerializeField] private BoolVariable isTowerFull;
+
+    private void OnEnable()
+    {
+        isTowerFull.OnValueChanged.AddListener(UpdateElement);
+    }
+    private void OnDisable()
+    {
+        isTowerFull.OnValueChanged.RemoveListener(UpdateElement);
+    }
+    public void UpdateElement(bool a, bool b)
+    {
+        UpdateElement();
+    }
     public override void UpdateElement()
     {
         Debug.Log("UpdateElement", this);

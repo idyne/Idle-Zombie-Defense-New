@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: GangsterPool
   m_EditorClassIdentifier: 
   tag: Gangster
-  prefab: {fileID: 68260588937678669, guid: 197901a1de49d5a4ca97866789ae7150, type: 3}
+  prefab: {fileID: 6223772431988471823, guid: 89fe30dc80410fa46b1e784b033b8199, type: 3}
+  startSize: 0

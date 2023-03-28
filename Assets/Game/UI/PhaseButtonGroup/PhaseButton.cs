@@ -12,7 +12,7 @@ public class PhaseButton : DynamicUIElement
     [SerializeField] protected TextMeshProUGUI infoText, costText, nameText;
     [SerializeField] protected Button button;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         phaseUpgrade.OnUpgrade.AddListener(UpdateElement);
         button.onClick.AddListener(phaseUpgrade.BuyUpgrade);

@@ -318,6 +318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 5200673003236014617}
+  deactivateOnHide: 1
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
   barContainer: {fileID: 5124413189540743016}
   pastColor: {r: 0.22961602, g: 0.78699994, b: 0, a: 1}
   presentColor: {r: 1, g: 0.836574, b: 0, a: 1}

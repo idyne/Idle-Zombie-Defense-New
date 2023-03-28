@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: BazookaPool
   m_EditorClassIdentifier: 
   tag: Bazooka
-  prefab: {fileID: 7892615209185785116, guid: 8d39c3b532148f84380d2ec3b33d49cd, type: 3}
+  prefab: {fileID: 7255732364276746848, guid: 5ade799349b9008409d3b68dc9ee9ea9, type: 3}
+  startSize: 0

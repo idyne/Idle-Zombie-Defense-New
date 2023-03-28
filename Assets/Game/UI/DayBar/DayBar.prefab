@@ -720,6 +720,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 2115643280683336859}
   percent: {fileID: 11400000, guid: e830386b94b6a3f42b2ba75e072da906, type: 2}
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
+  dayText: {fileID: 8244550673432080998}
 --- !u!114 &2981578711492934494
 MonoBehaviour:
   m_ObjectHideFlags: 0
