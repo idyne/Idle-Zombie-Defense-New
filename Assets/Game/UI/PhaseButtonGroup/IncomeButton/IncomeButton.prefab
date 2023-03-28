@@ -194,6 +194,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: bc7978d0262b83c4c90ec39e881ea7c6,
         type: 3}
+    - target: {fileID: 5571430238649236470, guid: 1ad009be1d3fd394da6648f95826b2df,
+        type: 3}
+      propertyPath: phaseUpgrade
+      value: 
+      objectReference: {fileID: 11400000, guid: c3d785351fd60634293470886b5a7594,
+        type: 2}
     - target: {fileID: 7152591411842587701, guid: 1ad009be1d3fd394da6648f95826b2df,
         type: 3}
       propertyPath: m_text

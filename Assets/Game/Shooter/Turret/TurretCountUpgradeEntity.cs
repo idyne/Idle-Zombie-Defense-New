@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Upgrades/Turret/Turret Count")]
-public class TurretCountUpgradeEntity : UpgradeEntity
+public class TurretCountUpgradeEntity : PreparationUpgradeEntity
 {
     public override int Cost => Level * 10;
     protected override int Level { get => saveData.Value.TurretCount; set => saveData.Value.TurretCount = value; }
@@ -15,6 +15,7 @@ public class TurretCountUpgradeEntity : UpgradeEntity
         {
             turrets[i].Activate();
         }
+        Debug.Log("init", this);
     }
     public override void Upgrade()
     {
@@ -23,10 +24,8 @@ public class TurretCountUpgradeEntity : UpgradeEntity
     }
 }
 
-namespace FateGames.Core
+
+public partial class SaveData
 {
-    public partial class SaveData
-    {
-        public int TurretCount = 0;
-    }
+    public int TurretCount = 0;
 }

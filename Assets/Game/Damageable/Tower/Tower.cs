@@ -14,6 +14,7 @@ public partial class Tower : DamageableStructure
     [SerializeField] private LevelManager levelManager;
     [SerializeField] private GameObject meshObject;
     [SerializeField] private Transform structurePartsContainer;
+    [SerializeField] private BoolVariable isTowerFull;
     private StructurePart[] structureParts = null;
     private void Awake()
     {
@@ -23,28 +24,23 @@ public partial class Tower : DamageableStructure
     {
         InputManager.GetKeyDownEvent(KeyCode.C).AddListener(Collapse);
         InputManager.GetKeyDownEvent(KeyCode.R).AddListener(Rewind);
-        AddSoldier(0);
+        Initialize();
+    }
+    public void Initialize()
+    {
+        for (int i = 0; i < saveData.Value.SoldierTable.Length; i++)
+        {
+            for (int j = 0; j < saveData.Value.SoldierTable[i]; j++)
+            {
+                AddSoldier(i, false);
+            }
+        }
     }
     protected override void OnEnable()
     {
         base.OnEnable();
         SetPoints();
     }
-
-    public void BuySoldier()
-    {
-        if (NumberOfSoldiers >= points.Count)
-        {
-            Debug.LogError("Cannot buy soldier. Max number of soldiers reached!");
-            return;
-        }
-        // TODO change to real cost
-        int cost = 0;
-        saveData.SpendMoney(cost);
-        AddSoldier(saveData.Value.SoldierBuyingLevel);
-    }
-
-
 
     private Transform GetPoint(int index)
     {
@@ -148,4 +144,9 @@ public partial class Tower : DamageableStructure
             transform.DORotateQuaternion(originalRotation, 3);
         }
     }
+}
+
+public partial class SaveData
+{
+    public int[] SoldierTable = new int[8] { 1, 0, 0, 0, 0, 0, 0, 0 };
 }
