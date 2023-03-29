@@ -15,7 +15,6 @@ public class TurretCountUpgradeEntity : PreparationUpgradeEntity
         {
             turrets[i].Activate();
         }
-        Debug.Log("init", this);
     }
     public override void Upgrade()
     {
