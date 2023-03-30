@@ -14,18 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Level: 5
+    BarrierHealthLevel: 1
     SoldierBuyingLevel: 7
     SoldierTable: 0100000000000000000000000000000000000000000000000000000000000000
+    TowerHealthLevel: 1
     ExplosiveMineCount: 2
+    ExplosiveMineDamageLevel: 1
     FrostMineCount: 4
+    FrostMineDurationLevel: 1
+    MolotovCooldownLevel: 1
+    MolotovDamageLevel: 1
+    MolotovUnlocked: 1
     CommanderDamageLevel: 30
     TurretCount: 4
     TurretDamageLevel: 42
-    Money: 94146
-    FireRateLevel: 43
+    Money: 96929
+    FireRateLevel: 47
     IncomeLevel: 2
-    SoldierBuyingCount: 55
-    Tools: 0
+    SoldierBuyingCount: 65
+    Tools: 98800
     WaveLevel: 105
   OnValueChanged:
     m_PersistentCalls:

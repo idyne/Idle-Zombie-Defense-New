@@ -87,7 +87,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   meshObject: {fileID: 5759858717506780878}
-  effectPool: {fileID: 0}
+  effectPool: {fileID: 11400000, guid: 09a2947094954e344bf54a393841cca4, type: 2}
 --- !u!114 &6440403837565097118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5430469632564164654}
         m_TargetAssemblyTypeName: Molotov, Assembly-CSharp
-        m_MethodName: StopBurning
+        m_MethodName: OnTowerDied
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

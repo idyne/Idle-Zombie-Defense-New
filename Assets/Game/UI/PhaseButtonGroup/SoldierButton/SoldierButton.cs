@@ -21,7 +21,6 @@ public class SoldierButton : PhaseButton
     }
     public override void UpdateElement()
     {
-        Debug.Log("UpdateElement", this);
         nameText.text = phaseUpgrade.UpgradeName;
         if (phaseUpgrade.MaxedOut || isTowerFull.Value)
         {

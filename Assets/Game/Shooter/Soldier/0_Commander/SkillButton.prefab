@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 95, y: 480}
+  m_AnchoredPosition: {x: 126, y: 581}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &5306779896342122402
@@ -247,6 +247,9 @@ GameObject:
   - component: {fileID: 600462034073677274}
   - component: {fileID: 4655200696731775952}
   - component: {fileID: 1394636408564420674}
+  - component: {fileID: 4184256524536386144}
+  - component: {fileID: 7316385505870950209}
+  - component: {fileID: 445897044048908431}
   m_Layer: 0
   m_Name: SkillButton
   m_TagString: Untagged
@@ -282,12 +285,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bad753e8f83a9348bf730d2f4023cae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 175997324988177090}
+  deactivateOnHide: 1
   button: {fileID: 5749435629592083034}
-  cooldown:
-    UseConstant: 0
-    ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 5632b308d70cd7b47acf50e89519cc3f, type: 2}
+  remainingCooldownPercent: {fileID: 11400000, guid: ebee810efb664e84cb8747354d659e32,
+    type: 2}
   cooldownLayer: {fileID: 7982904741958348938}
+  saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
 --- !u!114 &1394636408564420674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,10 +307,82 @@ MonoBehaviour:
   button: {fileID: 5749435629592083034}
   onClick:
     m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &4184256524536386144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221090341838935557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 246559e1bd32c6f4491852722a988087, type: 2}
+  Response:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4655200696731775952}
         m_TargetAssemblyTypeName: SkillButton, Assembly-CSharp
-        m_MethodName: PutInCooldown
+        m_MethodName: Show
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7316385505870950209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221090341838935557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: fc7b558fab1305d40b5cda144921ed37, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4655200696731775952}
+        m_TargetAssemblyTypeName: UIElement, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &445897044048908431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8221090341838935557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1c3dff14c4d127543af94261684cf03b, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4655200696731775952}
+        m_TargetAssemblyTypeName: UIElement, Assembly-CSharp
+        m_MethodName: Hide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

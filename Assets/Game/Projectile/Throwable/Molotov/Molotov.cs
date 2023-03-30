@@ -15,7 +15,7 @@ public class Molotov : Throwable, IPooledObject
     [SerializeField] protected ObjectPool effectPool;
     private WaitForSeconds waitForHitPeriod;
     private IEnumerator burnRoutine = null;
-
+    private bool towerDied = false;
     public event Action OnRelease;
 
     private void Awake()
@@ -28,7 +28,14 @@ public class Molotov : Throwable, IPooledObject
         DeactivateMesh();
         if (effectPool)
             effectPool.Get<Transform>(transform.position, Quaternion.identity);
-        StartBurning();
+        if (!towerDied)
+            StartBurning();
+    }
+
+    public void OnTowerDied()
+    {
+        StopBurning();
+        towerDied = true;
     }
 
     private void StartBurning()
@@ -47,7 +54,10 @@ public class Molotov : Throwable, IPooledObject
     private IEnumerator Burn(float duration)
     {
         if (duration <= 0)
+        {
+            Release();
             yield break;
+        }
         Burn();
         yield return waitForHitPeriod;
         burnRoutine = Burn(duration - hitPeriod);
@@ -79,6 +89,7 @@ public class Molotov : Throwable, IPooledObject
 
     public void OnObjectSpawn()
     {
+        towerDied = false;
         ActivateMesh();
         Activate();
     }

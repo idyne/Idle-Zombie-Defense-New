@@ -5,18 +5,37 @@ using UnityEngine.UI;
 using DG.Tweening;
 using FateGames.Core;
 
-public class SkillButton : MonoBehaviour
+public class SkillButton : UIElement
 {
     [SerializeField] private Button button;
-    [SerializeField] private FloatReference cooldown;
+    [SerializeField] private FloatVariable remainingCooldownPercent;
     [SerializeField] private Image cooldownLayer;
-    public void PutInCooldown()
+    [SerializeField] private SaveDataVariable saveData;
+
+    private void Start()
     {
-        button.interactable = false;
-        cooldownLayer.fillAmount = 1;
-        DOTween.To(() => cooldownLayer.fillAmount, (x) => { cooldownLayer.fillAmount = x; }, 0, cooldown.Value).OnComplete(() =>
-        {
-            button.interactable = true;
-        });
+        Hide();
     }
+
+    private void OnEnable()
+    {
+        remainingCooldownPercent.OnValueChanged.AddListener(UpdateCooldownLayer);
+    }
+    private void OnDisable()
+    {
+        remainingCooldownPercent.OnValueChanged.RemoveListener(UpdateCooldownLayer);
+    }
+
+    public override void Show()
+    {
+        if (saveData.Value.MolotovUnlocked)
+            base.Show();
+    }
+
+    private void UpdateCooldownLayer(float previousRemainingCooldownPercent, float currentRemainingCooldownPercent)
+    {
+        cooldownLayer.fillAmount = currentRemainingCooldownPercent;
+        button.interactable = currentRemainingCooldownPercent <= 0;
+    }
+
 }

@@ -66,6 +66,7 @@ public class Soldier : Shooter, IPooledObject
 
     public virtual void Die()
     {
+        Log("Die", false);
         if (Targeting)
             StopTargeting();
         if (target)
