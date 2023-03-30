@@ -863,8 +863,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3692bc97a7214e04dbd9575ab6529cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toolPerWave: 2
+  toolPerDay: 5
+  toolPerZone: 10
+  moneyPerWave: 50
+  moneyPerDay: 200
+  moneyPerZone: 1000
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
   sceneManager: {fileID: 11400000, guid: 30f4fb8e342857543a5c7983051b6c66, type: 2}
+  timeLapseController: {fileID: 0}
   waveClearEffect: {fileID: 979477658298316252}
+  waveClearText: {fileID: 2934742566801629469}
   dayClearScreen: {fileID: 3283657401510999487}
   claimButton: {fileID: 3770440623520686440}
   moneyPool: {fileID: 11400000, guid: 39fd42e2a5b9b6a419d4a5290f23c918, type: 2}
@@ -1466,6 +1475,12 @@ PrefabInstance:
 --- !u!224 &502400482824917850 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4914851294303015469, guid: c58cbe7219148914686f9c43ecdd897f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4813764872222228855}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2934742566801629469 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7671778015480815722, guid: c58cbe7219148914686f9c43ecdd897f,
     type: 3}
   m_PrefabInstance: {fileID: 4813764872222228855}
   m_PrefabAsset: {fileID: 0}

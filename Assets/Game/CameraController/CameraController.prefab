@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 4817115965454602051}
+  cameraDistance: {fileID: 11400000, guid: 58dae4a4e6721ee40a60caaa97b381c2, type: 2}
   cameraForwardRange: 10
   cameraBackwardRange: -10
   cameraZoomSpeed: 10
