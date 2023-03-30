@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Upgrades/Turret/Turret Count")]
+[CreateAssetMenu(menuName = "Upgrades/Preparation/Base/Turret/Turret Count")]
 public class TurretCountUpgradeEntity : PreparationUpgradeEntity
 {
     public override int Cost => Level * 10;

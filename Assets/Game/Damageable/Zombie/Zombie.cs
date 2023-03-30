@@ -63,9 +63,7 @@ public class Zombie : Damageable, IPooledObject
         SetSpeed(data.Speed / 2f);
         SetCooldown(data.Cooldown * 2f);
         Color originalColor = data.Color;
-        print(originalColor);
         Color frozenColor = new Color(originalColor.r, originalColor.g, originalColor.b + 10f, 1);
-        print(frozenColor);
         SetColor(frozenColor);
         freezeTween = DOVirtual.DelayedCall(duration, Unfreeze);
     }
@@ -188,6 +186,7 @@ public class Zombie : Damageable, IPooledObject
     {
         if (health <= 0) return false;
         Flash();
+        Push(damage / (float)maxHealth);
         if (!base.Hit(damage)) return false;
         return true;
     }
@@ -197,7 +196,7 @@ public class Zombie : Damageable, IPooledObject
         Log("Push", false);
         if (!agent.enabled) { Debug.LogError("Agent is not enabled!", this); return; }
         value = Mathf.Clamp(value, 0, 1);
-        agent.Move(-transform.forward.normalized * value);
+        agent.Move(2.5f * value * -transform.forward.normalized);
     }
 
     public void Flash()

@@ -21,7 +21,6 @@ public class PhaseButton : DynamicUIElement
 
     public override void UpdateElement()
     {
-        Debug.Log("UpdateElement", this);
         nameText.text = phaseUpgrade.UpgradeName;
         if (phaseUpgrade.MaxedOut)
         {

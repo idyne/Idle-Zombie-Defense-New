@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Upgrades/Mine/Frost/Frost Mine Count Upgrade")]
+[CreateAssetMenu(menuName = "Upgrades/Preparation/Base/Mine/Frost/Frost Mine Count Upgrade")]
 public class FrostMineCountUpgradeEntity : PreparationUpgradeEntity
 {
     public override int Cost => Level * 10;

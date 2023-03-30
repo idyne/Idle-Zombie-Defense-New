@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Upgrades/Mine/Explosive/Explosive Mine Count Upgrade")]
+[CreateAssetMenu(menuName = "Upgrades/Preparation/Base/Mine/Explosive/Explosive Mine Count Upgrade")]
 public class ExplosiveMineCountUpgradeEntity : PreparationUpgradeEntity
 {
     public override int Cost => Level * 10;

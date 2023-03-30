@@ -160,7 +160,7 @@ public abstract class Shooter : FateMonoBehaviour
 
     public abstract void Face(Vector3 to);
 
-    public void FaceTarget()
+    public virtual void FaceTarget()
     {
         // Called in Update()
         if (!target) return;

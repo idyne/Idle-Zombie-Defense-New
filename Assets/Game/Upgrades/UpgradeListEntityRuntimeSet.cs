@@ -8,16 +8,14 @@ public class UpgradeListEntityRuntimeSet : RuntimeSet<PreparationUpgradeEntity>
 {
     private void OnEnable()
     {
-        foreach (PreparationUpgradeEntity entity in Resources.FindObjectsOfTypeAll<PreparationUpgradeEntity>())
+        Items.Clear();
+        foreach (PreparationUpgradeEntity entity in Resources.LoadAll("Upgrades", typeof(PreparationUpgradeEntity)))
         {
             if (entity.RuntimeSet == this)
                 Add(entity);
         }
     }
-    private void OnDisable()
-    {
-        Items.Clear();
-    }
+
     public void InitializeItems()
     {
         for (int i = 0; i < Items.Count; i++)

@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
+using FateGames.Tweening;
 namespace FateGames.Core
 {
     public class FateMonoBehaviour : MonoBehaviour
@@ -52,6 +54,7 @@ namespace FateGames.Core
 
         public virtual void Deactivate()
         {
+            DOTween.Kill(this);
             gameObject.SetActive(false);
         }
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Upgrades/Commander/Damage Upgrade")]
+[CreateAssetMenu(menuName = "Upgrades/Preparation/Commander/Damage Upgrade")]
 public class CommanderDamageUpgradeEntity : PreparationUpgradeEntity
 {
     public override int Cost => Level * 10;
