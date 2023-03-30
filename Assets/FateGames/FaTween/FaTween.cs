@@ -21,6 +21,10 @@ namespace FateGames.Tweening
         {
             return new FaTweener<Color>(getter, setter, Maker, target, duration, ignoreTimeScale);
         }
+        /*public static FaTweener<Quaternion> To(Func<Quaternion> getter, Action<Quaternion> setter, Quaternion target, float duration, bool ignoreTimeScale = false)
+        {
+            return new FaTweener<Quaternion>(getter, setter, Maker, target, duration, ignoreTimeScale);
+        }*/
         public static FaTweener<Vector4> To(Func<Vector4> getter, Action<Vector4> setter, Vector4 target, float duration, bool ignoreTimeScale = false)
         {
             return new FaTweener<Vector4>(getter, setter, Maker, target, duration,  ignoreTimeScale);
@@ -176,6 +180,12 @@ namespace FateGames.Tweening
                 (Vector3 x) => trans.eulerAngles = x,
                 target, duration);
         }
+        /*public static FaTweener<Quaternion> FaRotateQuaternion(this Transform trans, Quaternion target, float duration, bool ignoreTimeScale = false)
+        {
+            return To(() => trans.rotation,
+                (Quaternion x) => trans.rotation = x,
+                target, duration);
+        }*/
         public static FaTweener<float> FaRotateX(this Transform trans, float target, float duration, bool ignoreTimeScale = false)
         {
             return To(() => trans.eulerAngles.x,

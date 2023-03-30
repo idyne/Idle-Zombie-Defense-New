@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1060bd8e6012494cbb439e1d974b31d, type: 3}
+  m_Name: FogController
+  m_EditorClassIdentifier: 
+  cameraDistance:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 58dae4a4e6721ee40a60caaa97b381c2, type: 2}
+  fogColors:
+  - {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
+  - {r: 1, g: 0.9529412, b: 0.8352941, a: 1}
+  - {r: 0.59607846, g: 0.4509804, b: 0.32156864, a: 1}
+  - {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 1}
+  fogDistanceOffsets:
+  - {x: 10, y: 150}
+  - {x: 10, y: 150}
+  - {x: 10, y: 150}
+  - {x: 10, y: 150}
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}

@@ -13,6 +13,7 @@ namespace FateGames.Core
         [SerializeField] private ZoneManager zoneManager;
         [SerializeField] private LevelManager levelManager;
         [SerializeField] private GameStateVariable gameState;
+        [SerializeField] private FogController fogController;
         [SerializeField] private UnityEvent onLevelFinishedLoading = new();
 
         private void Awake()
@@ -41,6 +42,7 @@ namespace FateGames.Core
                 zoneManager.Initialize();
                 baseUpgrades.InitializeItems();
                 commanderUpgrades.InitializeItems();
+                fogController.Init();
                 onLevelFinishedLoading.Invoke();
                 if (levelManager.AutoStart)
                     levelManager.StartLevel();
