@@ -67,4 +67,9 @@ public class ZoneManager : ScriptableObject
         }
     }
 
+    public void IncrementWaveLevel()
+    {
+        saveData.Value.WaveLevel++;
+    }
+
 }

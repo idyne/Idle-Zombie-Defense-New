@@ -16,6 +16,7 @@ public class TapToSpeedUp : MonoBehaviour
 
     private void Start()
     {
+        targetVariable.Value = 1;
         InputManager.GetKeyDownEvent(KeyCode.Mouse0).AddListener(TapCheck);
     }
 

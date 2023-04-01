@@ -3,84 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using FateGames.Tweening;
 using DG.Tweening;
-
-public class TimeLapseController : MonoBehaviour
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using FateGames.Core;
+public class TimeLapseController : FateMonoBehaviour, IInitializable
 {
-    [SerializeField] private Light directionalLight = null;
     [SerializeField] private FogController fogController = null;
     [SerializeField] private ZoneManager zoneManager = null;
-    [SerializeField] private float transitionDuration = 2f;
-    [SerializeField] private List<Color> lightColors = new List<Color>();
-    [SerializeField] private List<Vector3> lightRotations = new List<Vector3>();
-    [SerializeField] private List<GameObject> timeHeaders = new List<GameObject>();
+    [SerializeField] private FloatReference transitionDuration;
+    [SerializeField] private TimeLapseHeader timeLapseHeader;
 
-    private Transform lightTransform = null;
-    private Animator animator;
-
-    private void Awake()
-    {
-        if (!directionalLight)
-        {
-            Debug.LogError("Directional light missing.");
-            return;
-        }
-
-        lightTransform = directionalLight.transform;
-        animator = GetComponent<Animator>();
-    }
+    [SerializeField] private UnityEvent onTimeLapseStarted, onTimeLapseCompleted = new();
 
     private void Start()
     {
-        int timeIndex = (zoneManager.WaveLevel-1) % 4;
-
-        directionalLight.color = lightColors[timeIndex];
-        lightTransform.rotation = Quaternion.Euler(lightRotations[timeIndex]);
-
-        AnimateHeader(timeIndex);
+        Initialize();
     }
-
-    private void Update()
+    public void Animate()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            Animate(0);
-        }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            Animate(1);
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Animate(2);
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Animate(3);
-        }
-    }
-
-    public void Animate(int targetIndex)
-    {
-        AnimateLight(targetIndex);
+        onTimeLapseStarted.Invoke();
+        int targetIndex = zoneManager.WaveLevel % 4;
         AnimateHeader(targetIndex);
-        AnimateFog(targetIndex);
-    }
-
-    private void AnimateLight(int targetIndex)
-    {
-        FaTween.To(() => directionalLight.color, (Color x) => directionalLight.color = x, lightColors[targetIndex], transitionDuration);
-        lightTransform.DORotateQuaternion(Quaternion.Euler(lightRotations[targetIndex]), transitionDuration);
+        fogController.SetFogToTime();
+        FaTween.DelayedCall(transitionDuration.Value, () =>
+        {
+            zoneManager.IncrementWaveLevel();
+            onTimeLapseCompleted.Invoke();
+        });
     }
 
     private void AnimateHeader(int targetIndex)
     {
-        timeHeaders[targetIndex].SetActive(true);
-        animator.SetTrigger("HeaderUp");
-        FaTween.DelayedCall(2f, () => timeHeaders[targetIndex].SetActive(false));
+        timeLapseHeader.Animate(targetIndex);
     }
 
-    private void AnimateFog(int targetIndex)
+    public void Initialize()
     {
-        fogController.SetFogToTime(targetIndex, transitionDuration);
+        int timeIndex = (zoneManager.WaveLevel - 1) % 4;
+        AnimateHeader(timeIndex);
     }
 }

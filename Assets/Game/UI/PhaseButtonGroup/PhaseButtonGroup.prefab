@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1793547845924633139}
-  deactivateOnHide: 0
+  deactivateOnHide: 1
 --- !u!114 &1528561295248099640
 MonoBehaviour:
   m_ObjectHideFlags: 0

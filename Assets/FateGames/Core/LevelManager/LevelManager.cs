@@ -29,9 +29,9 @@ namespace FateGames.Core
             if (success)
             {
                 gameState.Value = GameState.WIN_SCREEN;
-                saveData.Value.Level++;
-                Instantiate(winScreen);
+                //Instantiate(winScreen);
                 OnLevelWon.Invoke();
+                //saveData.Value.WaveLevel++;
             }
             else
             {
