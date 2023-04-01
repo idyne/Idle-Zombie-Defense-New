@@ -5112,13 +5112,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: f977d103ddb4f804f84d689a9f2d20ec, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  fixedTime: 1
+  fixedTime: 0
   use3dRotation: 0
 --- !u!1 &3748121497240873537
 GameObject:
@@ -10012,13 +10012,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: a976a44ca501e564bb2adee42f573b4d, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  fixedTime: 1
+  fixedTime: 0
   use3dRotation: 0
 --- !u!1 &3748121497240942973
 GameObject:
@@ -14967,13 +14967,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 1fe38ac1a569ae54590f6e2aff679c74, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  fixedTime: 1
+  fixedTime: 0
   use3dRotation: 0
 --- !u!1 &5258534752235138313
 GameObject:
@@ -19832,13 +19832,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 35b072e7a7dfe0f429bf5123cfc9a433, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  fixedTime: 1
+  fixedTime: 0
   use3dRotation: 0
 --- !u!1 &6433690068665332412
 GameObject:
@@ -24778,13 +24778,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 05e20be0d592a0e41a5fe0dbb7440642, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  fixedTime: 1
+  fixedTime: 0
   use3dRotation: 0
 --- !u!1 &6720660467655234066
 GameObject:
@@ -29702,13 +29702,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 35b072e7a7dfe0f429bf5123cfc9a433, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  fixedTime: 1
+  fixedTime: 0
   use3dRotation: 0
 --- !u!1 &7631247864337692166
 GameObject:
@@ -34567,13 +34567,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: e4f292e8ebbc6d34a818254d4e7e6ef6, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  fixedTime: 1
+  fixedTime: 0
   use3dRotation: 0
 --- !u!1 &8257673536767493951
 GameObject:
@@ -39513,11 +39513,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: d05bd487e32791148ab238ebabb0154b, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  fixedTime: 1
+  fixedTime: 0
   use3dRotation: 0

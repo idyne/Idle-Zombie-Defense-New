@@ -29,5 +29,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Limit: 2
+  Limit: 100
   dayLimits: []

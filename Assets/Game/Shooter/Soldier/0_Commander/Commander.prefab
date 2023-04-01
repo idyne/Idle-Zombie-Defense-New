@@ -282,6 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de64122d29a55e44ebdba4fd231d2239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootFrequencyMultiplier: {fileID: 11400000, guid: becf32ad1cc6833499d19004b05c085f,
+    type: 2}
   range: 25
   shootPeriod: 0.5
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}

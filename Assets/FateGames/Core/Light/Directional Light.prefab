@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 3197228439425312279}
   - component: {fileID: 3197228439425312276}
   - component: {fileID: 3197228439425312278}
+  - component: {fileID: 1740091908506071175}
+  - component: {fileID: 5112367192582476913}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -115,3 +117,58 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
+--- !u!114 &1740091908506071175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3197228439425312277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6de7894dc3c6642854fd722aa7b8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
+  lightColors:
+  - {r: 0.8156863, g: 1, b: 0.9843137, a: 1}
+  - {r: 1, g: 0.96862745, b: 0.8156863, a: 1}
+  - {r: 0.8666667, g: 0.74509805, b: 0.5764706, a: 1}
+  - {r: 0.4627451, g: 0.54901963, b: 0.59607846, a: 1}
+  lightRotations:
+  - {x: 20, y: 330, z: 0}
+  - {x: 80, y: 330, z: 0}
+  - {x: 158, y: 330, z: 0}
+  - {x: 235, y: 330, z: 0}
+  transitionDuration:
+    UseConstant: 0
+    ConstantValue: 0
+    Variable: {fileID: 11400000, guid: 71c18ef56f29ec945924652b6aa7a2d2, type: 2}
+--- !u!114 &5112367192582476913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3197228439425312277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: cd80321413707c6468959b9e57fdedba, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1740091908506071175}
+        m_TargetAssemblyTypeName: LightController, Assembly-CSharp
+        m_MethodName: AnimateToTargetTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

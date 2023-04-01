@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public abstract class Shooter : FateMonoBehaviour
 {
+    [SerializeField] protected FloatVariable shootFrequencyMultiplier;
     [SerializeField] protected float range = 25;
     [SerializeField] protected float shootPeriod = 0.5f;
     [SerializeField] protected WaveStateVariable waveState;
@@ -20,7 +21,8 @@ public abstract class Shooter : FateMonoBehaviour
     protected IEnumerator shootCoroutine;
     protected IEnumerator targetingRoutine;
     protected float lastShootTime = float.MinValue;
-    protected bool InCooldown { get => Time.time < lastShootTime + shootPeriod; }
+    protected float Cooldown => shootPeriod / shootFrequencyMultiplier.Value;
+    protected bool InCooldown { get => Time.time < lastShootTime + Cooldown; }
     protected bool Shooting { get => shootCoroutine != null; }
     protected bool Targeting { get => targetingRoutine != null; }
     public UnityAction onTargetDied;

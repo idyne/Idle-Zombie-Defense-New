@@ -5,6 +5,7 @@ using UnityEngine;
 using FateGames.Tweening;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.Events;
 
 public class AreaClearHandler : MonoBehaviour
 {
@@ -16,7 +17,6 @@ public class AreaClearHandler : MonoBehaviour
     [SerializeField] private int moneyPerZone = 1000;
     [SerializeField] private ZoneManager zoneManager;
     [SerializeField] private SceneManager sceneManager;
-    [SerializeField] private TimeLapseController timeLapseController;
     [SerializeField] private GameObject waveClearEffect;
     [SerializeField] private Transform waveClearText;
     [SerializeField] private GameObject dayClearScreen;
@@ -29,19 +29,12 @@ public class AreaClearHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI toolText;
     [SerializeField] private TextMeshProUGUI dayText;
+    [SerializeField] private UnityEvent onWaveClearEffectFinished;
 
     private int collectableMoneyAmount = 0;
     private int collectableToolsAmount = 0;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ShowCorrectScreen();
-        }
-    }
-
-    private void ShowCorrectScreen()
+    public void ShowCorrectScreen()
     {
         if (zoneManager.IsNight)
         {
@@ -62,6 +55,7 @@ public class AreaClearHandler : MonoBehaviour
 
         FaTween.DelayedCall(3f, () =>
         {
+            zoneManager.IncrementWaveLevel();
             if (zoneManager.IsLastDayOfZone()) sceneManager.LoadNextLevel(); // bunun yerine map açýlacak. sahne yüklemesi orada olacak
             else sceneManager.LoadCurrentLevel();
         });
@@ -71,14 +65,12 @@ public class AreaClearHandler : MonoBehaviour
     {
         WaveClearEffect(2);
 
-        FaTween.DelayedCall(0.5f, () =>
+        FaTween.DelayedCall(1f, () =>
         {
             SpreadMoney(defaultSpawnPosition.position, moneyAmount);
             SpreadTool(defaultSpawnPosition.position, toolAmount);
+            FaTween.DelayedCall(2f, onWaveClearEffectFinished.Invoke);
         });
-
-        int nextTimeIndex = (zoneManager.WaveLevel-1) % 4 + 1;
-        FaTween.DelayedCall(2f, () => timeLapseController.Animate(nextTimeIndex));
     }
 
     public void DayClear(int moneyAmount, int toolAmount)

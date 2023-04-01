@@ -10,7 +10,7 @@ MonoImporter:
   - levelManager: {fileID: 11400000, guid: e819ee089d988a04689f8f12ac7edac1, type: 2}
   - soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
   - gameState: {fileID: 11400000, guid: 35af722527cf21148bdd90a70a23f45e, type: 2}
-  executionOrder: -1100
+  executionOrder: -40
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 

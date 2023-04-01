@@ -51,7 +51,7 @@ public abstract class PreparationUpgradeEntity : UpgradeEntity
         if (runtimeSet)
             runtimeSet.Remove(this);
     }
-
+#if UNITY_EDITOR
     #region Reliable In-Editor OnDestroy
 
     // Sadly OnDestroy is not being called reliably by the editor. So we need this.
@@ -81,7 +81,7 @@ public abstract class PreparationUpgradeEntity : UpgradeEntity
     }
 
     #endregion
-
+#endif
 }
 #if UNITY_EDITOR
 [CustomEditor(typeof(PreparationUpgradeEntity), true)]

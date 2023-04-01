@@ -74,7 +74,6 @@ public partial class Tower
         OnNewSoldier.Invoke();
         if (CanMerge(out _))
         {
-            print("merge");
             OnMergeAvailable.Invoke();
         }
     }

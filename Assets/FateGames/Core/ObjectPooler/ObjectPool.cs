@@ -21,12 +21,21 @@ namespace FateGames.Core
         public T Get<T>(Vector3 position, Quaternion rotation) where T : Component
         {
             while (totalSize < startSize)
+            {
                 AddObjectToPool(true);
+            }
             if (pool.Count == 0)
+            {
+                
                 AddObjectToPool();
+            }
             if (poolContainer == null)
                 poolContainer = new GameObject(tag + " Pool").transform;
             GameObject obj = pool.Dequeue();
+            if (!obj)
+            {
+                Debug.LogError("Empty pool!", this);
+            }
             Transform objTransform = obj.transform;
             objTransform.SetParent(poolContainer);
             objTransform.SetPositionAndRotation(position, rotation);
@@ -50,12 +59,12 @@ namespace FateGames.Core
         public void ClearPool()
         {
             pool = new();
+            totalSize = 0;
         }
 
         public void OnNewLevel()
         {
             poolContainer = null;
-            totalSize = 0;
             ClearPool();
         }
 
