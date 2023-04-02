@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d4935a0ee268cc347a2806c62823b020
+guid: 7425b65e66a4dbd498125376ccd09e5f
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,23 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: M_Scene_01a
-    second: {fileID: 2100000, guid: 0b7b7812ea7cd6e4c894e5334a7bdf04, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: M_Walls_01a
-    second: {fileID: 2100000, guid: e36a856f49cd5fe41887075dd37e9ea7, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Church_tex
-    second: {fileID: 2800000, guid: b3342e8c1a9afc446807b5d464c89829, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: "Varl\u0131k 143@4x"
-    second: {fileID: 2800000, guid: a9943e8ae00bb944582f1ba77221f3ff, type: 3}
+      name: Tex.001
+    second: {fileID: 2100000, guid: 6c78265b35998f6419f4c4d11fdc91e0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

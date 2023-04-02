@@ -1,29 +1,9 @@
 fileFormatVersion: 2
-guid: db3b7227ad677f94883387f1786dced2
+guid: ecd552ae6f85d1c46bb2eda44b87bb63
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: ForestGround
-    second: {fileID: 2100000, guid: 9958c5e64f0faa04f95a3fae7512bd41, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Tex
-    second: {fileID: 2100000, guid: ec75aa064955c144eba24b769c2e6ed7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Texture_Fence
-    second: {fileID: 2100000, guid: a1f0403581c1a1346bada85c22d2fbc2, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Hospital_tex
-    second: {fileID: 2800000, guid: 14a86f5709f9c8449aadd548f1e65379, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
