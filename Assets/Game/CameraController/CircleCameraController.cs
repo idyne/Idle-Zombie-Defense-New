@@ -8,7 +8,7 @@ using FateGames.Tweening;
 public class CircleCameraController : CameraController
 {
     private bool zoomingOut = false;
-
+    [SerializeField] private bool lockYAxis = false;
     [SerializeField] private FloatVariable cameraDistance;
     [SerializeField] private float cameraForwardRange = 10;
     [SerializeField] private float cameraBackwardRange = -10;
@@ -35,11 +35,14 @@ public class CircleCameraController : CameraController
         swerve.OnSwerve.AddListener(() =>
         {
             if (zoomingOut || onUI) return;
-            angle = anchorAngle + swerve.XRate * 180;
             zoomDistance = Mathf.Clamp(anchorDistance - swerve.YRate * cameraZoomSpeed, cameraBackwardRange, cameraForwardRange);
             //DayCycler.Instance.ChangeFogOffset(-zoomDistance);
             cameraTransform.localPosition = initialCameraPosition + direction * zoomDistance;
-            transform.rotation = Quaternion.LookRotation(Quaternion.Euler(0, angle, 0) * Vector3.right);
+            if (!lockYAxis)
+            {
+                angle = anchorAngle + swerve.XRate * 180;
+                transform.rotation = Quaternion.LookRotation(Quaternion.Euler(0, angle, 0) * Vector3.right);
+            }
             UpdateCameraDistance();
         });
     }
@@ -58,6 +61,7 @@ public class CircleCameraController : CameraController
 
     private void SetAnchorAngle()
     {
+        if (lockYAxis) return;
         anchorAngle = angle;
     }
 

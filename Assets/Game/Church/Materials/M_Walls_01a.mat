@@ -25,6 +25,7 @@ Material:
     type: 3}
   m_ValidKeywords:
   - TCP2_SHADOW_LIGHT_COLOR
+  - _RECEIVE_SHADOWS_OFF
   m_InvalidKeywords:
   - TCP2_UV_NORMALS_FULL
   m_LightmapFlags: 4
@@ -129,7 +130,7 @@ Material:
     - _RampSmoothing: 0.887
     - _RampThreshold: 0.702
     - _ReceiveShadows: 1
-    - _ReceiveShadowsOff: 1
+    - _ReceiveShadowsOff: 0
     - _RenderingMode: 0
     - _ShadowColorLightAtten: 1
     - _SingleIndirectColor: 0
