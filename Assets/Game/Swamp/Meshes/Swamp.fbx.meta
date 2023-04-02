@@ -1,9 +1,54 @@
 fileFormatVersion: 2
-guid: cddb974c31fde77429e22a8b38dbae29
+guid: d036cd0f3643e7e42849bae7940332b9
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Water_01a
+    second: {fileID: 2100000, guid: 85ea518986bd8b747aa7bfd28b0f1807, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: T_Base_01a
+    second: {fileID: 2100000, guid: fdadd87889eeb5a42bd5c68bdb6f8f3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: T_Environment_01a
+    second: {fileID: 2100000, guid: 032d2b43fe6e97f40b9d76766cb4cc28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: T_Ground_01a
+    second: {fileID: 2100000, guid: e03bb8ef401167d45869d606efa1250a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: T_MilitaryWalls_03b_C
+    second: {fileID: 2100000, guid: e7ca947d5aa55874c966ca58fbf6f475, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Bunker_tex
+    second: {fileID: 2800000, guid: 4ef1bf7128ecb2c468013612f030fa4b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: MilitaryBase_tex
+    second: {fileID: 2800000, guid: d8ef428ea7424414f90cee45bb5d8f3d, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Texture_04_A
+    second: {fileID: 2800000, guid: ccf9adb529e51cf47972b99097ff425f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: swamp
+    second: {fileID: 2800000, guid: 3f955283e7857594299453a8758346be, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
