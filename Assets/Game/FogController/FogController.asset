@@ -22,8 +22,12 @@ MonoBehaviour:
   - {r: 0.59607846, g: 0.4509804, b: 0.32156864, a: 1}
   - {r: 0.4509804, g: 0.4509804, b: 0.4509804, a: 1}
   fogDistanceOffsets:
-  - {x: 10, y: 150}
-  - {x: 10, y: 150}
-  - {x: 10, y: 150}
-  - {x: 10, y: 150}
+  - {x: 10, y: 55}
+  - {x: 10, y: 55}
+  - {x: 10, y: 55}
+  - {x: 10, y: 55}
   zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
+  duration:
+    UseConstant: 1
+    ConstantValue: 0
+    Variable: {fileID: 0}

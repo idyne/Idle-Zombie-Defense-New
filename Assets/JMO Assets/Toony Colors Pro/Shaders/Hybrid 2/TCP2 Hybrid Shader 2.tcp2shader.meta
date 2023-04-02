@@ -9,7 +9,7 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 7f24c69ecbea31d49bb0044f94b6c8ea, type: 3}
   detectedRenderPipeline: Universal Render Pipeline
-  strippedLinesCount: 405
+  strippedLinesCount: 404
   shaderSourceCode: "// Toony Colors Pro+Mobile 2\r\n// (c) 2014-2021 Jean Moreno\r\n\r\nShader
     \"Toony Colors Pro 2/Hybrid Shader 2\"\r\n{\r\n\tProperties\r\n\t{\r\n\t\t[Enum(Front,
     2, Back, 1, Both, 0)] _Cull (\"Render Face\", Float) = 2.0\r\n\t\t[TCP2ToggleNoKeyword]
@@ -72,7 +72,8 @@ ScriptedImporter:
     target 3.0\r\n\r\n\t\t\t#pragma vertex Vertex\r\n\t\t\t#pragma fragment Fragment\r\n\r\n\t\t\t#pragma
     multi_compile_fog\r\n\t\t\t#pragma multi_compile_instancing\r\n\r\n\t\t\t// -------------------------------------\r\n\t\t\t//
     Material keywords\r\n\t\t\t#pragma shader_feature_local _ _RECEIVE_SHADOWS_OFF\r\n\r\n\t\t\t//
-    -------------------------------------\r\n\t\t\t// Universal Render Pipeline keywords\r\n\t\t\t//
+    -------------------------------------\r\n\t\t\t// Universal Render Pipeline keywords\r\n\t\t\t#pragma
+    multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN\r\n\t\t\t//
     URP 10:\r\n\t\t\t// URP 12:\r\n\r\n\r\n\t\t\t// -------------------------------------\r\n\t\t\t//
     Unity keywords\r\n\r\n\t\t\t//--------------------------------------\r\n\t\t\t//
     Toony Colors Pro 2 keywords\r\n\t\t\t#pragma shader_feature_local TCP2_MOBILE\r\n\t\t\t#pragma
@@ -167,8 +168,8 @@ ScriptedImporter:
     \"Hidden/InternalErrorShader\"\r\n\tCustomEditor \"ToonyColorsPro.ShaderGenerator.MaterialInspector_Hybrid\"\r\n}\r\n"
   shaderName: Toony Colors Pro 2/Hybrid Shader 2
   shaderErrors: []
-  variantCount: 40
-  variantCountUsed: 5
+  variantCount: 136
+  variantCountUsed: 8
   availableOptions:
   - label:
       text: Emission
@@ -324,14 +325,12 @@ ScriptedImporter:
   - Normal Map
   - MatCap
   - Emission
-  - Additional Lights (URP)
   - Additional Lights Shadows
   - Decals (URP 12+)
   - Forward+ Support (URP 14+)
   - LOD Crossfading
-  - Light Cookies (URP 12+)
   - Light Layers (URP 12+)
-  - Main Light Shadows (URP)
   - Rendering Layers (URP 14+)
   - SSAO (URP 10+)
   - Soft Shadows (URP)
+  - Light Cookies (URP 12+)
