@@ -7882,7 +7882,7 @@ GameObject:
   - component: {fileID: 1658241588490349995}
   - component: {fileID: 666991273409875248}
   - component: {fileID: 8241675267914528367}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube.025
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9272,7 +9272,7 @@ GameObject:
   - component: {fileID: 7922703297836155635}
   - component: {fileID: 520792233772102767}
   - component: {fileID: 722798344944959082}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SackTrench_Small.040
   m_TagString: Untagged
   m_Icon: {fileID: 0}

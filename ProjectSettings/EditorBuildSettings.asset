@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/MilitaryBase/Scenes/MilitaryBase.unity
     guid: e3b29669d1141b4419731c66b720c0c5
+  - enabled: 1
+    path: Assets/Game/Hospital/Scenes/Hospital.unity
+    guid: 2426a7849c13680468d33225bcc12599
+  - enabled: 1
+    path: Assets/Game/Airport/Scenes/Airport.unity
+    guid: 709a40f8de9ac7145947679313bf7e2c
+  - enabled: 1
+    path: Assets/Game/Church/Scenes/Church.unity
+    guid: a404e6f6a74f1b34b9451efece8c5486
   m_configObjects: {}
