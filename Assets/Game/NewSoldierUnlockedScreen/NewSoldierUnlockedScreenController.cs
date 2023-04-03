@@ -11,6 +11,7 @@ public class NewSoldierUnlockedScreenController : MonoBehaviour
     [SerializeField] private IntReference lastUnlockedSoldierLevel;
     [SerializeField] private Canvas rootCanvas = null;
     [SerializeField] private TextMeshProUGUI soldierName = null;
+    [SerializeField] private GameEvent onClosedEvent = null;
 
     public void Open()
     {
@@ -24,5 +25,6 @@ public class NewSoldierUnlockedScreenController : MonoBehaviour
     {
         soldierImageRendererController.CloseShow();
         rootCanvas.enabled = false;
+        onClosedEvent.Raise();
     }
 }
