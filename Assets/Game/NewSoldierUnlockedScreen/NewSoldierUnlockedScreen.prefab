@@ -947,6 +947,7 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: 1dff174ebac715041923e2739d2bb84e, type: 2}
   rootCanvas: {fileID: 5443569713076224312}
   soldierName: {fileID: 87603835126439892}
+  onClosedEvent: {fileID: 11400000, guid: 886312340d2b1cf4d89573e682b34c05, type: 2}
 --- !u!1001 &706695222064236243
 PrefabInstance:
   m_ObjectHideFlags: 0

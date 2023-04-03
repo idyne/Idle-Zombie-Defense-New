@@ -11,6 +11,7 @@ public class NewSoldierAchivedScreenController : MonoBehaviour
     [SerializeField] private IntReference lastAchivedSoldierLevel;
     [SerializeField] private Canvas rootCanvas = null;
     [SerializeField] private TextMeshProUGUI soldierName = null;
+    [SerializeField] private GameEvent onClosedEvent = null;
 
     public void Open()
     {
@@ -30,5 +31,6 @@ public class NewSoldierAchivedScreenController : MonoBehaviour
     {
         soldierImageRendererController.CloseShow();
         rootCanvas.enabled = false;
+        onClosedEvent.Raise();
     }
 }
