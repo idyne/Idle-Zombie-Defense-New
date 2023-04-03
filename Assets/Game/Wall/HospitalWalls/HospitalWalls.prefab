@@ -484,6 +484,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChurchWalls
       objectReference: {fileID: 0}
+    - target: {fileID: 2377214969625363084, guid: ba3a82696c58b3048b35b68dce58c0bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a982f1cc5c185aa4994f5878f47679e8, type: 2}
+    - target: {fileID: 3853385372961052669, guid: ba3a82696c58b3048b35b68dce58c0bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a982f1cc5c185aa4994f5878f47679e8, type: 2}
+    - target: {fileID: 7301644532924028907, guid: ba3a82696c58b3048b35b68dce58c0bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a982f1cc5c185aa4994f5878f47679e8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba3a82696c58b3048b35b68dce58c0bf, type: 3}
 --- !u!4 &5151277243368147744 stripped

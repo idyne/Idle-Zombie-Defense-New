@@ -11,15 +11,18 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: edd7abf643fa4bc4e8561d4c280c97cf,
     type: 3}
   m_ValidKeywords:
+  - TCP2_MOBILE
   - TCP2_SHADOW_LIGHT_COLOR
+  - _ALPHAPREMULTIPLY_ON
   m_InvalidKeywords:
   - TCP2_UV_NORMALS_FULL
   - _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses:
   - DepthOnly
   - SHADOWCASTER
@@ -120,17 +123,17 @@ Material:
     - _RampThreshold: 0.525
     - _ReceiveShadows: 1
     - _ReceiveShadowsOff: 1
-    - _RenderingMode: 0
+    - _RenderingMode: 2
     - _ShadowColorLightAtten: 1
     - _SingleIndirectColor: 0
     - _Smoothness: 0.4472136
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 5
+    - _SrcBlend: 1
     - _Surface: 1
     - _UVSec: 0
     - _UseAlphaTest: 0
-    - _UseMobileMode: 0
+    - _UseMobileMode: 1
     - _UseOutline: 0
     - _WorkflowMode: 1
     - _ZWrite: 0

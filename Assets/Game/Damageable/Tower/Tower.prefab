@@ -36,6 +36,7 @@ Transform:
   - {fileID: 6593029767821799041}
   - {fileID: 1237794159947781251}
   - {fileID: 2393739716659424587}
+  - {fileID: 3197898986006402904}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -123,6 +124,7 @@ MonoBehaviour:
   meshObject: {fileID: 0}
   structurePartsContainer: {fileID: 0}
   isTowerFull: {fileID: 11400000, guid: 14f07f2cdf1006e42859a1687fccb90f, type: 2}
+  mergePoint: {fileID: 3197898986006402904}
 --- !u!135 &4530857129646562578
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -192,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 0b3f059a215c0e34cb487bf9c1f8576a, type: 2}
+  Event: {fileID: 11400000, guid: 7cb540d8f3df8e242994be4976ae1528, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
@@ -208,6 +210,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &4021706712974585019
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3197898986006402904}
+  m_Layer: 0
+  m_Name: MergePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3197898986006402904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4021706712974585019}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 6.78, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7021907012596415265}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6214604191814759010
 GameObject:
   m_ObjectHideFlags: 0

@@ -24,6 +24,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: edd7abf643fa4bc4e8561d4c280c97cf,
     type: 3}
   m_ValidKeywords:
+  - TCP2_MOBILE
   - TCP2_SHADOW_LIGHT_COLOR
   m_InvalidKeywords:
   - TCP2_UV_NORMALS_FULL
@@ -140,7 +141,7 @@ Material:
     - _Surface: 0
     - _UVSec: 0
     - _UseAlphaTest: 0
-    - _UseMobileMode: 0
+    - _UseMobileMode: 1
     - _UseOutline: 0
     - _WorkflowMode: 1
     - _ZWrite: 1

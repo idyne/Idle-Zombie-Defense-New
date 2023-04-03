@@ -955,6 +955,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmallBunkerOneMaterial
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d4a0ab84d5cf56945a16f46f8a29e3a0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4a0ab84d5cf56945a16f46f8a29e3a0, type: 3}
 --- !u!1 &7123306335945154347 stripped
