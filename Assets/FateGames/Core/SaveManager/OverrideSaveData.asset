@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: OverrideSaveData
   m_EditorClassIdentifier: 
   value:
-    Level: 1
+    Level: 4
     BarrierHealthLevel: 1
     SoldierBuyingLevel: 1
-    SoldierTable: 0100000002000000020000000000000000000000000000000000000000000000
+    SoldierTable: 0100000001000000020000000000000001000000000000000000000000000000
     TowerHealthLevel: 1
     ExplosiveMineCount: 1
     ExplosiveMineDamageLevel: 1
@@ -28,12 +28,13 @@ MonoBehaviour:
     CommanderDamageLevel: 1
     TurretCount: 1
     TurretDamageLevel: 1
-    Money: 310
-    FireRateLevel: 5
-    IncomeLevel: 5
-    SoldierBuyingCount: 8
-    Tools: 17
-    WaveLevel: 2
+    Money: 40051356
+    FireRateLevel: 7
+    IncomeLevel: 6
+    MergeCount: 104
+    SoldierBuyingCount: 235
+    Tools: 118
+    WaveLevel: 4
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

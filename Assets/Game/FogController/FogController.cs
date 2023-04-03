@@ -41,10 +41,21 @@ public class FogController : ScriptableObject
     public void SetFogToTime()
     {
         int newTimeIndex = zoneManager.WaveLevel % 4;
-        FaTween.To(() => RenderSettings.fogColor, (Color x) => RenderSettings.fogColor = x, fogColors[newTimeIndex], duration.Value);
-        FaTween.To(() => currentStartDistanceOffset, (float x) => currentStartDistanceOffset = x, fogDistanceOffsets[newTimeIndex].x, duration.Value);
-        FaTween.To(() => currentEndDistanceOffset, (float x) => currentEndDistanceOffset = x, fogDistanceOffsets[newTimeIndex].y, duration.Value);
-        OnDistanceChanged();
+        bool colorSet = false;
+        bool startSet = false;
+        bool endSet = false;
+        FaTween.To(() => RenderSettings.fogColor, (Color x) => RenderSettings.fogColor = x, fogColors[newTimeIndex], duration.Value).OnComplete(() => { colorSet = true; });
+        FaTween.To(() => currentStartDistanceOffset, (float x) => currentStartDistanceOffset = x, fogDistanceOffsets[newTimeIndex].x, duration.Value).OnComplete(() => { startSet = true; });
+        FaTween.To(() => currentEndDistanceOffset, (float x) => currentEndDistanceOffset = x, fogDistanceOffsets[newTimeIndex].y, duration.Value).OnComplete(() => { endSet = true; });
+        IEnumerator fogRoutine()
+        {
+            yield return new WaitUntil(() =>
+            {
+                OnDistanceChanged();
+                return colorSet && startSet && endSet;
+            });
+        }
+        RoutineRunner.StartRoutine(fogRoutine());
         //timeIndex = newTimeIndex;
     }
 }

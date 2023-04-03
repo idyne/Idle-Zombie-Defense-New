@@ -15,6 +15,7 @@ public partial class Tower : DamageableStructure
     [SerializeField] private GameObject meshObject;
     [SerializeField] private Transform structurePartsContainer;
     [SerializeField] private BoolVariable isTowerFull;
+    [SerializeField] private Transform mergePoint;
     private StructurePart[] structureParts = null;
     private void Awake()
     {

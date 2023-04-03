@@ -8,11 +8,11 @@ using UnityEngine.UI;
 
 public class DayOpeningScreen : UIElement
 {
+    [SerializeField] private ZoneManager zoneManager;
     [SerializeField] private TextMeshProUGUI tmpro;
-    [SerializeField] private IntReference day;
 
     private void Start()
     {
-        tmpro.text = "DAY " + day.Value.ToString();
+        tmpro.text = "DAY " + zoneManager.Day;
     }
 }

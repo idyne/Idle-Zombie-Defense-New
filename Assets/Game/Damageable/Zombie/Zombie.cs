@@ -15,7 +15,9 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] protected SaveDataVariable saveData;
     [SerializeField] protected ZombieSet zombieSet;
     [SerializeField] protected LayerMask enemyLayerMask;
-    [SerializeField] protected MeshRenderer meshRenderer;
+    [SerializeField] protected Renderer meshRenderer;
+    [SerializeField] protected bool mechanim = false;
+    [SerializeField] protected Animator animator;
     [SerializeField] protected SnapshotMeshAnimator meshAnimator;
     [SerializeField] private MoneyBurster moneyBurster;
 
@@ -131,7 +133,10 @@ public class Zombie : Damageable, IPooledObject
     public void SetSpeed(float speed)
     {
         Log("SetSpeed", false);
-        meshAnimator.speed = speed;
+        if (mechanim)
+            animator.speed = speed;
+        else
+            meshAnimator.speed = speed;
         agent.speed = speed;
     }
 
@@ -186,8 +191,9 @@ public class Zombie : Damageable, IPooledObject
     {
         if (health <= 0) return false;
         Flash();
-        Push(damage / (float)maxHealth);
         if (!base.Hit(damage)) return false;
+        if (health > 0)
+            Push(damage / (float)maxHealth);
         return true;
     }
 
@@ -234,10 +240,17 @@ public class Zombie : Damageable, IPooledObject
     {
         Log("PlayAnimation", false);
         //Debug.Log("PlayAnimation " + name, this);
-        if (name == meshAnimator.currentAnimation.AnimationName)
-            meshAnimator.RestartAnim();
+        if (mechanim)
+        {
+            animator.SetTrigger(name);
+        }
         else
-            meshAnimator.Play(name);
+        {
+            if (name == meshAnimator.currentAnimation.AnimationName)
+                meshAnimator.RestartAnim();
+            else
+                meshAnimator.Play(name);
+        }
     }
 
 
