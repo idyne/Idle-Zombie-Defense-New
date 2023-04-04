@@ -69,9 +69,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad2af442392f56f43a0a952dd21cfc5b, type: 3}
+--- !u!4 &390242624532443368 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400489313510445580, guid: ad2af442392f56f43a0a952dd21cfc5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 64380193285448420}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &3497507987459038485 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 3489477765643632625, guid: ad2af442392f56f43a0a952dd21cfc5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 64380193285448420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4084896108116254590 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4059095868848782746, guid: ad2af442392f56f43a0a952dd21cfc5b,
     type: 3}
   m_PrefabInstance: {fileID: 64380193285448420}
   m_PrefabAsset: {fileID: 0}
@@ -148,10 +160,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: fcb869d35c2c11143ad0c130fd483ad9,
         type: 2}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: hipsTransform
+      value: 
+      objectReference: {fileID: 4084896108116254590}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: ragdollTransform
+      value: 
+      objectReference: {fileID: 390242624532443368}
     - target: {fileID: 7664977550407313012, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: m_Name
-      value: Soldier Variant
+      value: MissileLauncher
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80a689825b672384a8185ba45d19f58b, type: 3}

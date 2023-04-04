@@ -73,10 +73,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 91eb11bacb4585843a7384b0c1fb1de6,
         type: 2}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: hipsTransform
+      value: 
+      objectReference: {fileID: 4650779044261414749}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: ragdollTransform
+      value: 
+      objectReference: {fileID: 240889467176855989}
     - target: {fileID: 7664977550407313012, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: m_Name
-      value: Soldier Variant
+      value: Gangster
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80a689825b672384a8185ba45d19f58b, type: 3}
@@ -155,9 +165,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e02cde4b389d80488aed0b7df014270, type: 3}
+--- !u!4 &240889467176855989 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9125765277208829615, guid: 6e02cde4b389d80488aed0b7df014270,
+    type: 3}
+  m_PrefabInstance: {fileID: 9075585145168590618}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &4496240081908465741 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4870412179713750871, guid: 6e02cde4b389d80488aed0b7df014270,
+    type: 3}
+  m_PrefabInstance: {fileID: 9075585145168590618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4650779044261414749 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4429314958515089479, guid: 6e02cde4b389d80488aed0b7df014270,
     type: 3}
   m_PrefabInstance: {fileID: 9075585145168590618}
   m_PrefabAsset: {fileID: 0}

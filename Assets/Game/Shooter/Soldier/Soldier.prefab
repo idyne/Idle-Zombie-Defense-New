@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2397015675743815186}
   - component: {fileID: -2319206268526476351}
   - component: {fileID: 3508651281651865288}
+  - component: {fileID: 8688645858200140470}
   m_Layer: 0
   m_Name: Soldier
   m_TagString: Untagged
@@ -57,6 +58,9 @@ MonoBehaviour:
     type: 2}
   soldierSet: {fileID: 0}
   animator: {fileID: 0}
+  ragdollTransform: {fileID: 0}
+  hipsTransform: {fileID: 0}
+  rewindDuration: {fileID: 11400000, guid: 0b602d74b8e0971409db89ef52e6fcec, type: 2}
 --- !u!114 &-2397015675743815186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,6 +136,34 @@ MonoBehaviour:
       - m_Target: {fileID: 2339560753220366019}
         m_TargetAssemblyTypeName: Soldier, Assembly-CSharp
         m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8688645858200140470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7664977550407313012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 0789b0c9d8670ea4aa89edfb8c526d20, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2339560753220366019}
+        m_TargetAssemblyTypeName: Soldier, Assembly-CSharp
+        m_MethodName: Rewind
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

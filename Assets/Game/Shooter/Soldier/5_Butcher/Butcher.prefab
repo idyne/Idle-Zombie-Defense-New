@@ -69,6 +69,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ae51306385e3d94a934154fc0725a98, type: 3}
+--- !u!4 &1126004096891553327 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1768177214055993298, guid: 5ae51306385e3d94a934154fc0725a98,
+    type: 3}
+  m_PrefabInstance: {fileID: 1669020221566110205}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1344148450161531889 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400489313510445580, guid: 5ae51306385e3d94a934154fc0725a98,
+    type: 3}
+  m_PrefabInstance: {fileID: 1669020221566110205}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &1922163111198961135 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 974299407186650130, guid: 5ae51306385e3d94a934154fc0725a98,
@@ -148,10 +160,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8480f48440b8b3c4cadf88acf24dfbba,
         type: 2}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: hipsTransform
+      value: 
+      objectReference: {fileID: 1126004096891553327}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: ragdollTransform
+      value: 
+      objectReference: {fileID: 1344148450161531889}
     - target: {fileID: 7664977550407313012, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: m_Name
-      value: Soldier Variant
+      value: Butcher
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80a689825b672384a8185ba45d19f58b, type: 3}
