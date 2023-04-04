@@ -128,7 +128,7 @@ public class WaveController : MonoBehaviour
         numberOfZombiesInWave = 0;
         waveCleanPercentage.Value = 0;
         onWaveClearPercentChanged.Invoke();
-        List<int> zombieTable = _GenerateZombieTable(10, 6, 250, out int numberOfZombies);
+        List<int> zombieTable = _GenerateZombieTable(1000, 6, 250, out int numberOfZombies);
         remainingZombiesToSpawn = numberOfZombies;
         if (zoneManager.IsNight) remainingZombiesToSpawn++;
         // Spawns zombies from the zombie table in random order

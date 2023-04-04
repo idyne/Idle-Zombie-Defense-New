@@ -49,7 +49,7 @@ MonoBehaviour:
   zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
   standardZombiePool: {fileID: 11400000, guid: 754ff6ea2cb69e144a5a8de08b6318bd, type: 2}
   dayBossPool: {fileID: 11400000, guid: 7e2b828ebc94cbb4b9517d807cc03e03, type: 2}
-  zoneBossPool: {fileID: 0}
+  zoneBossPool: {fileID: 11400000, guid: 41d078e551e4133419022a4a0ee6a7eb, type: 2}
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
   onWaveStarted:
     m_PersistentCalls:

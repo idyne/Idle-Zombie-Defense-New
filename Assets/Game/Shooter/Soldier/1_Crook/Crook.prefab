@@ -73,6 +73,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: cc873bbec39b274438140899d92f41e8,
         type: 2}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: hipsTransform
+      value: 
+      objectReference: {fileID: 6186334917505305384}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: ragdollTransform
+      value: 
+      objectReference: {fileID: 9062246254177008553}
     - target: {fileID: 7664977550407313012, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: m_Name
@@ -645,9 +655,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eef02af2c5f398f48aa8e66fe383a69f, type: 3}
+--- !u!4 &6186334917505305384 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4054509891948532154, guid: eef02af2c5f398f48aa8e66fe383a69f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7898968050472950418}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &7920068654686481112 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 33629584328142922, guid: eef02af2c5f398f48aa8e66fe383a69f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7898968050472950418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9062246254177008553 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1179192561865859387, guid: eef02af2c5f398f48aa8e66fe383a69f,
     type: 3}
   m_PrefabInstance: {fileID: 7898968050472950418}
   m_PrefabAsset: {fileID: 0}

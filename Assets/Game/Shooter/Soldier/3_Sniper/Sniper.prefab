@@ -73,10 +73,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 79a0d1a55e5a1f44bbb78c531ab4475c,
         type: 2}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: hipsTransform
+      value: 
+      objectReference: {fileID: 2950101456688178411}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: ragdollTransform
+      value: 
+      objectReference: {fileID: 7710485567987588579}
     - target: {fileID: 7664977550407313012, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: m_Name
-      value: Soldier Variant
+      value: Sniper
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80a689825b672384a8185ba45d19f58b, type: 3}
@@ -158,6 +168,18 @@ PrefabInstance:
 --- !u!95 &1010973381688680478 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6955886324626862065, guid: b28f4dfc7617ffb43988a78bea783b29,
+    type: 3}
+  m_PrefabInstance: {fileID: 7966858038647476207}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2950101456688178411 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5079825668448889604, guid: b28f4dfc7617ffb43988a78bea783b29,
+    type: 3}
+  m_PrefabInstance: {fileID: 7966858038647476207}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7710485567987588579 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400489313510445580, guid: b28f4dfc7617ffb43988a78bea783b29,
     type: 3}
   m_PrefabInstance: {fileID: 7966858038647476207}
   m_PrefabAsset: {fileID: 0}

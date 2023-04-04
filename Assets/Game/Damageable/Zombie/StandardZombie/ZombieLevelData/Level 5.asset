@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cooldown: 2
   Color: {r: 0.823, g: 0.78856486, b: 0, a: 1}
-  MaxHealth: 50
+  MaxHealth: 500000
   Speed: 1.5
   Damage: 5
   Scale: 1.2

@@ -101,6 +101,7 @@ public class Zombie : Damageable, IPooledObject
         damage = data.Damage;
         SetColor(data.Color);
         maxHealth = data.MaxHealth;
+        ResetHealth();
         transform.localScale = data.Scale * Vector3.one;
     }
 

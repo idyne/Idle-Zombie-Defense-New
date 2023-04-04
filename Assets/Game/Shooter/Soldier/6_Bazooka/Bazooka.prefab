@@ -73,10 +73,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 9fb6b273a33aedf4f8957795017522c3,
         type: 2}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: hipsTransform
+      value: 
+      objectReference: {fileID: 6961888194732965895}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: ragdollTransform
+      value: 
+      objectReference: {fileID: 7226954984040337815}
     - target: {fileID: 7664977550407313012, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: m_Name
-      value: Soldier Variant
+      value: Bazooka
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80a689825b672384a8185ba45d19f58b, type: 3}
@@ -158,6 +168,18 @@ PrefabInstance:
 --- !u!95 &3749249074789873837 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 6182771068711222070, guid: d52193cafed2a3c449a419267e8f2739,
+    type: 3}
+  m_PrefabInstance: {fileID: 7045212754035590043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6961888194732965895 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 96835919081669532, guid: d52193cafed2a3c449a419267e8f2739,
+    type: 3}
+  m_PrefabInstance: {fileID: 7045212754035590043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7226954984040337815 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400489313510445580, guid: d52193cafed2a3c449a419267e8f2739,
     type: 3}
   m_PrefabInstance: {fileID: 7045212754035590043}
   m_PrefabAsset: {fileID: 0}

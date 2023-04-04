@@ -75,6 +75,18 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 7874181389762371308}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &7550395454948003040 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400489313510445580, guid: 57f4554727e246740bc9e51ec0407ef7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7874181389762371308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8314815487598941480 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2171472659257707460, guid: 57f4554727e246740bc9e51ec0407ef7,
+    type: 3}
+  m_PrefabInstance: {fileID: 7874181389762371308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8621183767737575676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -148,10 +160,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d2a2217d31c39ee4587b9aa3fdfd80b5,
         type: 2}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: hipsTransform
+      value: 
+      objectReference: {fileID: 8314815487598941480}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: ragdollTransform
+      value: 
+      objectReference: {fileID: 7550395454948003040}
     - target: {fileID: 7664977550407313012, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: m_Name
-      value: Soldier Variant
+      value: Infantry
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80a689825b672384a8185ba45d19f58b, type: 3}
