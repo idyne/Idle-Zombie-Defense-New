@@ -884,21 +884,9 @@ MonoBehaviour:
   moneyText: {fileID: 5679858355876258858}
   toolText: {fileID: 7894054021563887212}
   dayText: {fileID: 2830980176372466890}
-  onWaveClearEffectFinished:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 5f78ffa24ca8fbb42b4c4b3455f9e686, type: 2}
-        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  onZoneFinished: {fileID: 11400000, guid: bc340e100eb53cd4fa04509a2675875a, type: 2}
+  onWaveClearEffectFinished: {fileID: 11400000, guid: 5f78ffa24ca8fbb42b4c4b3455f9e686,
+    type: 2}
 --- !u!114 &251995382009506959
 MonoBehaviour:
   m_ObjectHideFlags: 0
