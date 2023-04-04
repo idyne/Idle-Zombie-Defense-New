@@ -11,7 +11,6 @@ public class HealthBar : UIElement
     private Tween showTween = null;
     private static Camera mainCamera;
     private static Transform container;
-    [SerializeField] private Transform target;
     [SerializeField] private RectTransform sliderContainer;
     [SerializeField] private HealthBarSet set;
     public float Percent { get => slider.value; }

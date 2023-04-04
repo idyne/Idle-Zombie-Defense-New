@@ -16,6 +16,7 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] protected ZombieSet zombieSet;
     [SerializeField] protected LayerMask enemyLayerMask;
     [SerializeField] protected Renderer meshRenderer;
+    [SerializeField] protected int mainMaterialIndex;
     [SerializeField] protected bool mechanim = false;
     [SerializeField] protected Animator animator;
     [SerializeField] protected SnapshotMeshAnimator meshAnimator;
@@ -55,7 +56,7 @@ public class Zombie : Damageable, IPooledObject
     private void SetColor(Color color)
     {
         Log("SetColor", false);
-        meshRenderer.material.color = color;
+        meshRenderer.materials[mainMaterialIndex].color = color;
     }
     public bool Frozen { get => freezeTween != null; }
     public void Freeze(float duration)
