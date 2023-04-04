@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DayBossLevel_1
   m_EditorClassIdentifier: 
   Cooldown: 2
-  Color: {r: 1, g: 1, b: 1, a: 1}
+  Color: {r: 1, g: 0.1273585, b: 0.1273585, a: 1}
   MaxHealth: 50
   Speed: 1
   Damage: 5

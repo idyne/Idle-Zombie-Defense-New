@@ -24,17 +24,17 @@ MonoBehaviour:
     FrostMineDurationLevel: 1
     MolotovCooldownLevel: 1
     MolotovDamageLevel: 1
-    MolotovUnlocked: 0
+    MolotovUnlocked: 1
     CommanderDamageLevel: 1
     TurretCount: 1
     TurretDamageLevel: 1
-    Money: 40051356
+    Money: 40058318
     FireRateLevel: 7
     IncomeLevel: 6
     MergeCount: 104
     SoldierBuyingCount: 235
-    Tools: 118
-    WaveLevel: 4
+    Tools: 30
+    WaveLevel: 5
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
