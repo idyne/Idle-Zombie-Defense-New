@@ -16,7 +16,7 @@ MonoBehaviour:
     Level: 4
     BarrierHealthLevel: 1
     SoldierBuyingLevel: 1
-    SoldierTable: 0100000001000000010000000100000001000000010000000100000001000000
+    SoldierTable: 0100000000000000000000000000000001000000000000000000000000000000
     TowerHealthLevel: 1
     ExplosiveMineCount: 0
     ExplosiveMineDamageLevel: 1
@@ -28,11 +28,11 @@ MonoBehaviour:
     CommanderDamageLevel: 1
     TurretCount: 0
     TurretDamageLevel: 1
-    Money: 39958381
+    Money: 39658206
     FireRateLevel: 7
     IncomeLevel: 6
-    MergeCount: 104
-    SoldierBuyingCount: 276
+    MergeCount: 137
+    SoldierBuyingCount: 347
     Tools: 49
     WaveLevel: 28
   OnValueChanged:

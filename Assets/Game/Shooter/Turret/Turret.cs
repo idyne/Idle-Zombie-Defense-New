@@ -32,14 +32,16 @@ public class Turret : Shooter
     public override void StartShooting()
     {
         base.StartShooting();
-        DOTween.Kill(transform);
+        Debug.Log(DOTween.Kill(transform), this);
+        //DOTween.Kill(transform);
         DOTween.To(() => animator.GetFloat("Speed"), (x) => animator.SetFloat("Speed", x), 20, 0.1f);
     }
 
     public override void StopShooting()
     {
         base.StopShooting();
-        DOTween.Kill(transform);
+        Debug.Log(DOTween.Kill(transform), this);
+        //DOTween.Kill(transform);
         DOTween.To(() => animator.GetFloat("Speed"), (x) => animator.SetFloat("Speed", x), 1, 0.1f);
     }
 

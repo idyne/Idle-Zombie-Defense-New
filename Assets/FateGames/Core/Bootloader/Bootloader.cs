@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,6 +32,7 @@ namespace FateGames.Core
         {
             if (booted) return;
             gameState.Value = GameState.BOOTING;
+            DOTween.SetTweensCapacity(200, 312);
             saveManager.Initialize();
             gameManager.Initialize();
             InputManager.Initialize();
