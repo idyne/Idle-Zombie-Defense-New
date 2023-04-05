@@ -73,6 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3315086011950761123}
   - component: {fileID: 5855555313455033283}
+  - component: {fileID: 8131663373454151901}
   m_Layer: 0
   m_Name: RocketLauncher
   m_TagString: Untagged
@@ -115,8 +116,37 @@ MonoBehaviour:
   - {fileID: 8200050456364462724}
   - {fileID: 4888570318563127821}
   - {fileID: 1409757291965166717}
+  fireRateEffect: {fileID: 11400000, guid: b80e7e2c086d26046948936416a94ee5, type: 2}
   burstCount: 4
   burstPeriod: 0.2
+--- !u!114 &8131663373454151901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3713291440107249264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8599fd48156863e4d8c089957a1e1edd, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5855555313455033283}
+        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+        m_MethodName: ShowFireRateEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5024563041210946584
 GameObject:
   m_ObjectHideFlags: 0

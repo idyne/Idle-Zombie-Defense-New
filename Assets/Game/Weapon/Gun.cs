@@ -8,6 +8,7 @@ public class Gun : FateMonoBehaviour
     [SerializeField] protected int damage = 10;
     [SerializeField] protected ObjectPool bulletPool;
     [SerializeField] protected Transform[] muzzles;
+    [SerializeField] ObjectPool fireRateEffect;
     protected int shotCount = 0;
     protected Transform Muzzle { get => muzzles[shotCount % muzzles.Length]; }
 
@@ -24,5 +25,10 @@ public class Gun : FateMonoBehaviour
         shotCount++;
     }
 
+    public void ShowFireRateEffect()
+    {
+        fireRateEffect.Get<Transform>(Muzzle.position, Quaternion.identity);
+    }
+    
 
 }

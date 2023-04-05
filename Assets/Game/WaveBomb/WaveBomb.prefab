@@ -48,6 +48,8 @@ MonoBehaviour:
   zombieLayerMask:
     serializedVersion: 2
     m_Bits: 128
+  megaExplosionYellow: {fileID: 11400000, guid: 696a45cf626c60d4388e695911a93c3f,
+    type: 2}
 --- !u!114 &7184120500803218032
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1574657729762967301}
   - component: {fileID: 269483828605959576}
+  - component: {fileID: -7437329007176522482}
   m_Layer: 0
   m_Name: Bazooka
   m_TagString: Untagged
@@ -80,6 +81,35 @@ MonoBehaviour:
   bulletPool: {fileID: 11400000, guid: b44479880d433e14f8a007e0820d5eca, type: 2}
   muzzles:
   - {fileID: 2143512637050633684}
+  fireRateEffect: {fileID: 11400000, guid: b80e7e2c086d26046948936416a94ee5, type: 2}
+--- !u!114 &-7437329007176522482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254573792539369742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8599fd48156863e4d8c089957a1e1edd, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 269483828605959576}
+        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+        m_MethodName: ShowFireRateEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2809895758677394260
 GameObject:
   m_ObjectHideFlags: 0

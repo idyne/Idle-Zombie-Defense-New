@@ -21,6 +21,7 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] protected Animator animator;
     [SerializeField] protected SnapshotMeshAnimator meshAnimator;
     [SerializeField] private MoneyBurster moneyBurster;
+    [SerializeField] private ObjectPool bloodSplash;
 
     private IEnumerator flashCoroutine = null;
     public event Action OnRelease;
@@ -264,8 +265,10 @@ public class Zombie : Damageable, IPooledObject
         DeadStandardZombie deadZombie = deadZombiePool.Get<DeadStandardZombie>(transform.position, Quaternion.identity);
         deadZombie.Initialize(levelData[level], transform);
         deadZombie.Animate();
+        bloodSplash.Get<Transform>(shotPoint.position, Quaternion.identity);
         OnDied.Invoke();
         Release();
+        
     }
 
     public void DropMoney()
