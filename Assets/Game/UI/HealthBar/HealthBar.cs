@@ -45,7 +45,7 @@ public class HealthBar : UIElement
     {
         CancelTween();
         float time = Mathf.Abs(slider.value - percent) / 2f; // 0 to 1 in 2 seconds;
-        tween = DOTween.To(() => slider.value, (x) => slider.value = x, percent, time);
+        tween = DOTween.To(() => slider.value, (x) => slider.value = x, percent, time).OnComplete(() => { tween = null; });
     }
 
     // Call on every frame

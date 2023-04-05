@@ -12,7 +12,7 @@ public class UIElement : FateMonoBehaviour
     private int originalOrder = 0;
 
     public virtual void Hide() { canvas.enabled = false; if (deactivateOnHide) canvas.gameObject.SetActive(false); }
-    public virtual void Show() { canvas.enabled = true; if (deactivateOnHide) canvas.gameObject.SetActive(true); }
+    public virtual void Show() { canvas.enabled = true; canvas.gameObject.SetActive(true); }
 
     public void Highlight()
     {

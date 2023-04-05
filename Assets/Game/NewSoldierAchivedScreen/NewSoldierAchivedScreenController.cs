@@ -4,21 +4,22 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class NewSoldierAchivedScreenController : MonoBehaviour
+public class NewSoldierAchivedScreenController : UIElement
 {
     [SerializeField] private SoldierImageRendererController soldierImageRendererController = null;
     [SerializeField] private List<StringReference> soldierNames = new List<StringReference>();
     [SerializeField] private IntReference lastAchivedSoldierLevel;
-    [SerializeField] private Canvas rootCanvas = null;
     [SerializeField] private TextMeshProUGUI soldierName = null;
     [SerializeField] private GameEvent onClosedEvent = null;
+    [SerializeField] private GameManager gameManager;
 
     public void Open()
     {
+        gameManager.PauseGame();
         int soldierIndex = lastAchivedSoldierLevel.Value - 1;
         soldierImageRendererController.ShowSoldier(soldierIndex);
         soldierName.text = soldierNames[soldierIndex].Value;
-        rootCanvas.enabled = true;
+        Show();
     }
 
     public void RevardedClaim() 
@@ -30,7 +31,8 @@ public class NewSoldierAchivedScreenController : MonoBehaviour
     public void Close()
     {
         soldierImageRendererController.CloseShow();
-        rootCanvas.enabled = false;
+        Hide();
+        gameManager.ResumeGame();
         onClosedEvent.Raise();
     }
 }

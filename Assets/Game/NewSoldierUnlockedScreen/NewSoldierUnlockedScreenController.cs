@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NewSoldierUnlockedScreenController : MonoBehaviour
+public class NewSoldierUnlockedScreenController : UIElement
 {
     [SerializeField] private SoldierImageRendererController soldierImageRendererController = null;
     [SerializeField] private List<StringReference> soldierNames = new List<StringReference>();
     [SerializeField] private IntReference lastUnlockedSoldierLevel;
-    [SerializeField] private Canvas rootCanvas = null;
     [SerializeField] private TextMeshProUGUI soldierName = null;
     [SerializeField] private GameEvent onClosedEvent = null;
 
@@ -18,13 +17,13 @@ public class NewSoldierUnlockedScreenController : MonoBehaviour
         int soldierIndex = lastUnlockedSoldierLevel.Value - 1;
         soldierImageRendererController.ShowSoldier(soldierIndex);
         soldierName.text = soldierNames[soldierIndex].Value;
-        rootCanvas.enabled = true;
+        Show();
     }
 
     public void Close()
     {
         soldierImageRendererController.CloseShow();
-        rootCanvas.enabled = false;
+        Hide();
         onClosedEvent.Raise();
     }
 }
