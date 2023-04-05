@@ -37,7 +37,7 @@ public class ZoneManager : ScriptableObject
     {
         Day = (WaveLevel - 1) / 4 + 1;
     }
-    private void SetZone()
+    public void SetZone()
     {
         int total = 0;
         for (int i = 0; i < zoneLengths.Length; i++)

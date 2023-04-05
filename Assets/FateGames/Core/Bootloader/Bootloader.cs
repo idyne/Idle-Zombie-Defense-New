@@ -11,6 +11,7 @@ namespace FateGames.Core
     {
         private static bool booted = false;
         private static Bootloader instance = null;
+        [SerializeField] private ZoneManager zoneManager;
         [SerializeField] private GameManager gameManager;
         [SerializeField] private SaveManager saveManager;
         [SerializeField] private SceneManager sceneManager;
@@ -37,6 +38,7 @@ namespace FateGames.Core
             gameManager.Initialize();
             InputManager.Initialize();
             soundManager.Initialize();
+            zoneManager.Initialize();
             sceneManager.Initialize();
             ObjectPooler.Initialize();
             if (!sceneManager.IsLevel(UnityEngine.SceneManagement.SceneManager.GetActiveScene()))
