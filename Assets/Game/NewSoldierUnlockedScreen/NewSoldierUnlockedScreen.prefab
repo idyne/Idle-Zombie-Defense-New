@@ -36,7 +36,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1024, y: 1024}
+  m_SizeDelta: {x: 1230, y: 1230}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5618904087188499464
 CanvasRenderer:
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AspectMode: 0
-  m_AspectRatio: NaN
+  m_AspectRatio: 0.45
 --- !u!1 &4101980195741408721
 GameObject:
   m_ObjectHideFlags: 0
@@ -875,6 +875,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1273948936271580051}
+  - {fileID: 4023691552555597967}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -918,7 +919,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a831f80ce7b6974082fee71427e4306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soldierImageRendererController: {fileID: 0}
+  canvas: {fileID: 5443569713076224312}
+  deactivateOnHide: 0
+  soldierImageRendererController: {fileID: 3005250664168244088}
   soldierNames:
   - UseConstant: 0
     ConstantValue: 
@@ -928,26 +931,54 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: 5b6e3b8b5c65e6141a53a1d158c55acc, type: 2}
   - UseConstant: 0
     ConstantValue: 
+    Variable: {fileID: 11400000, guid: 60b3d4e9d7628e342a7a405f3632f891, type: 2}
+  - UseConstant: 0
+    ConstantValue: 
     Variable: {fileID: 11400000, guid: 66a3058e247d9a54db5af487c93f5605, type: 2}
+  - UseConstant: 0
+    ConstantValue: 
+    Variable: {fileID: 11400000, guid: f7325cb24da8576479c210a1eb9d2e68, type: 2}
   - UseConstant: 0
     ConstantValue: 
     Variable: {fileID: 11400000, guid: ce26802ff47cb83438e04465328d7628, type: 2}
   - UseConstant: 0
     ConstantValue: 
+    Variable: {fileID: 11400000, guid: ad30d377c9dada4479a2fbd38d9b94b2, type: 2}
+  - UseConstant: 0
+    ConstantValue: 
     Variable: {fileID: 11400000, guid: 78bdac6fb1214e04f892c5274386a45f, type: 2}
   - UseConstant: 0
     ConstantValue: 
+    Variable: {fileID: 11400000, guid: 5da26494094dfeb40b0b19c5260addc8, type: 2}
+  - UseConstant: 0
+    ConstantValue: 
     Variable: {fileID: 11400000, guid: 639520e162233dc409c3aefde9f409d0, type: 2}
+  - UseConstant: 0
+    ConstantValue: 
+    Variable: {fileID: 11400000, guid: 0d52722a72d7df846a0b73d603dc211f, type: 2}
   - UseConstant: 0
     ConstantValue: 
     Variable: {fileID: 11400000, guid: 3e86719432f4a6245b3a983b765abf64, type: 2}
   lastUnlockedSoldierLevel:
     UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 1dff174ebac715041923e2739d2bb84e, type: 2}
-  rootCanvas: {fileID: 5443569713076224312}
+    Variable: {fileID: 11400000, guid: 8333d820031d55042940819b248f0833, type: 2}
   soldierName: {fileID: 87603835126439892}
-  onClosedEvent: {fileID: 11400000, guid: 886312340d2b1cf4d89573e682b34c05, type: 2}
+  onClosed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 886312340d2b1cf4d89573e682b34c05, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &706695222064236243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1080,6 +1111,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fx_Rotate_Light01
       objectReference: {fileID: 0}
+    - target: {fileID: 8217767012232148901, guid: 086535fe746a24b5a9e8e6936063074c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8217767012809598257, guid: 086535fe746a24b5a9e8e6936063074c,
         type: 3}
       propertyPath: m_IsActive
@@ -1092,4 +1128,91 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8217767012232148900, guid: 086535fe746a24b5a9e8e6936063074c,
     type: 3}
   m_PrefabInstance: {fileID: 706695222064236243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8924305194730832691
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8712133182075063990}
+    m_Modifications:
+    - target: {fileID: 5480465597870097340, guid: 290f81a865e47f04598be880e119b273,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480465597870097340, guid: 290f81a865e47f04598be880e119b273,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480465597870097340, guid: 290f81a865e47f04598be880e119b273,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480465597870097340, guid: 290f81a865e47f04598be880e119b273,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480465597870097340, guid: 290f81a865e47f04598be880e119b273,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480465597870097340, guid: 290f81a865e47f04598be880e119b273,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480465597870097340, guid: 290f81a865e47f04598be880e119b273,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480465597870097340, guid: 290f81a865e47f04598be880e119b273,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480465597870097340, guid: 290f81a865e47f04598be880e119b273,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480465597870097340, guid: 290f81a865e47f04598be880e119b273,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480465597870097340, guid: 290f81a865e47f04598be880e119b273,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5480465597870097343, guid: 290f81a865e47f04598be880e119b273,
+        type: 3}
+      propertyPath: m_Name
+      value: SoldierImageRenderer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 290f81a865e47f04598be880e119b273, type: 3}
+--- !u!114 &3005250664168244088 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5939486792479375435, guid: 290f81a865e47f04598be880e119b273,
+    type: 3}
+  m_PrefabInstance: {fileID: 8924305194730832691}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1880d7ffc46405549a800ea078a8bfdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &4023691552555597967 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5480465597870097340, guid: 290f81a865e47f04598be880e119b273,
+    type: 3}
+  m_PrefabInstance: {fileID: 8924305194730832691}
   m_PrefabAsset: {fileID: 0}

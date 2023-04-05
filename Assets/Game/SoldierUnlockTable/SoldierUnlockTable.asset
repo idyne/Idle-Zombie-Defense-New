@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 624d27c440890554ab739bb474723141, type: 3}
+  m_Name: SoldierUnlockTable
+  m_EditorClassIdentifier: 
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
+  entities:
+  - Day: 0
+    SoldierLevel: 3
+  - Day: 4
+    SoldierLevel: 4
+  - Day: 7
+    SoldierLevel: 5
+  - Day: 10
+    SoldierLevel: 6
+  - Day: 14
+    SoldierLevel: 7
+  - Day: 18
+    SoldierLevel: 8
+  - Day: 21
+    SoldierLevel: 9
+  - Day: 25
+    SoldierLevel: 10
+  - Day: 28
+    SoldierLevel: 11
+  - Day: 33
+    SoldierLevel: 12

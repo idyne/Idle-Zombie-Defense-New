@@ -8,10 +8,12 @@ public partial class Tower
 {
     [SerializeField] private List<SoldierSet> soldierTable;
     [SerializeField] private List<ObjectPool> soldierPools;
-    [SerializeField] private UnityEvent OnNewSoldier;
     [SerializeField] private ObjectPool poofEffectPool;
     [SerializeField] private ObjectPool magicBuffEffectPool;
 
+    [SerializeField] private UnityEvent OnNewSoldier, OnNewSoldierAchieved;
+    [SerializeField] private IntVariable lastAchievedSoldierLevel;
+    [SerializeField] private SoldierUnlockTable soldierUnlockTable;
     private readonly static int mergeSize = 3;
     private readonly float mergeAnimationDuration = 0.25f;
     public int NumberOfSoldiers { get; private set; } = 0;
@@ -44,9 +46,23 @@ public partial class Tower
                 });
             }
             yield return new WaitUntil(() => count == 0);
+            bool newSoldierAchieved = true;
+            for (int i = level + 1; i < soldierTable.Count; i++)
+            {
+                if (soldierTable[i].Items.Count > 0)
+                {
+                    newSoldierAchieved = false;
+                    break;
+                }
+            }
             PlaceSoldiers();
             AddSoldier(level + 1, mergePoint.position);
             poofEffectPool.Get<Transform>(mergePoint.position, Quaternion.identity);
+            if (newSoldierAchieved)
+            {
+                lastAchievedSoldierLevel.Value = level + 1;
+                OnNewSoldierAchieved.Invoke();
+            }
         }
         StartCoroutine(mergeRoutine());
     }
@@ -57,7 +73,7 @@ public partial class Tower
         // Assign default value
         bool canMerge = false;
         // Cannot merge the maximum level soldiers
-        int limitLevel = soldierTable.Count - 1;
+        int limitLevel = soldierUnlockTable.GetLastUnlockedSoldierLevel();
         // Iterate through all soldier levels
         while (i < limitLevel)
         {

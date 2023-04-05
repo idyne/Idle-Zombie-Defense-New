@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using FateGames.Core;
-using DG.Tweening;
+using FateGames.Tweening;
 
 public class Bullet : FateMonoBehaviour, IPooledObject
 {
@@ -42,7 +42,7 @@ public class Bullet : FateMonoBehaviour, IPooledObject
         if (Physics.Raycast(transform.position, direction, out RaycastHit hit, 100, damageableLayerMask))
         {
             float time = hit.distance / speed;
-            transform.DOMove(hit.point, time).OnComplete(OnReached);
+            transform.FaMove(hit.point, time).OnComplete(OnReached);
         }
         else
         {
@@ -74,7 +74,7 @@ public class Bullet : FateMonoBehaviour, IPooledObject
         if (Physics.Raycast(transform.position, direction, out RaycastHit hit, 100, groundLayerMask))
         {
             float time = hit.distance / speed;
-            transform.DOMove(hit.point, time).OnComplete(Release);
+            transform.FaMove(hit.point, time).OnComplete(Release);
         }
         else
         {

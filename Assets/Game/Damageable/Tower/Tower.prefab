@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6952776938474353731}
   - component: {fileID: 409990134041599648}
   - component: {fileID: 6655824096435337421}
+  - component: {fileID: 1117111715057422633}
   m_Layer: 9
   m_Name: Tower
   m_TagString: Untagged
@@ -75,19 +76,29 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 53d6897387af5d74787ed8bab2e4665d, type: 2}
   - {fileID: 11400000, guid: cc873bbec39b274438140899d92f41e8, type: 2}
   - {fileID: 11400000, guid: 91eb11bacb4585843a7384b0c1fb1de6, type: 2}
+  - {fileID: 11400000, guid: 39929c4606c27bd469e4ba1c1a541237, type: 2}
   - {fileID: 11400000, guid: 79a0d1a55e5a1f44bbb78c531ab4475c, type: 2}
+  - {fileID: 11400000, guid: dc6d45b81e430d543b66c4824644dd8e, type: 2}
   - {fileID: 11400000, guid: d2a2217d31c39ee4587b9aa3fdfd80b5, type: 2}
+  - {fileID: 11400000, guid: 69acfe2b3c58ffa49b8728ea2f2eb73b, type: 2}
   - {fileID: 11400000, guid: 8480f48440b8b3c4cadf88acf24dfbba, type: 2}
+  - {fileID: 11400000, guid: 94ae4412e52051949b99f5e3e5a59c2e, type: 2}
   - {fileID: 11400000, guid: 9fb6b273a33aedf4f8957795017522c3, type: 2}
+  - {fileID: 11400000, guid: edea13237de331645aea48b6c8bff8e6, type: 2}
   - {fileID: 11400000, guid: fcb869d35c2c11143ad0c130fd483ad9, type: 2}
   soldierPools:
   - {fileID: 11400000, guid: c458094e84ff8824abc7f55bf7579f20, type: 2}
   - {fileID: 11400000, guid: e6d080fe95a80b548bb9765e9728d408, type: 2}
   - {fileID: 11400000, guid: 373426a8563fa144991aa78e4ac0e923, type: 2}
+  - {fileID: 11400000, guid: 401dd8ba8f118a94d92ece94c2ced0c0, type: 2}
   - {fileID: 11400000, guid: 803195216eb48a54ebbe4a734b71a9d0, type: 2}
+  - {fileID: 11400000, guid: 9cef4e5320c6c7b4b80db6af4ac2e445, type: 2}
   - {fileID: 11400000, guid: 57f675ffb76d7ee4fb08941169cdf01c, type: 2}
+  - {fileID: 11400000, guid: f6c87370946861b47b8fe93f3de81d2c, type: 2}
   - {fileID: 11400000, guid: 32eda220afb936d4eb3063ac52b01129, type: 2}
+  - {fileID: 11400000, guid: 1ea596e7c35d1a5478f7a3c048dcfeb8, type: 2}
   - {fileID: 11400000, guid: 42f6e140431e71c45a257dedae911c91, type: 2}
+  - {fileID: 11400000, guid: 6da5ea5f982f29f439b0cf8f858cdbde, type: 2}
   - {fileID: 11400000, guid: 0d7fcebd2dbf9de4a927f26be74c7bd9, type: 2}
   OnNewSoldier:
     m_PersistentCalls:
@@ -107,6 +118,24 @@ MonoBehaviour:
   poofEffectPool: {fileID: 11400000, guid: c4d7a365c41a2824887175a922d9f5f1, type: 2}
   magicBuffEffectPool: {fileID: 11400000, guid: 4f7b439317ae4284fb0217ba92deb828,
     type: 2}
+  OnNewSoldierAchieved:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: cacf2563074a5ea48ac192e8476ed1bc, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  lastAchievedSoldierLevel: {fileID: 11400000, guid: e5a5881e4b5b5914b945cc9ed85d9c52,
+    type: 2}
+  soldierUnlockTable: {fileID: 11400000, guid: df5ed0cc3542d1843969275cd6c71e8c, type: 2}
   pointContainer: {fileID: 1237794159947781251}
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   OnMergeAvailable:
@@ -234,6 +263,34 @@ MonoBehaviour:
       - m_Target: {fileID: 4227706353280798573}
         m_TargetAssemblyTypeName: Tower, Assembly-CSharp
         m_MethodName: Rewind
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1117111715057422633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3128336954143200287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 3e8d4dcc20f32bc4db915916f5987aa5, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4227706353280798573}
+        m_TargetAssemblyTypeName: Tower, Assembly-CSharp
+        m_MethodName: CheckIfMergeAvailable
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
