@@ -29,7 +29,8 @@ public class AreaClearHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI toolText;
     [SerializeField] private TextMeshProUGUI dayText;
-    [SerializeField] private UnityEvent onWaveClearEffectFinished;
+    [SerializeField] private GameEvent onZoneFinished;
+    [SerializeField] private GameEvent onWaveClearEffectFinished;
 
     private int collectableMoneyAmount = 0;
     private int collectableToolsAmount = 0;
@@ -56,7 +57,7 @@ public class AreaClearHandler : MonoBehaviour
         FaTween.DelayedCall(3f, () =>
         {
             zoneManager.IncrementWaveLevel();
-            if (zoneManager.IsLastDayOfZone()) sceneManager.LoadNextLevel(); // bunun yerine map açýlacak. sahne yüklemesi orada olacak
+            if (zoneManager.IsLastDayOfZone()) onZoneFinished.Raise();
             else sceneManager.LoadCurrentLevel();
         });
     }
@@ -69,7 +70,7 @@ public class AreaClearHandler : MonoBehaviour
         {
             SpreadMoney(defaultSpawnPosition.position, moneyAmount);
             SpreadTool(defaultSpawnPosition.position, toolAmount);
-            FaTween.DelayedCall(2f, onWaveClearEffectFinished.Invoke);
+            FaTween.DelayedCall(2f, onWaveClearEffectFinished.Raise);
         });
     }
 
