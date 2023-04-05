@@ -931,25 +931,54 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: 5b6e3b8b5c65e6141a53a1d158c55acc, type: 2}
   - UseConstant: 0
     ConstantValue: 
+    Variable: {fileID: 11400000, guid: 60b3d4e9d7628e342a7a405f3632f891, type: 2}
+  - UseConstant: 0
+    ConstantValue: 
     Variable: {fileID: 11400000, guid: 66a3058e247d9a54db5af487c93f5605, type: 2}
+  - UseConstant: 0
+    ConstantValue: 
+    Variable: {fileID: 11400000, guid: f7325cb24da8576479c210a1eb9d2e68, type: 2}
   - UseConstant: 0
     ConstantValue: 
     Variable: {fileID: 11400000, guid: ce26802ff47cb83438e04465328d7628, type: 2}
   - UseConstant: 0
     ConstantValue: 
+    Variable: {fileID: 11400000, guid: ad30d377c9dada4479a2fbd38d9b94b2, type: 2}
+  - UseConstant: 0
+    ConstantValue: 
     Variable: {fileID: 11400000, guid: 78bdac6fb1214e04f892c5274386a45f, type: 2}
   - UseConstant: 0
     ConstantValue: 
+    Variable: {fileID: 11400000, guid: 5da26494094dfeb40b0b19c5260addc8, type: 2}
+  - UseConstant: 0
+    ConstantValue: 
     Variable: {fileID: 11400000, guid: 639520e162233dc409c3aefde9f409d0, type: 2}
+  - UseConstant: 0
+    ConstantValue: 
+    Variable: {fileID: 11400000, guid: 0d52722a72d7df846a0b73d603dc211f, type: 2}
   - UseConstant: 0
     ConstantValue: 
     Variable: {fileID: 11400000, guid: 3e86719432f4a6245b3a983b765abf64, type: 2}
   lastUnlockedSoldierLevel:
     UseConstant: 0
     ConstantValue: 0
-    Variable: {fileID: 11400000, guid: 1dff174ebac715041923e2739d2bb84e, type: 2}
+    Variable: {fileID: 11400000, guid: 8333d820031d55042940819b248f0833, type: 2}
   soldierName: {fileID: 87603835126439892}
-  onClosedEvent: {fileID: 11400000, guid: 886312340d2b1cf4d89573e682b34c05, type: 2}
+  onClosed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 886312340d2b1cf4d89573e682b34c05, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &706695222064236243
 PrefabInstance:
   m_ObjectHideFlags: 0

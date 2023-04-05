@@ -10,6 +10,7 @@ public partial class Tower
     [SerializeField] private List<ObjectPool> soldierPools;
     [SerializeField] private UnityEvent OnNewSoldier, OnNewSoldierAchieved;
     [SerializeField] private IntVariable lastAchievedSoldierLevel;
+    [SerializeField] private SoldierUnlockTable soldierUnlockTable;
     private readonly static int mergeSize = 3;
     private readonly float mergeAnimationDuration = 0.25f;
     public int NumberOfSoldiers { get; private set; } = 0;
@@ -68,7 +69,7 @@ public partial class Tower
         // Assign default value
         bool canMerge = false;
         // Cannot merge the maximum level soldiers
-        int limitLevel = soldierTable.Count - 1;
+        int limitLevel = soldierUnlockTable.GetLastUnlockedSoldierLevel();
         // Iterate through all soldier levels
         while (i < limitLevel)
         {

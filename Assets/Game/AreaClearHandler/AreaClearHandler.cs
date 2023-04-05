@@ -7,7 +7,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine.Events;
 
-public class AreaClearHandler : MonoBehaviour
+public class AreaClearHandler : UIElement
 {
     [SerializeField] private int toolPerWave = 2;
     [SerializeField] private int toolPerDay = 5;
@@ -29,11 +29,16 @@ public class AreaClearHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI toolText;
     [SerializeField] private TextMeshProUGUI dayText;
-    [SerializeField] private GameEvent onZoneFinished;
-    [SerializeField] private GameEvent onWaveClearEffectFinished;
+    [SerializeField] private UnityEvent onZoneFinished;
+    [SerializeField] private UnityEvent onWaveClearEffectFinished;
+    [SerializeField] private SoldierUnlockTable soldierUnlockTable;
+    [SerializeField] private UnityEvent onNewSoldierUnlocked;
+    [SerializeField] private IntVariable lastUnlockedSoldierLevel;
 
     private int collectableMoneyAmount = 0;
     private int collectableToolsAmount = 0;
+    private bool mapClosed = false;
+    private bool soldierUnlockedScreenClosed = false;
 
     public void ShowCorrectScreen()
     {
@@ -56,10 +61,45 @@ public class AreaClearHandler : MonoBehaviour
 
         FaTween.DelayedCall(3f, () =>
         {
-            zoneManager.IncrementWaveLevel();
-            if (zoneManager.IsLastDayOfZone()) onZoneFinished.Raise();
-            else sceneManager.LoadCurrentLevel();
+            Hide();
+            IEnumerator routine()
+            {
+                if (zoneManager.IsLastDayOfZone())
+                {
+                    onZoneFinished.Invoke();
+                    yield return new WaitUntil(() => mapClosed);
+                }
+                if (CheckSoldierUnlocked())
+                    yield return new WaitUntil(() => soldierUnlockedScreenClosed);
+                zoneManager.IncrementWaveLevel();
+                sceneManager.LoadCurrentLevel();
+            }
+
+
+            StartCoroutine(routine());
         });
+    }
+
+    public bool CheckSoldierUnlocked()
+    {
+        SoldierUnlockTable.SoldierUnlockEntity entity = soldierUnlockTable[zoneManager.Day];
+        if (entity != null)
+        {
+            lastUnlockedSoldierLevel.Value = entity.SoldierLevel;
+            onNewSoldierUnlocked.Invoke();
+            return true;
+        }
+        return false;
+    }
+
+    public void OnSoldierUnlockedScreenClosed()
+    {
+        soldierUnlockedScreenClosed = true;
+    }
+
+    public void OnMapClosed()
+    {
+        mapClosed = true;
     }
 
     public void WaveClear(int moneyAmount, int toolAmount)
@@ -70,7 +110,7 @@ public class AreaClearHandler : MonoBehaviour
         {
             SpreadMoney(defaultSpawnPosition.position, moneyAmount);
             SpreadTool(defaultSpawnPosition.position, toolAmount);
-            FaTween.DelayedCall(2f, onWaveClearEffectFinished.Raise);
+            FaTween.DelayedCall(2f, onWaveClearEffectFinished.Invoke);
         });
     }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
 
 public class NewSoldierUnlockedScreenController : UIElement
 {
@@ -10,7 +11,7 @@ public class NewSoldierUnlockedScreenController : UIElement
     [SerializeField] private List<StringReference> soldierNames = new List<StringReference>();
     [SerializeField] private IntReference lastUnlockedSoldierLevel;
     [SerializeField] private TextMeshProUGUI soldierName = null;
-    [SerializeField] private GameEvent onClosedEvent = null;
+    [SerializeField] private UnityEvent onClosed = null;
 
     public void Open()
     {
@@ -24,6 +25,6 @@ public class NewSoldierUnlockedScreenController : UIElement
     {
         soldierImageRendererController.CloseShow();
         Hide();
-        onClosedEvent.Raise();
+        onClosed.Invoke();
     }
 }

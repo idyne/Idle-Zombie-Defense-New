@@ -37,6 +37,7 @@ public class TapToSpeedUp : UIElement
     {
         isGameStarted = false;
         CancelCountdown();
+        Hide();
     }
 
     private void Init()
