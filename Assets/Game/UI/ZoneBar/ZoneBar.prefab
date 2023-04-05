@@ -282,6 +282,8 @@ GameObject:
   m_Component:
   - component: {fileID: 459980831796870893}
   - component: {fileID: 1144287070251211977}
+  - component: {fileID: 8462300630889389706}
+  - component: {fileID: 8605047436927428157}
   m_Layer: 0
   m_Name: ZoneBar
   m_TagString: Untagged
@@ -324,6 +326,62 @@ MonoBehaviour:
   pastColor: {r: 0.22961602, g: 0.78699994, b: 0, a: 1}
   presentColor: {r: 1, g: 0.836574, b: 0, a: 1}
   futureColor: {r: 0.7960785, g: 0.7960785, b: 0.7960785, a: 1}
+--- !u!114 &8462300630889389706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4662520583728148501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 3e8d4dcc20f32bc4db915916f5987aa5, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1144287070251211977}
+        m_TargetAssemblyTypeName: UIElement, Assembly-CSharp
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8605047436927428157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4662520583728148501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1e857c424d01bbe4fa8a32ba4c4a5bc0, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1144287070251211977}
+        m_TargetAssemblyTypeName: UIElement, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6678890826072363410
 GameObject:
   m_ObjectHideFlags: 0

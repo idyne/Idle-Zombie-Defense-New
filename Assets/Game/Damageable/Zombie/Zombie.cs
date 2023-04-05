@@ -15,7 +15,10 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] protected SaveDataVariable saveData;
     [SerializeField] protected ZombieSet zombieSet;
     [SerializeField] protected LayerMask enemyLayerMask;
-    [SerializeField] protected MeshRenderer meshRenderer;
+    [SerializeField] protected Renderer meshRenderer;
+    [SerializeField] protected int mainMaterialIndex;
+    [SerializeField] protected bool mechanim = false;
+    [SerializeField] protected Animator animator;
     [SerializeField] protected SnapshotMeshAnimator meshAnimator;
     [SerializeField] private MoneyBurster moneyBurster;
 
@@ -53,7 +56,7 @@ public class Zombie : Damageable, IPooledObject
     private void SetColor(Color color)
     {
         Log("SetColor", false);
-        meshRenderer.material.color = color;
+        meshRenderer.materials[mainMaterialIndex].color = color;
     }
     public bool Frozen { get => freezeTween != null; }
     public void Freeze(float duration)
@@ -63,9 +66,7 @@ public class Zombie : Damageable, IPooledObject
         SetSpeed(data.Speed / 2f);
         SetCooldown(data.Cooldown * 2f);
         Color originalColor = data.Color;
-        print(originalColor);
         Color frozenColor = new Color(originalColor.r, originalColor.g, originalColor.b + 10f, 1);
-        print(frozenColor);
         SetColor(frozenColor);
         freezeTween = DOVirtual.DelayedCall(duration, Unfreeze);
     }
@@ -100,6 +101,7 @@ public class Zombie : Damageable, IPooledObject
         damage = data.Damage;
         SetColor(data.Color);
         maxHealth = data.MaxHealth;
+        ResetHealth();
         transform.localScale = data.Scale * Vector3.one;
     }
 
@@ -133,7 +135,10 @@ public class Zombie : Damageable, IPooledObject
     public void SetSpeed(float speed)
     {
         Log("SetSpeed", false);
-        meshAnimator.speed = speed;
+        if (mechanim)
+            animator.speed = speed;
+        else
+            meshAnimator.speed = speed;
         agent.speed = speed;
     }
 
@@ -189,6 +194,8 @@ public class Zombie : Damageable, IPooledObject
         if (health <= 0) return false;
         Flash();
         if (!base.Hit(damage)) return false;
+        if (health > 0)
+            Push(damage / (float)maxHealth);
         return true;
     }
 
@@ -197,7 +204,7 @@ public class Zombie : Damageable, IPooledObject
         Log("Push", false);
         if (!agent.enabled) { Debug.LogError("Agent is not enabled!", this); return; }
         value = Mathf.Clamp(value, 0, 1);
-        agent.Move(-transform.forward.normalized * value);
+        agent.Move(2.5f * value * -transform.forward.normalized);
     }
 
     public void Flash()
@@ -235,10 +242,17 @@ public class Zombie : Damageable, IPooledObject
     {
         Log("PlayAnimation", false);
         //Debug.Log("PlayAnimation " + name, this);
-        if (name == meshAnimator.currentAnimation.AnimationName)
-            meshAnimator.RestartAnim();
+        if (mechanim)
+        {
+            animator.SetTrigger(name);
+        }
         else
-            meshAnimator.Play(name);
+        {
+            if (name == meshAnimator.currentAnimation.AnimationName)
+                meshAnimator.RestartAnim();
+            else
+                meshAnimator.Play(name);
+        }
     }
 
 

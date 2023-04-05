@@ -21,7 +21,6 @@ public class PhaseButton : DynamicUIElement
 
     public override void UpdateElement()
     {
-        Debug.Log("UpdateElement", this);
         nameText.text = phaseUpgrade.UpgradeName;
         if (phaseUpgrade.MaxedOut)
         {
@@ -47,7 +46,7 @@ public class PhaseButton : DynamicUIElement
     public void SwitchToCost(int cost, bool affordable)
     {
         button.interactable = affordable;
-        costText.text = cost.ToString();
+        costText.text = MoneyField.numberFormat(cost);
         infoField.SetActive(false);
         costField.SetActive(true);
     }

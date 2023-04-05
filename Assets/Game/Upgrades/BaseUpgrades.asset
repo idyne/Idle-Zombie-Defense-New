@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a33828422d0efa4f83ff151b606c459, type: 3}
   m_Name: BaseUpgrades
   m_EditorClassIdentifier: 
-  Items: []
+  Items:
+  - {fileID: 11400000, guid: 746e5bc5e3c35714f9ef73053209c50c, type: 2}
+  - {fileID: 11400000, guid: 97ef590a649eed248acf5689e2399db8, type: 2}
+  - {fileID: 11400000, guid: d327e3468f51a344f92fc510dc65a610, type: 2}
+  - {fileID: 11400000, guid: 1b49db0afb543d44480afdcf39171163, type: 2}
   OnChange:
     m_PersistentCalls:
       m_Calls: []

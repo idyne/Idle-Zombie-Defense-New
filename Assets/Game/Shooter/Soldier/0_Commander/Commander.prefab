@@ -96,36 +96,36 @@ PrefabInstance:
     - target: {fileID: 1394636408564420674, guid: df0bcc5031a766b48824a7f0ac383bf9,
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1394636408564420674, guid: df0bcc5031a766b48824a7f0ac383bf9,
-        type: 3}
-      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1394636408564420674, guid: df0bcc5031a766b48824a7f0ac383bf9,
         type: 3}
-      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1394636408564420674, guid: df0bcc5031a766b48824a7f0ac383bf9,
         type: 3}
-      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5751345838036609883}
+    - target: {fileID: 1394636408564420674, guid: df0bcc5031a766b48824a7f0ac383bf9,
+        type: 3}
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1394636408564420674, guid: df0bcc5031a766b48824a7f0ac383bf9,
         type: 3}
-      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: UseSkill
       objectReference: {fileID: 0}
     - target: {fileID: 1394636408564420674, guid: df0bcc5031a766b48824a7f0ac383bf9,
         type: 3}
-      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: Commander, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1394636408564420674, guid: df0bcc5031a766b48824a7f0ac383bf9,
         type: 3}
-      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8221090341838935557, guid: df0bcc5031a766b48824a7f0ac383bf9,
@@ -136,10 +136,22 @@ PrefabInstance:
     - target: {fileID: 8221090341838935557, guid: df0bcc5031a766b48824a7f0ac383bf9,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df0bcc5031a766b48824a7f0ac383bf9, type: 3}
+--- !u!114 &5143500955163151710 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4655200696731775952, guid: df0bcc5031a766b48824a7f0ac383bf9,
+    type: 3}
+  m_PrefabInstance: {fileID: 575328807376453262}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bad753e8f83a9348bf730d2f4023cae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2199617509678111420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -235,7 +247,17 @@ PrefabInstance:
     - target: {fileID: 7664977550407313012, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: m_Name
-      value: Commander1
+      value: Commander
+      objectReference: {fileID: 0}
+    - target: {fileID: 8688645858200140470, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5751345838036609883}
+    - target: {fileID: 8688645858200140470, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Rewind
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b, type: 3}
@@ -270,6 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de64122d29a55e44ebdba4fd231d2239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shootFrequencyMultiplier: {fileID: 11400000, guid: becf32ad1cc6833499d19004b05c085f,
+    type: 2}
   range: 25
   shootPeriod: 0.5
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
@@ -277,13 +301,16 @@ MonoBehaviour:
     type: 2}
   soldierSet: {fileID: 11400000, guid: 53d6897387af5d74787ed8bab2e4665d, type: 2}
   animator: {fileID: 9062391205345333777}
+  ragdollTransform: {fileID: 5448178570763250755}
+  hipsTransform: {fileID: 8491609197574631353}
+  rewindDuration: {fileID: 11400000, guid: 0b602d74b8e0971409db89ef52e6fcec, type: 2}
   throwableWeaponPool: {fileID: 11400000, guid: 1947140f79c8f4d44960066203c85593,
     type: 2}
-  cooldown:
-    UseConstant: 1
-    ConstantValue: 5
-    Variable: {fileID: 0}
+  remainingCooldownPercent: {fileID: 11400000, guid: ebee810efb664e84cb8747354d659e32,
+    type: 2}
   throwableContainer: {fileID: 3895552420233829102}
+  saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
+  skillButton: {fileID: 5143500955163151710}
 --- !u!1001 &7666255129821308251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -355,6 +382,18 @@ PrefabInstance:
 --- !u!4 &2861763684621408014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5607830929855427157, guid: 9c24d47f2a4f26a4e91b85dfff3ea445,
+    type: 3}
+  m_PrefabInstance: {fileID: 7666255129821308251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5448178570763250755 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2449909711768570136, guid: 9c24d47f2a4f26a4e91b85dfff3ea445,
+    type: 3}
+  m_PrefabInstance: {fileID: 7666255129821308251}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8491609197574631353 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2286777475078015714, guid: 9c24d47f2a4f26a4e91b85dfff3ea445,
     type: 3}
   m_PrefabInstance: {fileID: 7666255129821308251}
   m_PrefabAsset: {fileID: 0}

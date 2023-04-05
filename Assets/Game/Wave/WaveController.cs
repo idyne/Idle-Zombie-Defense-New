@@ -8,6 +8,7 @@ using System.Linq;
 
 public class WaveController : MonoBehaviour
 {
+    [SerializeField] private ZoneManager zoneManager;
     [SerializeField] private ObjectPool standardZombiePool, dayBossPool, zoneBossPool;
     [SerializeField] private WaveStateVariable waveState;
     [SerializeField] private UnityEvent onWaveStarted = new();
@@ -29,7 +30,9 @@ public class WaveController : MonoBehaviour
     {
         waveState.Value = WaveState.NONE;
         InitializeSpawnPoints();
+        waveCleanPercentage.Value = 0;
     }
+
 
     private List<int> _GenerateZombieTable(int power, int maxZombieLevel, int maxNumberOfZombies, out int numberOfZombies)
     {
@@ -114,7 +117,6 @@ public class WaveController : MonoBehaviour
 
     public void StartWave()
     {
-        Debug.Log("StartWave", this);
         onWaveStarted.Invoke();
         waveState.Value = WaveState.STARTED;
         SpawnZombies();
@@ -126,15 +128,26 @@ public class WaveController : MonoBehaviour
         numberOfZombiesInWave = 0;
         waveCleanPercentage.Value = 0;
         onWaveClearPercentChanged.Invoke();
-        Debug.Log("SpawnZombies", this);
-        List<int> zombieTable = _GenerateZombieTable(1000, 6, 250, out int numberOfZombies);
+        List<int> zombieTable = _GenerateZombieTable(10, 6, 250, out int numberOfZombies);
         remainingZombiesToSpawn = numberOfZombies;
+        if (zoneManager.IsNight) remainingZombiesToSpawn++;
         // Spawns zombies from the zombie table in random order
         float spawnPeriod = 0.02f;
         WaitForSeconds waitForSeconds = new(spawnPeriod);
         IEnumerator spawnZombies(int count)
         {
-            if (count <= 0) yield break;
+            if (count <= 0)
+            {
+                if (zoneManager.IsLastDayOfZone())
+                {
+                    SpawnZombie(zoneManager.Day, ZombieType.ZONE_BOSS);
+                }
+                else if (zoneManager.IsNight)
+                {
+                    SpawnZombie(zoneManager.Day, ZombieType.DAY_BOSS);
+                }
+                yield break;
+            }
             int level = zombieTable[^1];
             zombieTable.RemoveAt(zombieTable.Count - 1);
             SpawnZombie(level, ZombieType.STANDARD);
@@ -185,7 +198,11 @@ public class WaveController : MonoBehaviour
     {
         numberOfDeadZombiesInWave++;
         numberOfZombiesInWave--;
-        waveCleanPercentage.Value = 1f - numberOfZombiesInWave / (float)(numberOfZombiesInWave + remainingZombiesToSpawn + numberOfDeadZombiesInWave);
+        /*Debug.Log("numberOfZombiesInWave: " + numberOfZombiesInWave +
+            "\nremainingZombiesToSpawn: " + remainingZombiesToSpawn +
+            "\nnumberOfDeadZombiesInWave: " + numberOfDeadZombiesInWave + 
+            "\ntotal: " + (numberOfZombiesInWave + remainingZombiesToSpawn + numberOfDeadZombiesInWave));*/
+        waveCleanPercentage.Value = 1f - (numberOfZombiesInWave + remainingZombiesToSpawn) / (float)(numberOfZombiesInWave + remainingZombiesToSpawn + numberOfDeadZombiesInWave);
         onWaveClearPercentChanged.Invoke();
         if (IsWaveCleared)
             OnWaveCleared();
@@ -255,11 +272,7 @@ public class WaveController : MonoBehaviour
 
     public enum WaveState { NONE, STARTED, CLEARED }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawSphere(Vector3.zero, spawnCircleRadius);
-        Gizmos.DrawSphere(Vector3.zero, spawnCircleRadius + spawnCircleWidth);
-    }
+
 }
 
 

@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1870f044037a12408ef7a56019a0282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 100
   bulletPool: {fileID: 11400000, guid: b9ddf22c1afccad47a5b50cf9c2f3e2c, type: 2}
   muzzles:
   - {fileID: 6937212512565088998}

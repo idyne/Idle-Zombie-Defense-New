@@ -7,6 +7,9 @@ namespace FateGames.Core
 {
     public abstract class RuntimeSet<T> : ScriptableObject
     {
+#if DEBUG
+        [SerializeField] private bool logChange = false;
+#endif
         public List<T> Items = new();
         public UnityEvent OnChange = new();
 
@@ -17,7 +20,8 @@ namespace FateGames.Core
                 Items.Add(t);
                 OnChange.Invoke();
 #if DEBUG
-                Debug.Log(name + " changed!", this);
+                if (logChange)
+                    Debug.Log(name + " changed!", this);
 #endif
             }
         }
@@ -29,7 +33,8 @@ namespace FateGames.Core
                 Items.Remove(t);
                 OnChange.Invoke();
 #if DEBUG
-                Debug.Log(name + " changed!", this);
+                if (logChange)
+                    Debug.Log(name + " changed!", this);
 #endif
             }
         }

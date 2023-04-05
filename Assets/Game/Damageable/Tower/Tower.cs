@@ -15,6 +15,8 @@ public partial class Tower : DamageableStructure
     [SerializeField] private GameObject meshObject;
     [SerializeField] private Transform structurePartsContainer;
     [SerializeField] private BoolVariable isTowerFull;
+    [SerializeField] private Transform mergePoint;
+    [SerializeField] public FloatVariable rewindDuration;
     private StructurePart[] structureParts = null;
     private void Awake()
     {
@@ -22,9 +24,12 @@ public partial class Tower : DamageableStructure
     }
     private void Start()
     {
-        InputManager.GetKeyDownEvent(KeyCode.C).AddListener(Collapse);
-        InputManager.GetKeyDownEvent(KeyCode.R).AddListener(Rewind);
         Initialize();
+    }
+    public void CheckIfMergeAvailable()
+    {
+        if (CanMerge(out _))
+            OnMergeAvailable.Invoke();
     }
     public void Initialize()
     {
@@ -102,7 +107,7 @@ public partial class Tower : DamageableStructure
         for (int i = 0; i < structureParts.Length; i++)
         {
             Transform structurePartTransform = structurePartsContainer.GetChild(i);
-            structureParts[i] = new(structurePartTransform);
+            structureParts[i] = new(structurePartTransform, this);
         }
     }
     private class StructurePart
@@ -112,10 +117,12 @@ public partial class Tower : DamageableStructure
         public MeshCollider meshCollider;
         public Vector3 originalPosition;
         public Quaternion originalRotation;
+        public Tower tower;
 
-        public StructurePart(Transform transform)
+        public StructurePart(Transform transform, Tower tower)
         {
             this.transform = transform;
+            this.tower = tower;
             originalPosition = transform.position;
             originalRotation = transform.rotation;
             InitializeRigidbody();
@@ -140,8 +147,8 @@ public partial class Tower : DamageableStructure
         public void Rewind()
         {
             rigidbody.isKinematic = true;
-            transform.DOMove(originalPosition, 3);
-            transform.DORotateQuaternion(originalRotation, 3);
+            transform.DOMove(originalPosition, tower.rewindDuration.Value);
+            transform.DORotateQuaternion(originalRotation, tower.rewindDuration.Value);
         }
     }
 }

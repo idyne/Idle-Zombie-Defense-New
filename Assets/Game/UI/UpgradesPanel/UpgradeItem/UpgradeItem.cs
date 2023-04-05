@@ -31,7 +31,6 @@ public class UpgradeItem : DynamicUIElement
 
     public override void UpdateElement()
     {
-        Debug.Log("UpdateElement", this);
         icon.sprite = upgradeEntity.Icon;
         nameText.text = upgradeEntity.UpgradeName;
         description.text = upgradeEntity.Description;

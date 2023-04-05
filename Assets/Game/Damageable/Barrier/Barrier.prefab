@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 805807893283904116}
   - component: {fileID: 2673517743626739002}
   - component: {fileID: 2232973866263172082}
+  - component: {fileID: 5007976884285260895}
   m_Layer: 10
   m_Name: Barrier
   m_TagString: Untagged
@@ -115,6 +116,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!208 &5007976884285260895
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310720244882566648}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 1.545, y: 1.54, z: 0.635}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1.1, z: -0.52}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1117592515880419482
 PrefabInstance:
   m_ObjectHideFlags: 0

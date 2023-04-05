@@ -8,10 +8,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/FateGames/Core/Bootloader/Bootloader.unity
     guid: 42d4469b68d16414a8bb332c68632f5e
-  - enabled: 0
-    path: Assets/Game/SupermarketScene/Supermarket.unity
-    guid: 9f71efbb8dd652245bae0f72f4f40a0d
   - enabled: 1
-    path: Assets/Game/Level_1.unity
-    guid: 56da7d8c0ada87f43818860b834a3266
+    path: Assets/Game/Swamp/Scenes/Swamp.unity
+    guid: 1a78ce5c35dddd942b6bb08b99c58580
+  - enabled: 1
+    path: Assets/Game/Supermarket/Scenes/Supermarket.unity
+    guid: f24ab822373f5114192f4a90dd26efad
+  - enabled: 1
+    path: Assets/Game/MilitaryBase/Scenes/MilitaryBase.unity
+    guid: e3b29669d1141b4419731c66b720c0c5
+  - enabled: 1
+    path: Assets/Game/Hospital/Scenes/Hospital.unity
+    guid: 2426a7849c13680468d33225bcc12599
+  - enabled: 1
+    path: Assets/Game/Airport/Scenes/Airport.unity
+    guid: 709a40f8de9ac7145947679313bf7e2c
+  - enabled: 1
+    path: Assets/Game/Church/Scenes/Church.unity
+    guid: a404e6f6a74f1b34b9451efece8c5486
   m_configObjects: {}

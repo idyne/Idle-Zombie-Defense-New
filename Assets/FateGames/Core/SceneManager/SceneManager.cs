@@ -9,9 +9,9 @@ namespace FateGames.Core
     [CreateAssetMenu(menuName = "Fate/Manager/SceneManager")]
     public class SceneManager : ScriptableObject
     {
+        [SerializeField] private ZoneManager zoneManager;
         [SerializeField] private int firstLevelSceneIndex = 1;
         [SerializeField] private bool loop;
-        [SerializeField] private SaveDataVariable saveData;
         [SerializeField] private GameObject sceneBootloaderPrefab;
         [SerializeField] private GameObject loadingScreenPrefab;
         [SerializeField] private GameStateVariable gameState;
@@ -24,11 +24,11 @@ namespace FateGames.Core
             {
                 if (loop)
                 {
-                    int loopedLevel = saveData.Value.Level % levelCount;
+                    int loopedLevel = zoneManager.Zone % levelCount;
                     if (loopedLevel == 0) loopedLevel = levelCount;
                     return firstLevelSceneIndex - 1 + loopedLevel;
                 }
-                return saveData.Value.Level;
+                return zoneManager.Zone;
             }
         }
 
@@ -37,19 +37,16 @@ namespace FateGames.Core
             Instantiate(sceneBootloaderPrefab);
         }
 
-        public void LoadNextLevel()
-        {
-            saveData.Value.Level++;
-            LoadCurrentLevel();
-        }
-
         public void LoadCurrentLevel(bool async = true)
         {
-            LoadLevel(currentLevelSceneIndex);
+            Debug.Log("Current Level: " + currentLevelSceneIndex, this);
+            zoneManager.Initialize();
+            LoadLevel(currentLevelSceneIndex, async);
         }
 
         public void LoadLevel(int level, bool async = true)
         {
+            DG.Tweening.DOTween.KillAll();
             LoadScene(level, async);
             onLevelStartedLoading.Invoke();
         }

@@ -5,11 +5,20 @@ using UnityEngine;
 using FateGames.Tweening;
 using DG.Tweening;
 using TMPro;
+using UnityEngine.Events;
 
-public class AreaClearHandler : MonoBehaviour
+public class AreaClearHandler : UIElement
 {
+    [SerializeField] private int toolPerWave = 2;
+    [SerializeField] private int toolPerDay = 5;
+    [SerializeField] private int toolPerZone = 10;
+    [SerializeField] private int moneyPerWave = 50;
+    [SerializeField] private int moneyPerDay = 200;
+    [SerializeField] private int moneyPerZone = 1000;
+    [SerializeField] private ZoneManager zoneManager;
     [SerializeField] private SceneManager sceneManager;
     [SerializeField] private GameObject waveClearEffect;
+    [SerializeField] private Transform waveClearText;
     [SerializeField] private GameObject dayClearScreen;
     [SerializeField] private GameObject claimButton;
     [SerializeField] private ObjectPool moneyPool;
@@ -20,25 +29,28 @@ public class AreaClearHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private TextMeshProUGUI toolText;
     [SerializeField] private TextMeshProUGUI dayText;
+    [SerializeField] private UnityEvent onZoneFinished;
+    [SerializeField] private UnityEvent onWaveClearEffectFinished;
+    [SerializeField] private SoldierUnlockTable soldierUnlockTable;
+    [SerializeField] private UnityEvent onNewSoldierUnlocked;
+    [SerializeField] private IntVariable lastUnlockedSoldierLevel;
 
-    private bool zoneEnd = false;
     private int collectableMoneyAmount = 0;
     private int collectableToolsAmount = 0;
+    private bool mapClosed = false;
+    private bool soldierUnlockedScreenClosed = false;
 
-    private void Update()
+    public void ShowCorrectScreen()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (zoneManager.IsNight)
         {
-            WaveClear(52, 10);
+            if (zoneManager.IsLastDayOfZone())
+                ZoneClear(moneyPerZone, toolPerZone);
+            else
+                DayClear(moneyPerDay, toolPerDay);
         }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            DayClear(50,5);
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            ZoneClear(50,5);
-        }
+        else
+            WaveClear(moneyPerWave, toolPerWave);
     }
 
     public void Claim()
@@ -49,48 +61,100 @@ public class AreaClearHandler : MonoBehaviour
 
         FaTween.DelayedCall(3f, () =>
         {
-            if (zoneEnd) { } // zone end ekranı açılacak
-            else sceneManager.LoadCurrentLevel();
+            Hide();
+            IEnumerator routine()
+            {
+                if (zoneManager.IsLastDayOfZone())
+                {
+                    onZoneFinished.Invoke();
+                    yield return new WaitUntil(() => mapClosed);
+                }
+                if (CheckSoldierUnlocked())
+                    yield return new WaitUntil(() => soldierUnlockedScreenClosed);
+                zoneManager.IncrementWaveLevel();
+                sceneManager.LoadCurrentLevel();
+            }
+
+
+            StartCoroutine(routine());
         });
+    }
+
+    public bool CheckSoldierUnlocked()
+    {
+        SoldierUnlockTable.SoldierUnlockEntity entity = soldierUnlockTable[zoneManager.Day];
+        if (entity != null)
+        {
+            lastUnlockedSoldierLevel.Value = entity.SoldierLevel;
+            onNewSoldierUnlocked.Invoke();
+            return true;
+        }
+        return false;
+    }
+
+    public void OnSoldierUnlockedScreenClosed()
+    {
+        soldierUnlockedScreenClosed = true;
+    }
+
+    public void OnMapClosed()
+    {
+        mapClosed = true;
     }
 
     public void WaveClear(int moneyAmount, int toolAmount)
     {
-        waveClearEffect.SetActive(true);
-        FaTween.DelayedCall(0.5f, () =>
+        WaveClearEffect(2);
+
+        FaTween.DelayedCall(1f, () =>
         {
             SpreadMoney(defaultSpawnPosition.position, moneyAmount);
             SpreadTool(defaultSpawnPosition.position, toolAmount);
-        });
-
-        FaTween.DelayedCall(3f, () =>
-        {
-            waveClearEffect.SetActive(false);
+            FaTween.DelayedCall(2f, onWaveClearEffectFinished.Invoke);
         });
     }
 
     public void DayClear(int moneyAmount, int toolAmount)
     {
-        waveClearEffect.SetActive(true);
+        WaveClearEffect(2);
         FaTween.DelayedCall(2f, () =>
         {
             waveClearEffect.SetActive(false);
             dayClearScreen.SetActive(true);
 
             collectableMoneyAmount = moneyAmount;
-            collectableToolsAmount= toolAmount;
+            collectableToolsAmount = toolAmount;
+            moneyText.text = moneyAmount.ToString();
+            toolText.text = toolAmount.ToString();
+
+            string dayCompleteText = "DAY " + zoneManager.Day + "\nCOMPLETED";
+            if (zoneManager.IsLastDayOfZone()) dayCompleteText = "ZONE " + zoneManager.Zone + "\nCOMPLETED";
+            dayText.text = dayCompleteText;
         });
     }
 
     public void ZoneClear(int moneyAmount, int toolAmount)
     {
-        zoneEnd = true;
         DayClear(moneyAmount, toolAmount);
+    }
+
+    private void WaveClearEffect(float duration)
+    {
+        waveClearEffect.SetActive(true);
+        waveClearText.localScale = Vector3.one * 0f;
+        waveClearText.FaLocalScale(Vector3.one * 1f, duration / 3).SetEaseFunction(FaEaseFunctions.EaseMode.OutQuad);
+        FaTween.DelayedCall(duration * 2 / 3, () =>
+        {
+            waveClearText.FaLocalScale(Vector3.one * 0f, duration / 3).SetEaseFunction(FaEaseFunctions.EaseMode.InQuad).OnComplete(() =>
+            {
+                waveClearEffect.SetActive(false);
+            });
+        });
     }
 
     private void SpreadMoney(Vector2 spawnPosition, int amount)
     {
-        int valueOfSingleMoneyImage = 5;
+        int valueOfSingleMoneyImage = 10;
         int count = amount / valueOfSingleMoneyImage;
         int remainder = amount % valueOfSingleMoneyImage;
         if (remainder > 0) count++;

@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a33828422d0efa4f83ff151b606c459, type: 3}
   m_Name: CommanderUpgrades
   m_EditorClassIdentifier: 
-  Items: []
+  logChange: 0
+  Items:
+  - {fileID: 11400000, guid: 4dcceab2620bd4742978342e25b9d733, type: 2}
+  - {fileID: 11400000, guid: 38e58245e9f786649a68dd0d226052f7, type: 2}
+  - {fileID: 11400000, guid: a1dd9d5b01abab34dbcc92f75a213277, type: 2}
+  - {fileID: 11400000, guid: b2a0d4ee2d6a0044f815fa827ea16fe6, type: 2}
   OnChange:
     m_PersistentCalls:
       m_Calls: []

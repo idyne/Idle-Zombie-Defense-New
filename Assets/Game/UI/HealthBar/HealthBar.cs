@@ -11,7 +11,6 @@ public class HealthBar : UIElement
     private Tween showTween = null;
     private static Camera mainCamera;
     private static Transform container;
-    [SerializeField] private Transform target;
     [SerializeField] private RectTransform sliderContainer;
     [SerializeField] private HealthBarSet set;
     public float Percent { get => slider.value; }
@@ -46,7 +45,7 @@ public class HealthBar : UIElement
     {
         CancelTween();
         float time = Mathf.Abs(slider.value - percent) / 2f; // 0 to 1 in 2 seconds;
-        tween = DOTween.To(() => slider.value, (x) => slider.value = x, percent, time);
+        tween = DOTween.To(() => slider.value, (x) => slider.value = x, percent, time).OnComplete(() => { tween = null; });
     }
 
     // Call on every frame

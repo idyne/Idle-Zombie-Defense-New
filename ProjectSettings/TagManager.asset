@@ -20,6 +20,7 @@ TagManager:
   - Dead Zombie
   - Structure Part
   - Money
+  - Render Soldier
   - 
   - 
   - 
@@ -36,8 +37,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Soldier
   m_SortingLayers:
   - name: Default
     uniqueID: 0

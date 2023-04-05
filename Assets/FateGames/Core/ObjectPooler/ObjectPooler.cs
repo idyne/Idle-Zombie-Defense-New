@@ -15,6 +15,7 @@ namespace FateGames.Core
 
         public static void OnNewLevel()
         {
+            Initialize();
             foreach (ObjectPool pool in pools)
             {
                 pool.OnNewLevel();

@@ -14,6 +14,12 @@ namespace FateGames.Tweening
             if (dynamic) return (to - from) / (duration - progressTime) * DeltaTime(ignoreTimeScale) + from;
             else return (to - staticStart) * GetEaseValue(mode, duration, progressTime) + staticStart;
         }
+        /*public static Quaternion Maker(float duration, float progressTime, Quaternion from, Quaternion to,
+            bool dynamic, EaseMode mode, Quaternion staticStart, bool ignoreTimeScale)
+        {
+            if (dynamic) return Quaternion.Euler((to.eulerAngles - from.eulerAngles) / (duration - progressTime) * DeltaTime(ignoreTimeScale) + from.eulerAngles);
+            else return Quaternion.Euler((to.eulerAngles - staticStart.eulerAngles) * GetEaseValue(mode, duration, progressTime) + staticStart.eulerAngles);
+        }*/
         public static Vector4 Maker(float duration, float progressTime, Vector4 from, Vector4 to,
             bool dynamic, EaseMode mode, Vector4 staticStart, bool ignoreTimeScale)
         {

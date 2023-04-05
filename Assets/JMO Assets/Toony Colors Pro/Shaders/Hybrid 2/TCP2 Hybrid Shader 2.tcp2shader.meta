@@ -9,7 +9,7 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 7f24c69ecbea31d49bb0044f94b6c8ea, type: 3}
   detectedRenderPipeline: Universal Render Pipeline
-  strippedLinesCount: 405
+  strippedLinesCount: 354
   shaderSourceCode: "// Toony Colors Pro+Mobile 2\r\n// (c) 2014-2021 Jean Moreno\r\n\r\nShader
     \"Toony Colors Pro 2/Hybrid Shader 2\"\r\n{\r\n\tProperties\r\n\t{\r\n\t\t[Enum(Front,
     2, Back, 1, Both, 0)] _Cull (\"Render Face\", Float) = 2.0\r\n\t\t[TCP2ToggleNoKeyword]
@@ -21,9 +21,33 @@ ScriptedImporter:
     Color\", Color) = (1,1,1,1)\r\n\t\t[TCP2ColorNoAlpha] _SColor (\"Shadow Color\",
     Color) = (0.2,0.2,0.2,1)\r\n\t\t[Toggle(TCP2_SHADOW_LIGHT_COLOR)] _ShadowColorLightAtten
     (\"Main Light affects Shadow Color\", Float) = 1\r\n\r\n\t//# ========================================================\r\n\r\n\t//#
-    Ramp Shading\r\n\t\t[PowerSlider(0.415)] _RampThreshold (\"Threshold\", Range(0.01,1))
-    = 0.75\r\n\t//# IF_KEYWORD !TCP2_RAMPTEXT && !TCP2_RAMP_CRISP\r\n\t\t_RampSmoothing
-    (\"Smoothing\", Range(0,1)) = 0.1\r\n\t//# END_IF\r\n\r\n\t//# ========================================================\r\n\r\n\r\n\r\n\r\n\r\n\r\n\t//#
+    Ramp Shading\r\n\t\t[TCP2MaterialKeywordEnumNoPrefix(Default,_,Crisp,TCP2_RAMP_CRISP,Bands,TCP2_RAMP_BANDS,Bands
+    Crisp,TCP2_RAMP_BANDS_CRISP,Texture,TCP2_RAMPTEXT)] _RampType (\"Ramp Type\",
+    Float) = 0\r\n\t//# IF_KEYWORD TCP2_RAMPTEXT\r\n\t\t[TCP2Gradient] _Ramp (\"Ramp
+    Texture (RGB)\", 2D) = \"gray\" {}\r\n\t\t_RampScale (\"Scale\", Float) = 1.0\r\n\t\t_RampOffset
+    (\"Offset\", Float) = 0.0\r\n\t//# ELSE\r\n\t\t[PowerSlider(0.415)] _RampThreshold
+    (\"Threshold\", Range(0.01,1)) = 0.75\r\n\t//# END_IF\r\n\t//# IF_KEYWORD !TCP2_RAMPTEXT
+    && !TCP2_RAMP_CRISP\r\n\t\t_RampSmoothing (\"Smoothing\", Range(0,1)) = 0.1\r\n\t//#
+    END_IF\r\n\t//# IF_KEYWORD TCP2_RAMP_BANDS || TCP2_RAMP_BANDS_CRISP\r\n\t\t[IntRange]
+    _RampBands (\"Bands Count\", Range(1,20)) = 4\r\n\t//# END_IF\r\n\t//# IF_KEYWORD
+    TCP2_RAMP_BANDS\r\n\t\t_RampBandsSmoothing (\"Bands Smoothing\", Range(0,1))
+    = 0.1\r\n\t//# END_IF\r\n\r\n\t//# ========================================================\r\n\r\n\r\n\t\t[TCP2HeaderToggle(TCP2_SPECULAR)]
+    _UseSpecular (\"Specular\", Float) = 0\r\n\t//# IF_KEYWORD TCP2_SPECULAR\r\n\t\t[TCP2MaterialKeywordEnumNoPrefix(GGX,_,Stylized,TCP2_SPECULAR_STYLIZED,Crisp,TCP2_SPECULAR_CRISP)]
+    _SpecularType (\"Type\", Float) = 0\r\n\t\t[TCP2ColorNoAlpha] [HDR] _SpecularColor
+    (\"Color\", Color) = (0.75,0.75,0.75,1)\r\n\t//# IF_KEYWORD TCP2_SPECULAR_STYLIZED
+    || TCP2_SPECULAR_CRISP\r\n\t\t[PowerSlider(5.0)] _SpecularToonSize (\"Size\",
+    Range(0.001,1)) = 0.25\r\n\t//# IF_KEYWORD TCP2_SPECULAR_STYLIZED\r\n\t\t_SpecularToonSmoothness
+    (\"Smoothing\", Range(0,1)) = 0.05\r\n\t//# END_IF\r\n\t//# ELSE\r\n\t\t_SpecularRoughness
+    (\"Roughness\", Range(0,1)) = 0.5\r\n\t//# END_IF\r\n\t//# IF_KEYWORD_DISABLE
+    !TCP2_MOBILE\r\n\t\t[Enum(Disabled,0,Albedo Alpha,1,Custom R,2,Custom G,3,Custom
+    B,4,Custom A,5)] _SpecularMapType (\"Specular Map#Specular Map (A)\", Float)
+    = 0\r\n\t//# END_IF_DISABLE\r\n\t//# IF_PROPERTY _SpecularMapType >= 2 || _UseMobileMode
+    == 1\r\n\t\t[NoScaleOffset] _SpecGlossMap (\"Specular Texture\", 2D) = \"white\"
+    {}\r\n\t//# END_IF\r\n\t//# END_IF\r\n\t//# ========================================================\r\n\r\n\r\n\t\t[TCP2HeaderToggle(TCP2_RIM_LIGHTING)]
+    _UseRim (\"Rim Lighting\", Float) = 0\r\n\t//# IF_KEYWORD TCP2_RIM_LIGHTING\r\n\t\t[TCP2ColorNoAlpha]
+    [HDR] _RimColor (\"Color\", Color) = (0.8,0.8,0.8,0.5)\r\n\t\t_RimMin (\"Min\",
+    Range(0,2)) = 0.5\r\n\t\t_RimMax (\"Max\", Range(0,2)) = 1\r\n\t\t[Toggle(TCP2_RIM_LIGHTING_LIGHTMASK)]
+    _UseRimLightMask (\"Light-based Mask\", Float) = 1\r\n\t//# END_IF\r\n\t//# ========================================================\r\n\r\n\r\n\t//#
     Global Illumination\r\n\t//# \r\n\r\n\t//# Indirect Diffuse\r\n\t\t_IndirectIntensity
     (\"Strength\", Range(0,1)) = 1\r\n\t//# IF_PROPERTY _IndirectIntensity > 0\r\n\t\t[TCP2ToggleNoKeyword]
     _SingleIndirectColor (\"Single Indirect Color\", Float) = 0\r\n\t//# END_IF\r\n\t//#
@@ -72,24 +96,33 @@ ScriptedImporter:
     target 3.0\r\n\r\n\t\t\t#pragma vertex Vertex\r\n\t\t\t#pragma fragment Fragment\r\n\r\n\t\t\t#pragma
     multi_compile_fog\r\n\t\t\t#pragma multi_compile_instancing\r\n\r\n\t\t\t// -------------------------------------\r\n\t\t\t//
     Material keywords\r\n\t\t\t#pragma shader_feature_local _ _RECEIVE_SHADOWS_OFF\r\n\r\n\t\t\t//
-    -------------------------------------\r\n\t\t\t// Universal Render Pipeline keywords\r\n\t\t\t//
-    URP 10:\r\n\t\t\t// URP 12:\r\n\r\n\r\n\t\t\t// -------------------------------------\r\n\t\t\t//
+    -------------------------------------\r\n\t\t\t// Universal Render Pipeline keywords\r\n\t\t\t#pragma
+    multi_compile _ _MAIN_LIGHT_SHADOWS _MAIN_LIGHT_SHADOWS_CASCADE _MAIN_LIGHT_SHADOWS_SCREEN\r\n\t\t\t#pragma
+    multi_compile _ _ADDITIONAL_LIGHTS_VERTEX _ADDITIONAL_LIGHTS\r\n\t\t\t#pragma
+    multi_compile_fragment _ _ADDITIONAL_LIGHT_SHADOWS\r\n\t\t\t// URP 10:\r\n\t\t\t//
+    URP 12:\r\n\r\n\r\n\t\t\t// -------------------------------------\r\n\t\t\t//
     Unity keywords\r\n\r\n\t\t\t//--------------------------------------\r\n\t\t\t//
     Toony Colors Pro 2 keywords\r\n\t\t\t#pragma shader_feature_local TCP2_MOBILE\r\n\t\t\t#pragma
-    shader_feature_local_fragment TCP2_SHADOW_LIGHT_COLOR\r\n\t\t\t#pragma shader_feature_local_fragment
-    _ALPHATEST_ON\r\n\r\n\t\t\t// This is using an existing keyword to separate fade/transparent
-    behaviors\r\n\t\t\t#pragma shader_feature_local_fragment _ _ALPHAPREMULTIPLY_ON\r\n\r\n\t\t\t#define
-    URP_VERSION 12\r\n\t\t\t#include \"TCP2 Hybrid 2 Include.cginc\"\r\n\r\n\t\t\tENDHLSL\r\n\t\t}\r\n\r\n\t\t//--------------------------------------------------------------------------------------------------------------------------------\r\n\r\n\t\tPass\r\n\t\t{\r\n\t\t\tName
+    shader_feature_local_fragment _ TCP2_RAMPTEXT TCP2_RAMP_CRISP TCP2_RAMP_BANDS
+    TCP2_RAMP_BANDS_CRISP\r\n\t\t\t#pragma shader_feature_local_fragment TCP2_SHADOW_LIGHT_COLOR\r\n\t\t\t#pragma
+    shader_feature_local_fragment TCP2_SPECULAR\r\n\t\t\t#pragma shader_feature_local_fragment
+    _ TCP2_SPECULAR_STYLIZED TCP2_SPECULAR_CRISP\r\n\t\t\t#pragma shader_feature_local
+    TCP2_RIM_LIGHTING\r\n\t\t\t#pragma shader_feature_local TCP2_RIM_LIGHTING_LIGHTMASK\r\n\t\t\t#pragma
+    shader_feature_local_fragment _ALPHATEST_ON\r\n\r\n\t\t\t// This is using an
+    existing keyword to separate fade/transparent behaviors\r\n\t\t\t#pragma shader_feature_local_fragment
+    _ _ALPHAPREMULTIPLY_ON\r\n\r\n\t\t\t#define URP_VERSION 12\r\n\t\t\t#include
+    \"TCP2 Hybrid 2 Include.cginc\"\r\n\r\n\t\t\tENDHLSL\r\n\t\t}\r\n\r\n\t\t//--------------------------------------------------------------------------------------------------------------------------------\r\n\r\n\t\tPass\r\n\t\t{\r\n\t\t\tName
     \"ShadowCaster\"\r\n\t\t\tTags { \"LightMode\" = \"ShadowCaster\" }\r\n\r\n\t\t\tZWrite
     On\r\n\t\t\tZTest LEqual\r\n\t\t\tCull [_Cull]\r\n\r\n\t\t\tHLSLPROGRAM\r\n\t\t\t//
     Required to compile gles 2.0 with standard srp library\r\n\t\t\t#pragma prefer_hlslcc
     gles\r\n\t\t\t#pragma exclude_renderers d3d11_9x\r\n\t\t\t#pragma target 2.0\r\n\r\n\t\t\t#pragma
     vertex ShadowPassVertex\r\n\t\t\t#pragma fragment ShadowPassFragment\r\n\r\n\t\t\t#pragma
-    multi_compile_instancing\r\n\r\n\t\t\t#pragma shader_feature_local_fragment _ALPHATEST_ON\r\n\r\n\t\t\t#define
-    SHADOW_CASTER_PASS\r\n\t\t\t#define URP_VERSION 12\r\n\t\t\t#include \"TCP2 Hybrid
-    2 Include.cginc\"\r\n\r\n\t\t\tfloat3 _LightDirection;\r\n\t\t\tfloat3 _LightPosition;\r\n\r\n\t\t\tstruct
-    Attributes_Shadow\r\n\t\t\t{\r\n\t\t\t\tfloat4 positionOS   : POSITION;\r\n\t\t\t\tfloat3
-    normalOS     : NORMAL;\r\n\t\t\t\tfloat2 texcoord     : TEXCOORD0;\r\n\t\t\t\tUNITY_VERTEX_INPUT_INSTANCE_ID\r\n\t\t\t};\r\n\r\n\t\t\tstruct
+    multi_compile_instancing\r\n\t\t\t#pragma multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW\r\n\r\n\t\t\t#pragma
+    shader_feature_local_fragment _ALPHATEST_ON\r\n\r\n\t\t\t#define SHADOW_CASTER_PASS\r\n\t\t\t#define
+    URP_VERSION 12\r\n\t\t\t#include \"TCP2 Hybrid 2 Include.cginc\"\r\n\r\n\t\t\tfloat3
+    _LightDirection;\r\n\t\t\tfloat3 _LightPosition;\r\n\r\n\t\t\tstruct Attributes_Shadow\r\n\t\t\t{\r\n\t\t\t\tfloat4
+    positionOS   : POSITION;\r\n\t\t\t\tfloat3 normalOS     : NORMAL;\r\n\t\t\t\tfloat2
+    texcoord     : TEXCOORD0;\r\n\t\t\t\tUNITY_VERTEX_INPUT_INSTANCE_ID\r\n\t\t\t};\r\n\r\n\t\t\tstruct
     Varyings_Shadow\r\n\t\t\t{\r\n\t\t\t\tfloat2 uv           : TEXCOORD0;\r\n\t\t\t\tfloat4
     positionCS   : SV_POSITION;\r\n\t\t\t};\r\n\r\n\t\t\tfloat4 GetShadowPositionHClip(Attributes_Shadow
     input)\r\n\t\t\t{\r\n\t\t\t\tfloat3 positionWS = TransformObjectToWorld(input.positionOS.xyz);\r\n\t\t\t\tfloat3
@@ -158,17 +191,18 @@ ScriptedImporter:
     prefer_hlslcc gles\r\n\t\t\t#pragma exclude_renderers d3d11_9x\r\n\t\t\t#pragma
     target 3.0\r\n\r\n\t\t\t#pragma vertex Vertex\r\n\t\t\t#pragma fragment Fragment\r\n\r\n\t\t\t//--------------------------------------\r\n\t\t\t//
     Toony Colors Pro 2 keywords\r\n\t\t\t#pragma shader_feature_local TCP2_MOBILE\r\n\t\t\t#pragma
-    shader_feature_local_fragment _ALPHATEST_ON\r\n\r\n\t\t\t#undef UNITY_SHOULD_SAMPLE_SH\r\n\t\t\t#define
-    UNITY_SHOULD_SAMPLE_SH 0\r\n\r\n\t\t\t#ifndef UNITY_PASS_META\r\n\t\t\t\t#define
-    UNITY_PASS_META\r\n\t\t\t#endif\r\n\r\n\t\t\t#include \"Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl\"\r\n\t\t\t#include
+    shader_feature_local_fragment TCP2_SPECULAR\r\n\t\t\t#pragma shader_feature_local_fragment
+    _ALPHATEST_ON\r\n\r\n\t\t\t#undef UNITY_SHOULD_SAMPLE_SH\r\n\t\t\t#define UNITY_SHOULD_SAMPLE_SH
+    0\r\n\r\n\t\t\t#ifndef UNITY_PASS_META\r\n\t\t\t\t#define UNITY_PASS_META\r\n\t\t\t#endif\r\n\r\n\t\t\t#include
+    \"Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl\"\r\n\t\t\t#include
     \"Packages/com.unity.render-pipelines.universal/ShaderLibrary/MetaInput.hlsl\"\r\n\t\t\t#define
     URP_VERSION 12\r\n\t\t\t#include \"TCP2 Hybrid 2 Include.cginc\"\r\n\r\n\t\t\tENDHLSL\r\n\t\t}\r\n\t\t\r\n\t\t//--------------------------------------------------------------------------------------------------------------------------------\r\n\t\t\r\n\t\t//
     Depth prepass\r\n\t\t// UsePass \"Universal Render Pipeline/Lit/DepthOnly\"\r\n\t}\r\n\r\n\r\n\tFallBack
     \"Hidden/InternalErrorShader\"\r\n\tCustomEditor \"ToonyColorsPro.ShaderGenerator.MaterialInspector_Hybrid\"\r\n}\r\n"
   shaderName: Toony Colors Pro 2/Hybrid Shader 2
   shaderErrors: []
-  variantCount: 40
-  variantCountUsed: 5
+  variantCount: 1546
+  variantCountUsed: 17
   availableOptions:
   - label:
       text: Emission
@@ -315,23 +349,19 @@ ScriptedImporter:
     category: 0
     isOffOption: 0
   toggledOptions:
-  - Specular
   - Shadow Albedo Texture
-  - Rim Lighting
   - Reflections
-  - Ramp Style Variants
   - Occlusion
   - Normal Map
   - MatCap
   - Emission
-  - Additional Lights (URP)
-  - Additional Lights Shadows
   - Decals (URP 12+)
   - Forward+ Support (URP 14+)
   - LOD Crossfading
-  - Light Cookies (URP 12+)
   - Light Layers (URP 12+)
-  - Main Light Shadows (URP)
   - Rendering Layers (URP 14+)
   - SSAO (URP 10+)
   - Soft Shadows (URP)
+  - Light Cookies (URP 12+)
+  - Specular
+  - Ramp Style Variants
