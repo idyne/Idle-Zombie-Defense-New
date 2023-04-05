@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 480311782429162334}
   container: {fileID: 1302496383912499960}
+  offset: 30
 --- !u!1 &8689956764553885223
 GameObject:
   m_ObjectHideFlags: 0

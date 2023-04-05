@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2050704973309719613}
   - component: {fileID: 7520744195255913041}
+  - component: {fileID: 5565054469033433034}
   m_Layer: 0
   m_Name: SniperRifle
   m_TagString: Untagged
@@ -49,6 +50,35 @@ MonoBehaviour:
   bulletPool: {fileID: 11400000, guid: b9ddf22c1afccad47a5b50cf9c2f3e2c, type: 2}
   muzzles:
   - {fileID: 7068882308899948783}
+  fireRateEffect: {fileID: 11400000, guid: b80e7e2c086d26046948936416a94ee5, type: 2}
+--- !u!114 &5565054469033433034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138164699386473655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8599fd48156863e4d8c089957a1e1edd, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7520744195255913041}
+        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
+        m_MethodName: ShowFireRateEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6358836226432386695
 GameObject:
   m_ObjectHideFlags: 0
