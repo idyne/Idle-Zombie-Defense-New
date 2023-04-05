@@ -299,8 +299,6 @@ MonoBehaviour:
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
   targetableZombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c,
     type: 2}
-  fireRateEffectPoint: {fileID: 4200200950533237896}
-  fireRateEffect: {fileID: 11400000, guid: b80e7e2c086d26046948936416a94ee5, type: 2}
   soldierSet: {fileID: 11400000, guid: 53d6897387af5d74787ed8bab2e4665d, type: 2}
   animator: {fileID: 9062391205345333777}
   ragdollTransform: {fileID: 5448178570763250755}
@@ -313,34 +311,6 @@ MonoBehaviour:
   throwableContainer: {fileID: 3895552420233829102}
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   skillButton: {fileID: 5143500955163151710}
---- !u!114 &6239773181337214964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8420011667890961608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 8599fd48156863e4d8c089957a1e1edd, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5751345838036609883}
-        m_TargetAssemblyTypeName: Shooter, Assembly-CSharp
-        m_MethodName: ShowFireRateEffect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &7666255129821308251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -412,12 +382,6 @@ PrefabInstance:
 --- !u!4 &2861763684621408014 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5607830929855427157, guid: 9c24d47f2a4f26a4e91b85dfff3ea445,
-    type: 3}
-  m_PrefabInstance: {fileID: 7666255129821308251}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4200200950533237896 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5777589381716593107, guid: 9c24d47f2a4f26a4e91b85dfff3ea445,
     type: 3}
   m_PrefabInstance: {fileID: 7666255129821308251}
   m_PrefabAsset: {fileID: 0}

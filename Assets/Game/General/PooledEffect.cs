@@ -12,12 +12,6 @@ public class PooledEffect : FateMonoBehaviour, IPooledObject
 #pragma warning restore CS0108 
     public event Action OnRelease;
 
-    private void Awake()
-    {
-        ParticleSystem.MainModule main = particleSystem.main;
-        main.playOnAwake = false;
-    }
-
     public void OnObjectSpawn()
     {
         Activate();

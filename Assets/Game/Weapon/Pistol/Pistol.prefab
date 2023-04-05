@@ -41,7 +41,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2291251531982624256}
   - component: {fileID: 424695633895524359}
-  - component: {fileID: 8383945442971816835}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: Untagged
@@ -81,35 +80,6 @@ MonoBehaviour:
   bulletPool: {fileID: 11400000, guid: b9ddf22c1afccad47a5b50cf9c2f3e2c, type: 2}
   muzzles:
   - {fileID: 6937212512565088998}
-  fireRateEffect: {fileID: 11400000, guid: b80e7e2c086d26046948936416a94ee5, type: 2}
---- !u!114 &8383945442971816835
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1682068731388469904}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 8599fd48156863e4d8c089957a1e1edd, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 424695633895524359}
-        m_TargetAssemblyTypeName: Gun, Assembly-CSharp
-        m_MethodName: ShowFireRateEffect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &4433078739572382037
 GameObject:
   m_ObjectHideFlags: 0

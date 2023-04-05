@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detonationDelay: 2
   radius: 1
-  visualEffectPool: {fileID: 11400000, guid: 50c9fc38ee5597445b2269e1ed432433, type: 2}
+  visualEffectPool: {fileID: 11400000, guid: 09a2947094954e344bf54a393841cca4, type: 2}
   areaOfEffectRadius: 2.5
   damageableLayerMask:
     serializedVersion: 2
