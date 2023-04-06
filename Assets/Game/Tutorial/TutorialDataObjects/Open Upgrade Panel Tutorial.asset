@@ -9,6 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc39ac318c774b945b8f0daa21c20b7f, type: 3}
-  m_Name: StartButtonClicked
+  m_Script: {fileID: 11500000, guid: 80b630efb9ef1ea41beaece58691c9d4, type: 3}
+  m_Name: Open Upgrade Panel Tutorial
   m_EditorClassIdentifier: 
+  saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}

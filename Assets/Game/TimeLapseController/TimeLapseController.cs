@@ -43,6 +43,7 @@ public class TimeLapseController : FateMonoBehaviour, IInitializable
     public void Initialize()
     {
         int timeIndex = (zoneManager.WaveLevel - 1) % 4;
-        AnimateHeader(timeIndex);
+        DOVirtual.DelayedCall(3f, ()=> { AnimateHeader(timeIndex); });
+        
     }
 }
