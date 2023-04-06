@@ -81,6 +81,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  shootSound: {fileID: 11400000, guid: 548c18c4a63cbe5468bd86192d0cae12, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!1 &3992689335256214108
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,6 +227,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1324022922252445613, guid: a9e9aab45cd704044bdf7f78b65dd77a,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1324022922252445613, guid: a9e9aab45cd704044bdf7f78b65dd77a,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a9e9aab45cd704044bdf7f78b65dd77a,
         type: 3}

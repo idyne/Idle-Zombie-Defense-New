@@ -13,6 +13,8 @@ public class NewSoldierAchivedScreenController : UIElement
     [SerializeField] private TextMeshProUGUI soldierName = null;
     [SerializeField] private UnityEvent onClosed = null;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private SoundEntity sound;
+    [SerializeField] private SoundManager soundManager;
 
     public void Open()
     {
@@ -21,6 +23,7 @@ public class NewSoldierAchivedScreenController : UIElement
         soldierImageRendererController.ShowSoldier(soldierIndex);
         soldierName.text = soldierNames[soldierIndex].Value;
         Show();
+        soundManager.PlaySound(sound, true);
     }
 
     public void RevardedClaim()

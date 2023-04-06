@@ -11,6 +11,8 @@ public class Gun : FateMonoBehaviour
     [SerializeField] private ObjectPool fireRateEffect;
     [SerializeField] protected ObjectPool muzzleFire;
     [SerializeField] protected Transform muzzleFireEffectPoint;
+    [SerializeField] protected SoundEntity shootSound;
+    [SerializeField] protected SoundManager soundManager;
     protected int shotCount = 0;
     protected Transform Muzzle { get => muzzles[shotCount % muzzles.Length]; }
 
@@ -28,6 +30,7 @@ public class Gun : FateMonoBehaviour
             muzzleFire.Get<Transform>(muzzleFireEffectPoint.position, muzzleFireEffectPoint.rotation);
         bullet.Shoot(direction, damage);
         shotCount++;
+        soundManager.PlaySound(shootSound, Muzzle.position);
     }
 
     public void ShowFireRateEffect()

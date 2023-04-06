@@ -1,3 +1,4 @@
+using FateGames.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Upgrades/Preparation/Base/Turret/Turret Count")]
 public class TurretCountUpgradeEntity : PreparationUpgradeEntity
 {
+    [SerializeField] private SoundEntity sound;
+    [SerializeField] private SoundManager soundManager;
     public override int Cost => Level * 10;
     protected override int Level { get => saveData.Value.TurretCount; set => saveData.Value.TurretCount = value; }
     public override void Initialize()
@@ -20,6 +23,7 @@ public class TurretCountUpgradeEntity : PreparationUpgradeEntity
     {
         base.Upgrade();
         Initialize();
+        soundManager.PlaySound(sound);
     }
 }
 

@@ -84,6 +84,8 @@ MonoBehaviour:
   fireRateEffect: {fileID: 11400000, guid: b80e7e2c086d26046948936416a94ee5, type: 2}
   muzzleFire: {fileID: 11400000, guid: d36b50400321680478266de300ac85d4, type: 2}
   muzzleFireEffectPoint: {fileID: 5191181822297570938}
+  shootSound: {fileID: 11400000, guid: 1d8a2ee524ba1a94daeb62740aad0d6c, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
   burstCount: 3
   burstPeriod: 0.1
 --- !u!114 &710442739377583849
@@ -232,6 +234,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Uzi
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363810952361407317, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363810952361407317, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d2f918f6d3a386409ff5bc00a20c4b1, type: 3}

@@ -15,8 +15,11 @@ public class Molotov : Throwable, IPooledObject
     [SerializeField] protected ObjectPool effectPool;
     private WaitForSeconds waitForHitPeriod;
     private IEnumerator burnRoutine = null;
-    private bool towerDied = false;
+    private bool levelFinished = false;
     public event Action OnRelease;
+    [SerializeField] private SoundEntity crackSound, burningSound;
+    [SerializeField] private SoundManager soundManager;
+    private SoundWorker burningSoundWorker;
 
     private void Awake()
     {
@@ -24,29 +27,39 @@ public class Molotov : Throwable, IPooledObject
     }
     protected override void OnReached()
     {
+        if (levelFinished) return;
         // TODO change here when implemented the pooled effects
         DeactivateMesh();
         if (effectPool)
             effectPool.Get<Transform>(transform.position, Quaternion.identity);
-        if (!towerDied)
-            StartBurning();
+        StartBurning();
     }
 
-    public void OnTowerDied()
+    public void OnLevelFinished()
     {
-        StopBurning();
-        towerDied = true;
+        levelFinished = true;
+        Release();
     }
 
     private void StartBurning()
     {
+        soundManager.PlaySoundOneShot(crackSound);
+        burningSoundWorker = soundManager.PlaySound(burningSound);
         burnRoutine = Burn(duration);
         StartCoroutine(burnRoutine);
+    }
+
+    private void StopBurningSound()
+    {
+        if (burningSoundWorker == null) return;
+        burningSoundWorker.Stop();
+        burningSoundWorker = null;
     }
 
     public void StopBurning()
     {
         if (burnRoutine == null) return;
+        StopBurningSound();
         StopCoroutine(burnRoutine);
         burnRoutine = null;
     }
@@ -89,13 +102,14 @@ public class Molotov : Throwable, IPooledObject
 
     public void OnObjectSpawn()
     {
-        towerDied = false;
+        levelFinished = false;
         ActivateMesh();
         Activate();
     }
 
     public void Release()
     {
+        StopBurningSound();
         Deactivate();
         OnRelease.Invoke();
     }

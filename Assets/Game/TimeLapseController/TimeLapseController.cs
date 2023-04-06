@@ -12,6 +12,8 @@ public class TimeLapseController : FateMonoBehaviour, IInitializable
     [SerializeField] private ZoneManager zoneManager = null;
     [SerializeField] private FloatReference transitionDuration;
     [SerializeField] private TimeLapseHeader timeLapseHeader;
+    [SerializeField] private SoundEntity sound;
+    [SerializeField] private SoundManager soundManager;
 
     [SerializeField] private UnityEvent onTimeLapseStarted, onTimeLapseCompleted = new();
 
@@ -22,6 +24,7 @@ public class TimeLapseController : FateMonoBehaviour, IInitializable
     public void Animate()
     {
         onTimeLapseStarted.Invoke();
+        soundManager.PlaySound(sound);
         int targetIndex = zoneManager.WaveLevel % 4;
         AnimateHeader(targetIndex);
         fogController.SetFogToTime();

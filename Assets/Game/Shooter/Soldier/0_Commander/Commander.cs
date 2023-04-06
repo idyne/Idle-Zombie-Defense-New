@@ -15,6 +15,7 @@ public class Commander : Soldier
     private Tween cooldownTween = null;
     private bool usingSkill = false;
     private Vector3 lastKnownTargetPosition = Vector3.zero;
+    private IEnumerator throwCoroutine;
 
     public float SkillCooldown => 10f / saveData.Value.MolotovCooldownLevel;
 
@@ -40,7 +41,7 @@ public class Commander : Soldier
     {
         Log("StartCooldown", false);
         remainingCooldownPercent.Value = 1;
-        if (cooldownTween != null) 
+        if (cooldownTween != null)
         {
             cooldownTween.Kill();
             cooldownTween = null;
@@ -81,8 +82,25 @@ public class Commander : Soldier
                 RemoveTarget();
                 StartTargeting();
             }
+            throwCoroutine = null;
         }
-        StartCoroutine(throwWeapon());
+        throwCoroutine = throwWeapon();
+        StartCoroutine(throwCoroutine);
+    }
+
+    public void CancelThrowing()
+    {
+        if (throwCoroutine == null) return;
+        Log("Canceled Throw", false);
+        StopCoroutine(throwCoroutine);
+        throwCoroutine = null;
+        gun.Activate();
+        usingSkill = false;
+        if (target)
+        {
+            RemoveTarget();
+            StartTargeting();
+        }
     }
 
 }

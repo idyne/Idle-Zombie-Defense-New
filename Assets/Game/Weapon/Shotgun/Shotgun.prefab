@@ -84,6 +84,8 @@ MonoBehaviour:
   fireRateEffect: {fileID: 11400000, guid: b80e7e2c086d26046948936416a94ee5, type: 2}
   muzzleFire: {fileID: 11400000, guid: d118e2734c8dd29478a43868cdf31379, type: 2}
   muzzleFireEffectPoint: {fileID: 5725749850130728894}
+  shootSound: {fileID: 11400000, guid: af37bb1208de1b54d895194bf2beca49, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
   shotSize: 2
 --- !u!114 &667749709326372504
 MonoBehaviour:
@@ -226,6 +228,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2053910664058654508, guid: ce98e33c3477ce04bb0048424a46b276,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -2053910664058654508, guid: ce98e33c3477ce04bb0048424a46b276,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: ce98e33c3477ce04bb0048424a46b276,
         type: 3}
