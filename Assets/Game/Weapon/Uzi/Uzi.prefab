@@ -203,6 +203,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Uzi
       objectReference: {fileID: 0}
+    - target: {fileID: 6363810952361407317, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363810952361407317, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d2f918f6d3a386409ff5bc00a20c4b1, type: 3}
 --- !u!4 &862182228950498806 stripped

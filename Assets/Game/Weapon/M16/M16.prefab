@@ -196,6 +196,16 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1324022922252445613, guid: a9e9aab45cd704044bdf7f78b65dd77a,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1324022922252445613, guid: a9e9aab45cd704044bdf7f78b65dd77a,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a9e9aab45cd704044bdf7f78b65dd77a,
         type: 3}
       propertyPath: m_Name
