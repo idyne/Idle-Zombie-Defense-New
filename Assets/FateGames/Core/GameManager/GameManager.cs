@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using static WaveController;
 
 namespace FateGames.Core
 {
@@ -12,6 +13,7 @@ namespace FateGames.Core
         [SerializeField] private int targetFrameRate = -1;
         [SerializeField] private GameStateVariable gameState;
         [SerializeField] private UnityEvent OnPause, OnResume;
+        private GameState stateBeforePaused = GameState.NONE;
 
         public void Initialize()
         {
@@ -21,6 +23,7 @@ namespace FateGames.Core
         public void PauseGame()
         {
             if (gameState.Value == GameState.PAUSED) return;
+            stateBeforePaused = gameState.Value;
             gameState.Value = GameState.PAUSED;
             Time.timeScale = 0;
             OnPause.Invoke();
@@ -30,7 +33,7 @@ namespace FateGames.Core
         {
             if (gameState.Value != GameState.PAUSED) return;
             Time.timeScale = 1;
-            gameState.Value = GameState.IN_GAME;
+            gameState.Value = stateBeforePaused;
             OnResume.Invoke();
         }
     }

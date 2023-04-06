@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 6659662316087021721}
   - component: {fileID: 1821244238614231109}
   - component: {fileID: 3137310179799280078}
+  - component: {fileID: 8636087964938759370}
   m_Layer: 0
   m_Name: BaseUpgradesButton
   m_TagString: Untagged
@@ -154,7 +155,52 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 8636087964938759370}
+        m_TargetAssemblyTypeName: BaseUpgradesButton, Assembly-CSharp
+        m_MethodName: CheckTutorial
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8636087964938759370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958748206035894363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6edde56815b75b944babbfb211eb96c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 8919782765376225680}
+  deactivateOnHide: 1
+  tutorialData: {fileID: 11400000, guid: 7a7b509fc9ae05147829f0ddb1854dbb, type: 2}
+  openRealPanel:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 11400000, guid: 17a8b994298318a429785cf974e11cf2, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  openFakePanel:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a5cbdf3f4d29cec459fd4776ea83635c, type: 2}
         m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
         m_MethodName: Raise
         m_Mode: 1
@@ -199,6 +245,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 416603073620517330}
+  - {fileID: 1131016637950833045}
   m_Father: {fileID: 3123795399671260000}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -303,3 +350,168 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 438633342963763861}
   container: {fileID: 416603073620517330}
+  offset: 30
+--- !u!1001 &633126140617965750
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 332976337835121339}
+    m_Modifications:
+    - target: {fileID: 539162556654285090, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: tutorialData
+      value: 
+      objectReference: {fileID: 11400000, guid: 7a7b509fc9ae05147829f0ddb1854dbb,
+        type: 2}
+    - target: {fileID: 539162556654285091, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 539162556654285091, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539162556654285091, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539162556654285091, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539162556654285091, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 539162556654285091, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539162556654285091, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539162556654285091, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539162556654285091, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539162556654285091, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539162556654285091, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 539162556654285117, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_Name
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 1137263947431393175, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: Event
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e857c424d01bbe4fa8a32ba4c4a5bc0,
+        type: 2}
+    - target: {fileID: 2528651569214151607, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: Event
+      value: 
+      objectReference: {fileID: 11400000, guid: a5cbdf3f4d29cec459fd4776ea83635c,
+        type: 2}
+    - target: {fileID: 5696059321837474256, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696059321837474256, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 140
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696862605001523518, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696862605001523518, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696862605001523518, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a75496d976d579748925b504b6261e88, type: 3}
+--- !u!1 &1131016637950833035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 539162556654285117, guid: a75496d976d579748925b504b6261e88,
+    type: 3}
+  m_PrefabInstance: {fileID: 633126140617965750}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4415433610675970535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131016637950833035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 3ece626f35bc71144987976d4c9b8085, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1131016637950833044}
+        m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
+        m_MethodName: CheckConditions
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1131016637950833044 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 539162556654285090, guid: a75496d976d579748925b504b6261e88,
+    type: 3}
+  m_PrefabInstance: {fileID: 633126140617965750}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131016637950833035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7abbb458e7423ef45b73949bc9355d01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1131016637950833045 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 539162556654285091, guid: a75496d976d579748925b504b6261e88,
+    type: 3}
+  m_PrefabInstance: {fileID: 633126140617965750}
+  m_PrefabAsset: {fileID: 0}
