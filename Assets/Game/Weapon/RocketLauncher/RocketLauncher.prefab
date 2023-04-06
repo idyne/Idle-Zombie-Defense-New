@@ -115,6 +115,8 @@ MonoBehaviour:
   - {fileID: 8200050456364462724}
   - {fileID: 4888570318563127821}
   - {fileID: 1409757291965166717}
+  shootSound: {fileID: 11400000, guid: cec431321a682644d8cb9f011bc22a2d, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
   burstCount: 4
   burstPeriod: 0.2
 --- !u!1 &5024563041210946584

@@ -49,6 +49,8 @@ MonoBehaviour:
   bulletPool: {fileID: 11400000, guid: b9ddf22c1afccad47a5b50cf9c2f3e2c, type: 2}
   muzzles:
   - {fileID: 3889619373461543874}
+  shootSound: {fileID: 11400000, guid: 548c18c4a63cbe5468bd86192d0cae12, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!1 &3992689335256214108
 GameObject:
   m_ObjectHideFlags: 0

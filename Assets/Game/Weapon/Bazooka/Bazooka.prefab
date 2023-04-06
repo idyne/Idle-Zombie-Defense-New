@@ -80,6 +80,8 @@ MonoBehaviour:
   bulletPool: {fileID: 11400000, guid: b44479880d433e14f8a007e0820d5eca, type: 2}
   muzzles:
   - {fileID: 2143512637050633684}
+  shootSound: {fileID: 11400000, guid: 7c76c7661f3f7a049ac7a6ec8aaea244, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!1 &2809895758677394260
 GameObject:
   m_ObjectHideFlags: 0

@@ -80,6 +80,8 @@ MonoBehaviour:
   bulletPool: {fileID: 11400000, guid: b9ddf22c1afccad47a5b50cf9c2f3e2c, type: 2}
   muzzles:
   - {fileID: 5191181822297570938}
+  shootSound: {fileID: 11400000, guid: 1d8a2ee524ba1a94daeb62740aad0d6c, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
   burstCount: 3
   burstPeriod: 0.1
 --- !u!1 &6859883247022957930
