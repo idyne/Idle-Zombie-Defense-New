@@ -9,7 +9,13 @@ public class UpgradeItem : DynamicUIElement
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI nameText, description, costText;
     [SerializeField] private UpgradeButton upgradeButton;
-    private PreparationUpgradeEntity upgradeEntity = null;
+    [SerializeField] private PreparationUpgradeEntity upgradeEntity = null;
+
+    private void Awake()
+    {
+        if (upgradeEntity)
+            Set(upgradeEntity);
+    }
 
     public void Set(PreparationUpgradeEntity entity)
     {

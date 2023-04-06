@@ -37,6 +37,8 @@ public abstract class UpgradeEntity : ScriptableObject
             return result;
         }
     }
+    public bool Upgradeable => Affordable && !MaxedOut && !Locked;
+
     [System.Serializable]
     public class DayLimit
     {
