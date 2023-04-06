@@ -49,6 +49,8 @@ MonoBehaviour:
   bulletPool: {fileID: 11400000, guid: b9ddf22c1afccad47a5b50cf9c2f3e2c, type: 2}
   muzzles:
   - {fileID: 3135195559545256857}
+  shootSound: {fileID: 11400000, guid: 3b5333c477eac5041aace364736cdbe5, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!1 &8547056594688563501
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +195,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7185602823659865470, guid: eee9bd4e9b5a3d94ba2f9740ff82b146,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7185602823659865470, guid: eee9bd4e9b5a3d94ba2f9740ff82b146,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eee9bd4e9b5a3d94ba2f9740ff82b146,
         type: 3}

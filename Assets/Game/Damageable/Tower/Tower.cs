@@ -155,5 +155,5 @@ public partial class Tower : DamageableStructure
 
 public partial class SaveData
 {
-    public int[] SoldierTable = new int[8] { 1, 0, 0, 0, 0, 0, 0, 0 };
+    public int[] SoldierTable = new int[13] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 }

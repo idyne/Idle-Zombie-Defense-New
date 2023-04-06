@@ -8,6 +8,8 @@ public class Gun : FateMonoBehaviour
     [SerializeField] protected int damage = 10;
     [SerializeField] protected ObjectPool bulletPool;
     [SerializeField] protected Transform[] muzzles;
+    [SerializeField] protected SoundEntity shootSound;
+    [SerializeField] protected SoundManager soundManager;
     protected int shotCount = 0;
     protected Transform Muzzle { get => muzzles[shotCount % muzzles.Length]; }
 
@@ -22,6 +24,7 @@ public class Gun : FateMonoBehaviour
         Bullet bullet = bulletPool.Get<Bullet>(Muzzle.position, Quaternion.LookRotation(direction));
         bullet.Shoot(direction, damage);
         shotCount++;
+        soundManager.PlaySound(shootSound, Muzzle.position);
     }
 
 

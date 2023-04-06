@@ -12,6 +12,9 @@ public abstract class Mine : FateMonoBehaviour
     [SerializeField] private float areaOfEffectRadius = 2.5f;
     [SerializeField] private LayerMask damageableLayerMask;
     [SerializeField] private GameObject meshObject, detonatedMeshObject;
+    [SerializeField] private SoundEntity sound, detonationSound;
+    [SerializeField] private SoundManager soundManager;
+    private SoundWorker detonationSoundWorker = null;
     private SphereCollider sphereCollider = null;
 #pragma warning disable CS0108 
     private Rigidbody rigidbody = null;
@@ -35,9 +38,16 @@ public abstract class Mine : FateMonoBehaviour
     }
     public virtual void Detonate()
     {
+        detonationSoundWorker = soundManager.PlaySound(detonationSound, transform.position);
         SwitchMeshes(true);
         sphereCollider.enabled = false;
         DOVirtual.DelayedCall(detonationDelay, Explode);
+    }
+    public void CancelDetonationSound()
+    {
+        if (detonationSoundWorker == null) return;
+        detonationSoundWorker.Stop();
+        detonationSoundWorker = null;
     }
     public virtual void Renew()
     {
@@ -46,6 +56,7 @@ public abstract class Mine : FateMonoBehaviour
     }
     public void Explode()
     {
+        CancelDetonationSound();
         int maxColliders = 30;
         Collider[] hitColliders = new Collider[maxColliders];
         int numColliders = Physics.OverlapSphereNonAlloc(transform.position, areaOfEffectRadius, hitColliders, damageableLayerMask);
@@ -58,6 +69,7 @@ public abstract class Mine : FateMonoBehaviour
             }
 
         }
+        soundManager.PlaySound(sound);
         // TODO change here when implemented the PooledEffect
         if (visualEffectPool)
             visualEffectPool.Get<Transform>(transform.position, Quaternion.identity);

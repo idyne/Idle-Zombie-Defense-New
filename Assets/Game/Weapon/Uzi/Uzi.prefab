@@ -80,6 +80,8 @@ MonoBehaviour:
   bulletPool: {fileID: 11400000, guid: b9ddf22c1afccad47a5b50cf9c2f3e2c, type: 2}
   muzzles:
   - {fileID: 5191181822297570938}
+  shootSound: {fileID: 11400000, guid: 1d8a2ee524ba1a94daeb62740aad0d6c, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
   burstCount: 3
   burstPeriod: 0.1
 --- !u!1 &6859883247022957930
@@ -200,6 +202,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Uzi
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363810952361407317, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363810952361407317, guid: 9d2f918f6d3a386409ff5bc00a20c4b1,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d2f918f6d3a386409ff5bc00a20c4b1, type: 3}

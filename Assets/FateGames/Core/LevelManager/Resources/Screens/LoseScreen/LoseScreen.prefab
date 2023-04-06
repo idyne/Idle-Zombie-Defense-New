@@ -444,6 +444,8 @@ MonoBehaviour:
   deactivateOnHide: 0
   dayText: {fileID: 463127922029986268}
   zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
+  sound: {fileID: 11400000, guid: c3d7cf0e9580cd942a3857357179fb9b, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!114 &6547671470229626486
 MonoBehaviour:
   m_ObjectHideFlags: 0

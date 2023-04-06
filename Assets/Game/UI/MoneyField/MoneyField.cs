@@ -11,6 +11,8 @@ public class MoneyField : FateMonoBehaviour
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private SaveDataVariable saveData;
     [SerializeField] private Transform imageTransform;
+    [SerializeField] private SoundEntity sound;
+    [SerializeField] private SoundManager soundManager;
     private bool animating = false;
 
     void Start()
@@ -21,6 +23,7 @@ public class MoneyField : FateMonoBehaviour
     public void BounceMoney()
     {
         if (animating) return;
+        soundManager.PlaySound(sound);
         animating = true;
         imageTransform.DOScale(1.2f, 0.05f).SetLoops(2, LoopType.Yoyo).OnComplete(() => { animating = false; });
     }
