@@ -8,6 +8,9 @@ public partial class Tower
 {
     [SerializeField] private List<SoldierSet> soldierTable;
     [SerializeField] private List<ObjectPool> soldierPools;
+    [SerializeField] private ObjectPool poofEffectPool;
+    [SerializeField] private ObjectPool magicBuffEffectPool;
+
     [SerializeField] private UnityEvent OnNewSoldier, OnNewSoldierAchieved;
     [SerializeField] private IntVariable lastAchievedSoldierLevel;
     [SerializeField] private SoldierUnlockTable soldierUnlockTable;
@@ -54,6 +57,7 @@ public partial class Tower
             }
             PlaceSoldiers();
             AddSoldier(level + 1, mergePoint.position);
+            poofEffectPool.Get<Transform>(mergePoint.position, Quaternion.identity);
             if (newSoldierAchieved)
             {
                 lastAchievedSoldierLevel.Value = level + 1;
@@ -89,6 +93,7 @@ public partial class Tower
     public void AddSoldier()
     {
         AddSoldier(saveData.Value.SoldierBuyingLevel);
+
     }
     public void AddSoldier(int level, Vector3 spawnPoint, bool save = true)
     {
@@ -110,6 +115,7 @@ public partial class Tower
         if (CanMerge(out _))
         {
             OnMergeAvailable.Invoke();
+
         }
     }
     public void AddSoldier(int level, bool save = true)
@@ -132,6 +138,7 @@ public partial class Tower
         {
             OnMergeAvailable.Invoke();
         }
+        magicBuffEffectPool.Get<Transform>(position, Quaternion.identity);
     }
 
     public void RemoveSoldier(int level)

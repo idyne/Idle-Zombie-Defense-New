@@ -16,6 +16,7 @@ public class Shotgun : Gun
             bullet.Shoot(shootDirection, damage);
         }
         shotCount++;
+        muzzleFire.Get<Transform>(muzzleFireEffectPoint.position, muzzleFireEffectPoint.rotation);
     }
 
     private Vector3 RandomPointOnPlane(Vector3 position, Vector3 normal, float radius)

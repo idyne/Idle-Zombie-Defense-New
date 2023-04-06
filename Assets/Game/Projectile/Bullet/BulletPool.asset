@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BulletPool
   m_EditorClassIdentifier: 
   tag: Bullet
-  prefab: {fileID: 4024002431610083051, guid: 0673e57f1948d0d498c9a8fbfb46a5dc, type: 3}
+  prefab: {fileID: 540496945732694035, guid: 4b265acdcb69dfb4e8f79855b0e6768d, type: 3}
   startSize: 0

@@ -115,6 +115,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  poofEffectPool: {fileID: 11400000, guid: c4d7a365c41a2824887175a922d9f5f1, type: 2}
+  magicBuffEffectPool: {fileID: 11400000, guid: 4f7b439317ae4284fb0217ba92deb828,
+    type: 2}
   OnNewSoldierAchieved:
     m_PersistentCalls:
       m_Calls:

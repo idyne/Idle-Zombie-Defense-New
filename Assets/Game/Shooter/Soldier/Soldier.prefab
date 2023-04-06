@@ -56,6 +56,8 @@ MonoBehaviour:
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
   targetableZombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c,
     type: 2}
+  fireRateEffectPoint: {fileID: 0}
+  fireRateEffect: {fileID: 11400000, guid: b80e7e2c086d26046948936416a94ee5, type: 2}
   soldierSet: {fileID: 0}
   animator: {fileID: 0}
   ragdollTransform: {fileID: 0}
