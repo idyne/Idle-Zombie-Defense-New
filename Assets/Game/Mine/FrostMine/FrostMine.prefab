@@ -119,6 +119,9 @@ MonoBehaviour:
     m_Bits: 128
   meshObject: {fileID: 1741584889195764032}
   detonatedMeshObject: {fileID: 2955698925532808531}
+  sound: {fileID: 11400000, guid: 88bcceb9a60d2f445baff6e226dbf36b, type: 2}
+  detonationSound: {fileID: 11400000, guid: c54aae3ce72841749ae361dc2544a708, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
   duration: 5
 --- !u!1001 &1160175666632942001
 PrefabInstance:

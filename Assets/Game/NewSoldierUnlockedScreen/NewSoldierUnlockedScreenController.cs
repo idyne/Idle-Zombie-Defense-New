@@ -12,6 +12,8 @@ public class NewSoldierUnlockedScreenController : UIElement
     [SerializeField] private IntReference lastUnlockedSoldierLevel;
     [SerializeField] private TextMeshProUGUI soldierName = null;
     [SerializeField] private UnityEvent onClosed = null;
+    [SerializeField] private SoundEntity sound;
+    [SerializeField] private SoundManager soundManager;
 
     public void Open()
     {
@@ -19,6 +21,7 @@ public class NewSoldierUnlockedScreenController : UIElement
         soldierImageRendererController.ShowSoldier(soldierIndex);
         soldierName.text = soldierNames[soldierIndex].Value;
         Show();
+        soundManager.PlaySound(sound);
     }
 
     public void Close()

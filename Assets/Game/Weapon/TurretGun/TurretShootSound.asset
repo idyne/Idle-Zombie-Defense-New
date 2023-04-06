@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: TurretShootSound
   m_EditorClassIdentifier: 
   tag: Turret Shoot Sound
-  clip: {fileID: 8300000, guid: b0371113e139088478e23fb47849cfb1, type: 3}
+  clip: {fileID: 8300000, guid: 60c008ec56a99f1419853273319e1dd2, type: 3}
   loop: 0
-  spatialBlend: 0.9
+  spatialBlend: 0.8
   pitchRangeMin: 0.75
   pitchRangeMax: 1
   volume: 1

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: Molotov Fire Sound
   clip: {fileID: 8300000, guid: bd22510a72aed1a4395887e52920b660, type: 3}
-  loop: 0
-  spatialBlend: 0.5
+  loop: 1
+  spatialBlend: 0.4
   pitchRangeMin: 0.9
   pitchRangeMax: 1
   volume: 1

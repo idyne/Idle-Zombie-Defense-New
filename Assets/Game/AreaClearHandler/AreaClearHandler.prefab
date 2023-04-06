@@ -711,6 +711,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySoundOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a8843ed48baa0ab49a68a00763e0235c,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: FateGames.Core.SoundEntity, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4138645249591346271
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,7 +892,7 @@ MonoBehaviour:
   waveClearEffect: {fileID: 979477658298316252}
   waveClearText: {fileID: 2934742566801629469}
   dayClearScreen: {fileID: 3283657401510999487}
-  claimButton: {fileID: 3770440623520686440}
+  claimButton: {fileID: 5959789041356234790}
   moneyPool: {fileID: 11400000, guid: 39fd42e2a5b9b6a419d4a5290f23c918, type: 2}
   toolPool: {fileID: 11400000, guid: 39dcc899cdc36734080dc4e2f1c991b9, type: 2}
   defaultSpawnPosition: {fileID: 8073669554506039969}
@@ -936,6 +949,9 @@ MonoBehaviour:
         m_CallState: 2
   lastUnlockedSoldierLevel: {fileID: 11400000, guid: 8333d820031d55042940819b248f0833,
     type: 2}
+  waveClearSound: {fileID: 11400000, guid: 4c6eaa628be053d4597e82ad71c8401b, type: 2}
+  areaClearSound: {fileID: 11400000, guid: aaf4a32360008164ea8d6f7e29ba2fae, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!114 &251995382009506959
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -49,6 +49,8 @@ MonoBehaviour:
   moneyText: {fileID: 8766047497124488435}
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   imageTransform: {fileID: 4040279269206168624}
+  sound: {fileID: 11400000, guid: 8feba7bed69846e4c99d608d5b5fcbc3, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!114 &6568384924455078323
 MonoBehaviour:
   m_ObjectHideFlags: 0

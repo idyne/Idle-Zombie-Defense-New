@@ -53,6 +53,15 @@ namespace FateGames.Core
             Instantiate(soundWorkerPrefab);
         }
 
+        public void PlaySoundOneShot(SoundEntity entity)
+        {
+            PlaySound(entity.Tag, Vector3.zero);
+        }
+        public void PlaySoundOneShotIgnorePause(SoundEntity entity)
+        {
+            PlaySound(entity.Tag, Vector3.zero, true);
+        }
+
         public SoundWorker PlaySound(SoundEntity entity, bool ignoreListenerPause = false)
         {
             return PlaySound(entity.Tag, Vector3.zero, ignoreListenerPause);

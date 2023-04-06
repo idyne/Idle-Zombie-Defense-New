@@ -69,7 +69,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 273ce4a282ff8574fa0eba4770bd8e3b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b5a1b37b09830574788ad24871c691d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -109,9 +109,9 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 10d0c4fcc52174a499eb25f80b4a7b60, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 6fdd23e36c098024987c971497d41a62, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 21300000, guid: c82d2d1b8d8a4e442815a9975ff49209, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: c151ef5c8c8ee914f964b5049f6dd5fa, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -122,7 +122,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5427203907442837583}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySoundOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a8843ed48baa0ab49a68a00763e0235c,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: FateGames.Core.SoundEntity, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3696796197572941081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -827,6 +840,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 8835890484389324463}
+  deactivateOnHide: 1
   phaseUpgrade: {fileID: 0}
   infoField: {fileID: 6615250497504028070}
   costField: {fileID: 6444857287043910881}

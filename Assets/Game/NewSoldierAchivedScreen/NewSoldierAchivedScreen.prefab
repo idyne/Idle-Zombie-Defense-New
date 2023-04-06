@@ -1365,6 +1365,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySoundOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a8843ed48baa0ab49a68a00763e0235c,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: FateGames.Core.SoundEntity, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7149257884604339810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,6 +1514,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   gameManager: {fileID: 11400000, guid: d81455aed306ccd4c8e8a87a55b5def5, type: 2}
+  sound: {fileID: 11400000, guid: 1474e00a545f35f419afdf70b531f43c, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!1001 &1332945675117325409
 PrefabInstance:
   m_ObjectHideFlags: 0

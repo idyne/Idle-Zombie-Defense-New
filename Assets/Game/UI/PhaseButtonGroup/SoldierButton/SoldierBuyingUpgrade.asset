@@ -31,3 +31,5 @@ MonoBehaviour:
         m_CallState: 2
   Limit: -1
   dayLimits: []
+  sound: {fileID: 11400000, guid: 142554cdd6b1f81459a2baa9f0a41ef2, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}

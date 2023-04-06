@@ -6,6 +6,7 @@ using FateGames.Tweening;
 using DG.Tweening;
 using TMPro;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class AreaClearHandler : UIElement
 {
@@ -20,7 +21,7 @@ public class AreaClearHandler : UIElement
     [SerializeField] private GameObject waveClearEffect;
     [SerializeField] private Transform waveClearText;
     [SerializeField] private GameObject dayClearScreen;
-    [SerializeField] private GameObject claimButton;
+    [SerializeField] private Button claimButton;
     [SerializeField] private ObjectPool moneyPool;
     [SerializeField] private ObjectPool toolPool;
     [SerializeField] private RectTransform defaultSpawnPosition;
@@ -34,6 +35,8 @@ public class AreaClearHandler : UIElement
     [SerializeField] private SoldierUnlockTable soldierUnlockTable;
     [SerializeField] private UnityEvent onNewSoldierUnlocked;
     [SerializeField] private IntVariable lastUnlockedSoldierLevel;
+    [SerializeField] private SoundEntity waveClearSound, areaClearSound;
+    [SerializeField] private SoundManager soundManager;
 
     private int collectableMoneyAmount = 0;
     private int collectableToolsAmount = 0;
@@ -55,7 +58,7 @@ public class AreaClearHandler : UIElement
 
     public void Claim()
     {
-        claimButton.SetActive(false);
+        claimButton.interactable = false;
         SpreadMoney(moneySpawnPosition.position, collectableMoneyAmount);
         SpreadTool(toolSpawnPosition.position, collectableToolsAmount);
 
@@ -105,13 +108,9 @@ public class AreaClearHandler : UIElement
     public void WaveClear(int moneyAmount, int toolAmount)
     {
         WaveClearEffect(2);
-
-        FaTween.DelayedCall(1f, () =>
-        {
-            SpreadMoney(defaultSpawnPosition.position, moneyAmount);
-            SpreadTool(defaultSpawnPosition.position, toolAmount);
-            FaTween.DelayedCall(2f, onWaveClearEffectFinished.Invoke);
-        });
+        SpreadMoney(defaultSpawnPosition.position, moneyAmount);
+        SpreadTool(defaultSpawnPosition.position, toolAmount);
+        FaTween.DelayedCall(2f, onWaveClearEffectFinished.Invoke);
     }
 
     public void DayClear(int moneyAmount, int toolAmount)
@@ -119,6 +118,7 @@ public class AreaClearHandler : UIElement
         WaveClearEffect(2);
         FaTween.DelayedCall(2f, () =>
         {
+            soundManager.PlaySound(areaClearSound);
             waveClearEffect.SetActive(false);
             dayClearScreen.SetActive(true);
 
@@ -140,6 +140,8 @@ public class AreaClearHandler : UIElement
 
     private void WaveClearEffect(float duration)
     {
+        soundManager.PlaySound(waveClearSound);
+        Debug.Log("playwavesound", this);
         waveClearEffect.SetActive(true);
         waveClearText.localScale = Vector3.one * 0f;
         waveClearText.FaLocalScale(Vector3.one * 1f, duration / 3).SetEaseFunction(FaEaseFunctions.EaseMode.OutQuad);
