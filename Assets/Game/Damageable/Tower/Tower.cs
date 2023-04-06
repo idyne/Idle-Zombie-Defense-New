@@ -26,6 +26,11 @@ public partial class Tower : DamageableStructure
     {
         Initialize();
     }
+    public void CheckIfMergeAvailable()
+    {
+        if (CanMerge(out _))
+            OnMergeAvailable.Invoke();
+    }
     public void Initialize()
     {
         for (int i = 0; i < saveData.Value.SoldierTable.Length; i++)
@@ -150,5 +155,5 @@ public partial class Tower : DamageableStructure
 
 public partial class SaveData
 {
-    public int[] SoldierTable = new int[8] { 1, 0, 0, 0, 0, 0, 0, 0 };
+    public int[] SoldierTable = new int[13] { 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 }

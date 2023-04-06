@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f661309dff66d6841ae6e27cada35847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
   gameManager: {fileID: 11400000, guid: d81455aed306ccd4c8e8a87a55b5def5, type: 2}
   saveManager: {fileID: 11400000, guid: c8a736951a67f0c40a538d98f5806301, type: 2}
   sceneManager: {fileID: 11400000, guid: 30f4fb8e342857543a5c7983051b6c66, type: 2}

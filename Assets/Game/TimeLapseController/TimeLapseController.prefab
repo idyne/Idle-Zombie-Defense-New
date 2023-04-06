@@ -53,6 +53,8 @@ MonoBehaviour:
     ConstantValue: 0
     Variable: {fileID: 11400000, guid: 71c18ef56f29ec945924652b6aa7a2d2, type: 2}
   timeLapseHeader: {fileID: 76503302945200765}
+  sound: {fileID: 11400000, guid: cf2fe158ede270c488d0eeeb5a0ab008, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
   onTimeLapseStarted:
     m_PersistentCalls:
       m_Calls:

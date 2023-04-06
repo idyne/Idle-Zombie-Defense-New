@@ -49,6 +49,8 @@ MonoBehaviour:
   toolText: {fileID: 8766047497124488435}
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   imageTransform: {fileID: 4040279269206168624}
+  sound: {fileID: 11400000, guid: 39e3e0366e8166c4e9a5b3f2ad8f054c, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!114 &2895578554609507583
 MonoBehaviour:
   m_ObjectHideFlags: 0

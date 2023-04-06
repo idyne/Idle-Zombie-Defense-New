@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2274616672086330642}
   - component: {fileID: 5430469632564164654}
   - component: {fileID: 6440403837565097118}
+  - component: {fileID: 1751048020699173266}
   m_Layer: 0
   m_Name: Molotov
   m_TagString: Untagged
@@ -88,6 +89,9 @@ MonoBehaviour:
     m_Bits: 128
   meshObject: {fileID: 5759858717506780878}
   effectPool: {fileID: 11400000, guid: 09a2947094954e344bf54a393841cca4, type: 2}
+  crackSound: {fileID: 11400000, guid: fe866b4e4bac4bb48be3a95e9c724759, type: 2}
+  burningSound: {fileID: 11400000, guid: b7f8e0a5c201f7846af66687750a1227, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!114 &6440403837565097118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,7 +110,35 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5430469632564164654}
         m_TargetAssemblyTypeName: Molotov, Assembly-CSharp
-        m_MethodName: OnTowerDied
+        m_MethodName: OnLevelFinished
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1751048020699173266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8595597395742991370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: fc7b558fab1305d40b5cda144921ed37, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5430469632564164654}
+        m_TargetAssemblyTypeName: Molotov, Assembly-CSharp
+        m_MethodName: OnLevelFinished
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

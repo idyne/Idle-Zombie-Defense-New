@@ -49,6 +49,8 @@ MonoBehaviour:
   bulletPool: {fileID: 11400000, guid: b9ddf22c1afccad47a5b50cf9c2f3e2c, type: 2}
   muzzles:
   - {fileID: 7068882308899948783}
+  shootSound: {fileID: 11400000, guid: 820861f33a7e91841bfbd5afc90d8c52, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!1 &6358836226432386695
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +200,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rifle03
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866597450221984725, guid: 7eed3efaadd595947bccda933b1c2d96,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2866597450221984725, guid: 7eed3efaadd595947bccda933b1c2d96,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eed3efaadd595947bccda933b1c2d96, type: 3}

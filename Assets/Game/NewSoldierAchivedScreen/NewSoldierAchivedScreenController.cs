@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NewSoldierAchivedScreenController : UIElement
 {
@@ -10,8 +11,10 @@ public class NewSoldierAchivedScreenController : UIElement
     [SerializeField] private List<StringReference> soldierNames = new List<StringReference>();
     [SerializeField] private IntReference lastAchivedSoldierLevel;
     [SerializeField] private TextMeshProUGUI soldierName = null;
-    [SerializeField] private GameEvent onClosedEvent = null;
+    [SerializeField] private UnityEvent onClosed = null;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private SoundEntity sound;
+    [SerializeField] private SoundManager soundManager;
 
     public void Open()
     {
@@ -20,10 +23,11 @@ public class NewSoldierAchivedScreenController : UIElement
         soldierImageRendererController.ShowSoldier(soldierIndex);
         soldierName.text = soldierNames[soldierIndex].Value;
         Show();
+        soundManager.PlaySound(sound, true);
     }
 
-    public void RevardedClaim() 
-    { 
+    public void RevardedClaim()
+    {
         Close();
         // revarded video
     }
@@ -33,6 +37,6 @@ public class NewSoldierAchivedScreenController : UIElement
         soldierImageRendererController.CloseShow();
         Hide();
         gameManager.ResumeGame();
-        onClosedEvent.Raise();
+        onClosed.Invoke();
     }
 }

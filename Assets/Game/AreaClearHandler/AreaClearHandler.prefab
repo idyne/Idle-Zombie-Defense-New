@@ -711,6 +711,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.SoundManager, Assembly-CSharp
+        m_MethodName: PlaySoundOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000, guid: a8843ed48baa0ab49a68a00763e0235c,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: FateGames.Core.SoundEntity, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4138645249591346271
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,6 +837,8 @@ GameObject:
   - component: {fileID: 4138645250195702282}
   - component: {fileID: 4138645250195702283}
   - component: {fileID: 251995382009506959}
+  - component: {fileID: 8804363859748839152}
+  - component: {fileID: 4907709847898880239}
   m_Layer: 0
   m_Name: AreaClearHandler
   m_TagString: Untagged
@@ -864,6 +879,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3692bc97a7214e04dbd9575ab6529cda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 4138645249591346211}
+  deactivateOnHide: 0
   toolPerWave: 2
   toolPerDay: 5
   toolPerZone: 10
@@ -875,7 +892,7 @@ MonoBehaviour:
   waveClearEffect: {fileID: 979477658298316252}
   waveClearText: {fileID: 2934742566801629469}
   dayClearScreen: {fileID: 3283657401510999487}
-  claimButton: {fileID: 3770440623520686440}
+  claimButton: {fileID: 5959789041356234790}
   moneyPool: {fileID: 11400000, guid: 39fd42e2a5b9b6a419d4a5290f23c918, type: 2}
   toolPool: {fileID: 11400000, guid: 39dcc899cdc36734080dc4e2f1c991b9, type: 2}
   defaultSpawnPosition: {fileID: 8073669554506039969}
@@ -884,9 +901,57 @@ MonoBehaviour:
   moneyText: {fileID: 5679858355876258858}
   toolText: {fileID: 7894054021563887212}
   dayText: {fileID: 2830980176372466890}
-  onZoneFinished: {fileID: 11400000, guid: bc340e100eb53cd4fa04509a2675875a, type: 2}
-  onWaveClearEffectFinished: {fileID: 11400000, guid: 5f78ffa24ca8fbb42b4c4b3455f9e686,
+  onZoneFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: bc340e100eb53cd4fa04509a2675875a, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onWaveClearEffectFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 5f78ffa24ca8fbb42b4c4b3455f9e686, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  soldierUnlockTable: {fileID: 11400000, guid: df5ed0cc3542d1843969275cd6c71e8c, type: 2}
+  onNewSoldierUnlocked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 1436319a4b3682c4e8861ca6702eacad, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  lastUnlockedSoldierLevel: {fileID: 11400000, guid: 8333d820031d55042940819b248f0833,
     type: 2}
+  waveClearSound: {fileID: 11400000, guid: 4c6eaa628be053d4597e82ad71c8401b, type: 2}
+  areaClearSound: {fileID: 11400000, guid: aaf4a32360008164ea8d6f7e29ba2fae, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!114 &251995382009506959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -906,6 +971,62 @@ MonoBehaviour:
       - m_Target: {fileID: 4138645250195702283}
         m_TargetAssemblyTypeName: AreaClearHandler, Assembly-CSharp
         m_MethodName: ShowCorrectScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8804363859748839152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4138645250195702277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 886312340d2b1cf4d89573e682b34c05, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4138645250195702283}
+        m_TargetAssemblyTypeName: AreaClearHandler, Assembly-CSharp
+        m_MethodName: OnSoldierUnlockedScreenClosed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4907709847898880239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4138645250195702277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 8ed526da9b52d094cb83b0061890fc87, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4138645250195702283}
+        m_TargetAssemblyTypeName: AreaClearHandler, Assembly-CSharp
+        m_MethodName: OnMapClosed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

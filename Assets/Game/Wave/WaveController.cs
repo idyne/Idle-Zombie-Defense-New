@@ -138,13 +138,16 @@ public class WaveController : MonoBehaviour
         {
             if (count <= 0)
             {
-                if (zoneManager.IsLastDayOfZone())
+                if (zoneManager.IsNight)
                 {
-                    SpawnZombie(zoneManager.Day, ZombieType.ZONE_BOSS);
-                }
-                else if (zoneManager.IsNight)
-                {
-                    SpawnZombie(zoneManager.Day, ZombieType.DAY_BOSS);
+                    if (zoneManager.IsLastDayOfZone())
+                    {
+                        SpawnZombie(zoneManager.Day, ZombieType.ZONE_BOSS);
+                    }
+                    else
+                    {
+                        SpawnZombie(zoneManager.Day, ZombieType.DAY_BOSS);
+                    }
                 }
                 yield break;
             }

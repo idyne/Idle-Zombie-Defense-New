@@ -22,3 +22,5 @@ MonoBehaviour:
   runtimeSet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
   icon: {fileID: 21300000, guid: 3042b019b052942a1baf7aa49d7ca6bb, type: 3}
   description: Add +1 Frost Mine
+  sound: {fileID: 11400000, guid: e8c39f8d22eae9248bbaa1b9215f09bf, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}

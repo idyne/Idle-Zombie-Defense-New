@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using FateGames.Core;
+using UnityEngine.Events;
 
 public class ZoneMapController : UIElement
 {
@@ -12,7 +13,7 @@ public class ZoneMapController : UIElement
     [SerializeField] private Zone[] zones = null;
     [SerializeField] private Transform map = null;
     [SerializeField] private GameObject nextButton = null;
-    [SerializeField] private GameEvent onClosedEvent = null;
+    [SerializeField] private UnityEvent onMapClosed;
 
     public void OpenMapForZonePass()
     {
@@ -21,7 +22,7 @@ public class ZoneMapController : UIElement
 
     private IEnumerator ZonePass()
     {
-        int passedZoneIndex = zoneManager.Zone-1;
+        int passedZoneIndex = zoneManager.Zone - 1;
 
         OpenAndClean();
         SetupZonesAndPaths(passedZoneIndex);
@@ -91,7 +92,7 @@ public class ZoneMapController : UIElement
     private void Close()
     {
         Hide();
-        onClosedEvent.Raise();
+        onMapClosed.Invoke();
     }
 
 }

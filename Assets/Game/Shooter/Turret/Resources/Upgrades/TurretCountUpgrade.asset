@@ -13,10 +13,7 @@ MonoBehaviour:
   m_Name: TurretCountUpgrade
   m_EditorClassIdentifier: 
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
-  runtimeSet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
-  icon: {fileID: 4279260276780606416, guid: 3da05e9f66c9f254c8875335e7e9179e, type: 3}
   upgradeName: Turret Count
-  description: Place +1 turret
   OnUpgrade:
     m_PersistentCalls:
       m_Calls: []
@@ -30,3 +27,8 @@ MonoBehaviour:
     Limit: 3
   - Day: 20
     Limit: 4
+  runtimeSet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
+  icon: {fileID: 4279260276780606416, guid: 3da05e9f66c9f254c8875335e7e9179e, type: 3}
+  description: Place +1 turret
+  sound: {fileID: 11400000, guid: 75995964b5d120d4a846d38727718ba4, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}

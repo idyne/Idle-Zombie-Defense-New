@@ -56,6 +56,9 @@ MonoBehaviour:
     m_Bits: 128
   meshObject: {fileID: 5607513981716700129}
   detonatedMeshObject: {fileID: 5201645976058288861}
+  sound: {fileID: 11400000, guid: d5f5fc37468834242b019b76a45e29ba, type: 2}
+  detonationSound: {fileID: 11400000, guid: c54aae3ce72841749ae361dc2544a708, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
   damage: 20
 --- !u!114 &738226414268968555
 MonoBehaviour:
@@ -216,6 +219,11 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 00c3d4e644a554148a930f955ef473e6,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 00c3d4e644a554148a930f955ef473e6,
         type: 3}
       propertyPath: m_Name
@@ -294,6 +302,11 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 00c3d4e644a554148a930f955ef473e6,
         type: 3}
       propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 00c3d4e644a554148a930f955ef473e6,
+        type: 3}
+      propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 00c3d4e644a554148a930f955ef473e6,
