@@ -12,6 +12,7 @@ public abstract class Shooter : FateMonoBehaviour
     [SerializeField] protected float shootPeriod = 0.5f;
     [SerializeField] protected WaveStateVariable waveState;
     [SerializeField] protected ZombieSet targetableZombieSet;
+    
 
     protected Gun gun;
     protected IEnumerator faceTargetRoutine;
@@ -39,6 +40,7 @@ public abstract class Shooter : FateMonoBehaviour
         FaceTarget();
     }
 
+    
     protected virtual bool FacedTarget
     {
         get

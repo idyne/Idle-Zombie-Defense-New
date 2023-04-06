@@ -51,6 +51,8 @@ MonoBehaviour:
   muzzles:
   - {fileID: 3889619373461543874}
   fireRateEffect: {fileID: 11400000, guid: b80e7e2c086d26046948936416a94ee5, type: 2}
+  muzzleFire: {fileID: 11400000, guid: f6ceb2c21e0be2a44a7b10e1844cb6d3, type: 2}
+  muzzleFireEffectPoint: {fileID: 3889619373461543874}
 --- !u!114 &-2141866819111612417
 MonoBehaviour:
   m_ObjectHideFlags: 0

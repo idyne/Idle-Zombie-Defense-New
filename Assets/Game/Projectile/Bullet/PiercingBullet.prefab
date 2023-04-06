@@ -47,7 +47,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 40
   radius: 0.5
-  piercing: 1
+  damageableLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1001 &8170271387890811530
 PrefabInstance:
   m_ObjectHideFlags: 0

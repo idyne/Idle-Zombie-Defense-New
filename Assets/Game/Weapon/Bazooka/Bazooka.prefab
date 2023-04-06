@@ -82,6 +82,8 @@ MonoBehaviour:
   muzzles:
   - {fileID: 2143512637050633684}
   fireRateEffect: {fileID: 11400000, guid: b80e7e2c086d26046948936416a94ee5, type: 2}
+  muzzleFire: {fileID: 11400000, guid: 9c03f72e98298a044af0693e33d2f60c, type: 2}
+  muzzleFireEffectPoint: {fileID: 6758922735717644725}
 --- !u!114 &-7437329007176522482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,6 +144,37 @@ Transform:
   m_Father: {fileID: 1574657729762967301}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8090998803225825609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6758922735717644725}
+  m_Layer: 0
+  m_Name: BackMuzzle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6758922735717644725
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8090998803225825609}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0.183, z: -0.343}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5435932593486204824}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1001 &519527660786361281
 PrefabInstance:
   m_ObjectHideFlags: 0

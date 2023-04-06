@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38011bc6216c04e4692470e10f9c76d5, type: 3}
-  m_Name: BulletPool
+  m_Name: RifleMuzzleFire
   m_EditorClassIdentifier: 
-  tag: Bullet
-  prefab: {fileID: 540496945732694035, guid: 4b265acdcb69dfb4e8f79855b0e6768d, type: 3}
+  tag: Rifle Muzzle Fire
+  prefab: {fileID: 2809756089487211070, guid: 634b1ffb8979a434cbd942fe53b509ba, type: 3}
   startSize: 0
