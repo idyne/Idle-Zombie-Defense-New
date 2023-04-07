@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ddf12b8a3343214aa4e192b6c491c4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gain: 10
+  runtimeSet: {fileID: 11400000, guid: 765fc984798307e499334efe28e4a056, type: 2}
   money2DPool: {fileID: 11400000, guid: 39fd42e2a5b9b6a419d4a5290f23c918, type: 2}
 --- !u!54 &5150149619468887578
 Rigidbody:

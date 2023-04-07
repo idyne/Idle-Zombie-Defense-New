@@ -23,6 +23,8 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] private MoneyBurster moneyBurster;
     [SerializeField] private ObjectPool bloodSplash;
 
+    private int money = 1;
+
     private IEnumerator flashCoroutine = null;
     public event Action OnRelease;
     private int level = 1;
@@ -102,6 +104,7 @@ public class Zombie : Damageable, IPooledObject
         damage = data.Damage;
         SetColor(data.Color);
         maxHealth = data.MaxHealth;
+        money = data.Money;
         ResetHealth();
         transform.localScale = data.Scale * Vector3.one;
     }
@@ -274,8 +277,7 @@ public class Zombie : Damageable, IPooledObject
     public void DropMoney()
     {
         Log("DropMoney", false);
-        int money = 5;
-        if (moneyBurster) moneyBurster.Burst(money, level, transform.position, Vector3.up);
+        if (moneyBurster) moneyBurster.Burst(money, transform.position, Vector3.up);
     }
 
     public void OnObjectSpawn()

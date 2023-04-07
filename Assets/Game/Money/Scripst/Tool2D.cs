@@ -7,10 +7,10 @@ using UnityEngine;
 
 public class Tool2D : FateMonoBehaviour, IPooledObject
 {
-    [SerializeField] protected SaveDataVariable saveData;
     [SerializeField] private RectTransform imageTransform;
     [SerializeField] private Vector2 target;
     public event Action OnRelease;
+    [HideInInspector] public Action OnFinish;
 
     public void OnObjectSpawn()
     {
@@ -23,8 +23,9 @@ public class Tool2D : FateMonoBehaviour, IPooledObject
         OnRelease();
     }
 
-    public void GoUIWithBurstMove(Vector2 startPositon, Vector2 midPosition, int gain)
+    public void GoUIWithBurstMove(Vector2 startPositon, Vector2 midPosition, Action finalAction)
     {
+        OnFinish = finalAction;
         imageTransform.position = startPositon;
         imageTransform.localScale = Vector3.one;
         imageTransform.FaMove(midPosition, 0.5f).SetEaseFunction(FaEaseFunctions.EaseMode.OutQuint).OnComplete(() =>
@@ -32,7 +33,7 @@ public class Tool2D : FateMonoBehaviour, IPooledObject
             float randomTimeRange = 1.5f + UnityEngine.Random.Range(-0.3f, 0.3f);
             FaTween.To(() => imageTransform.anchoredPosition, (x) => imageTransform.anchoredPosition = x, target, randomTimeRange).SetEaseFunction(FaEaseFunctions.EaseMode.InQuint).OnComplete(() =>
             {
-                saveData.AddTools(gain);
+                OnFinish();
                 Release();
             });
         });
