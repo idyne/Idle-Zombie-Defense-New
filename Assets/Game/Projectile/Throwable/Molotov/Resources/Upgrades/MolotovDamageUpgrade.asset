@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e34e60574857514439f412a977e25b17, type: 3}
   m_Name: MolotovDamageUpgrade
   m_EditorClassIdentifier: 
+  prerequisites:
+  - Entity: {fileID: 11400000, guid: b2a0d4ee2d6a0044f815fa827ea16fe6, type: 2}
+    Level: 1
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Molotov Damage
   OnUpgrade:

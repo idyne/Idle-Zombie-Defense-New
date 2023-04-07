@@ -11,6 +11,8 @@ public class ExplosiveBullet : Bullet, IPooledObject
     [SerializeField] private float areaOfEffectRadius = 2.5f;
     [SerializeField] private Transform trailTransform;
     [SerializeField] private GameObject meshObject;
+    [SerializeField] private SoundEntity sound;
+    [SerializeField] private SoundManager soundManager;
     private Tween delayedReleaseTween = null;
 
     public override void OnObjectSpawn()
@@ -77,6 +79,7 @@ public class ExplosiveBullet : Bullet, IPooledObject
     private void Explode()
     {
         Log("Explode", false);
+        soundManager.PlaySound(sound, transform.position);
         DeactivateMesh();
         DetachTrail();
         int maxColliders = 30;

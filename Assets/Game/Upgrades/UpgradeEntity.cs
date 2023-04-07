@@ -7,6 +7,14 @@ using UnityEngine.Events;
 
 public abstract class UpgradeEntity : ScriptableObject
 {
+    [System.Serializable]
+    public class Prerequisite
+    {
+        public UpgradeEntity Entity;
+        public int Level;
+        public bool Met => Entity.Level >= Level;
+    }
+    [SerializeField] protected Prerequisite[] prerequisites;
     [SerializeField] protected SaveDataVariable saveData;
     [SerializeField] private string upgradeName;
     public UnityEvent OnUpgrade = new();
@@ -23,6 +31,12 @@ public abstract class UpgradeEntity : ScriptableObject
     {
         get
         {
+            for (int i = 0; i < prerequisites.Length; i++)
+            {
+                Prerequisite prerequisite = prerequisites[i];
+                if (!prerequisite.Met)
+                    return true;
+            }
             int Day = 1;
             bool result = false;
             for (int i = 0; i < dayLimits.Length; i++)

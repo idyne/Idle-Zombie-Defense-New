@@ -17,7 +17,10 @@ public partial class Tower
     private readonly static int mergeSize = 3;
     private readonly float mergeAnimationDuration = 0.25f;
     public int NumberOfSoldiers { get; private set; } = 0;
-
+    public override void Repair()
+    {
+        SetHealth(maxHealth);
+    }
     public void Merge()
     {
         // Check if there are mergeSize soldiers of same level

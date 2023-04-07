@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class BaseUpgradesButton : UIElement
+public class BaseUpgradesButton : UpgradesButton
 {
     [SerializeField] private TutorialData tutorialData;
     [SerializeField] protected UnityEvent openRealPanel;

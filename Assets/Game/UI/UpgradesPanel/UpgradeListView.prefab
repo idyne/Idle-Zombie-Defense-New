@@ -230,8 +230,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3517797160503917331}
   m_HandleRect: {fileID: 2333690212657699030}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 0.0000018523904
+  m_Size: 0.9341012
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 6918829554326343749}
   - component: {fileID: 2321078224916501682}
   - component: {fileID: 1004469001078712900}
+  - component: {fileID: 9070854916359586215}
   m_Layer: 0
   m_Name: UpgradeListView
   m_TagString: Untagged
@@ -406,6 +407,34 @@ MonoBehaviour:
     type: 3}
   upgradeEntitySet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
   listView: {fileID: 7455429049313624557}
+--- !u!114 &9070854916359586215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378290793255807397}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: bc996635b8f79ba44a55a38215ffab27, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1004469001078712900}
+        m_TargetAssemblyTypeName: UIUpgradeListView, Assembly-CSharp
+        m_MethodName: Rebuild
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5235794823197090252
 GameObject:
   m_ObjectHideFlags: 0
@@ -568,7 +597,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 65.8988}
   m_SizeDelta: {x: 0, y: 1000}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7455429049313624557

@@ -74,6 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6794365509408982240}
   - component: {fileID: 153567922259216398}
+  - component: {fileID: 2165550005417321656}
   m_Layer: 6
   m_Name: FrostMine
   m_TagString: Untagged
@@ -123,6 +124,34 @@ MonoBehaviour:
   detonationSound: {fileID: 11400000, guid: c54aae3ce72841749ae361dc2544a708, type: 2}
   soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
   duration: 5
+--- !u!114 &2165550005417321656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452051219285772730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: fc7b558fab1305d40b5cda144921ed37, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 153567922259216398}
+        m_TargetAssemblyTypeName: Mine, Assembly-CSharp
+        m_MethodName: Renew
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1160175666632942001
 PrefabInstance:
   m_ObjectHideFlags: 0

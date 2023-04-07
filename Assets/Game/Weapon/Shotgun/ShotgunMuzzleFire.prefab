@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6339538984338032155}
   - component: {fileID: 6339538984319634985}
   - component: {fileID: 6339538984317987549}
+  - component: {fileID: 3682279574182759436}
   m_Layer: 0
   m_Name: ShotgunMuzzleFire
   m_TagString: Untagged
@@ -4821,6 +4822,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &3682279574182759436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6339538984337779987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b6333a03815b34ea98b390e1dd4d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystem: {fileID: 6339538984319634985}
 --- !u!1 &6339538984337839247
 GameObject:
   m_ObjectHideFlags: 0

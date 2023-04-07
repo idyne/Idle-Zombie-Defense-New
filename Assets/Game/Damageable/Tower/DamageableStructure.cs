@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class DamageableStructure : Damageable
 {
+    public abstract void Repair();
     private void OnTriggerEnter(Collider other)
     {
         Damageable damageable = other.GetComponent<Damageable>();

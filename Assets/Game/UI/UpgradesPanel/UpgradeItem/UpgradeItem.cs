@@ -47,6 +47,7 @@ public class UpgradeItem : DynamicUIElement
         }
         else if (upgradeEntity.Locked)
         {
+            Debug.Log("Locked " + upgradeEntity.UpgradeName, this);
             upgradeButton.SwitchToInfo("Locked");
         }
         else

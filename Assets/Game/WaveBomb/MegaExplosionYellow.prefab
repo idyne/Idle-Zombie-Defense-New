@@ -24016,6 +24016,7 @@ GameObject:
   - component: {fileID: 7721136398658474086}
   - component: {fileID: 7632460559042991976}
   - component: {fileID: 7632976213697296572}
+  - component: {fileID: 8020427460849233236}
   m_Layer: 0
   m_Name: MegaExplosionYellow
   m_TagString: Untagged
@@ -28849,6 +28850,19 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &8020427460849233236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7723261687464412058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b6333a03815b34ea98b390e1dd4d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystem: {fileID: 7632460559042991976}
 --- !u!1 &7723275797176605912
 GameObject:
   m_ObjectHideFlags: 0
