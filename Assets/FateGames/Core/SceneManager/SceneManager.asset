@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SceneManager
   m_EditorClassIdentifier: 
   zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
-  firstLevelSceneIndex: 1
+  firstLevelSceneIndex: 2
   loop: 1
   sceneBootloaderPrefab: {fileID: 7468232153951217328, guid: 9f5fc3559f8cc1c4bb32fd1e2c6d4feb,
     type: 3}

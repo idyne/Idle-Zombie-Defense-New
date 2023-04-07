@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: Pistol Muzzle Fire
   prefab: {fileID: 39475505458591309, guid: 11ed84fd979afbf47bed76cfe6b5ea98, type: 3}
-  startSize: 0
+  startSize: 10

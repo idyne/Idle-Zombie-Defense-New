@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: Mega Explosion Yellow
   prefab: {fileID: 7723261687464412058, guid: 09d3d17e669f79745a59f5be0308e812, type: 3}
-  startSize: 0
+  startSize: 1

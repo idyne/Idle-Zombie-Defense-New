@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -213}
+  m_AnchoredPosition: {x: 0, y: 763}
   m_SizeDelta: {x: 928.606, y: 140.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6659739554606293675
@@ -67,7 +67,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TAP TO SPEED UP
+  m_text: TAP TO SHOOT FASTER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b1bda9db42d58494a822510e43f4ed39, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 134c6a80100dee046a654d807920bcd9, type: 2}
@@ -174,7 +174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7176446633238344838
 RectTransform:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5088600999250433671}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -315,7 +315,7 @@ MonoBehaviour:
   onTappedToSpeedUp: {fileID: 11400000, guid: 2c293df68ddcfe04484530e3a06836a6, type: 2}
   impactDuration: 1.5
   waitingDuration: 5
-  multiplier: 10
+  multiplier: 2
 --- !u!114 &5788250419000171897
 MonoBehaviour:
   m_ObjectHideFlags: 0

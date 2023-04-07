@@ -14,7 +14,7 @@ public abstract class UpgradeEntity : ScriptableObject
         public int Level;
         public bool Met => Entity.Level >= Level;
     }
-    [SerializeField] protected Prerequisite[] prerequisites;
+    [SerializeField] protected Prerequisite[] prerequisites = new Prerequisite[0];
     [SerializeField] protected SaveDataVariable saveData;
     [SerializeField] private string upgradeName;
     public UnityEvent OnUpgrade = new();

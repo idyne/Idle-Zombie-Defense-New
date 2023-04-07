@@ -15,6 +15,8 @@ public class NewSoldierAchivedScreenController : UIElement
     [SerializeField] private GameManager gameManager;
     [SerializeField] private SoundEntity sound;
     [SerializeField] private SoundManager soundManager;
+    [SerializeField] private AdManager adManager;
+    [SerializeField] private UnityEvent onRewardGranted;
 
     public void Open()
     {
@@ -26,10 +28,16 @@ public class NewSoldierAchivedScreenController : UIElement
         soundManager.PlaySound(sound, true);
     }
 
-    public void RevardedClaim()
+    public void RewardedClaim()
     {
-        Close();
-        // revarded video
+        StartCoroutine(adManager.ShowRewardedAd(() =>
+        {
+            Close();
+            onRewardGranted.Invoke();
+        }, () =>
+        {
+            Close();
+        }));
     }
 
     public void Close()

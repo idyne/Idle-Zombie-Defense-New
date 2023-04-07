@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: Poof Effect
   prefab: {fileID: 8971224939505514978, guid: 9da7726ce0b72e4469daf478b358be44, type: 3}
-  startSize: 0
+  startSize: 1

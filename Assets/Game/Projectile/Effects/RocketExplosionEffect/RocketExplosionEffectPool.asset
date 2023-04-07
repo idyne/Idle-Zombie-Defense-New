@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: Rocket Explosion Effect
   prefab: {fileID: 271218684912079319, guid: 2a4996d3a365e1e448bd62c912db5243, type: 3}
-  startSize: 0
+  startSize: 10

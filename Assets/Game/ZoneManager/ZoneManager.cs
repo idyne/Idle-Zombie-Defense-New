@@ -72,4 +72,9 @@ public class ZoneManager : ScriptableObject
         saveData.Value.WaveLevel++;
     }
 
+    public void ResetWaveLevelToDay()
+    {
+        saveData.Value.WaveLevel = Day * 4 - 3;
+    }
+
 }

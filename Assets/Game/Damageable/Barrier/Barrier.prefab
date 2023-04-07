@@ -155,6 +155,7 @@ MonoBehaviour:
   OnDied:
     m_PersistentCalls:
       m_Calls: []
+  collider: {fileID: 2673517743626739002}
   parts:
   - {fileID: 1763628786127630529}
   - {fileID: 4115686641027655224}

@@ -10,6 +10,7 @@ public class PooledEffect : FateMonoBehaviour, IPooledObject
 #pragma warning disable CS0108 
     [SerializeField] private ParticleSystem particleSystem;
 #pragma warning restore CS0108 
+    //[SerializeField] private bool deactivateOnRelease = true;
     public event Action OnRelease;
 
     private void Awake()
@@ -22,12 +23,13 @@ public class PooledEffect : FateMonoBehaviour, IPooledObject
     {
         Activate();
         particleSystem.Play();
-        DOVirtual.DelayedCall(particleSystem.main.duration, Release);
+        Release();
     }
 
     public void Release()
     {
-        Deactivate();
+        /*if (deactivateOnRelease)
+            Deactivate();*/
         OnRelease.Invoke();
     }
 

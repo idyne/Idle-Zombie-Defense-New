@@ -106,7 +106,7 @@ public class Soldier : Shooter, IPooledObject
         // Called in Update()
         Vector3 direction = to - transform.position;
         direction.y = 0;
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 3f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(direction), Time.deltaTime * 3f * shootFrequencyMultiplier.Value);
     }
 
     public virtual void Die()

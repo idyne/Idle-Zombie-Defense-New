@@ -952,6 +952,7 @@ MonoBehaviour:
   waveClearSound: {fileID: 11400000, guid: 4c6eaa628be053d4597e82ad71c8401b, type: 2}
   areaClearSound: {fileID: 11400000, guid: aaf4a32360008164ea8d6f7e29ba2fae, type: 2}
   soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
+  adManager: {fileID: 11400000, guid: 01e09ead9786d714dbe7321ba622d7c6, type: 2}
 --- !u!114 &251995382009506959
 MonoBehaviour:
   m_ObjectHideFlags: 0

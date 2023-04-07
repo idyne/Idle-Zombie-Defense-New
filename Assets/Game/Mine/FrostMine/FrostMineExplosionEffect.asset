@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: RoundExplosionBlue
   prefab: {fileID: 8208000713559375710, guid: f714511a7ca6aab44826d73b01234bde, type: 3}
-  startSize: 0
+  startSize: 2

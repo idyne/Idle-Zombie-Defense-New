@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 2694583125488813038}
   - component: {fileID: 1238084219746324024}
   m_Layer: 0
-  m_Name: RevardedClaim
+  m_Name: RewardedClaim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -519,7 +519,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4336645328763958061}
         m_TargetAssemblyTypeName: NewSoldierAchivedScreenController, Assembly-CSharp
-        m_MethodName: RevardedClaim
+        m_MethodName: RewardedClaim
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1516,6 +1516,22 @@ MonoBehaviour:
   gameManager: {fileID: 11400000, guid: d81455aed306ccd4c8e8a87a55b5def5, type: 2}
   sound: {fileID: 11400000, guid: 1474e00a545f35f419afdf70b531f43c, type: 2}
   soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
+  adManager: {fileID: 11400000, guid: 01e09ead9786d714dbe7321ba622d7c6, type: 2}
+  onRewardGranted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: bcf0113b9b8663744976afdf567b2bd4, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1332945675117325409
 PrefabInstance:
   m_ObjectHideFlags: 0
