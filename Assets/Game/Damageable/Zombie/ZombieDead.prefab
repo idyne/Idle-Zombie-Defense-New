@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 772769816768804817}
   - component: {fileID: 8049044602053614363}
   - component: {fileID: 4550495747233544335}
+  - component: {fileID: -2425218649906595730}
   m_Layer: 0
   m_Name: ZombieDead
   m_TagString: Untagged
@@ -4870,3 +4871,16 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-2425218649906595730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6106267827600212415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b6333a03815b34ea98b390e1dd4d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystem: {fileID: 8049044602053614363}

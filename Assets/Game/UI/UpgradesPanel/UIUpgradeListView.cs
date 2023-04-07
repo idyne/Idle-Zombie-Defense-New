@@ -22,11 +22,12 @@ public class UIUpgradeListView : FateMonoBehaviour
 
     public void Rebuild()
     {
+        Debug.Log("Rebuild", this);
         Clear();
         int count = upgradeEntitySet.Items.Count;
         PreparationUpgradeEntity[] upgradeEntities = new PreparationUpgradeEntity[count];
         upgradeEntitySet.Items.CopyTo(upgradeEntities, 0);
-        upgradeEntities = upgradeEntities.OrderBy((item) => item.Cost).ToArray();
+        upgradeEntities = upgradeEntities.OrderBy((item) => item.Locked).ThenBy((item) => item.MaxedOut).ThenBy((item) => item.Cost).ToArray();
         for (int i = 0; i < count; i++)
         {
             PreparationUpgradeEntity upgradeEntity = upgradeEntities[i];

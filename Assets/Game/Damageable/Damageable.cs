@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FateGames.Core;
 using UnityEngine.Events;
+using System;
 
 public abstract class Damageable : FateMonoBehaviour
 {
@@ -12,6 +13,7 @@ public abstract class Damageable : FateMonoBehaviour
     protected int health;
     public UnityEvent OnDied = new();
     public Transform ShotPoint { get => shotPoint; }
+    protected Action onSetHealth = () => { };
 
     protected virtual void OnEnable()
     {
@@ -31,12 +33,14 @@ public abstract class Damageable : FateMonoBehaviour
     {
         Log("SetHealth", false);
         health = Mathf.Clamp(health, 0, maxHealth);
+        int previousHealth = this.health;
         this.health = health;
-        if (healthBar)
+        if (previousHealth != this.health && healthBar)
         {
             healthBar.SetPercent(this.health / (float)maxHealth);
             healthBar.Show(4);
         }
+        onSetHealth();
         if (health <= 0)
         {
             if (healthBar)

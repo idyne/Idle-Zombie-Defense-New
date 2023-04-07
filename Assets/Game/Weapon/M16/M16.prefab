@@ -53,6 +53,8 @@ MonoBehaviour:
   fireRateEffect: {fileID: 11400000, guid: b80e7e2c086d26046948936416a94ee5, type: 2}
   muzzleFire: {fileID: 11400000, guid: f6ceb2c21e0be2a44a7b10e1844cb6d3, type: 2}
   muzzleFireEffectPoint: {fileID: 3889619373461543874}
+  shootSound: {fileID: 11400000, guid: 548c18c4a63cbe5468bd86192d0cae12, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!114 &-2141866819111612417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,8 +83,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  shootSound: {fileID: 11400000, guid: 548c18c4a63cbe5468bd86192d0cae12, type: 2}
-  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!1 &3992689335256214108
 GameObject:
   m_ObjectHideFlags: 0

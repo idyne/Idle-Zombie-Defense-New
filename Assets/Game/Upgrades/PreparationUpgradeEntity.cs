@@ -19,8 +19,8 @@ public abstract class PreparationUpgradeEntity : UpgradeEntity
     public override void BuyUpgrade()
     {
         if (!Affordable) return;
-        saveData.SpendTools(Cost);
         Upgrade();
+        saveData.SpendTools(Cost);
     }
 
     public void Awake()
