@@ -7,24 +7,28 @@ using UnityEngine;
 
 public class Money2D : FateMonoBehaviour, IPooledObject
 {
-    [SerializeField] protected SaveDataVariable saveData;
+    [SerializeField] private Money2DRuntimeSet runtimeSet;
     [SerializeField] private RectTransform imageTransform;
     [SerializeField] private Vector2 target;
     public event Action OnRelease;
+    [HideInInspector] public Action OnFinish;
 
     public void OnObjectSpawn()
     {
         Activate();
+        runtimeSet.Add(this);
     }
 
     public void Release()
     {
         Deactivate();
+        runtimeSet.Remove(this);
         OnRelease();
     }
 
-    public void DirectGoToUI(Vector3 startPositon, int gain)
+    public void DirectGoToUI(Vector3 startPositon, Action finalAction)
     {
+        OnFinish = finalAction;
         float duration = 0.6f;
         float startSize = 0.5f;
         float endSize = 1f;
@@ -34,13 +38,13 @@ public class Money2D : FateMonoBehaviour, IPooledObject
         imageTransform.FaLocalScale(Vector3.one * endSize, duration);
         FaTween.To(() => imageTransform.anchoredPosition, (x) => imageTransform.anchoredPosition = x, target, duration).OnComplete(() =>
         {
-            saveData.AddMoney(gain);
-            Release();
+            Finish();
         });
     }
 
-    public void GoUIWithBurstMove(Vector2 startPositon, Vector2 midPosition, int gain)
+    public void GoUIWithBurstMove(Vector2 startPositon, Vector2 midPosition, Action finalAction)
     {
+        OnFinish = finalAction;
         imageTransform.position = startPositon;
         imageTransform.localScale = Vector3.one;
         imageTransform.FaMove(midPosition, 0.5f).SetEaseFunction(FaEaseFunctions.EaseMode.OutQuint).OnComplete(() =>
@@ -48,9 +52,19 @@ public class Money2D : FateMonoBehaviour, IPooledObject
             float randomTimeRange = 1.5f + UnityEngine.Random.Range(-0.3f, 0.3f);
             FaTween.To(() => imageTransform.anchoredPosition, (x) => imageTransform.anchoredPosition = x, target, randomTimeRange).SetEaseFunction(FaEaseFunctions.EaseMode.InQuint).OnComplete(() =>
             {
-                saveData.AddMoney(gain);
-                Release();
+                Finish();
             });
         });
+    }
+
+    public void Finish()
+    {
+        OnFinish();
+        Release();
+    }
+
+    private void OnDisable()
+    {
+        runtimeSet.Remove(this);
     }
 }

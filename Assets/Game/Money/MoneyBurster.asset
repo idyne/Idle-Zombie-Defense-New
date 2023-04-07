@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 241970a074af3ba488e615c9d5e0b5aa, type: 3}
   m_Name: MoneyBurster
   m_EditorClassIdentifier: 
+  totalLimit: 50
+  quotaOn2D: 30
+  saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   money3DPool: {fileID: 11400000, guid: 66deae30936fb3647a02f223dcd9e272, type: 2}
+  money2DRuntimeSet: {fileID: 11400000, guid: 224f7ed6d72d6a14a91fd5554eed0551, type: 2}
+  money3DRuntimeSet: {fileID: 11400000, guid: 765fc984798307e499334efe28e4a056, type: 2}

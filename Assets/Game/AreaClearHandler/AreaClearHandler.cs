@@ -18,6 +18,7 @@ public class AreaClearHandler : UIElement
     [SerializeField] private int moneyPerZone = 1000;
     [SerializeField] private ZoneManager zoneManager;
     [SerializeField] private SceneManager sceneManager;
+    [SerializeField] private SaveDataVariable saveData;
     [SerializeField] private GameObject waveClearEffect;
     [SerializeField] private Transform waveClearText;
     [SerializeField] private GameObject dayClearScreen;
@@ -171,7 +172,7 @@ public class AreaClearHandler : UIElement
             float radius = Screen.width / 3f;
             Vector2 midPosition = spawnPosition + new Vector2(Random.Range(-radius, radius), Random.Range(-radius, radius));
 
-            money.GoUIWithBurstMove(spawnPosition, midPosition, gain);
+            money.GoUIWithBurstMove(spawnPosition, midPosition, () => saveData.AddMoney(gain));
         }
     }
 
@@ -184,7 +185,7 @@ public class AreaClearHandler : UIElement
             float radius = Screen.width / 3f;
             Vector2 midPosition = spawnPosition + new Vector2(Random.Range(-radius, radius), Random.Range(-radius, radius));
 
-            tool.GoUIWithBurstMove(spawnPosition, midPosition, 1);
+            tool.GoUIWithBurstMove(spawnPosition, midPosition, () => saveData.AddTools(1));
         }
     }
 }
