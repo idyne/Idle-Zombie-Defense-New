@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: Magic Buff Effect
   prefab: {fileID: 433768206477070222, guid: b74f7516f83bbf340899eeb30ea19c06, type: 3}
-  startSize: 0
+  startSize: 2

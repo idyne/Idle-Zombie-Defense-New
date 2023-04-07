@@ -7,7 +7,7 @@ using System;
 
 public abstract class Throwable : FateMonoBehaviour
 {
-    [SerializeField] private float speed = 20;
+    //[SerializeField] private float speed = 20;
 
     public void Throw(Vector3 to)
     {

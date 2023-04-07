@@ -15,14 +15,12 @@ public class WaveBomb : FateMonoBehaviour
     private void FixedUpdate()
     {
         if (!explode) return;
-        Debug.Log("1");
         Collider[] colliders = Physics.OverlapSphere(transform.position, currentRange, zombieLayerMask);
         for (int i = 0; i < colliders.Length; i++)
         {
             Zombie zombie = colliders[i].GetComponent<Zombie>();
             zombie.Hit(int.MaxValue);
         }
-        Debug.Log("2");
         if (currentRange >= range)
         {
             explode = false;
@@ -33,7 +31,6 @@ public class WaveBomb : FateMonoBehaviour
     }
     public void Explode()
     {
-        Debug.Log("3");
         megaExplosionYellow.Get<Transform>(transform.position, Quaternion.identity);
         currentRange = 1;
         FaTween.DelayedCall(1.5f, () => { explode = true; });

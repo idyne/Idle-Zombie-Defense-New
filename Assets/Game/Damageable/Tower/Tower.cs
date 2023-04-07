@@ -26,6 +26,10 @@ public partial class Tower : DamageableStructure
     {
         Initialize();
     }
+    public void AddRewardSoldier()
+    {
+        AddSoldier(lastAchievedSoldierLevel);
+    }
     public void CheckIfMergeAvailable()
     {
         if (CanMerge(out _))

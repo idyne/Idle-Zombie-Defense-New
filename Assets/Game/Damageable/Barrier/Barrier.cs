@@ -6,6 +6,9 @@ using FateGames.Core;
 
 public class Barrier : DamageableStructure
 {
+#pragma warning disable CS0108
+    [SerializeField] private Collider collider;
+#pragma warning restore CS0108 
     [SerializeField] private Transform[] parts;
     [SerializeField] private ObjectPool effectPool;
 
@@ -31,9 +34,13 @@ public class Barrier : DamageableStructure
             }
         }
     }
+    private void ActivateCollider() => collider.enabled = true;
+    private void DeactivateCollider() => collider.enabled = false;
+
     public override void Die()
     {
         //Deactivate();
+        DeactivateCollider();
     }
     public override void Repair()
     {
@@ -42,5 +49,6 @@ public class Barrier : DamageableStructure
         {
             parts[i].DOScale(Vector3.one, 0.4f);
         }
+        ActivateCollider();
     }
 }

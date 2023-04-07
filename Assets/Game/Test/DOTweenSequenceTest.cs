@@ -4,7 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using FateGames.Core;
 public class DOTweenSequenceTest : FateMonoBehaviour
-{
+{/*
     // Start is called before the first frame update
     [SerializeField] private FloatVariable targetVariable;
     [SerializeField] private float impactDuration = 1.5f;
@@ -44,5 +44,5 @@ public class DOTweenSequenceTest : FateMonoBehaviour
         print("Kill");
         speedUpTween.Kill(true);
         speedUpTween = null;
-    }
+    }*/
 }

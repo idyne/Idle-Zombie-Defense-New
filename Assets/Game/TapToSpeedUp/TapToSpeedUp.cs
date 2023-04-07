@@ -57,7 +57,7 @@ public class TapToSpeedUp : UIElement
     public void SpeedUp()
     {
         CancelSpeedUp();
-        targetVariable.Value = 2;
+        targetVariable.Value = multiplier;
         speedUpTween = DOTween.To(() => targetVariable.Value, (float x) => targetVariable.Value = x, 1, impactDuration).OnComplete(() => speedUpTween = null);
     }
     public void CancelSpeedUp()

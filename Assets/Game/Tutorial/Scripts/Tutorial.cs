@@ -20,7 +20,7 @@ public class Tutorial : UIElement
         {
             gameManager.PauseGame();
             Show();
-            Highlighter.Instance.Highlight(targetObject);
+            TutorialHighlighter.Instance.Highlight(targetObject);
 
         }
     }
@@ -31,7 +31,7 @@ public class Tutorial : UIElement
         {
             tutorialData.Pass();
             Hide();
-            Highlighter.Instance.Dehighlight(targetObject);
+            TutorialHighlighter.Instance.Dehighlight(targetObject);
             gameManager.ResumeGame();
         }
     }

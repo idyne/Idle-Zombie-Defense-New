@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: ConeExplosionFire
   prefab: {fileID: 5473071050136131083, guid: b926145101b8d504298b39ccdbbad4c4, type: 3}
-  startSize: 0
+  startSize: 2

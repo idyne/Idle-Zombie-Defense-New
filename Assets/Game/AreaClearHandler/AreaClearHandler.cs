@@ -38,6 +38,7 @@ public class AreaClearHandler : UIElement
     [SerializeField] private IntVariable lastUnlockedSoldierLevel;
     [SerializeField] private SoundEntity waveClearSound, areaClearSound;
     [SerializeField] private SoundManager soundManager;
+    [SerializeField] private AdManager adManager;
 
     private int collectableMoneyAmount = 0;
     private int collectableToolsAmount = 0;
@@ -76,6 +77,7 @@ public class AreaClearHandler : UIElement
                 if (CheckSoldierUnlocked())
                     yield return new WaitUntil(() => soldierUnlockedScreenClosed);
                 zoneManager.IncrementWaveLevel();
+                yield return adManager.ShowInterstitial();
                 sceneManager.LoadCurrentLevel();
             }
 

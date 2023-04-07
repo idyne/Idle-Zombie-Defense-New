@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: Rifle Muzzle Fire
   prefab: {fileID: 2809756089487211070, guid: 634b1ffb8979a434cbd942fe53b509ba, type: 3}
-  startSize: 0
+  startSize: 10

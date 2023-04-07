@@ -148,6 +148,9 @@ GameObject:
   - component: {fileID: 7788669413407707315}
   - component: {fileID: 7984267486624899015}
   - component: {fileID: 1061913925416367944}
+  - component: {fileID: 8384851299628860095}
+  - component: {fileID: 2678177509346965950}
+  - component: {fileID: 4128313868190187873}
   m_Layer: 5
   m_Name: ReviveButton
   m_TagString: Untagged
@@ -273,6 +276,104 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2678177509346965950}
+        m_TargetAssemblyTypeName: ReviveButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!223 &8384851299628860095
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241610352554977379}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 2
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!114 &2678177509346965950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241610352554977379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3a2fabde47b1ba42b57585f0d5de4a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 8384851299628860095}
+  deactivateOnHide: 1
+  adManager: {fileID: 11400000, guid: 01e09ead9786d714dbe7321ba622d7c6, type: 2}
+  button: {fileID: 1061913925416367944}
+  adIcon: {fileID: 8913627953715702768}
+  loading: {fileID: 7256035727403393481}
+  onRewardGranted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: aaf9e3ace2cf0414496bc3293fb8e3a7, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRewardFailed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 21cfcee561547634abd732bced6a40fb, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4128313868190187873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5241610352554977379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &6601473598434653661
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +728,12 @@ PrefabInstance:
 --- !u!224 &4904900186501867634 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3727156241942120451, guid: ad4d9ba0b89aa844fac81a05d8968372,
+    type: 3}
+  m_PrefabInstance: {fileID: 8622194682797482097}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7256035727403393481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1376604421387698616, guid: ad4d9ba0b89aa844fac81a05d8968372,
     type: 3}
   m_PrefabInstance: {fileID: 8622194682797482097}
   m_PrefabAsset: {fileID: 0}

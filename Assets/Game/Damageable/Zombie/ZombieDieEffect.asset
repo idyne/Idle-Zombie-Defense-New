@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: Blood Splash Effect
   prefab: {fileID: 6106267827600212415, guid: 4de8b2e737323b9409f915499481a13b, type: 3}
-  startSize: 0
+  startSize: 10

@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 4584755306049486000}
   - component: {fileID: 4804168584008998035}
   - component: {fileID: 6547671470229626486}
+  - component: {fileID: 565264587401686153}
   m_Layer: 0
   m_Name: LoseScreen
   m_TagString: Untagged
@@ -446,6 +447,8 @@ MonoBehaviour:
   zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
   sound: {fileID: 11400000, guid: c3d7cf0e9580cd942a3857357179fb9b, type: 2}
   soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
+  sceneManager: {fileID: 11400000, guid: 30f4fb8e342857543a5c7983051b6c66, type: 2}
+  adManager: {fileID: 11400000, guid: 01e09ead9786d714dbe7321ba622d7c6, type: 2}
 --- !u!114 &6547671470229626486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -465,6 +468,34 @@ MonoBehaviour:
       - m_Target: {fileID: 4804168584008998035}
         m_TargetAssemblyTypeName: UIElement, Assembly-CSharp
         m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &565264587401686153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5877225821496454348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 21cfcee561547634abd732bced6a40fb, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4804168584008998035}
+        m_TargetAssemblyTypeName: LoseScreen, Assembly-CSharp
+        m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1153,23 +1184,22 @@ PrefabInstance:
     - target: {fileID: 4805441955408116444, guid: 8e47c9a7c2e78be48947c8ca1d426769,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4805441955408116444, guid: 8e47c9a7c2e78be48947c8ca1d426769,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 11400000, guid: 30f4fb8e342857543a5c7983051b6c66,
-        type: 2}
+      objectReference: {fileID: 4804168584008998035}
     - target: {fileID: 4805441955408116444, guid: 8e47c9a7c2e78be48947c8ca1d426769,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadCurrentLevel
+      value: Continue
       objectReference: {fileID: 0}
     - target: {fileID: 4805441955408116444, guid: 8e47c9a7c2e78be48947c8ca1d426769,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: FateGames.Core.SceneManager, Assembly-CSharp
+      value: LoseScreen, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4805441955408116444, guid: 8e47c9a7c2e78be48947c8ca1d426769,
         type: 3}
