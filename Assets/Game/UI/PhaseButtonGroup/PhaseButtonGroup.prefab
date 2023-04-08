@@ -214,12 +214,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8105256121387616598}
-  - component: {fileID: 7299507908185256228}
   - component: {fileID: 1528561295248099640}
   - component: {fileID: 1458903425935029867}
   - component: {fileID: 1166027371998989008}
   - component: {fileID: 4278577122430240598}
   - component: {fileID: 3927846345934942682}
+  - component: {fileID: 4347257856668651850}
   m_Layer: 0
   m_Name: PhaseButtonGroup
   m_TagString: Untagged
@@ -243,20 +243,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7299507908185256228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8201243561316690561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28880b4fcedcb7e41a91ddc00bd033b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 1793547845924633139}
-  deactivateOnHide: 1
 --- !u!114 &1528561295248099640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,7 +259,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7299507908185256228}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIElement, Assembly-CSharp
         m_MethodName: Show
         m_Mode: 1
@@ -301,7 +287,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7299507908185256228}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIElement, Assembly-CSharp
         m_MethodName: Hide
         m_Mode: 1
@@ -329,7 +315,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7299507908185256228}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIElement, Assembly-CSharp
         m_MethodName: Hide
         m_Mode: 1
@@ -357,7 +343,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7299507908185256228}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIElement, Assembly-CSharp
         m_MethodName: Hide
         m_Mode: 1
@@ -385,8 +371,8 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7299507908185256228}
-        m_TargetAssemblyTypeName: UIElement, Assembly-CSharp
+      - m_Target: {fileID: 4347257856668651850}
+        m_TargetAssemblyTypeName: PhaseButtonGroup, Assembly-CSharp
         m_MethodName: Show
         m_Mode: 1
         m_Arguments:
@@ -397,6 +383,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4347257856668651850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201243561316690561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1290a68df0c9448816386242ae8bd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 1793547845924633139}
+  deactivateOnHide: 1
+  waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
 --- !u!1001 &1503302831975607869
 PrefabInstance:
   m_ObjectHideFlags: 0
