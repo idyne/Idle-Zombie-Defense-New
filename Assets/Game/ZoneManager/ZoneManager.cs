@@ -26,6 +26,21 @@ public class ZoneManager : ScriptableObject
         }
         return false;
     }
+    public bool IsLastDayOfGame()
+    {
+        int total = 0;
+        for (int i = 0; i < zoneLengths.Length; i++)
+        {
+            int zoneLength = zoneLengths[i];
+            total += zoneLength;
+        }
+        return Day == total;
+    }
+
+    public void ResetGame()
+    {
+        saveData.Value = new SaveData();
+    }
 
     public void Initialize()
     {

@@ -69,6 +69,12 @@ public class AreaClearHandler : UIElement
             Hide();
             IEnumerator routine()
             {
+                if (zoneManager.IsLastDayOfGame() && zoneManager.IsNight)
+                {
+                    zoneManager.ResetGame();
+                    sceneManager.LoadCurrentLevel();
+                    yield break;
+                }
                 if (zoneManager.IsLastDayOfZone())
                 {
                     onZoneFinished.Invoke();
