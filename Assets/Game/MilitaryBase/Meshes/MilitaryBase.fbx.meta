@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a584088fe029eb2488c0f9ad14f554ec
+guid: ef6e004d26025564687990bb4435a4d2
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -27,8 +27,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
+      name: DesertGround
+    second: {fileID: 2800000, guid: 9e35861ec9c39054bbcfc7c9386da32f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Fence
+    second: {fileID: 2800000, guid: 21b5b76ad00d7b548962a6ee4c9d5008, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
       name: MilitaryBase_tex
-    second: {fileID: 2800000, guid: 91f24e0766d335648b75ef53b02b4142, type: 3}
+    second: {fileID: 2800000, guid: 350afb66fca7fa943a3c90667f9b4c35, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
