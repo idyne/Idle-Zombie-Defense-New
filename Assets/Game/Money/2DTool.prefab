@@ -59,7 +59,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &8270028454641248113
 MonoBehaviour:
@@ -222,6 +222,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad83961a65d92d2499390c9eb1adef63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   imageTransform: {fileID: 8270028455561500476}
   target: {x: 60.2, y: -174}
