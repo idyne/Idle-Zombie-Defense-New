@@ -23,5 +23,5 @@ public class SoldierBuyingTutorial : TutorialData
 
 public partial class SaveData 
 {
-    public bool SoldierBuyingTutorialPassed = false;
+    public bool SoldierBuyingTutorialPassed = true;
 }

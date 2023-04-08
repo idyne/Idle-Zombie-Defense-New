@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7021907012596415265}
   - component: {fileID: 4227706353280798573}
-  - component: {fileID: 4530857129646562578}
   - component: {fileID: 4631583268723686852}
   - component: {fileID: 6952776938474353731}
   - component: {fileID: 409990134041599648}
@@ -18,6 +17,7 @@ GameObject:
   - component: {fileID: 1117111715057422633}
   - component: {fileID: 1971703642782218668}
   - component: {fileID: 5274419546484191693}
+  - component: {fileID: 798772644627114554}
   m_Layer: 9
   m_Name: Tower
   m_TagString: Untagged
@@ -161,19 +161,6 @@ MonoBehaviour:
   isTowerFull: {fileID: 11400000, guid: 14f07f2cdf1006e42859a1687fccb90f, type: 2}
   mergePoint: {fileID: 3197898986006402904}
   rewindDuration: {fileID: 11400000, guid: 0b602d74b8e0971409db89ef52e6fcec, type: 2}
---- !u!135 &4530857129646562578
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3128336954143200287}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 6
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &4631583268723686852
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -358,6 +345,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &798772644627114554
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3128336954143200287}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8, y: 7.5, z: 8}
+  m_Center: {x: 0, y: 3.75, z: 0}
 --- !u!1 &4021706712974585019
 GameObject:
   m_ObjectHideFlags: 0
