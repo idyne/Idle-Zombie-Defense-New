@@ -277,7 +277,7 @@ public class Zombie : Damageable, IPooledObject
     public void DropMoney()
     {
         Log("DropMoney", false);
-        if (moneyBurster) moneyBurster.Burst(money, transform.position, Vector3.up);
+        if (moneyBurster) moneyBurster.Burst(money, transform.position);
     }
 
     public void OnObjectSpawn()
