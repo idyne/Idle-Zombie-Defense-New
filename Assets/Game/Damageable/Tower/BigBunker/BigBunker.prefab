@@ -3071,6 +3071,16 @@ PrefabInstance:
       propertyPath: structurePartsContainer
       value: 
       objectReference: {fileID: 1143761024140621605}
+    - target: {fileID: 6063159528713532550, guid: d7b7688138ba0ad4493b5479e0433b88,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6063159528713532550, guid: d7b7688138ba0ad4493b5479e0433b88,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7021907012596415265, guid: d7b7688138ba0ad4493b5479e0433b88,
         type: 3}
       propertyPath: m_RootOrder

@@ -25,5 +25,5 @@ public class StartTutorial : TutorialData
 
 public partial class SaveData
 {
-    public bool StartTutorialPassed = false;
+    public bool StartTutorialPassed = true;
 }
