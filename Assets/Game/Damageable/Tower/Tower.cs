@@ -44,6 +44,7 @@ public partial class Tower : DamageableStructure
                 AddSoldier(i, false);
             }
         }
+        PlaceSoldiers();
     }
     protected override void OnEnable()
     {

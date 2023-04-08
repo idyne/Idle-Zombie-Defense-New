@@ -16,6 +16,7 @@ public partial class Tower
     [SerializeField] private SoldierUnlockTable soldierUnlockTable;
     private readonly static int mergeSize = 3;
     private readonly float mergeAnimationDuration = 0.25f;
+    private List<Soldier> sortedSoldiers = new();
     public int NumberOfSoldiers { get; private set; } = 0;
     public override void Repair()
     {
@@ -154,7 +155,7 @@ public partial class Tower
 
     public List<Soldier> GetSortedSoldierList()
     {
-        List<Soldier> sortedSoldiers = new();
+        sortedSoldiers.Clear();
         sortedSoldiers.AddRange(soldierTable[0].Items);
         int limitLevel = soldierTable.Count - 1;
         int i = limitLevel;
