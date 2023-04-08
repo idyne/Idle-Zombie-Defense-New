@@ -6,7 +6,7 @@ using UnityEngine;
 public class MergeUpgradeEntity : PhaseUpgradeEntity
 {
     public override int Cost => Level * 20;
-    protected override int Level { get => saveData.Value.MergeCount; set => saveData.Value.MergeCount = value; }
+    public override int Level { get => saveData.Value.MergeCount; protected set => saveData.Value.MergeCount = value; }
 }
 public partial class SaveData
 {

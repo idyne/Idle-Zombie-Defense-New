@@ -7,7 +7,7 @@ public class FireRateUpgradeEntity : PhaseUpgradeEntity
 {
     public override int Cost => Level * 10;
 
-    protected override int Level { get => saveData.Value.FireRateLevel; set => saveData.Value.FireRateLevel = value; }
+    public override int Level { get => saveData.Value.FireRateLevel; protected set => saveData.Value.FireRateLevel = value; }
 }
 
 public partial class SaveData

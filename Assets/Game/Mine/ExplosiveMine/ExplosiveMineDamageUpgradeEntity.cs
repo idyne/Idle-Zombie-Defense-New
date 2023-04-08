@@ -4,7 +4,7 @@ using UnityEngine;
 public class ExplosiveMineDamageUpgradeEntity : PreparationUpgradeEntity
 {
     public override int Cost => Level * 10;
-    protected override int Level { get => saveData.Value.ExplosiveMineDamageLevel; set => saveData.Value.ExplosiveMineDamageLevel = value; }
+    public override int Level { get => saveData.Value.ExplosiveMineDamageLevel; protected set => saveData.Value.ExplosiveMineDamageLevel = value; }
 }
 public partial class SaveData
 {

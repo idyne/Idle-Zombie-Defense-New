@@ -7,7 +7,7 @@ public class IncomeUpgradeEntity : PhaseUpgradeEntity
 {
     public override int Cost => Level * 15;
 
-    protected override int Level { get => saveData.Value.IncomeLevel; set => saveData.Value.IncomeLevel = value; }
+    public override int Level { get => saveData.Value.IncomeLevel; protected set => saveData.Value.IncomeLevel = value; }
 }
 
 public partial class SaveData

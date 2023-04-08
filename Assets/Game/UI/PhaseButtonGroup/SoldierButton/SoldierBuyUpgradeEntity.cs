@@ -10,7 +10,7 @@ public class SoldierBuyUpgradeEntity : PhaseUpgradeEntity
     [SerializeField] private SoundManager soundManager;
     public override int Cost => Level * 10;
 
-    protected override int Level { get => saveData.Value.SoldierBuyingCount; set => saveData.Value.SoldierBuyingCount = value; }
+    public override int Level { get => saveData.Value.SoldierBuyingCount; protected set => saveData.Value.SoldierBuyingCount = value; }
 
     public override void Upgrade()
     {

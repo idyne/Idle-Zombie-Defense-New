@@ -18,7 +18,7 @@ public abstract class UpgradeEntity : ScriptableObject
     [SerializeField] protected SaveDataVariable saveData;
     [SerializeField] private string upgradeName;
     public UnityEvent OnUpgrade = new();
-    protected abstract int Level { get; set; }
+    public abstract int Level { get; protected set; }
     [SerializeField] protected int Limit = -1;
     [SerializeField] protected DayLimit[] dayLimits = new DayLimit[0];
     public string UpgradeName { get => upgradeName; }

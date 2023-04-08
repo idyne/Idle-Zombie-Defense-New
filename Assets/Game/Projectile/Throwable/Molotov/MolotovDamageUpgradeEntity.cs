@@ -7,7 +7,7 @@ public class MolotovDamageUpgradeEntity : PreparationUpgradeEntity
 {
     public override int Cost => Level * 100;
 
-    protected override int Level { get => saveData.Value.MolotovDamageLevel; set => saveData.Value.MolotovDamageLevel = value; }
+    public override int Level { get => saveData.Value.MolotovDamageLevel; protected set => saveData.Value.MolotovDamageLevel = value; }
 }
 
 public partial class SaveData

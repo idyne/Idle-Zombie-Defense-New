@@ -12,12 +12,23 @@ public class Commander : Soldier
     [SerializeField] protected Transform throwableContainer;
     [SerializeField] protected SaveDataVariable saveData;
     [SerializeField] protected SkillButton skillButton;
+    [SerializeField] protected CommanderDamageUpgradeEntity damageUpgrade;
     private Tween cooldownTween = null;
     private bool usingSkill = false;
     private Vector3 lastKnownTargetPosition = Vector3.zero;
     private IEnumerator throwCoroutine;
 
     public float SkillCooldown => 10f / saveData.Value.MolotovCooldownLevel;
+
+    private void Start()
+    {
+        UpdateGunDamage();
+    }
+
+    public void UpdateGunDamage()
+    {
+        gun.damage *= damageUpgrade.Level;
+    }
 
     public void UseSkill()
     {
