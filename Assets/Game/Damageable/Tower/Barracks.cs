@@ -91,6 +91,7 @@ public partial class Tower
             i++;
         }
         level = i;
+        Debug.Log("CanMerge: " + canMerge);
         return canMerge;
     }
 
