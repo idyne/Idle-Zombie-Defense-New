@@ -117,8 +117,8 @@ public class WaveController : MonoBehaviour
 
     public void StartWave()
     {
-        onWaveStarted.Invoke();
         waveState.Value = WaveState.STARTED;
+        onWaveStarted.Invoke();
         SpawnZombies();
     }
 

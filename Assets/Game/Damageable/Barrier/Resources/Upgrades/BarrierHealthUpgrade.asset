@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb60ab07d3c088499dc7cc82c949fcf, type: 3}
   m_Name: BarrierHealthUpgrade
   m_EditorClassIdentifier: 
+  prerequisites: []
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Barrier Health
   OnUpgrade:
@@ -20,5 +21,5 @@ MonoBehaviour:
   Limit: -1
   dayLimits: []
   runtimeSet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
-  icon: {fileID: 21300000, guid: f2901efd8bb16bc408ad37f017fbf9bc, type: 3}
-  description: Add +100 health to Barriers
+  icon: {fileID: 21300000, guid: cd4cee135cd5e4c44a0c580cddbbcab2, type: 3}
+  description: +100 HP

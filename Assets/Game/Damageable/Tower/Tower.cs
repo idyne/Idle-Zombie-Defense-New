@@ -26,6 +26,32 @@ public partial class Tower : DamageableStructure
     {
         Initialize();
     }
+    public void PromoteLowLevelSoldiers()
+    {
+        bool newSoldierAchieved = IsNotAchievedSoldierLevel(saveData.Value.SoldierBuyingLevel);
+        bool isAnySoldierPromoted = false;
+        for (int i = 1; i < saveData.Value.SoldierBuyingLevel; i++)
+        {
+            SoldierSet soldierSet = soldierTable[i];
+            if (soldierSet.Items.Count > 0)
+            {
+                int count = Mathf.CeilToInt(soldierSet.Items.Count / 3f);
+                while (soldierSet.Items.Count > 0)
+                    RemoveSoldier(i);
+                for (int j = 0; j < count; j++)
+                {
+                    AddSoldier(i + 1);
+                    isAnySoldierPromoted = true;
+                }
+            }
+        }
+        newSoldierAchieved &= isAnySoldierPromoted;
+        if (newSoldierAchieved)
+        {
+            lastAchievedSoldierLevel.Value = saveData.Value.SoldierBuyingLevel;
+            OnNewSoldierAchieved.Invoke();
+        }
+    }
     public void AddRewardSoldier()
     {
         AddSoldier(lastAchievedSoldierLevel);

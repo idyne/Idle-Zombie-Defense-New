@@ -7,7 +7,7 @@ public class UnlockMolotovUpgradeEntity : PreparationUpgradeEntity
 {
     public override int Cost => 100;
 
-    protected override int Level { get => saveData.Value.MolotovUnlocked ? 1 : 0; set => saveData.Value.MolotovUnlocked = value > 0; }
+    public override int Level { get => saveData.Value.MolotovUnlocked ? 1 : 0; protected set => saveData.Value.MolotovUnlocked = value > 0; }
 }
 
 public partial class SaveData

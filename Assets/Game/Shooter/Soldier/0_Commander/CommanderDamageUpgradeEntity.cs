@@ -7,7 +7,7 @@ public class CommanderDamageUpgradeEntity : PreparationUpgradeEntity
 {
     public override int Cost => Level * 10;
 
-    protected override int Level { get => saveData.Value.CommanderDamageLevel; set => saveData.Value.CommanderDamageLevel = value; }
+    public override int Level { get => saveData.Value.CommanderDamageLevel; protected set => saveData.Value.CommanderDamageLevel = value; }
 
 }
 

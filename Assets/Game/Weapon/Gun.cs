@@ -5,7 +5,7 @@ using FateGames.Core;
 
 public class Gun : FateMonoBehaviour
 {
-    [SerializeField] protected int damage = 10;
+    [SerializeField] public int damage = 10;
     [SerializeField] protected ObjectPool bulletPool;
     [SerializeField] protected Transform[] muzzles;
     [SerializeField] private ObjectPool fireRateEffect;

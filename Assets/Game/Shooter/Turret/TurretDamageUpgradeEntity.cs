@@ -6,7 +6,7 @@ using UnityEngine;
 public class TurretDamageUpgradeEntity : PreparationUpgradeEntity
 {
     public override int Cost => Level * 10;
-    protected override int Level { get => saveData.Value.TurretDamageLevel; set => saveData.Value.TurretDamageLevel = value; }
+    public override int Level { get => saveData.Value.TurretDamageLevel; protected set => saveData.Value.TurretDamageLevel = value; }
 
 }
 

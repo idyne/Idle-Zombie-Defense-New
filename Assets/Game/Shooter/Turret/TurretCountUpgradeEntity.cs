@@ -9,7 +9,7 @@ public class TurretCountUpgradeEntity : PreparationUpgradeEntity
     [SerializeField] private SoundEntity sound;
     [SerializeField] private SoundManager soundManager;
     public override int Cost => Level * 10;
-    protected override int Level { get => saveData.Value.TurretCount; set => saveData.Value.TurretCount = value; }
+    public override int Level { get => saveData.Value.TurretCount; protected set => saveData.Value.TurretCount = value; }
     public override void Initialize()
     {
         Turret[] turrets = FindObjectsOfType<Turret>(true);

@@ -7,7 +7,7 @@ public class MolotovCooldownUpgradeEntity : PreparationUpgradeEntity
 {
     public override int Cost => Level * 100;
 
-    protected override int Level { get => saveData.Value.MolotovCooldownLevel; set => saveData.Value.MolotovCooldownLevel = value; }
+    public override int Level { get => saveData.Value.MolotovCooldownLevel; protected set => saveData.Value.MolotovCooldownLevel = value; }
 }
 
 public partial class SaveData

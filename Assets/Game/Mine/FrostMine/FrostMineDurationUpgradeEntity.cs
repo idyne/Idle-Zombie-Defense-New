@@ -4,7 +4,7 @@ using UnityEngine;
 public class FrostMineDurationUpgradeEntity : PreparationUpgradeEntity
 {
     public override int Cost => Level * 10;
-    protected override int Level { get => saveData.Value.FrostMineDurationLevel; set => saveData.Value.FrostMineDurationLevel = value; }
+    public override int Level { get => saveData.Value.FrostMineDurationLevel; protected set => saveData.Value.FrostMineDurationLevel = value; }
 }
 public partial class SaveData
 {
