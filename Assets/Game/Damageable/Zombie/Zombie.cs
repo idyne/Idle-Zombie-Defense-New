@@ -271,12 +271,13 @@ public class Zombie : Damageable, IPooledObject
         bloodSplash.Get<Transform>(shotPoint.position, Quaternion.identity);
         OnDied.Invoke();
         Release();
-        
+
     }
 
     public void DropMoney()
     {
         Log("DropMoney", false);
+        int money = Mathf.CeilToInt(this.money * (1 + saveData.Value.IncomeLevel * 0.2f));
         if (moneyBurster) moneyBurster.Burst(money, transform.position);
     }
 
