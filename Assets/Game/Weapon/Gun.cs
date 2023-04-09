@@ -5,7 +5,8 @@ using FateGames.Core;
 
 public class Gun : FateMonoBehaviour
 {
-    [SerializeField] public int damage = 10;
+    public int BaseDamage = 10;
+    public virtual int Damage => BaseDamage;
     [SerializeField] protected ObjectPool bulletPool;
     [SerializeField] protected Transform[] muzzles;
     [SerializeField] private ObjectPool fireRateEffect;
@@ -28,7 +29,7 @@ public class Gun : FateMonoBehaviour
         Bullet bullet = bulletPool.Get<Bullet>(Muzzle.position, Quaternion.LookRotation(direction));
         if (muzzleFire)
             muzzleFire.Get<Transform>(muzzleFireEffectPoint.position, muzzleFireEffectPoint.rotation);
-        bullet.Shoot(direction, damage);
+        bullet.Shoot(direction, Damage);
         shotCount++;
         soundManager.PlaySound(shootSound, Muzzle.position);
     }

@@ -28,7 +28,7 @@ public class Commander : Soldier
 
     public void UpdateGunDamage()
     {
-        gun.damage *= damageUpgrade.Level;
+        gun.BaseDamage *= damageUpgrade.Level;
     }
 
     public void UseSkill()
