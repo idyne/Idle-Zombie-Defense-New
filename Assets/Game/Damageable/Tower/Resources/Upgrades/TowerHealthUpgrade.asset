@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46d878649a740c4c9728a3bef0cb16e, type: 3}
   m_Name: TowerHealthUpgrade
   m_EditorClassIdentifier: 
+  prerequisites: []
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Tower Health
   OnUpgrade:
@@ -32,5 +33,5 @@ MonoBehaviour:
   Limit: -1
   dayLimits: []
   runtimeSet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
-  icon: {fileID: 21300000, guid: 9e9474494461bd048803b48e391ef0f6, type: 3}
+  icon: {fileID: 21300000, guid: cdba3a402fe129544a206c928c805c83, type: 3}
   description: Add +200 health to Tower
