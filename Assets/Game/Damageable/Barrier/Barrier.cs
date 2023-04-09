@@ -19,7 +19,7 @@ public class Barrier : DamageableStructure
 
     private void CheckParts()
     {
-        float percent = (float)health / maxHealth;
+        float percent = (float)health / baseMaxHealth;
         for (int i = 0; i < parts.Length; i++)
         {
             if (percent <= 1 - (1f / parts.Length * (i + 1)))
@@ -44,7 +44,7 @@ public class Barrier : DamageableStructure
     }
     public override void Repair()
     {
-        SetHealth(maxHealth);
+        SetHealth(baseMaxHealth);
         for (int i = 0; i < parts.Length; i++)
         {
             parts[i].DOScale(Vector3.one, 0.4f);

@@ -20,7 +20,7 @@ public partial class Tower
     public int NumberOfSoldiers { get; private set; } = 0;
     public override void Repair()
     {
-        SetHealth(maxHealth);
+        SetHealth(baseMaxHealth);
     }
     public void Merge()
     {

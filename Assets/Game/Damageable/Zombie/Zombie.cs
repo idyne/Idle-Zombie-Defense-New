@@ -103,7 +103,7 @@ public class Zombie : Damageable, IPooledObject
         SetCooldown(data.Cooldown);
         damage = data.Damage;
         SetColor(data.Color);
-        maxHealth = data.MaxHealth;
+        baseMaxHealth = data.MaxHealth;
         money = data.Money;
         ResetHealth();
         transform.localScale = data.Scale * Vector3.one;
@@ -199,7 +199,7 @@ public class Zombie : Damageable, IPooledObject
         Flash();
         if (!base.Hit(damage)) return false;
         if (health > 0)
-            Push(damage / (float)maxHealth);
+            Push(damage / (float)baseMaxHealth);
         return true;
     }
 
