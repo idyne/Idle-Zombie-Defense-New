@@ -34,4 +34,4 @@ MonoBehaviour:
   dayLimits: []
   runtimeSet: {fileID: 11400000, guid: 01ac635c2fe21d24aa99be80383240cd, type: 2}
   icon: {fileID: 21300000, guid: 935048abf09382b44bd7c033f522f895, type: 3}
-  description: Unlock Molotov ability
+  description: Unlock Molotov

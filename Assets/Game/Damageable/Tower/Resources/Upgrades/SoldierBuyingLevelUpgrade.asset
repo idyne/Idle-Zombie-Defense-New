@@ -34,4 +34,4 @@ MonoBehaviour:
   dayLimits: []
   runtimeSet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
   icon: {fileID: 21300000, guid: 9dba2eb787dc1b64fb6a8f6390ead58c, type: 3}
-  description: Add +1 level to new soldiers
+  description: +1 new soldier level
