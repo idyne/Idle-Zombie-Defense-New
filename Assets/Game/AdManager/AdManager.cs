@@ -36,10 +36,12 @@ public class AdManager : ScriptableObject
     }
     public void ShowBannerAd()
     {
+        return;
         AdvertisementManager.ShowBanner();
     }
     public void HideBannerAd()
     {
+        return;
         AdvertisementManager.HideBanner();
     }
 }

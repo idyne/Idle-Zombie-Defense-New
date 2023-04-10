@@ -12,5 +12,5 @@ public class FireRateUpgradeEntity : PhaseUpgradeEntity
 
 public partial class SaveData
 {
-    public int FireRateLevel = 1;
+    public int FireRateLevel = 0;
 }

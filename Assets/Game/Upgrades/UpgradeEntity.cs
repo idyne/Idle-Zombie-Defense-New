@@ -19,13 +19,13 @@ public abstract class UpgradeEntity : ScriptableObject
     [SerializeField] private string upgradeName;
     public UnityEvent OnUpgrade = new();
     public abstract int Level { get; protected set; }
-    [SerializeField] protected int Limit = -1;
+    [SerializeField] protected int limit = -1;
     [SerializeField] protected DayLimit[] dayLimits = new DayLimit[0];
     public string UpgradeName { get => upgradeName; }
     public abstract bool Affordable { get; }
     public bool MaxedOut
     {
-        get => Limit >= 0 && Level >= Limit;
+        get => limit >= 0 && Level >= limit;
     }
     public bool Locked
     {
@@ -47,6 +47,10 @@ public abstract class UpgradeEntity : ScriptableObject
                     result = Level >= dayLimit.Limit;
                     break;
                 }
+                else if (i == dayLimits.Length - 1)
+                {
+                    result = Level >= dayLimit.Limit;
+                }
             }
             return result;
         }
@@ -61,7 +65,7 @@ public abstract class UpgradeEntity : ScriptableObject
     }
 
     public abstract int Cost { get; }
-
+    public int Limit { get => limit; }
 
     public abstract void BuyUpgrade();
     public virtual void Upgrade()

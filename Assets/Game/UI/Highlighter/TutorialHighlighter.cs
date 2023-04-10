@@ -10,8 +10,9 @@ public class TutorialHighlighter : UIElement
     private Transform lastHighlightedObject = null;
     private Transform lastHighilghtedObjectParent = null;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Instance = this;
     }
 

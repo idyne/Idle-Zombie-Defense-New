@@ -12,7 +12,8 @@ public abstract class Shooter : FateMonoBehaviour
     [SerializeField] protected float shootPeriod = 0.5f;
     [SerializeField] protected WaveStateVariable waveState;
     [SerializeField] protected ZombieSet targetableZombieSet;
-    
+    [SerializeField] protected FireRateUpgradeEntity fireRateUpgrade;
+
 
     protected Gun gun;
     protected IEnumerator faceTargetRoutine;
@@ -22,7 +23,7 @@ public abstract class Shooter : FateMonoBehaviour
     protected IEnumerator shootCoroutine;
     protected IEnumerator targetingRoutine;
     protected float lastShootTime = float.MinValue;
-    protected float Cooldown => shootPeriod / shootFrequencyMultiplier.Value;
+    protected float Cooldown => (shootPeriod / (fireRateUpgrade.Level / fireRateUpgrade.Limit * 3 + 1)) / shootFrequencyMultiplier.Value;
     protected bool InCooldown { get => Time.time < lastShootTime + Cooldown; }
     protected bool Shooting { get => shootCoroutine != null; }
     protected bool Targeting { get => targetingRoutine != null; }
@@ -40,7 +41,7 @@ public abstract class Shooter : FateMonoBehaviour
         FaceTarget();
     }
 
-    
+
     protected virtual bool FacedTarget
     {
         get

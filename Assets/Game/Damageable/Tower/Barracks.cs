@@ -20,7 +20,7 @@ public partial class Tower
     public int NumberOfSoldiers { get; private set; } = 0;
     public override void Repair()
     {
-        SetHealth(baseMaxHealth);
+        SetHealth(maxHealth);
     }
     public void Merge()
     {
@@ -96,7 +96,7 @@ public partial class Tower
             i++;
         }
         level = i;
-        Debug.Log("CanMerge: " + canMerge);
+        //Debug.Log("CanMerge: " + canMerge);
         return canMerge;
     }
 

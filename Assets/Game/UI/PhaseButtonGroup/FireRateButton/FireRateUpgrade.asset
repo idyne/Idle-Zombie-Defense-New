@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34d8ed106bc8ec418ab4ce237c6059d, type: 3}
   m_Name: FireRateUpgrade
   m_EditorClassIdentifier: 
+  prerequisites: []
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Fire Rate
   OnUpgrade:
@@ -29,5 +30,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Limit: -1
-  dayLimits: []
+  limit: 50
+  dayLimits:
+  - Day: 0
+    Limit: 11
+  - Day: 3
+    Limit: 14
+  - Day: 6
+    Limit: 17
+  - Day: 9
+    Limit: 20
+  - Day: 12
+    Limit: 23
+  - Day: 15
+    Limit: 26
+  - Day: 18
+    Limit: 29
+  - Day: 21
+    Limit: 32
+  - Day: 24
+    Limit: 35
+  - Day: 27
+    Limit: 38
+  - Day: 30
+    Limit: 41
+  - Day: 33
+    Limit: 44
+  - Day: 36
+    Limit: 47
+  - Day: 39
+    Limit: 50

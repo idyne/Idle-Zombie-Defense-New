@@ -53,10 +53,11 @@ MonoBehaviour:
   shootFrequencyMultiplier: {fileID: 11400000, guid: becf32ad1cc6833499d19004b05c085f,
     type: 2}
   range: 25
-  shootPeriod: 0.5
+  shootPeriod: 2
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
   targetableZombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c,
     type: 2}
+  fireRateUpgrade: {fileID: 11400000, guid: b348925356b9e7f41947cfb13e874e57, type: 2}
   soldierSet: {fileID: 0}
   animator: {fileID: 0}
   ragdollTransform: {fileID: 0}

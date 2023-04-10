@@ -384,11 +384,13 @@ MonoBehaviour:
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
   targetableZombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c,
     type: 2}
+  fireRateUpgrade: {fileID: 11400000, guid: b348925356b9e7f41947cfb13e874e57, type: 2}
   soldierSet: {fileID: 11400000, guid: 53d6897387af5d74787ed8bab2e4665d, type: 2}
   animator: {fileID: 9062391205345333777}
   ragdollTransform: {fileID: 5448178570763250755}
   hipsTransform: {fileID: 8491609197574631353}
   rewindDuration: {fileID: 11400000, guid: 0b602d74b8e0971409db89ef52e6fcec, type: 2}
+  baseSkillCooldown: 10
   throwableWeaponPool: {fileID: 11400000, guid: 1947140f79c8f4d44960066203c85593,
     type: 2}
   remainingCooldownPercent: {fileID: 11400000, guid: ebee810efb664e84cb8747354d659e32,

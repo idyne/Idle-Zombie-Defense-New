@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1793547845924633139}
-  deactivateOnHide: 1
+  deactivateOnHide: 0
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
 --- !u!1001 &1503302831975607869
 PrefabInstance:

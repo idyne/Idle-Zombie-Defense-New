@@ -199,7 +199,7 @@ public class Zombie : Damageable, IPooledObject
         Flash();
         if (!base.Hit(damage)) return false;
         if (health > 0)
-            Push(damage / (float)baseMaxHealth);
+            Push(damage / (float)maxHealth);
         return true;
     }
 

@@ -12,10 +12,10 @@ public class MergeButton : DynamicUIElement
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private Button button;
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         phaseUpgrade.OnUpgrade.AddListener(UpdateElement);
-        button.onClick.AddListener(phaseUpgrade.BuyUpgrade);
         UpdateElement();
     }
 

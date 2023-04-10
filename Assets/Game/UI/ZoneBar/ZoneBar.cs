@@ -14,8 +14,9 @@ public class ZoneBar : UIElement
     private int Day { get => zoneManager.NormalizedDay; }
     private int ZoneLength { get => zoneManager.ZoneLength; }
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         bars = barContainer.GetComponentsInChildren<Image>();
     }
     private void Start()
