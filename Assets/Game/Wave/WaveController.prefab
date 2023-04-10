@@ -46,6 +46,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bdee0610818fe47941f1dd61517c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  baseWavePower: 100
+  powerIncreasePerDay: 200
+  baseSpawnPeriod: 0.1
+  morningMultiplier: 0.5
+  noonMultiplier: 0.7
+  eveningMultiplier: 0.85
+  nightMultiplier: 1
+  morningSpawnSpeed: 1
+  noonSpawnSpeed: 1.1
+  eveningSpawnSpeed: 1.2
+  nightSpawnSpeed: 1.4
   zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
   standardZombiePool: {fileID: 11400000, guid: 754ff6ea2cb69e144a5a8de08b6318bd, type: 2}
   dayBossPool: {fileID: 11400000, guid: 7e2b828ebc94cbb4b9517d807cc03e03, type: 2}

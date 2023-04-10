@@ -5,7 +5,7 @@ public class ExplosiveMineCountUpgradeEntity : PreparationUpgradeEntity
 {
     [SerializeField] private SoundEntity sound;
     [SerializeField] private SoundManager soundManager;
-    public override int Cost => Level * 10;
+    public override int Cost => Level * increasePerLevel + baseCost;
     public override int Level { get => saveData.Value.ExplosiveMineCount; protected set => saveData.Value.ExplosiveMineCount = value; }
     public override void Initialize()
     {

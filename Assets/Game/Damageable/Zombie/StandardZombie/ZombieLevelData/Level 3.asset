@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f6039da5b7b664db1422641d259cb6, type: 3}
   m_Name: Level 3
   m_EditorClassIdentifier: 
+  Level: 3
   Cooldown: 2
-  Color: {r: 0.162543, g: 0.617, b: 0, a: 1}
-  MaxHealth: 10
+  Color: {r: 0.23876053, g: 0.65199995, b: 0.29079813, a: 1}
   Speed: 1.5
-  Damage: 5
-  Scale: 1.4
+  Scale: 1.2
+  BaseMaxHealth: 10
+  BaseDamage: 10
+  BaseMoney: 1

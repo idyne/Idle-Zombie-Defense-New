@@ -42,7 +42,7 @@ public class UIElement : FateMonoBehaviour
     public virtual void Hide()
     {
         if (Hidden) return;
-        Debug.Log("Hide " + name, this);
+        //Debug.Log("Hide " + name, this);
         canvas.enabled = false;
         childrenStatesBeforeHide.Clear();
         foreach (UIElement child in children)
@@ -54,7 +54,7 @@ public class UIElement : FateMonoBehaviour
     public virtual void Show()
     {
         if (!Hidden) return;
-        Debug.Log("Show " + name, this);
+        //Debug.Log("Show " + name, this);
         if (parentUIElement && parentUIElement.Hidden) return;
         canvas.enabled = true;
         for (int i = 0; i < childrenStatesBeforeHide.Count; i++)

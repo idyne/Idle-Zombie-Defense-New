@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef9997f02f21c6d48b7edb553755f06e, type: 3}
   m_Name: SoldierBuyingUpgrade
   m_EditorClassIdentifier: 
+  baseCost: 10
+  increasePerLevel: 10
+  prerequisites: []
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Soldier
   OnUpgrade:
@@ -29,7 +32,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Limit: -1
+  limit: -1
   dayLimits: []
+  soldierBuyingLevelUpgrade: {fileID: 11400000, guid: d494d8cc90c0b6b478a28f4f8d322cfb,
+    type: 2}
   sound: {fileID: 11400000, guid: 142554cdd6b1f81459a2baa9f0a41ef2, type: 2}
   soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}

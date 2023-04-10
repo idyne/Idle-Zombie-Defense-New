@@ -6,9 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Upgrades/Phase Upgrades/Soldier Buying Upgrade")]
 public class SoldierBuyUpgradeEntity : PhaseUpgradeEntity
 {
+    [SerializeField] private SoldierBuyingLevelUpgradeEntity soldierBuyingLevelUpgrade;
     [SerializeField] private SoundEntity sound;
     [SerializeField] private SoundManager soundManager;
-    public override int Cost => Level * 10;
+    public override int Cost => (Level * increasePerLevel + baseCost) * soldierBuyingLevelUpgrade.Level;
 
     public override int Level { get => saveData.Value.SoldierBuyingCount; protected set => saveData.Value.SoldierBuyingCount = value; }
 

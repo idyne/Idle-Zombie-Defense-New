@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12f6039da5b7b664db1422641d259cb6, type: 3}
   m_Name: Level 6
   m_EditorClassIdentifier: 
+  Level: 6
   Cooldown: 2
-  Color: {r: 0.681, g: 0.6518143, b: 0, a: 1}
-  MaxHealth: 10
+  Color: {r: 0.78039217, g: 1, b: 0.15294118, a: 1}
   Speed: 1.5
-  Damage: 5
-  Scale: 1.4
+  Scale: 1.2
+  BaseMaxHealth: 10
+  BaseDamage: 10
+  BaseMoney: 1

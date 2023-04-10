@@ -14,6 +14,8 @@ public abstract class UpgradeEntity : ScriptableObject
         public int Level;
         public bool Met => Entity.Level >= Level;
     }
+    [SerializeField] protected int baseCost = 10;
+    [SerializeField] protected int increasePerLevel = 10;
     [SerializeField] protected Prerequisite[] prerequisites = new Prerequisite[0];
     [SerializeField] protected SaveDataVariable saveData;
     [SerializeField] private string upgradeName;
