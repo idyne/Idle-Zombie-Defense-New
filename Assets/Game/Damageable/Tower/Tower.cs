@@ -17,9 +17,11 @@ public partial class Tower : DamageableStructure
     [SerializeField] private BoolVariable isTowerFull;
     [SerializeField] private Transform mergePoint;
     [SerializeField] public FloatVariable rewindDuration;
+    [SerializeField] private IntVariable towerPower;
     private StructurePart[] structureParts = null;
     private void Awake()
     {
+        towerPower.Value = 1;
         InitializeStructureParts();
     }
     private void Start()

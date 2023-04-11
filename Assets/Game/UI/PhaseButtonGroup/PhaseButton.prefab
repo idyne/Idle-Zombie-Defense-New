@@ -323,7 +323,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -40.6124, y: -15.969}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9038650609103383620
 CanvasRenderer:
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MAX
+  m_text: Locked
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b1bda9db42d58494a822510e43f4ed39, type: 2}
   m_sharedMaterial: {fileID: -2189104513073893485, guid: b1bda9db42d58494a822510e43f4ed39,
@@ -381,7 +381,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 63.4
   m_fontSizeBase: 47.7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -840,7 +840,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 8835890484389324463}
-  deactivateOnHide: 1
   phaseUpgrade: {fileID: 0}
   infoField: {fileID: 6615250497504028070}
   costField: {fileID: 6444857287043910881}

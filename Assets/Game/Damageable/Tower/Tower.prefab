@@ -163,6 +163,7 @@ MonoBehaviour:
   isTowerFull: {fileID: 11400000, guid: 14f07f2cdf1006e42859a1687fccb90f, type: 2}
   mergePoint: {fileID: 3197898986006402904}
   rewindDuration: {fileID: 11400000, guid: 0b602d74b8e0971409db89ef52e6fcec, type: 2}
+  towerPower: {fileID: 11400000, guid: f89f100a05bb58f4bb7daed24bb1a572, type: 2}
 --- !u!54 &4631583268723686852
 Rigidbody:
   m_ObjectHideFlags: 0

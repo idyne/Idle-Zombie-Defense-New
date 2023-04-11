@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8352f060a5f3094d9c37e4c8dc369ee, type: 3}
   m_Name: UnlockMolotovUpgrade
   m_EditorClassIdentifier: 
+  baseCost: 10
+  increasePerLevel: 10
   prerequisites: []
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Molotov
@@ -30,7 +32,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Limit: 1
+  limit: 1
   dayLimits: []
   runtimeSet: {fileID: 11400000, guid: 01ac635c2fe21d24aa99be80383240cd, type: 2}
   icon: {fileID: 21300000, guid: 935048abf09382b44bd7c033f522f895, type: 3}
