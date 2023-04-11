@@ -166,6 +166,8 @@ public class WaveController : MonoBehaviour
             zombieTable.Add(level);
             budget -= level;
         }
+        if (budget > 0)
+            zombieTable.Add(budget);
         numberOfZombies = zombieTable.Count;
         return zombieTable;
     }

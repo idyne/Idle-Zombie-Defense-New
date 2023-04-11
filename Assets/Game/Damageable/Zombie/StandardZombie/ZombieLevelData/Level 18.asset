@@ -19,4 +19,4 @@ MonoBehaviour:
   Scale: 1.2
   BaseMaxHealth: 10
   BaseDamage: 10
-  BaseMoney: 1
+  BaseMoney: 5

@@ -10,6 +10,7 @@ using DG.Tweening;
 
 public class Zombie : Damageable, IPooledObject
 {
+    [SerializeField] protected float incomeIncrease = 0.2f;
     [SerializeField] protected ObjectPool deadZombiePool;
     [SerializeField] protected List<ZombieLevelData> levelData;
     [SerializeField] protected SaveDataVariable saveData;
@@ -277,7 +278,7 @@ public class Zombie : Damageable, IPooledObject
     public void DropMoney()
     {
         Log("DropMoney", false);
-        int money = Mathf.CeilToInt(this.money * (1 + saveData.Value.IncomeLevel * 0.2f));
+        int money = Mathf.CeilToInt(this.money + saveData.Value.IncomeLevel * incomeIncrease);
         if (moneyBurster) moneyBurster.Burst(money, transform.position);
     }
 

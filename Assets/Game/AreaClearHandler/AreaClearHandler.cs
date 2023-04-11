@@ -59,12 +59,12 @@ public class AreaClearHandler : UIElement
         if (zoneManager.IsNight)
         {
             if (zoneManager.IsLastDayOfZone())
-                ZoneClear(baseMoneyPerDay + (zoneManager.WaveLevel - 1 * moneyIncreasePerDay), baseToolPerDay + (zoneManager.WaveLevel - 1 * toolIncreasePerDay));
+                ZoneClear(baseMoneyPerDay + ((zoneManager.Day - 1) * moneyIncreasePerDay), baseToolPerDay + ((zoneManager.Day - 1) * toolIncreasePerDay));
             else
-                DayClear(baseMoneyPerDay + (zoneManager.WaveLevel - 1 * moneyIncreasePerDay), baseToolPerDay + (zoneManager.WaveLevel - 1 * toolIncreasePerDay));
+                DayClear(baseMoneyPerDay + ((zoneManager.Day - 1) * moneyIncreasePerDay), baseToolPerDay + ((zoneManager.Day - 1) * toolIncreasePerDay));
         }
         else
-            WaveClear(baseMoneyPerWave + (zoneManager.WaveLevel - 1 * moneyIncreasePerWave), baseToolPerWave + (zoneManager.WaveLevel - 1 * toolIncreasePerWave));
+            WaveClear(baseMoneyPerWave + ((zoneManager.WaveLevel - 1) * moneyIncreasePerWave), baseToolPerWave + ((zoneManager.WaveLevel - 1) * toolIncreasePerWave));
     }
 
     public void Claim()

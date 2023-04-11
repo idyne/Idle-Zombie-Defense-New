@@ -880,13 +880,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 4138645249591346211}
-  deactivateOnHide: 0
-  toolPerWave: 2
-  toolPerDay: 5
-  toolPerZone: 10
-  moneyPerWave: 50
-  moneyPerDay: 200
-  moneyPerZone: 1000
+  baseToolPerWave: 20
+  toolIncreasePerWave: 3
+  baseToolPerDay: 100
+  toolIncreasePerDay: 60
+  baseMoneyPerWave: 200
+  moneyIncreasePerWave: 40
+  baseMoneyPerDay: 1000
+  moneyIncreasePerDay: 800
   zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
   sceneManager: {fileID: 11400000, guid: 30f4fb8e342857543a5c7983051b6c66, type: 2}
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
