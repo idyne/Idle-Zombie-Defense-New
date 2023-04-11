@@ -174,8 +174,8 @@ public class AreaClearHandler : UIElement
 
     private void SpreadMoney(Vector2 spawnPosition, int amount)
     {
-        int valueOfSingleMoneyImage = 10;
-        int count = amount / valueOfSingleMoneyImage;
+        int count = 20;
+        int valueOfSingleMoneyImage = amount / count;
         int remainder = amount % valueOfSingleMoneyImage;
         if (remainder > 0) count++;
 
@@ -195,14 +195,22 @@ public class AreaClearHandler : UIElement
 
     private void SpreadTool(Vector2 spawnPosition, int amount)
     {
-        for (int i = 0; i < amount; i++)
+        int count = 20;
+        int valueOfSingleMoneyImage = amount / count;
+        int remainder = amount % valueOfSingleMoneyImage;
+        if (remainder > 0) count++;
+
+        for (int i = 0; i < count; i++)
         {
             Tool2D tool = toolPool.Get<Tool2D>(Vector3.zero, Quaternion.identity);
+
+            int gain = valueOfSingleMoneyImage;
+            if (i == count - 1 && remainder > 0) gain = remainder;
 
             float radius = Screen.width / 3f;
             Vector2 midPosition = spawnPosition + new Vector2(Random.Range(-radius, radius), Random.Range(-radius, radius));
 
-            tool.GoUIWithBurstMove(spawnPosition, midPosition, () => saveData.AddTools(1));
+            tool.GoUIWithBurstMove(spawnPosition, midPosition, () => saveData.AddTools(gain));
         }
     }
 }

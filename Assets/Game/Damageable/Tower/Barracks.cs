@@ -127,6 +127,7 @@ public partial class Tower
             OnMergeAvailable.Invoke();
 
         }
+        towerPower.Value += Mathf.RoundToInt(Mathf.Pow(mergeSize, level - 1)); ;
     }
     public void AddSoldier(int level, bool save = true)
     {
@@ -149,6 +150,7 @@ public partial class Tower
             OnMergeAvailable.Invoke();
         }
         magicBuffEffectPool.Get<Transform>(position, Quaternion.identity);
+        towerPower.Value += Mathf.RoundToInt(Mathf.Pow(mergeSize, level - 1)); ;
     }
 
     public void RemoveSoldier(int level)
@@ -157,6 +159,7 @@ public partial class Tower
         NumberOfSoldiers--;
         isTowerFull.Value = NumberOfSoldiers >= points.Count;
         saveData.Value.SoldierTable[level]--;
+        towerPower.Value -= Mathf.RoundToInt(Mathf.Pow(mergeSize, level - 1));
     }
 
     public List<Soldier> GetSortedSoldierList()
