@@ -380,7 +380,7 @@ MonoBehaviour:
   shootFrequencyMultiplier: {fileID: 11400000, guid: becf32ad1cc6833499d19004b05c085f,
     type: 2}
   range: 25
-  shootPeriod: 0.5
+  shootPeriod: 1
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
   targetableZombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c,
     type: 2}
@@ -492,6 +492,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9042055853581747161, guid: 9c24d47f2a4f26a4e91b85dfff3ea445,
+        type: 3}
+      propertyPath: BaseDamage
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c24d47f2a4f26a4e91b85dfff3ea445, type: 3}

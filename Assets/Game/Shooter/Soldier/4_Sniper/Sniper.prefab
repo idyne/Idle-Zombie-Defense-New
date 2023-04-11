@@ -64,6 +64,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
+      propertyPath: dps
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: range
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 1010973381688680478}
@@ -73,6 +83,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 79a0d1a55e5a1f44bbb78c531ab4475c,
         type: 2}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: shootPeriod
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: hipsTransform
@@ -157,6 +172,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2386765307219974717, guid: b28f4dfc7617ffb43988a78bea783b29,
+        type: 3}
+      propertyPath: BaseDamage
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 7892615209185785116, guid: b28f4dfc7617ffb43988a78bea783b29,
         type: 3}

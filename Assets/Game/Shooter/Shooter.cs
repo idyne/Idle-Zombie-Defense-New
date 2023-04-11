@@ -7,6 +7,7 @@ using UnityEngine.Events;
 
 public abstract class Shooter : FateMonoBehaviour
 {
+    [SerializeField] private float dps = 10;
     [SerializeField] protected FloatVariable shootFrequencyMultiplier;
     [SerializeField] protected float range = 25;
     [SerializeField] protected float shootPeriod = 0.5f;
@@ -32,6 +33,7 @@ public abstract class Shooter : FateMonoBehaviour
     protected virtual void Awake()
     {
         gun = GetComponentInChildren<Gun>();
+        gun.BaseDamage = Mathf.CeilToInt(dps * shootPeriod);
         // Wait until  gun is not in cooldown and the shooter is faced to the target
         waitUntilReadyToShoot = new WaitUntil(() => !InCooldown && FacedTarget);
     }

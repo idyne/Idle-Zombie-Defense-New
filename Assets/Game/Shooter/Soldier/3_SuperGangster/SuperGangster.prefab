@@ -64,6 +64,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
+      propertyPath: dps
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 4496240081908465741}
@@ -73,6 +83,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 39929c4606c27bd469e4ba1c1a541237,
         type: 2}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: shootPeriod
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: hipsTransform
@@ -107,6 +122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GangsterMechanim
+      objectReference: {fileID: 0}
+    - target: {fileID: 8665526206821816480, guid: 6e02cde4b389d80488aed0b7df014270,
+        type: 3}
+      propertyPath: BaseDamage
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 8802709533315157139, guid: 6e02cde4b389d80488aed0b7df014270,
         type: 3}
