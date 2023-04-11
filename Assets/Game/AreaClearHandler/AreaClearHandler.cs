@@ -10,12 +10,21 @@ using UnityEngine.UI;
 
 public class AreaClearHandler : UIElement
 {
-    [SerializeField] private int toolPerWave = 2;
-    [SerializeField] private int toolPerDay = 5;
-    [SerializeField] private int toolPerZone = 10;
-    [SerializeField] private int moneyPerWave = 50;
-    [SerializeField] private int moneyPerDay = 200;
-    [SerializeField] private int moneyPerZone = 1000;
+    [Header("Tool")]
+    [SerializeField] private int baseToolPerWave = 2;
+    [SerializeField] private int toolIncreasePerWave = 2;
+    [SerializeField] private int baseToolPerDay = 5;
+    [SerializeField] private int toolIncreasePerDay = 2;
+    /*[SerializeField] private int baseToolPerZone = 10;
+    [SerializeField] private int toolIncreasePerZone = 2;*/
+    [Header("Money")]
+    [SerializeField] private int baseMoneyPerWave = 50;
+    [SerializeField] private int moneyIncreasePerWave = 2;
+    [SerializeField] private int baseMoneyPerDay = 200;
+    [SerializeField] private int moneyIncreasePerDay = 2;
+    /*[SerializeField] private int baseMoneyPerZone = 1000;
+    [SerializeField] private int moneyIncreasePerZone = 2;*/
+    [Header("")]
     [SerializeField] private ZoneManager zoneManager;
     [SerializeField] private SceneManager sceneManager;
     [SerializeField] private SaveDataVariable saveData;
@@ -50,12 +59,12 @@ public class AreaClearHandler : UIElement
         if (zoneManager.IsNight)
         {
             if (zoneManager.IsLastDayOfZone())
-                ZoneClear(moneyPerZone, toolPerZone);
+                ZoneClear(baseMoneyPerDay + ((zoneManager.Day - 1) * moneyIncreasePerDay), baseToolPerDay + ((zoneManager.Day - 1) * toolIncreasePerDay));
             else
-                DayClear(moneyPerDay, toolPerDay);
+                DayClear(baseMoneyPerDay + ((zoneManager.Day - 1) * moneyIncreasePerDay), baseToolPerDay + ((zoneManager.Day - 1) * toolIncreasePerDay));
         }
         else
-            WaveClear(moneyPerWave, toolPerWave);
+            WaveClear(baseMoneyPerWave + ((zoneManager.WaveLevel - 1) * moneyIncreasePerWave), baseToolPerWave + ((zoneManager.WaveLevel - 1) * toolIncreasePerWave));
     }
 
     public void Claim()
@@ -69,6 +78,12 @@ public class AreaClearHandler : UIElement
             Hide();
             IEnumerator routine()
             {
+                if (zoneManager.IsLastDayOfGame() && zoneManager.IsNight)
+                {
+                    zoneManager.ResetGame();
+                    sceneManager.LoadCurrentLevel();
+                    yield break;
+                }
                 if (zoneManager.IsLastDayOfZone())
                 {
                     onZoneFinished.Invoke();

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe29fb9509a2584684fea53b04d8856, type: 3}
   m_Name: ExplosiveMineDamageUpgrade
   m_EditorClassIdentifier: 
+  prerequisites: []
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Explosive Mine Damage
   OnUpgrade:
@@ -20,5 +21,5 @@ MonoBehaviour:
   Limit: -1
   dayLimits: []
   runtimeSet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
-  icon: {fileID: 21300000, guid: 9c0d6ec706e01ce448aea81584af092b, type: 3}
-  description: Add +20 damage to Explosive Mines
+  icon: {fileID: 21300000, guid: ae8eaf90cc65c494d88c6f2d14c9e3ed, type: 3}
+  description: +20 damage

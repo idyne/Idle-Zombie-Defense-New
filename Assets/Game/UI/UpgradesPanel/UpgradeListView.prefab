@@ -230,8 +230,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3517797160503917331}
   m_HandleRect: {fileID: 2333690212657699030}
   m_Direction: 2
-  m_Value: 0.0000018523904
-  m_Size: 0.9341012
+  m_Value: 1
+  m_Size: 0.61185694
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ededbdb4f3b8049ac633259c869cea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 6918829554326343749}
   upgradeItemPrefab: {fileID: 8942810526086870947, guid: d48c7660d9ce6954289f5fc76f38b28c,
     type: 3}
   upgradeEntitySet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
@@ -597,7 +598,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 65.8988}
+  m_AnchoredPosition: {x: 0, y: 73403.44}
   m_SizeDelta: {x: 0, y: 1000}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &7455429049313624557

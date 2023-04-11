@@ -58,6 +58,8 @@ MonoBehaviour:
   areaOfEffectRadius: 2.5
   trailTransform: {fileID: 654307622474939204}
   meshObject: {fileID: 4818732919063186914}
+  sound: {fileID: 11400000, guid: bada2e6d9b17e31439f725b5b3afca0a, type: 2}
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
 --- !u!1 &4818732919063186914
 GameObject:
   m_ObjectHideFlags: 0

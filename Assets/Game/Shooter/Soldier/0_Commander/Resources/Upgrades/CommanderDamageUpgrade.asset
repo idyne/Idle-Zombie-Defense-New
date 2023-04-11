@@ -12,15 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d21889a36dc16448beb47a62f513b38, type: 3}
   m_Name: CommanderDamageUpgrade
   m_EditorClassIdentifier: 
+  prerequisites: []
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
-  runtimeSet: {fileID: 11400000, guid: 01ac635c2fe21d24aa99be80383240cd, type: 2}
-  icon: {fileID: 21300000, guid: 8a7df61c2a88e414d8f01b51d5e01ef6, type: 3}
   upgradeName: Damage
-  description: Add +10 damage to Commander
   OnUpgrade:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 7b06252d73186cc468d306e63ce8ac7d, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   Limit: 40
   dayLimits:
   - Day: 5
     Limit: 20
+  runtimeSet: {fileID: 11400000, guid: 01ac635c2fe21d24aa99be80383240cd, type: 2}
+  icon: {fileID: 21300000, guid: 833b5d7c8ebbcd4458b77b262a80e5d3, type: 3}
+  description: +10 damage

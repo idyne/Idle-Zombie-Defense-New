@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3160967307243472581}
-  - component: {fileID: 2954166298846585718}
+  - component: {fileID: -7238671322594997466}
   - component: {fileID: 5034513025078073166}
   m_Layer: 0
   m_Name: TurretGun
@@ -65,7 +65,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2954166298846585718
+--- !u!114 &-7238671322594997466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,10 +74,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 9007283991957549966}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1870f044037a12408ef7a56019a0282, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b39835575a3a7e49b5530ebe20c0083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  BaseDamage: 10
   bulletPool: {fileID: 11400000, guid: b9ddf22c1afccad47a5b50cf9c2f3e2c, type: 2}
   muzzles:
   - {fileID: 2400588565541764727}
@@ -86,6 +86,7 @@ MonoBehaviour:
   muzzleFireEffectPoint: {fileID: 2400588565541764727}
   shootSound: {fileID: 11400000, guid: 70f009e8c74967d438b9387ca2f4eee2, type: 2}
   soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
+  damageUpgrade: {fileID: 11400000, guid: d327e3468f51a344f92fc510dc65a610, type: 2}
 --- !u!114 &5034513025078073166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +103,7 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2954166298846585718}
+      - m_Target: {fileID: -7238671322594997466}
         m_TargetAssemblyTypeName: Gun, Assembly-CSharp
         m_MethodName: ShowFireRateEffect
         m_Mode: 1

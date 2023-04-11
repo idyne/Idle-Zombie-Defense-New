@@ -10,6 +10,7 @@ using DG.Tweening;
 
 public class Zombie : Damageable, IPooledObject
 {
+    [SerializeField] protected float incomeIncrease = 0.2f;
     [SerializeField] protected ObjectPool deadZombiePool;
     [SerializeField] protected List<ZombieLevelData> levelData;
     [SerializeField] protected SaveDataVariable saveData;
@@ -103,7 +104,7 @@ public class Zombie : Damageable, IPooledObject
         SetCooldown(data.Cooldown);
         damage = data.Damage;
         SetColor(data.Color);
-        maxHealth = data.MaxHealth;
+        baseMaxHealth = data.MaxHealth;
         money = data.Money;
         ResetHealth();
         transform.localScale = data.Scale * Vector3.one;
@@ -208,7 +209,7 @@ public class Zombie : Damageable, IPooledObject
         Log("Push", false);
         if (!agent.enabled) { Debug.LogError("Agent is not enabled!", this); return; }
         value = Mathf.Clamp(value, 0, 1);
-        agent.Move(2.5f * value * -transform.forward.normalized);
+        agent.Move(2.5f * value * transform.position.normalized);
     }
 
     public void Flash()
@@ -271,13 +272,14 @@ public class Zombie : Damageable, IPooledObject
         bloodSplash.Get<Transform>(shotPoint.position, Quaternion.identity);
         OnDied.Invoke();
         Release();
-        
+
     }
 
     public void DropMoney()
     {
         Log("DropMoney", false);
-        if (moneyBurster) moneyBurster.Burst(money, transform.position, Vector3.up);
+        int money = Mathf.CeilToInt(this.money + saveData.Value.IncomeLevel * incomeIncrease);
+        if (moneyBurster) moneyBurster.Burst(money, transform.position);
     }
 
     public void OnObjectSpawn()

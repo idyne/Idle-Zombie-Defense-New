@@ -14,8 +14,9 @@ public class HealthBar : UIElement
     [SerializeField] private RectTransform sliderContainer;
     [SerializeField] private HealthBarSet set;
     public float Percent { get => slider.value; }
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         slider = GetComponentInChildren<Slider>();
         slider.minValue = 0;
         if (mainCamera == null) mainCamera = Camera.main;

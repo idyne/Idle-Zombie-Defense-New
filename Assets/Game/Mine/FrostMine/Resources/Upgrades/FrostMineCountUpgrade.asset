@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 362cf23582c48104d94d5ade58094300, type: 3}
   m_Name: FrostMineCountUpgrade
   m_EditorClassIdentifier: 
+  prerequisites: []
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Frost Mine Count
   OnUpgrade:
@@ -20,7 +21,7 @@ MonoBehaviour:
   Limit: 4
   dayLimits: []
   runtimeSet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
-  icon: {fileID: 21300000, guid: 3042b019b052942a1baf7aa49d7ca6bb, type: 3}
-  description: Add +1 Frost Mine
+  icon: {fileID: 21300000, guid: 86ab185b42b16d34eb42b79a2a0faac8, type: 3}
+  description: +1 frost mine
   sound: {fileID: 11400000, guid: e8c39f8d22eae9248bbaa1b9215f09bf, type: 2}
   soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}

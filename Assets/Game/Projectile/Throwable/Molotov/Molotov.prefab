@@ -80,10 +80,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299fd04187442734d9cd0574ffa6a87f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageUpgrade: {fileID: 11400000, guid: a1dd9d5b01abab34dbcc92f75a213277, type: 2}
   duration: 6
   hitPeriod: 0.5
   radius: 2.5
-  damagePerSecond: 5
+  baseDamagePerSecond: 5
   damageableLayerMask:
     serializedVersion: 2
     m_Bits: 128

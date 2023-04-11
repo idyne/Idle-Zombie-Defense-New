@@ -7,13 +7,14 @@ using System;
 
 public abstract class Damageable : FateMonoBehaviour
 {
-    [SerializeField] protected int maxHealth;
+    [SerializeField] protected int baseMaxHealth = 10;
     [SerializeField] protected Transform shotPoint;
     [SerializeField] private HealthBar healthBar;
     protected int health;
     public UnityEvent OnDied = new();
     public Transform ShotPoint { get => shotPoint; }
     protected Action onSetHealth = () => { };
+    protected virtual int maxHealth => baseMaxHealth;
 
     protected virtual void OnEnable()
     {

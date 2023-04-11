@@ -16,6 +16,7 @@ public partial class Tower
     [SerializeField] private SoldierUnlockTable soldierUnlockTable;
     private readonly static int mergeSize = 3;
     private readonly float mergeAnimationDuration = 0.25f;
+    private List<Soldier> sortedSoldiers = new();
     public int NumberOfSoldiers { get; private set; } = 0;
     public override void Repair()
     {
@@ -49,15 +50,7 @@ public partial class Tower
                 });
             }
             yield return new WaitUntil(() => count == 0);
-            bool newSoldierAchieved = true;
-            for (int i = level + 1; i < soldierTable.Count; i++)
-            {
-                if (soldierTable[i].Items.Count > 0)
-                {
-                    newSoldierAchieved = false;
-                    break;
-                }
-            }
+            bool newSoldierAchieved = IsNotAchievedSoldierLevel(level + 1);
             PlaceSoldiers();
             AddSoldier(level + 1, mergePoint.position);
             poofEffectPool.Get<Transform>(mergePoint.position, Quaternion.identity);
@@ -68,6 +61,19 @@ public partial class Tower
             }
         }
         StartCoroutine(mergeRoutine());
+    }
+    public bool IsNotAchievedSoldierLevel(int level)
+    {
+        bool newSoldierAchieved = true;
+        for (int i = level; i < soldierTable.Count; i++)
+        {
+            if (soldierTable[i].Items.Count > 0)
+            {
+                newSoldierAchieved = false;
+                break;
+            }
+        }
+        return newSoldierAchieved;
     }
     public bool CanMerge(out int level)
     {
@@ -90,6 +96,7 @@ public partial class Tower
             i++;
         }
         level = i;
+        //Debug.Log("CanMerge: " + canMerge);
         return canMerge;
     }
 
@@ -154,7 +161,7 @@ public partial class Tower
 
     public List<Soldier> GetSortedSoldierList()
     {
-        List<Soldier> sortedSoldiers = new();
+        sortedSoldiers.Clear();
         sortedSoldiers.AddRange(soldierTable[0].Items);
         int limitLevel = soldierTable.Count - 1;
         int i = limitLevel;

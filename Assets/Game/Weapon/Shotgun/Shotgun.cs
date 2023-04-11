@@ -13,7 +13,7 @@ public class Shotgun : Gun
             Vector3 difference = target.ShotPoint.position - Muzzle.position;
             Vector3 shootDirection = RandomPointOnPlane(target.ShotPoint.position, -difference, 0.5f) - Muzzle.position;
             Bullet bullet = bulletPool.Get<Bullet>(Muzzle.position, Quaternion.LookRotation(shootDirection));
-            bullet.Shoot(shootDirection, damage);
+            bullet.Shoot(shootDirection, Damage);
         }
         shotCount++;
         muzzleFire.Get<Transform>(muzzleFireEffectPoint.position, muzzleFireEffectPoint.rotation);

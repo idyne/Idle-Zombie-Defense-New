@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ExplosiveMine : Mine
 {
-    [SerializeField] private int damage = 20;
-    
+    [SerializeField] private PreparationUpgradeEntity damageUpgrade;
+    [SerializeField] private int baseDamage = 20;
+    private int damage => baseDamage * damageUpgrade.Level;
     protected void Hit(Damageable damageable)
     {
         damageable.Hit(damage);

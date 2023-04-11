@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1971703642782218668}
   - component: {fileID: 5274419546484191693}
   - component: {fileID: 798772644627114554}
+  - component: {fileID: 3870313415339367736}
   m_Layer: 9
   m_Name: Tower
   m_TagString: Untagged
@@ -56,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beab38429e3a9d443bd540834765c98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  baseMaxHealth: 500
   shotPoint: {fileID: 0}
   healthBar: {fileID: 5541587386540574640}
   OnDied:
@@ -74,6 +75,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  healthUpgrade: {fileID: 11400000, guid: a424928a2bda7e842af635c922ef0fbd, type: 2}
   soldierTable:
   - {fileID: 11400000, guid: 53d6897387af5d74787ed8bab2e4665d, type: 2}
   - {fileID: 11400000, guid: cc873bbec39b274438140899d92f41e8, type: 2}
@@ -358,6 +360,34 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 7.5, z: 8}
   m_Center: {x: 0, y: 3.75, z: 0}
+--- !u!114 &3870313415339367736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3128336954143200287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: f63fd8b1fcba441419239c27014619cc, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4227706353280798573}
+        m_TargetAssemblyTypeName: Tower, Assembly-CSharp
+        m_MethodName: PromoteLowLevelSoldiers
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4021706712974585019
 GameObject:
   m_ObjectHideFlags: 0

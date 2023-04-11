@@ -12,6 +12,7 @@ public class ZoneManager : ScriptableObject
     public int NormalizedDay = 0;
     public int WaveLevel { get => saveData.Value.WaveLevel; }
     public int ZoneLength { get => zoneLengths[Zone - 1]; }
+    public int NumberOfDays = 0;
 
     public bool IsNight { get => WaveLevel % 4 == 0; }
     public bool IsLastDayOfZone()
@@ -26,9 +27,25 @@ public class ZoneManager : ScriptableObject
         }
         return false;
     }
+    public bool IsLastDayOfGame()
+    {
+        int total = 0;
+        for (int i = 0; i < zoneLengths.Length; i++)
+        {
+            int zoneLength = zoneLengths[i];
+            total += zoneLength;
+        }
+        return Day == total;
+    }
+
+    public void ResetGame()
+    {
+        saveData.Value = new SaveData();
+    }
 
     public void Initialize()
     {
+        SetNumberOfDays();
         SetDay();
         SetZone();
         SetNormalizedDay();
@@ -49,6 +66,15 @@ public class ZoneManager : ScriptableObject
                 Zone = i + 1;
                 break;
             }
+        }
+    }
+
+    public void SetNumberOfDays()
+    {
+        NumberOfDays = 0;
+        for (int i = 0; i < zoneLengths.Length; i++)
+        {
+            NumberOfDays += zoneLengths[i];
         }
     }
 

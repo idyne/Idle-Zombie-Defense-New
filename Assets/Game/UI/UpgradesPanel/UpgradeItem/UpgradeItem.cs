@@ -11,8 +11,9 @@ public class UpgradeItem : DynamicUIElement
     [SerializeField] private UpgradeButton upgradeButton;
     [SerializeField] private PreparationUpgradeEntity upgradeEntity = null;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         if (upgradeEntity)
             Set(upgradeEntity);
     }

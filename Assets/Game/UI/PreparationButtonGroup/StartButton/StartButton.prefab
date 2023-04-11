@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 3703906917709089229}
   - component: {fileID: 1032997911159952937}
   - component: {fileID: 6827265736187903550}
+  - component: {fileID: 6989110386742193814}
   m_Layer: 0
   m_Name: StartButton
   m_TagString: Untagged
@@ -260,7 +261,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1032997911159952937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,6 +332,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6989110386742193814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7908049654322186253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28880b4fcedcb7e41a91ddc00bd033b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 3600459069848166960}
 --- !u!1 &8915239739046558291
 GameObject:
   m_ObjectHideFlags: 0
