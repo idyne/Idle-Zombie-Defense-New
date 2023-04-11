@@ -23,6 +23,8 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] protected SnapshotMeshAnimator meshAnimator;
     [SerializeField] private MoneyBurster moneyBurster;
     [SerializeField] private ObjectPool bloodSplash;
+    [SerializeField] private IntVariable towerPower;
+    [SerializeField] private float towerPowerEffect = 1;
 
     private int money = 1;
 
@@ -40,6 +42,7 @@ public class Zombie : Damageable, IPooledObject
     public bool InCooldown { get => Time.time < lastHitTime + cooldown; }
     public bool Flashing { get => flashCoroutine != null; }
     public bool CheckingEnemies { get => checkEnemiesRoutine != null; }
+    protected override int maxHealth => Mathf.CeilToInt(baseMaxHealth * towerPower * towerPowerEffect);
 
     private void Awake()
     {
