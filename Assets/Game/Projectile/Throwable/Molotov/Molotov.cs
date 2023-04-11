@@ -21,6 +21,7 @@ public class Molotov : Throwable, IPooledObject
     [SerializeField] private SoundEntity crackSound, burningSound;
     [SerializeField] private SoundManager soundManager;
     private SoundWorker burningSoundWorker;
+    private Vector3 offset = new (0, 1, 0);
     public int damagePerSecond => baseDamagePerSecond * damageUpgrade.Level;
 
     private void Awake()
@@ -33,7 +34,7 @@ public class Molotov : Throwable, IPooledObject
         // TODO change here when implemented the pooled effects
         DeactivateMesh();
         if (effectPool)
-            effectPool.Get<Transform>(transform.position, Quaternion.identity);
+            effectPool.Get<Transform>(transform.position + offset, Quaternion.identity);
         StartBurning();
     }
 
@@ -45,6 +46,7 @@ public class Molotov : Throwable, IPooledObject
 
     private void StartBurning()
     {
+
         soundManager.PlaySoundOneShot(crackSound);
         burningSoundWorker = soundManager.PlaySound(burningSound);
         burnRoutine = Burn(duration);
