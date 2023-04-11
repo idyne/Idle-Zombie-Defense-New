@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: beab38429e3a9d443bd540834765c98e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  baseMaxHealth: 500
   shotPoint: {fileID: 0}
   healthBar: {fileID: 5541587386540574640}
   OnDied:
@@ -75,6 +75,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  healthUpgrade: {fileID: 11400000, guid: a424928a2bda7e842af635c922ef0fbd, type: 2}
   soldierTable:
   - {fileID: 11400000, guid: 53d6897387af5d74787ed8bab2e4665d, type: 2}
   - {fileID: 11400000, guid: cc873bbec39b274438140899d92f41e8, type: 2}

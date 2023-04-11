@@ -9,8 +9,9 @@ public class Tutorial : UIElement
     [SerializeReference] private TutorialData tutorialData;
     private Transform targetObject = null;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         targetObject = transform.parent;
     }
 

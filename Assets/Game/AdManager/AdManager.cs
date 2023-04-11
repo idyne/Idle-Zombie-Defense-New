@@ -9,6 +9,7 @@ public class AdManager : ScriptableObject
     [SerializeField] private GameManager gameManager;
     public IEnumerator ShowInterstitial()
     {
+        yield break;
         if (AdvertisementManager.IsCanShowInterstital && AdvertisementManager.IsInterstitialdAdReady())
         {
             bool isAdDone = false;
@@ -36,10 +37,12 @@ public class AdManager : ScriptableObject
     }
     public void ShowBannerAd()
     {
+        return;
         AdvertisementManager.ShowBanner();
     }
     public void HideBannerAd()
     {
+        return;
         AdvertisementManager.HideBanner();
     }
 }

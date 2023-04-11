@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a93903bea411b5944aef1d93875d1fb1, type: 3}
   m_Name: SoldierBuyingLevelUpgrade
   m_EditorClassIdentifier: 
+  baseCost: 10
+  increasePerLevel: 10
   prerequisites: []
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Soldier Buying Level
@@ -30,8 +32,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Limit: 7
-  dayLimits: []
+  limit: 9
+  dayLimits:
+  - Day: 0
+    Limit: 1
+  - Day: 5
+    Limit: 2
+  - Day: 9
+    Limit: 3
+  - Day: 13
+    Limit: 4
+  - Day: 17
+    Limit: 5
+  - Day: 21
+    Limit: 6
+  - Day: 25
+    Limit: 7
+  - Day: 29
+    Limit: 8
+  - Day: 33
+    Limit: 9
   runtimeSet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
   icon: {fileID: 21300000, guid: 9dba2eb787dc1b64fb6a8f6390ead58c, type: 3}
   description: +1 new soldier level

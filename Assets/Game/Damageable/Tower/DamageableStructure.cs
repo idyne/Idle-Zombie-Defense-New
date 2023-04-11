@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class DamageableStructure : Damageable
 {
+    [SerializeField] protected PreparationUpgradeEntity healthUpgrade;
+    protected override int maxHealth => base.maxHealth + healthUpgrade.Level * 100;
     public abstract void Repair();
     private void OnTriggerEnter(Collider other)
     {

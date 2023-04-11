@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class Molotov : Throwable, IPooledObject
 {
+    [SerializeField] private PreparationUpgradeEntity damageUpgrade;
     [SerializeField] private float duration = 6;
     [SerializeField] private float hitPeriod = 0.5f;
     [SerializeField] private float radius = 2.5f;
-    [SerializeField] private int damagePerSecond = 5;
+    [SerializeField] private int baseDamagePerSecond = 5;
     [SerializeField] private LayerMask damageableLayerMask;
     [SerializeField] private GameObject meshObject;
     [SerializeField] protected ObjectPool effectPool;
@@ -20,6 +21,7 @@ public class Molotov : Throwable, IPooledObject
     [SerializeField] private SoundEntity crackSound, burningSound;
     [SerializeField] private SoundManager soundManager;
     private SoundWorker burningSoundWorker;
+    public int damagePerSecond => baseDamagePerSecond * damageUpgrade.Level;
 
     private void Awake()
     {

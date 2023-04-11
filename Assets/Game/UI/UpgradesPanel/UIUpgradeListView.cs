@@ -4,14 +4,15 @@ using UnityEngine;
 using FateGames.Core;
 using System.Linq;
 
-public class UIUpgradeListView : FateMonoBehaviour
+public class UIUpgradeListView : UIElement
 {
     [SerializeField] private GameObject upgradeItemPrefab;
     [SerializeField] private UpgradeListEntityRuntimeSet upgradeEntitySet;
     [SerializeField] private UIListView listView;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         upgradeEntitySet.OnChange.AddListener(Rebuild);
     }
 

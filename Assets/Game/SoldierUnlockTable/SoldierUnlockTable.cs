@@ -38,6 +38,10 @@ public class SoldierUnlockTable : ScriptableObject
             {
                 return entity.SoldierLevel;
             }
+            else if (i == entities.Length - 2)
+            {
+                return entities[^1].SoldierLevel;
+            }
         }
         return 0;
     }

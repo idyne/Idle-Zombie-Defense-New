@@ -435,6 +435,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 266ccf55481f7be4ea061d05827b1ef6, type: 2}
+        m_TargetAssemblyTypeName: PhaseUpgradeEntity, Assembly-CSharp
+        m_MethodName: BuyUpgrade
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2213548075357906956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,7 +608,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5116736190543305971}
   - component: {fileID: 8172149472793348768}
-  - component: {fileID: -7565515516864337845}
   - component: {fileID: 8835890484389324463}
   - component: {fileID: 582799812911105760}
   - component: {fileID: 324183448302315761}
@@ -647,46 +658,6 @@ MonoBehaviour:
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   moneyText: {fileID: 6571286325114516387}
   button: {fileID: 8301924866671382169}
---- !u!114 &-7565515516864337845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8368281472265015822}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4da31f62f55efdc4fb20bce47c3069f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: {fileID: 8301924866671382169}
-  onClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8172149472793348768}
-        m_TargetAssemblyTypeName: UIElement, Assembly-CSharp
-        m_MethodName: Hide
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 0b3f059a215c0e34cb487bf9c1f8576a, type: 2}
-        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!223 &8835890484389324463
 Canvas:
   m_ObjectHideFlags: 0

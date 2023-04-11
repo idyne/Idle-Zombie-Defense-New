@@ -8,7 +8,7 @@ public class TurretCountUpgradeEntity : PreparationUpgradeEntity
 {
     [SerializeField] private SoundEntity sound;
     [SerializeField] private SoundManager soundManager;
-    public override int Cost => Level * 10;
+    public override int Cost => Level * increasePerLevel + baseCost;
     public override int Level { get => saveData.Value.TurretCount; protected set => saveData.Value.TurretCount = value; }
     public override void Initialize()
     {
