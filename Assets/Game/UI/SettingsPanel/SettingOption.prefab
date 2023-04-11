@@ -565,6 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61cbf7ac594e3454bb99b1241f40c6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 4867626282873875038}
   variable:
     UseConstant: 1
     ConstantValue: 0

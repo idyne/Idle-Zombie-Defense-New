@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public class SettingOption : MonoBehaviour
+public class SettingOption : UIElement
 {
     [SerializeField] BoolReference variable;
     [SerializeField] private UnityEvent onTurnedOn, onTurnedOff;
@@ -19,8 +19,9 @@ public class SettingOption : MonoBehaviour
 
     private bool open = true;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         open = variable.Value;
         UpdateOption();
     }
