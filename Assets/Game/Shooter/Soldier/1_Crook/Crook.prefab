@@ -64,6 +64,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
+      propertyPath: dps
+      value: 3.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 7920068654686481112}
@@ -73,6 +78,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: cc873bbec39b274438140899d92f41e8,
         type: 2}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: shootPeriod
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: hipsTransform

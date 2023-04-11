@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42bdee0610818fe47941f1dd61517c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseWavePower: 100
-  powerIncreasePerDay: 200
+  baseWavePower: 50
+  powerIncreasePerDay: 50
   baseSpawnPeriod: 0.1
   morningMultiplier: 0.5
   noonMultiplier: 0.7

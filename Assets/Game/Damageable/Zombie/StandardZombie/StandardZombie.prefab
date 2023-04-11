@@ -56,6 +56,7 @@ MonoBehaviour:
   OnDied:
     m_PersistentCalls:
       m_Calls: []
+  incomeIncrease: 0.1
   deadZombiePool: {fileID: 11400000, guid: bb7cd5b345e4ac146bfd6fabf9b7eef8, type: 2}
   levelData:
   - {fileID: 0}
