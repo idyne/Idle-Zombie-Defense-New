@@ -11,7 +11,6 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: edd7abf643fa4bc4e8561d4c280c97cf,
     type: 3}
   m_ValidKeywords:
-  - TCP2_MOBILE
   - TCP2_RIM_LIGHTING_LIGHTMASK
   - TCP2_SHADOW_LIGHT_COLOR
   m_InvalidKeywords:
@@ -30,7 +29,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 21b5b76ad00d7b548962a6ee4c9d5008, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2bdbdd20855f3cf4db63ec03eb6c7052, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -54,7 +53,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 21b5b76ad00d7b548962a6ee4c9d5008, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2bdbdd20855f3cf4db63ec03eb6c7052, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -119,8 +118,8 @@ Material:
     - _OutlineWidth: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
-    - _RampSmoothing: 0.915
-    - _RampThreshold: 0.459
+    - _RampSmoothing: 0.842
+    - _RampThreshold: 0.467
     - _ReceiveShadows: 1
     - _ReceiveShadowsOff: 1
     - _RenderingMode: 0
@@ -135,7 +134,7 @@ Material:
     - _Surface: 1
     - _UVSec: 0
     - _UseAlphaTest: 0
-    - _UseMobileMode: 1
+    - _UseMobileMode: 0
     - _UseOutline: 0
     - _UseRim: 0
     - _UseRimLightMask: 1
@@ -151,7 +150,7 @@ Material:
     - _SColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &3969233475673605150
+--- !u!114 &4267516642883452487
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
