@@ -846,6 +846,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: b7ecbe832a862d34dba6fe48afd7513d, type: 2}
+        m_TargetAssemblyTypeName: HapticPlayer, Assembly-CSharp
+        m_MethodName: PlayLightHaptic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1820364128624156784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1315,7 +1327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1820364128515578995}
-  deactivateOnHide: 0
+  hideOnStart: 0
   zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
   routes:
   - {fileID: 8752677021626434027}

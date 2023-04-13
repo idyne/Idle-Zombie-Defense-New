@@ -261,7 +261,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1032997911159952937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,6 +332,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: b7ecbe832a862d34dba6fe48afd7513d, type: 2}
+        m_TargetAssemblyTypeName: HapticPlayer, Assembly-CSharp
+        m_MethodName: PlayLightHaptic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6989110386742193814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,6 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 3600459069848166960}
+  hideOnStart: 0
 --- !u!1 &8915239739046558291
 GameObject:
   m_ObjectHideFlags: 0

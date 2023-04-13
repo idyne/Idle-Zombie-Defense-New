@@ -50,6 +50,7 @@ public class TapToSpeedUp : UIElement
     public void Tap()
     {
         onTappedToSpeedUp.Raise();
+        HapticManager.PlayHaptic();
         Hide();
         SpeedUp();
         StartCountdown();

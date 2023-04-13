@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 902546362412831935}
-  deactivateOnHide: 1
+  hideOnStart: 0
 --- !u!114 &6140134489722798161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +222,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 11400000, guid: a8843ed48baa0ab49a68a00763e0235c,
             type: 2}
           m_ObjectArgumentAssemblyTypeName: FateGames.Core.SoundEntity, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: b7ecbe832a862d34dba6fe48afd7513d, type: 2}
+        m_TargetAssemblyTypeName: HapticPlayer, Assembly-CSharp
+        m_MethodName: PlayLightHaptic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

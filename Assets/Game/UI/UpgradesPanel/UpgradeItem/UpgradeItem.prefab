@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 9184052804905871952}
-  deactivateOnHide: 1
+  hideOnStart: 0
   icon: {fileID: 6945451823372790723}
   nameText: {fileID: 8796993644978374668}
   description: {fileID: 4976396614487650328}
@@ -732,6 +732,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187840985859876128, guid: 75f1180ec7d11364f8021f2094f806ce,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187840985859876128, guid: 75f1180ec7d11364f8021f2094f806ce,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187840985859876128, guid: 75f1180ec7d11364f8021f2094f806ce,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8187840985859876128, guid: 75f1180ec7d11364f8021f2094f806ce,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: FateGames.Core.SoundManager, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75f1180ec7d11364f8021f2094f806ce, type: 3}
