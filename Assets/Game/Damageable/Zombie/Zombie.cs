@@ -217,7 +217,7 @@ public class Zombie : Damageable, IPooledObject
         Log("Push", false);
         if (!agent.enabled) { Debug.LogError("Agent is not enabled!", this); return; }
         value = Mathf.Clamp(value, 0, 1);
-        agent.Move(2.5f * value * transform.position.normalized);
+        agent.Move(1.5f * value * transform.position.normalized);
     }
 
     public void Flash()
