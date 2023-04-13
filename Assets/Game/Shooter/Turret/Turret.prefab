@@ -247,6 +247,7 @@ GameObject:
   - component: {fileID: 8349919556700474230}
   - component: {fileID: 1507455133936593126}
   - component: {fileID: 2136068718054070753}
+  - component: {fileID: 4031550840419451658}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -420,6 +421,34 @@ MonoBehaviour:
       - m_Target: {fileID: 8219654145316800482}
         m_TargetAssemblyTypeName: Turret, Assembly-CSharp
         m_MethodName: UpdateGunDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4031550840419451658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6565389056049834153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 3ece626f35bc71144987976d4c9b8085, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8219654145316800482}
+        m_TargetAssemblyTypeName: Turret, Assembly-CSharp
+        m_MethodName: RegisterSelfToTowerDPS
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

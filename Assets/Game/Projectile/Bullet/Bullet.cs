@@ -66,6 +66,7 @@ public class Bullet : FateMonoBehaviour, IPooledObject
             {
                 ShootToDamageable();
             }
+            else Release();
         }
         else
         {

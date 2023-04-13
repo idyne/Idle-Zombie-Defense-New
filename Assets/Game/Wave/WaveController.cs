@@ -161,12 +161,13 @@ public class WaveController : MonoBehaviour
                 break;
         }
         int seconds = Mathf.CeilToInt((wavePower - 100) * 140 / 2000f + 40);
+        int totalDamage = towerDPS.CalculateDamage(seconds);
         print("Seconds " + seconds);
-        baseMaxHealth.Value = Mathf.CeilToInt(towerDPS.CalculateDamage(seconds) / (float)wavePower);
+        baseMaxHealth.Value = Mathf.CeilToInt(totalDamage / (float)wavePower);
         print("Wave Size: " + numberOfZombies);
-        print("Damage: " + towerDPS.CalculateDamage(seconds));
+        print("Damage: " + totalDamage);
         print("WavePower: " + wavePower);
-        print("BaseHealth: " + baseMaxHealth);
+        print("BaseHealth: " + baseMaxHealth.Value);
         WaitForSeconds waitForSeconds = new(spawnPeriod);
         IEnumerator spawnZombies(int count)
         {
