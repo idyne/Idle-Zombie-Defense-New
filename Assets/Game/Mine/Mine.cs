@@ -14,6 +14,7 @@ public abstract class Mine : FateMonoBehaviour
     [SerializeField] private GameObject meshObject, detonatedMeshObject;
     [SerializeField] private SoundEntity sound, detonationSound;
     [SerializeField] private SoundManager soundManager;
+    [SerializeField] private int maxCollider = 30;
     private SoundWorker detonationSoundWorker = null;
     private SphereCollider sphereCollider = null;
 #pragma warning disable CS0108 
@@ -57,7 +58,7 @@ public abstract class Mine : FateMonoBehaviour
     public void Explode()
     {
         CancelDetonationSound();
-        int maxColliders = 30;
+        int maxColliders = maxCollider;
         Collider[] hitColliders = new Collider[maxColliders];
         int numColliders = Physics.OverlapSphereNonAlloc(transform.position, areaOfEffectRadius, hitColliders, damageableLayerMask);
         if (numColliders > 0)

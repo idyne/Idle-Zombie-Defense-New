@@ -24,6 +24,7 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] protected SnapshotMeshAnimator meshAnimator;
     [SerializeField] private MoneyBurster moneyBurster;
     [SerializeField] private ObjectPool bloodSplash, levitatingTextPool;
+    [SerializeField] private bool isBoss = false;
     private ZombieLevelData currentLevelData;
     private Color currentColor;
     private int money = 1;
@@ -208,7 +209,7 @@ public class Zombie : Damageable, IPooledObject
         if (health <= 0) return false;
         Flash();
         if (!base.Hit(damage, out remainingDamage)) return false;
-        if (health > 0)
+        if (!isBoss && health > 0)
             Push(damage / (float)maxHealth);
         return true;
     }

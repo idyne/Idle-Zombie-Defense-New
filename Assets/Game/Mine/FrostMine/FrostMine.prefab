@@ -123,6 +123,7 @@ MonoBehaviour:
   sound: {fileID: 11400000, guid: 88bcceb9a60d2f445baff6e226dbf36b, type: 2}
   detonationSound: {fileID: 11400000, guid: c54aae3ce72841749ae361dc2544a708, type: 2}
   soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
+  maxCollider: 64
   durationUpgrade: {fileID: 11400000, guid: 5edb84e6ed03034488b81bb535317fb9, type: 2}
   baseDuration: 5
 --- !u!114 &2165550005417321656
