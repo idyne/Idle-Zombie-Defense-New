@@ -16,6 +16,7 @@ public class TapToSpeedUp : UIElement
     [SerializeField] private float impactDuration = 1.5f;
     [SerializeField] private float waitingDuration = 4;
     [SerializeField] private float multiplier = 2;
+    [SerializeField] private HapticPlayer hapticPlayer;
 
     private bool isGameStarted = false;
 
@@ -50,7 +51,7 @@ public class TapToSpeedUp : UIElement
     public void Tap()
     {
         onTappedToSpeedUp.Raise();
-        HapticManager.PlayHaptic();
+        hapticPlayer.PlayLightHaptic();
         Hide();
         SpeedUp();
         StartCountdown();

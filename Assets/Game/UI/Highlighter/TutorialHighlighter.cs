@@ -6,6 +6,8 @@ public class TutorialHighlighter : UIElement
 {
     static public TutorialHighlighter Instance;
     [SerializeField] private RectTransform darkLayer = null;
+    [SerializeField] private RectTransform container = null;
+    [SerializeField] private RectTransform centerContainer = null;
 
     private Transform lastHighlightedObject = null;
     private Transform lastHighilghtedObjectParent = null;
@@ -16,18 +18,21 @@ public class TutorialHighlighter : UIElement
         Instance = this;
     }
 
-    public bool Highlight(Transform UIObject)
+    public bool Highlight(RectTransform UIObject, bool anchorCenter = false)
     {
         if (lastHighlightedObject != null)
         {
             Debug.Log("There is already an highlighted object. But removed");
             Dehighlight(lastHighlightedObject);
         }
-
         Show();
+        Vector3 anchoredPosition = UIObject.anchoredPosition;
+        Vector3 scale = UIObject.localScale;
         lastHighilghtedObjectParent = UIObject.parent;
         lastHighlightedObject = UIObject;
-        UIObject.SetParent(darkLayer);
+        UIObject.SetParent(anchorCenter ? centerContainer : container);
+        UIObject.localScale = scale;
+        UIObject.anchoredPosition = anchoredPosition;
         return true;
     }
 

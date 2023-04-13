@@ -23,5 +23,5 @@ public class CloseBaseUpgradesPanelTutorial : TutorialData
 
 public partial class SaveData
 {
-    public bool CloseBaseUpgradesPanelTutorialPassed = true;
+    public bool CloseBaseUpgradesPanelTutorialPassed = false;
 }

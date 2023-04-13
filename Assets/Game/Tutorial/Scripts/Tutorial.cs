@@ -7,12 +7,13 @@ public class Tutorial : UIElement
 {
     [SerializeField] private GameManager gameManager;
     [SerializeReference] private TutorialData tutorialData;
-    private Transform targetObject = null;
+    private RectTransform targetObject = null;
+    [SerializeField] private bool anchorCenter = false;
 
     protected override void Awake()
     {
         base.Awake();
-        targetObject = transform.parent;
+        targetObject = transform.parent.GetComponent<RectTransform>();
     }
 
     public void CheckConditions()
@@ -21,7 +22,7 @@ public class Tutorial : UIElement
         {
             gameManager.PauseGame();
             Show();
-            TutorialHighlighter.Instance.Highlight(targetObject);
+            TutorialHighlighter.Instance.Highlight(targetObject, anchorCenter);
 
         }
     }

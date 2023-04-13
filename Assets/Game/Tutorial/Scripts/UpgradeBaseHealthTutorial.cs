@@ -23,5 +23,5 @@ public class UpgradeBaseHealthTutorial : TutorialData
 
 public partial class SaveData
 {
-    public bool UpgradeBaseHealthTutorialPassed = true;
+    public bool UpgradeBaseHealthTutorialPassed = false;
 }
