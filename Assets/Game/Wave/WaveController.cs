@@ -160,7 +160,7 @@ public class WaveController : MonoBehaviour
                 spawnPeriod /= eveningSpawnSpeed;
                 break;
         }
-        int seconds = Mathf.CeilToInt((wavePower - 100) * 140 / 2000f + 40);
+        int seconds = Mathf.CeilToInt((wavePower - 100) * 110 / 2000f + 40);
         int totalDamage = towerDPS.CalculateDamage(seconds);
         print("Seconds " + seconds);
         baseMaxHealth.Value = Mathf.CeilToInt(totalDamage / (float)wavePower);

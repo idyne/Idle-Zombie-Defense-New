@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FrostMineCountUpgrade
   m_EditorClassIdentifier: 
   zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
-  baseCost: 10
-  increasePerLevel: 10
+  baseCost: 75
+  increasePerLevel: 75
   prerequisites: []
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Frost Mine Count

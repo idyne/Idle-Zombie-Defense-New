@@ -893,10 +893,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 4138645249591346211}
   hideOnStart: 0
-  baseToolPerWave: 20
-  toolIncreasePerWave: 3
-  baseToolPerDay: 100
-  toolIncreasePerDay: 60
+  baseToolPerWave: 10
+  toolIncreasePerWave: 2
+  baseToolPerDay: 40
+  toolIncreasePerDay: 35
   baseMoneyPerWave: 150
   moneyIncreasePerWave: 50
   baseMoneyPerDay: 500
