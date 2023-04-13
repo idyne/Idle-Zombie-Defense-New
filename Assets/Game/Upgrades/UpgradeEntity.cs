@@ -30,16 +30,24 @@ public abstract class UpgradeEntity : ScriptableObject
     {
         get => limit >= 0 && Level >= limit;
     }
-    public bool Locked
+    public bool PrerequisitesMet
     {
         get
         {
+            if (prerequisites.Length == 0) return true;
             for (int i = 0; i < prerequisites.Length; i++)
             {
                 Prerequisite prerequisite = prerequisites[i];
                 if (!prerequisite.Met)
-                    return true;
+                    return false;
             }
+            return true;
+        }
+    }
+    public bool Locked
+    {
+        get
+        {
             int Day = zoneManager.Day;
             bool result = false;
             for (int i = 0; i < dayLimits.Length; i++)

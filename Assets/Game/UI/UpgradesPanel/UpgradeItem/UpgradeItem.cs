@@ -4,12 +4,15 @@ using UnityEngine;
 using FateGames.Core;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
+
 public class UpgradeItem : DynamicUIElement
 {
     [SerializeField] private Image icon;
     [SerializeField] private TextMeshProUGUI nameText, description, costText;
     [SerializeField] private UpgradeButton upgradeButton;
     [SerializeField] private PreparationUpgradeEntity upgradeEntity = null;
+    [SerializeField] private UnityEvent onUpgrade;
 
     protected override void Awake()
     {
@@ -24,6 +27,7 @@ public class UpgradeItem : DynamicUIElement
         upgradeEntity = entity;
         upgradeEntity.OnUpgrade.AddListener(UpdateElement);
         upgradeButton.OnClick.AddListener(upgradeEntity.BuyUpgrade);
+        upgradeButton.OnClick.AddListener(onUpgrade.Invoke);
         UpdateElement();
     }
 
@@ -48,6 +52,7 @@ public class UpgradeItem : DynamicUIElement
         }
         else if (upgradeEntity.Locked)
         {
+            //Debug.Log(upgradeEntity, upgradeEntity);
             upgradeButton.SwitchToInfo("Locked");
         }
         else

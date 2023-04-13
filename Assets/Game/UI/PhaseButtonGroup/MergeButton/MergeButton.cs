@@ -11,6 +11,9 @@ public class MergeButton : DynamicUIElement
     [SerializeField] private SaveDataVariable saveData;
     [SerializeField] private TextMeshProUGUI moneyText;
     [SerializeField] private Button button;
+    [SerializeField] private IntVariable canMergeLevel;
+    [SerializeField] private SoldierUnlockTable soldierUnlockTable;
+    [SerializeField] private GameObject moneyField, lockedField;
 
     protected override void Awake()
     {
@@ -32,8 +35,20 @@ public class MergeButton : DynamicUIElement
 
     public override void UpdateElement()
     {
-        button.interactable = saveData.CanAffordMoney(phaseUpgrade.Cost);
-        moneyText.text = MoneyField.numberFormat(phaseUpgrade.Cost);
+        int limitLevel = soldierUnlockTable.GetLastUnlockedSoldierLevel();
+        if (canMergeLevel.Value < limitLevel)
+        {
+            button.interactable = saveData.CanAffordMoney(phaseUpgrade.Cost);
+            moneyText.text = MoneyField.numberFormat(phaseUpgrade.Cost);
+            lockedField.SetActive(false);
+            moneyField.SetActive(true);
+        }
+        else
+        {
+            button.interactable = false;
+            moneyField.SetActive(false);
+            lockedField.SetActive(true);
+        }
     }
 
 
