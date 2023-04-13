@@ -8,6 +8,8 @@ public class Turret : Shooter
 {
     [SerializeField] private Animator animator;
     [SerializeField] private Transform head;
+    [SerializeField] private TurretDamageUpgradeEntity damageUpgrade;
+    [SerializeField] private float damageIncreaseRate = 1.2f;
 
     protected override bool FacedTarget
     {
@@ -27,6 +29,26 @@ public class Turret : Shooter
             // Return whether the shooter is accepted as faced to the target
             return Vector3.Angle(projectedForward, projectedDifference) <= angleThreshold;
         }
+    }
+
+    private void Start()
+    {
+        UpdateGunDamage();
+    }
+
+    public void UpdateGunDamage()
+    {
+        gun.BaseDamage = Mathf.CeilToInt(dps * Cooldown / dpsDivider * Mathf.Pow(damageIncreaseRate, damageUpgrade.Level));
+    }
+
+
+    private void OnEnable()
+    {
+        towerDPS.Register(this);
+    }
+    private void OnDisable()
+    {
+        towerDPS.Unregister(this);
     }
 
     public override void StartShooting()

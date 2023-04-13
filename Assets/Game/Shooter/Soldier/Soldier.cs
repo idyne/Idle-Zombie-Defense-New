@@ -45,6 +45,7 @@ public class Soldier : Shooter, IPooledObject
     {
         Log("OnObjectSpawn", false);
         Activate();
+        towerDPS.Register(this);
         if (waveState.Value == WaveController.WaveState.STARTED)
             StartTargeting();
     }
@@ -57,6 +58,7 @@ public class Soldier : Shooter, IPooledObject
         if (target)
             RemoveTarget();
         Deactivate();
+        towerDPS.Unregister(this);
         OnRelease.Invoke();
     }
 

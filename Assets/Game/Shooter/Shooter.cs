@@ -5,15 +5,17 @@ using FateGames.Core;
 using DG.Tweening;
 using UnityEngine.Events;
 
-public abstract class Shooter : FateMonoBehaviour
+public abstract class Shooter : FateMonoBehaviour, IDPSObject
 {
-    [SerializeField] private float dps = 10;
+    [SerializeField] protected int dpsDivider = 1;
+    [SerializeField] protected float dps = 10;
     [SerializeField] protected FloatVariable shootFrequencyMultiplier;
     [SerializeField] protected float range = 25;
     [SerializeField] protected float shootPeriod = 0.5f;
     [SerializeField] protected WaveStateVariable waveState;
     [SerializeField] protected ZombieSet targetableZombieSet;
     [SerializeField] protected FireRateUpgradeEntity fireRateUpgrade;
+    [SerializeField] protected TowerDPS towerDPS;
 
 
     protected Gun gun;
@@ -24,7 +26,7 @@ public abstract class Shooter : FateMonoBehaviour
     protected IEnumerator shootCoroutine;
     protected IEnumerator targetingRoutine;
     protected float lastShootTime = float.MinValue;
-    protected float Cooldown => (shootPeriod / (fireRateUpgrade.Level / fireRateUpgrade.Limit * 3 + 1)) / shootFrequencyMultiplier.Value;
+    protected float Cooldown => (shootPeriod / ((float)fireRateUpgrade.Level / fireRateUpgrade.Limit * 3 + 1)) / shootFrequencyMultiplier.Value;
     protected bool InCooldown { get => Time.time < lastShootTime + Cooldown; }
     protected bool Shooting { get => shootCoroutine != null; }
     protected bool Targeting { get => targetingRoutine != null; }
@@ -33,7 +35,7 @@ public abstract class Shooter : FateMonoBehaviour
     protected virtual void Awake()
     {
         gun = GetComponentInChildren<Gun>();
-        gun.BaseDamage = Mathf.CeilToInt(dps * shootPeriod);
+        gun.BaseDamage = Mathf.CeilToInt(dps * Cooldown / dpsDivider);
         // Wait until  gun is not in cooldown and the shooter is faced to the target
         waitUntilReadyToShoot = new WaitUntil(() => !InCooldown && FacedTarget);
     }
@@ -43,6 +45,10 @@ public abstract class Shooter : FateMonoBehaviour
         FaceTarget();
     }
 
+    public float GetDPS()
+    {
+        return dps;
+    }
 
     protected virtual bool FacedTarget
     {

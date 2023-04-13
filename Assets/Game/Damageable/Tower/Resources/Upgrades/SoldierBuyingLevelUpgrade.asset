@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a93903bea411b5944aef1d93875d1fb1, type: 3}
   m_Name: SoldierBuyingLevelUpgrade
   m_EditorClassIdentifier: 
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
   baseCost: 10
   increasePerLevel: 10
   prerequisites: []

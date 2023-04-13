@@ -12,14 +12,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 645aee4d057f4da41b4961b9bcb4cfea, type: 3}
   m_Name: TurretDamageUpgrade
   m_EditorClassIdentifier: 
-  prerequisites: []
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
+  baseCost: 10
+  increasePerLevel: 10
+  prerequisites:
+  - Entity: {fileID: 11400000, guid: 1b49db0afb543d44480afdcf39171163, type: 2}
+    Level: 1
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Turret Damage
   OnUpgrade:
     m_PersistentCalls:
-      m_Calls: []
-  Limit: -1
-  dayLimits: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 1a318a8baede4b54a9fa695ab49aa3b3, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  limit: 16
+  dayLimits:
+  - Day: 20
+    Limit: 2
+  - Day: 24
+    Limit: 5
+  - Day: 27
+    Limit: 8
+  - Day: 30
+    Limit: 11
+  - Day: 33
+    Limit: 14
   runtimeSet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
   icon: {fileID: 21300000, guid: 56917b31ddc44104a8fb6249103bc603, type: 3}
   description: +10 damage

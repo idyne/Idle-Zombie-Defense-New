@@ -11,6 +11,7 @@ public class Molotov : Throwable, IPooledObject
     [SerializeField] private float hitPeriod = 0.5f;
     [SerializeField] private float radius = 2.5f;
     [SerializeField] private int baseDamagePerSecond = 5;
+    [SerializeField] private float damageIncreaseRate = 2.14f;
     [SerializeField] private LayerMask damageableLayerMask;
     [SerializeField] private GameObject meshObject;
     [SerializeField] protected ObjectPool effectPool;
@@ -21,8 +22,8 @@ public class Molotov : Throwable, IPooledObject
     [SerializeField] private SoundEntity crackSound, burningSound;
     [SerializeField] private SoundManager soundManager;
     private SoundWorker burningSoundWorker;
-    private Vector3 offset = new (0, 1, 0);
-    public int damagePerSecond => baseDamagePerSecond * damageUpgrade.Level;
+    private Vector3 offset = new(0, 1, 0);
+    public int damagePerSecond => Mathf.CeilToInt(baseDamagePerSecond * Mathf.Pow(damageIncreaseRate, damageUpgrade.Level));
 
     private void Awake()
     {

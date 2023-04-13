@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ff59108a249f7746bacd39e658a0f52, type: 3}
   m_Name: MolotovCooldownUpgrade
   m_EditorClassIdentifier: 
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
+  baseCost: 10
+  increasePerLevel: 10
   prerequisites:
   - Entity: {fileID: 11400000, guid: b2a0d4ee2d6a0044f815fa827ea16fe6, type: 2}
     Level: 1
@@ -20,8 +23,16 @@ MonoBehaviour:
   OnUpgrade:
     m_PersistentCalls:
       m_Calls: []
-  Limit: -1
-  dayLimits: []
+  limit: 10
+  dayLimits:
+  - Day: 10
+    Limit: 2
+  - Day: 14
+    Limit: 4
+  - Day: 18
+    Limit: 6
+  - Day: 22
+    Limit: 8
   runtimeSet: {fileID: 11400000, guid: 01ac635c2fe21d24aa99be80383240cd, type: 2}
   icon: {fileID: 21300000, guid: 76edc8246a5d0be449fb82df59f2e3dd, type: 3}
   description: -2s molotov cooldown

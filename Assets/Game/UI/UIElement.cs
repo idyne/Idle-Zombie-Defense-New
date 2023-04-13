@@ -10,6 +10,7 @@ public class UIElement : FateMonoBehaviour
     private List<UIElement> children = new();
     private List<(UIElement, bool)> childrenStatesBeforeHide = new();
     private UIElement parentUIElement = null;
+    [SerializeField] private bool hideOnStart = false;
     public bool Hidden => !canvas.enabled;
 
     protected virtual void Awake()
@@ -17,6 +18,11 @@ public class UIElement : FateMonoBehaviour
         BindParentUIElement();
         if (!canvas.gameObject.activeSelf)
             Debug.LogError("Not Active", this);
+    }
+
+    private void Start()
+    {
+        if (hideOnStart) Hide();
     }
 
     private void BindParentUIElement()

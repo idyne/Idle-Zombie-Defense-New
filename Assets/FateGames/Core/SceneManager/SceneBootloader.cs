@@ -14,6 +14,7 @@ namespace FateGames.Core
         [SerializeField] private LevelManager levelManager;
         [SerializeField] private GameStateVariable gameState;
         [SerializeField] private FogController fogController;
+        [SerializeField] private TowerDPS towerDPS;
         [SerializeField] private UnityEvent onLevelFinishedLoading = new();
 
         private void Awake()
@@ -41,6 +42,7 @@ namespace FateGames.Core
                 gameState.Value = GameState.BEFORE_START;
                 zoneManager.Initialize();
                 baseUpgrades.InitializeItems();
+                towerDPS.Reset();
                 commanderUpgrades.InitializeItems();
                 fogController.Init();
                 onLevelFinishedLoading.Invoke();

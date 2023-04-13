@@ -16,6 +16,7 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] protected SaveDataVariable saveData;
     [SerializeField] protected ZombieSet zombieSet;
     [SerializeField] protected LayerMask enemyLayerMask;
+    [SerializeField] protected float enemyCheckingRadius = 1;
     [SerializeField] protected Renderer meshRenderer;
     [SerializeField] protected int mainMaterialIndex;
     [SerializeField] protected bool mechanim = false;
@@ -23,8 +24,6 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] protected SnapshotMeshAnimator meshAnimator;
     [SerializeField] private MoneyBurster moneyBurster;
     [SerializeField] private ObjectPool bloodSplash;
-    [SerializeField] private IntVariable towerPower;
-    [SerializeField] private float towerPowerEffect = 1;
 
     private int money = 1;
 
@@ -42,7 +41,7 @@ public class Zombie : Damageable, IPooledObject
     public bool InCooldown { get => Time.time < lastHitTime + cooldown; }
     public bool Flashing { get => flashCoroutine != null; }
     public bool CheckingEnemies { get => checkEnemiesRoutine != null; }
-    protected override int maxHealth => Mathf.CeilToInt(baseMaxHealth * towerPower * towerPowerEffect);
+    protected override int maxHealth => Mathf.CeilToInt(baseMaxHealth * level);
 
     private void Awake()
     {
@@ -56,7 +55,7 @@ public class Zombie : Damageable, IPooledObject
         agent.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
         agent.angularSpeed = 1440;
         agent.acceleration = 50;
-        agent.radius = 0.25f;
+        agent.radius = 0.15f;
         agent.enabled = false;
     }
 
@@ -107,10 +106,15 @@ public class Zombie : Damageable, IPooledObject
         SetCooldown(data.Cooldown);
         damage = data.Damage;
         SetColor(data.Color);
-        baseMaxHealth = data.MaxHealth;
+        //baseMaxHealth = data.MaxHealth;
         money = data.Money;
         ResetHealth();
         transform.localScale = data.Scale * Vector3.one;
+    }
+
+    public void SetBaseMaxHealth(int baseMaxHealth)
+    {
+        this.baseMaxHealth = baseMaxHealth;
     }
 
     public void SetCooldown(float cooldown)
@@ -153,10 +157,9 @@ public class Zombie : Damageable, IPooledObject
     protected void CheckEnemies()
     {
         Log("CheckEnemies", false);
-        float radius = 1f;
         int maxColliders = 1;
         Collider[] hitColliders = new Collider[maxColliders];
-        int numColliders = Physics.OverlapSphereNonAlloc(transform.position, radius, hitColliders, enemyLayerMask);
+        int numColliders = Physics.OverlapSphereNonAlloc(transform.position, enemyCheckingRadius, hitColliders, enemyLayerMask);
         if (numColliders > 0)
         {
             Stop();

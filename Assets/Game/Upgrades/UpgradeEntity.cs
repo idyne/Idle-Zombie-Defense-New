@@ -14,6 +14,7 @@ public abstract class UpgradeEntity : ScriptableObject
         public int Level;
         public bool Met => Entity.Level >= Level;
     }
+    [SerializeField] protected ZoneManager zoneManager;
     [SerializeField] protected int baseCost = 10;
     [SerializeField] protected int increasePerLevel = 10;
     [SerializeField] protected Prerequisite[] prerequisites = new Prerequisite[0];
@@ -39,7 +40,7 @@ public abstract class UpgradeEntity : ScriptableObject
                 if (!prerequisite.Met)
                     return true;
             }
-            int Day = 1;
+            int Day = zoneManager.Day;
             bool result = false;
             for (int i = 0; i < dayLimits.Length; i++)
             {
@@ -48,10 +49,6 @@ public abstract class UpgradeEntity : ScriptableObject
                 {
                     result = Level >= dayLimit.Limit;
                     break;
-                }
-                else if (i == dayLimits.Length - 1)
-                {
-                    result = Level >= dayLimit.Limit;
                 }
             }
             return result;

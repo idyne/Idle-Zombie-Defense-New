@@ -102,6 +102,7 @@ MonoBehaviour:
   levelManager: {fileID: 11400000, guid: e819ee089d988a04689f8f12ac7edac1, type: 2}
   gameState: {fileID: 11400000, guid: 35af722527cf21148bdd90a70a23f45e, type: 2}
   fogController: {fileID: 11400000, guid: b318ad7e8b70981458a40fe2efb27dce, type: 2}
+  towerDPS: {fileID: 11400000, guid: 9f0f23f54ccf73040800604e63f83467, type: 2}
   onLevelFinishedLoading:
     m_PersistentCalls:
       m_Calls:

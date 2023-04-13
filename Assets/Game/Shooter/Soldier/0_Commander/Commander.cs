@@ -7,7 +7,9 @@ using DG.Tweening;
 
 public class Commander : Soldier
 {
-    [SerializeField] protected float baseSkillCooldown = 10f;
+    [SerializeField] protected float damageIncreaseRate = 1.4f;
+    [SerializeField] protected float baseSkillCooldown = 30;
+    [SerializeField] protected float skillCooldownReductionPerLevel = 2;
     [SerializeField] protected ObjectPool throwableWeaponPool;
     [SerializeField] protected FloatVariable remainingCooldownPercent;
     [SerializeField] protected Transform throwableContainer;
@@ -19,7 +21,7 @@ public class Commander : Soldier
     private Vector3 lastKnownTargetPosition = Vector3.zero;
     private IEnumerator throwCoroutine;
 
-    public float SkillCooldown => baseSkillCooldown / saveData.Value.MolotovCooldownLevel;
+    public float SkillCooldown => baseSkillCooldown - saveData.Value.MolotovCooldownLevel * skillCooldownReductionPerLevel;
 
     private void Start()
     {
@@ -28,7 +30,7 @@ public class Commander : Soldier
 
     public void UpdateGunDamage()
     {
-        gun.BaseDamage *= damageUpgrade.Level + 1;
+        gun.BaseDamage = Mathf.CeilToInt(dps * Cooldown / dpsDivider * Mathf.Pow(damageIncreaseRate, damageUpgrade.Level));
     }
 
     public void UseSkill()

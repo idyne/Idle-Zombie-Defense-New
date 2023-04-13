@@ -112,6 +112,7 @@ MonoBehaviour:
   spawnCircleWidth: 5
   waveCleanPercentage: {fileID: 11400000, guid: e830386b94b6a3f42b2ba75e072da906,
     type: 2}
+  towerDPS: {fileID: 11400000, guid: 9f0f23f54ccf73040800604e63f83467, type: 2}
 --- !u!114 &-1964519365130282699
 MonoBehaviour:
   m_ObjectHideFlags: 0

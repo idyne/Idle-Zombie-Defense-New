@@ -65,7 +65,7 @@ public abstract class Mine : FateMonoBehaviour
             for (int i = 0; i < numColliders; i++)
             {
                 Zombie zombie = hitColliders[i].GetComponent<Zombie>();
-                OnExplosion(zombie);
+                OnExplosion(zombie, numColliders);
             }
 
         }
@@ -75,7 +75,7 @@ public abstract class Mine : FateMonoBehaviour
             visualEffectPool.Get<Transform>(transform.position, Quaternion.identity);
     }
 
-    protected abstract void OnExplosion(Zombie zombie);
+    protected abstract void OnExplosion(Zombie zombie, int numberOfAffectedZombies = 1);
 
     private void OnTriggerEnter(Collider other)
     {

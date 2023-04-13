@@ -65,7 +65,7 @@ PrefabInstance:
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: dps
-      value: 9720
+      value: 771750
       objectReference: {fileID: 0}
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}

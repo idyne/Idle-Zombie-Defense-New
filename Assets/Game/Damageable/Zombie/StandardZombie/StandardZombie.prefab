@@ -56,7 +56,7 @@ MonoBehaviour:
   OnDied:
     m_PersistentCalls:
       m_Calls: []
-  incomeIncrease: 0.1
+  incomeIncrease: 1
   deadZombiePool: {fileID: 11400000, guid: bb7cd5b345e4ac146bfd6fabf9b7eef8, type: 2}
   levelData:
   - {fileID: 0}
@@ -107,6 +107,7 @@ MonoBehaviour:
   enemyLayerMask:
     serializedVersion: 2
     m_Bits: 1536
+  enemyCheckingRadius: 1
   meshRenderer: {fileID: 7479532135112553127}
   mainMaterialIndex: 0
   mechanim: 0
@@ -114,8 +115,6 @@ MonoBehaviour:
   meshAnimator: {fileID: 5549350997571715631}
   moneyBurster: {fileID: 11400000, guid: a7e2b78f74b35d4428d1c70bd1838f46, type: 2}
   bloodSplash: {fileID: 11400000, guid: 1bf97326a80e9754da1d4d8f186b965d, type: 2}
-  towerPower: {fileID: 11400000, guid: f89f100a05bb58f4bb7daed24bb1a572, type: 2}
-  towerPowerEffect: 1
 --- !u!114 &5479262175502859983
 MonoBehaviour:
   m_ObjectHideFlags: 0

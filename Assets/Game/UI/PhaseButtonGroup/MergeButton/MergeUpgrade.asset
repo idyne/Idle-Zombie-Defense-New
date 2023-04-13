@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 758345201a771174fa85bf7d4e83a483, type: 3}
   m_Name: MergeUpgrade
   m_EditorClassIdentifier: 
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
+  baseCost: 100
+  increasePerLevel: 150
+  prerequisites: []
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Merge
   OnUpgrade:
@@ -29,5 +33,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Limit: -1
+  limit: -1
   dayLimits: []

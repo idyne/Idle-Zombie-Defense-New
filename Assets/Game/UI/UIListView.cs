@@ -12,6 +12,13 @@ public class UIListView : FateMonoBehaviour
     {
         RearrangeItems();
     }
+    public void GoToUp()
+    {
+        RectTransform rectTransform = GetComponent<RectTransform>();
+        Vector2 position = rectTransform.anchoredPosition;
+        position.y = 0;
+        rectTransform.anchoredPosition = position;
+    }
     public void AddItem(RectTransform rectTransform)
     {
         rectTransform.SetParent(transform);

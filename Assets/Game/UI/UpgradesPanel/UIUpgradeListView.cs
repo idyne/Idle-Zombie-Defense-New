@@ -23,7 +23,6 @@ public class UIUpgradeListView : UIElement
 
     public void Rebuild()
     {
-        Debug.Log("Rebuild", this);
         Clear();
         int count = upgradeEntitySet.Items.Count;
         PreparationUpgradeEntity[] upgradeEntities = new PreparationUpgradeEntity[count];
@@ -36,6 +35,7 @@ public class UIUpgradeListView : UIElement
             UpgradeItem item = listView.AddItem<UpgradeItem>(upgradeItemPrefab);
             item.Set(upgradeEntity);
         }
+        listView.GoToUp();
     }
 
     public void Clear()
