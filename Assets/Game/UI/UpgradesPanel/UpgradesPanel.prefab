@@ -400,6 +400,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: b7ecbe832a862d34dba6fe48afd7513d, type: 2}
+          m_TargetAssemblyTypeName: HapticPlayer, Assembly-CSharp
+          m_MethodName: PlayLightHaptic
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &8780657612377986863
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,6 +685,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 505456448798665616}
     m_Modifications:
+    - target: {fileID: 869066051478400395, guid: 1c7e00869db1acc45a34ec0fd4a53ed8,
+        type: 3}
+      propertyPath: m_Size
+      value: 0.9341012
+      objectReference: {fileID: 0}
+    - target: {fileID: 869066051478400395, guid: 1c7e00869db1acc45a34ec0fd4a53ed8,
+        type: 3}
+      propertyPath: m_Value
+      value: 0.0000018523904
+      objectReference: {fileID: 0}
     - target: {fileID: 1820506171926341926, guid: 1c7e00869db1acc45a34ec0fd4a53ed8,
         type: 3}
       propertyPath: m_Pivot.x
@@ -792,6 +814,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3341305667527118355, guid: 1c7e00869db1acc45a34ec0fd4a53ed8,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 65.8988
       objectReference: {fileID: 0}
     - target: {fileID: 4378290793255807397, guid: 1c7e00869db1acc45a34ec0fd4a53ed8,
         type: 3}

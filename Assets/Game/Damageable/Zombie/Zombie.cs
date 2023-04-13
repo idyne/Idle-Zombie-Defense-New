@@ -23,7 +23,7 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] protected Animator animator;
     [SerializeField] protected SnapshotMeshAnimator meshAnimator;
     [SerializeField] private MoneyBurster moneyBurster;
-    [SerializeField] private ObjectPool bloodSplash;
+    [SerializeField] private ObjectPool bloodSplash, levitatingTextPool;
     private ZombieLevelData currentLevelData;
     private int money = 1;
 
@@ -283,6 +283,7 @@ public class Zombie : Damageable, IPooledObject
     {
         Log("DropMoney", false);
         int money = Mathf.CeilToInt(this.money + level * saveData.Value.IncomeLevel * incomeIncrease);
+        levitatingTextPool.Get<LevitatingText>(transform.position + Vector3.up * 3, Quaternion.identity).SetText("$" + MoneyField.numberFormat(money));
         if (moneyBurster) moneyBurster.Burst(money, transform.position);
     }
 

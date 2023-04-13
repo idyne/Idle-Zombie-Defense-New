@@ -195,6 +195,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: b7ecbe832a862d34dba6fe48afd7513d, type: 2}
+        m_TargetAssemblyTypeName: HapticPlayer, Assembly-CSharp
+        m_MethodName: PlayLightHaptic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &167125748064169257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -208,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 8919782765376225680}
-  deactivateOnHide: 1
+  hideOnStart: 0
   notification: {fileID: 6326205168499279559}
   set: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
   tutorialData: {fileID: 11400000, guid: 7a7b509fc9ae05147829f0ddb1854dbb, type: 2}
