@@ -62,6 +62,10 @@ public class Bullet : FateMonoBehaviour, IPooledObject
                 Damageable damageable = hitColliders[i].GetComponent<Damageable>();
                 Hit(damageable);
             }
+            if (damage > 0)
+            {
+                ShootToDamageable();
+            }
         }
         else
         {
@@ -91,8 +95,9 @@ public class Bullet : FateMonoBehaviour, IPooledObject
     {
         Log("Hit", false);
         if (hitDamageables.Contains(damageable)) return;
-        damageable.Hit(damage);
+        damageable.Hit(damage, out int remainingDamage);
         hitDamageables.Add(damageable);
+        this.damage = remainingDamage;
     }
 
     public virtual void Release()

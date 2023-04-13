@@ -21,9 +21,10 @@ public abstract class Damageable : FateMonoBehaviour
         Log("OnEnable", false);
         ResetHealth();
     }
-
-    public virtual bool Hit(int damage)
+    public bool Hit(int damage) => Hit(damage, out _);
+    public virtual bool Hit(int damage, out int remainingDamage)
     {
+        remainingDamage = Mathf.Clamp(damage - health, 0, damage);
         Log("Hit", false);
         if (health <= 0) return false;
         SetHealth(health - damage);

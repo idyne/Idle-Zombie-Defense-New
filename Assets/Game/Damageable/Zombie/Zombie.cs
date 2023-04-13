@@ -24,7 +24,7 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] protected SnapshotMeshAnimator meshAnimator;
     [SerializeField] private MoneyBurster moneyBurster;
     [SerializeField] private ObjectPool bloodSplash;
-
+    private ZombieLevelData currentLevelData;
     private int money = 1;
 
     private IEnumerator flashCoroutine = null;
@@ -68,7 +68,7 @@ public class Zombie : Damageable, IPooledObject
     public void Freeze(float duration)
     {
         Unfreeze();
-        ZombieLevelData data = levelData[level];
+        ZombieLevelData data = currentLevelData;
         SetSpeed(data.Speed / 2f);
         SetCooldown(data.Cooldown * 2f);
         Color originalColor = data.Color;
@@ -81,7 +81,7 @@ public class Zombie : Damageable, IPooledObject
         if (!Frozen) return;
         freezeTween.Kill();
         freezeTween = null;
-        ZombieLevelData data = levelData[level];
+        ZombieLevelData data = currentLevelData;
         SetSpeed(data.Speed);
         SetColor(data.Color);
         SetCooldown(data.Cooldown);
@@ -95,26 +95,23 @@ public class Zombie : Damageable, IPooledObject
     public void SetLevel(int level)
     {
         Log("SetLevel", false);
-        this.level = Mathf.Clamp(level, 1, levelData.Count);
-        SetAttributes(levelData[this.level]);
+        this.level = level;
+        int levelDataIndex = Mathf.Clamp(level, 1, levelData.Count - 1);
+        SetAttributes(levelData[levelDataIndex]);
     }
 
     public void SetAttributes(ZombieLevelData data)
     {
         Log("SetAttributes", false);
+        currentLevelData = data;
         SetSpeed(data.Speed);
         SetCooldown(data.Cooldown);
-        damage = data.Damage;
+        damage = data.BaseDamage.Value * level;
         SetColor(data.Color);
-        //baseMaxHealth = data.MaxHealth;
-        money = data.Money;
+        money = data.BaseMoney.Value * level;
+        baseMaxHealth = data.BaseMaxHealth.Value;
         ResetHealth();
         transform.localScale = data.Scale * Vector3.one;
-    }
-
-    public void SetBaseMaxHealth(int baseMaxHealth)
-    {
-        this.baseMaxHealth = baseMaxHealth;
     }
 
     public void SetCooldown(float cooldown)
@@ -200,11 +197,12 @@ public class Zombie : Damageable, IPooledObject
         //StopCheckingEnemies();
     }
 
-    public override bool Hit(int damage)
+    public override bool Hit(int damage, out int remainingDamage)
     {
+        remainingDamage = damage;
         if (health <= 0) return false;
         Flash();
-        if (!base.Hit(damage)) return false;
+        if (!base.Hit(damage, out remainingDamage)) return false;
         if (health > 0)
             Push(damage / (float)maxHealth);
         return true;
@@ -226,7 +224,7 @@ public class Zombie : Damageable, IPooledObject
         {
             SetColor(Color.white);
             yield return new WaitForSeconds(0.05f);
-            SetColor(levelData[level].Color);
+            SetColor(currentLevelData.Color);
         }
         flashCoroutine = flash();
         StartCoroutine(flashCoroutine);
@@ -273,7 +271,7 @@ public class Zombie : Damageable, IPooledObject
         DropMoney();
         zombieSet.Remove(this);
         DeadStandardZombie deadZombie = deadZombiePool.Get<DeadStandardZombie>(transform.position, Quaternion.identity);
-        deadZombie.Initialize(levelData[level], transform);
+        deadZombie.Initialize(currentLevelData, transform);
         deadZombie.Animate();
         bloodSplash.Get<Transform>(shotPoint.position, Quaternion.identity);
         OnDied.Invoke();
@@ -284,7 +282,7 @@ public class Zombie : Damageable, IPooledObject
     public void DropMoney()
     {
         Log("DropMoney", false);
-        int money = Mathf.CeilToInt(this.money + saveData.Value.IncomeLevel * incomeIncrease);
+        int money = Mathf.CeilToInt(this.money + level * saveData.Value.IncomeLevel * incomeIncrease);
         if (moneyBurster) moneyBurster.Burst(money, transform.position);
     }
 

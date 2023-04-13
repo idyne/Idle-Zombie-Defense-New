@@ -28,9 +28,22 @@ public class WaveController : MonoBehaviour
     private int numberOfDeadZombiesInWave = 0;
     private int remainingZombiesToSpawn = 0;
     private List<int> zombieTable = new();
-    private int baseMaxHealth = 10;
+    [SerializeField] private IntVariable baseMaxHealth;
     [SerializeField] private FloatVariable waveCleanPercentage;
     [SerializeField] private TowerDPS towerDPS;
+    private int numberOfZombieLevels = 10;
+    private int anchorLevel
+    {
+        get
+        {
+            float normalizedDay = (float)zoneManager.Day / zoneManager.NumberOfDays;
+            int anchorLevel = Mathf.CeilToInt(numberOfZombieLevels * normalizedDay);
+            print(anchorLevel);
+            return anchorLevel;
+        }
+    }
+    private int dayBossLevel => anchorLevel * 20;
+    private int zoneBossLevel => anchorLevel * 30;
     public int WavePower
     {
         get
@@ -64,66 +77,6 @@ public class WaveController : MonoBehaviour
         InitializeSpawnPoints();
         waveCleanPercentage.Value = 0;
     }
-
-    /*
-    private List<int> _GenerateZombieTable(int power, int maxZombieLevel, int maxNumberOfZombies, out int numberOfZombies)
-    {
-        power = Mathf.Clamp(power, 1, maxNumberOfZombies * maxZombieLevel);
-        int groupPower = power / maxZombieLevel;
-        List<int> zombieTable = new() { 0 };
-        int total = 0;
-        for (int i = 1; i <= maxZombieLevel; i++)
-        {
-            int number = groupPower / i;
-            total += number;
-            zombieTable.Add(number);
-        }
-
-        int currentPower = 0;
-
-        for (int i = 1; i < zombieTable.Count; i++)
-        {
-            currentPower += zombieTable[i] * i;
-        }
-
-        zombieTable[1] += power - currentPower;
-
-        int count = 0;
-        while (zombieTable.Sum() > maxNumberOfZombies && count++ < 500)
-        {
-            int maxIndex = zombieTable.IndexOfMax(1, maxZombieLevel - 1);
-            int minIndex = zombieTable.IndexOfMin(maxIndex + 1, maxZombieLevel);
-            if (maxIndex > minIndex)
-            {
-                maxIndex = zombieTable.IndexOfMax(1, maxZombieLevel);
-                minIndex = zombieTable.IndexOfMin(1, maxZombieLevel);
-            }
-            int[] numbers = new int[] { minIndex, maxIndex };
-            int lcm = test(numbers);
-            zombieTable[minIndex] += lcm / minIndex;
-            zombieTable[maxIndex] -= lcm / maxIndex;
-        }
-
-
-        numberOfZombies = zombieTable.Sum();
-        List<int> result = new();
-        for (int i = 1; i < zombieTable.Count; i++)
-        {
-            int zombieCount = zombieTable[i];
-            for (int j = 0; j < zombieCount; j++)
-            {
-                result.Add(i);
-            }
-        }
-        result.Shuffle();
-        for (int i = 1; i < zombieTable.Count; i++)
-        {
-            print(i + ": " + zombieTable[i]);
-        }
-        print(zombieTable.Sum());
-        return result;
-
-    }*/
 
     static int gcd(int n1, int n2)
     {
@@ -182,7 +135,7 @@ public class WaveController : MonoBehaviour
         onWaveClearPercentChanged.Invoke();
         //List<int> zombieTable = _GenerateZombieTable(WavePower, 6, WaveSize, out int numberOfZombies);
         print("numberofdays " + zoneManager.NumberOfDays);
-        List<int> zombieTable = GenerateZombieTable(WavePower, Mathf.Clamp(zoneManager.Day - 15, 1, zoneManager.NumberOfDays), Mathf.Clamp(zoneManager.Day + 4, 1, zoneManager.NumberOfDays), out int numberOfZombies);
+        List<int> zombieTable = GenerateZombieTable(WavePower, Mathf.Clamp(anchorLevel - 3, 1, numberOfZombieLevels), Mathf.Clamp(anchorLevel + 1, 1, numberOfZombieLevels), out int numberOfZombies);
         remainingZombiesToSpawn = numberOfZombies;
         if (zoneManager.IsNight) remainingZombiesToSpawn++;
         // Spawns zombies from the zombie table in random order
@@ -193,9 +146,9 @@ public class WaveController : MonoBehaviour
             case 0:
                 spawnPeriod /= nightSpawnSpeed;
                 if (zoneManager.IsLastDayOfZone())
-                    wavePower += Mathf.Clamp(zoneManager.Day + 5, 1, zoneManager.NumberOfDays) * 15;
+                    wavePower += zoneBossLevel;
                 else
-                    wavePower += Mathf.Clamp(zoneManager.Day + 5, 1, zoneManager.NumberOfDays) * 10;
+                    wavePower += dayBossLevel;
                 break;
             case 1:
                 spawnPeriod /= morningSpawnSpeed;
@@ -208,10 +161,11 @@ public class WaveController : MonoBehaviour
                 break;
         }
         int seconds = Mathf.CeilToInt((wavePower - 100) * 140 / 2000f + 40);
-        baseMaxHealth = Mathf.CeilToInt(towerDPS.CalculateDamage(60) / (float)wavePower);
+        print("Seconds " + seconds);
+        baseMaxHealth.Value = Mathf.CeilToInt(towerDPS.CalculateDamage(seconds) / (float)wavePower);
         print("Wave Size: " + numberOfZombies);
-        print("Damage: " + towerDPS.CalculateDamage(60));
-        print("WavePower: " + WavePower);
+        print("Damage: " + towerDPS.CalculateDamage(seconds));
+        print("WavePower: " + wavePower);
         print("BaseHealth: " + baseMaxHealth);
         WaitForSeconds waitForSeconds = new(spawnPeriod);
         IEnumerator spawnZombies(int count)
@@ -222,11 +176,11 @@ public class WaveController : MonoBehaviour
                 {
                     if (zoneManager.IsLastDayOfZone())
                     {
-                        SpawnZombie(Mathf.Clamp(zoneManager.Day + 5, 1, zoneManager.NumberOfDays), ZombieType.ZONE_BOSS);
+                        SpawnZombie(zoneBossLevel, ZombieType.ZONE_BOSS);
                     }
                     else
                     {
-                        SpawnZombie(Mathf.Clamp(zoneManager.Day + 5, 1, zoneManager.NumberOfDays), ZombieType.DAY_BOSS);
+                        SpawnZombie(dayBossLevel, ZombieType.DAY_BOSS);
                     }
                 }
                 yield break;
@@ -240,8 +194,6 @@ public class WaveController : MonoBehaviour
         }
         zombieSpawningCoroutine = spawnZombies(numberOfZombies);
         StartCoroutine(zombieSpawningCoroutine);
-        // Checks if the phase is night, if so spawn boss
-        // TODO implement here
     }
 
     public void StopSpawning()
@@ -257,23 +209,20 @@ public class WaveController : MonoBehaviour
         //Debug.Log("SpawnZombie " + level, this);
         Vector3 position = GetSpawnPosition();
         Zombie zombie;
-        int baseMaxHealth = this.baseMaxHealth;
         switch (type)
         {
             case ZombieType.DAY_BOSS:
+                print("DayBossLevel: " + level);
                 zombie = dayBossPool.Get<Zombie>(position, Quaternion.identity);
-                baseMaxHealth *= 10;
                 break;
             case ZombieType.ZONE_BOSS:
                 zombie = zoneBossPool.Get<Zombie>(position, Quaternion.identity);
-                baseMaxHealth *= 15;
                 break;
             default:
                 zombie = standardZombiePool.Get<Zombie>(position, Quaternion.identity);
                 break;
         }
 
-        zombie.SetBaseMaxHealth(baseMaxHealth);
         zombie.SetLevel(level);
         numberOfZombiesInWave++;
         remainingZombiesToSpawn--;
@@ -286,42 +235,12 @@ public class WaveController : MonoBehaviour
     {
         numberOfDeadZombiesInWave++;
         numberOfZombiesInWave--;
-        /*Debug.Log("numberOfZombiesInWave: " + numberOfZombiesInWave +
-            "\nremainingZombiesToSpawn: " + remainingZombiesToSpawn +
-            "\nnumberOfDeadZombiesInWave: " + numberOfDeadZombiesInWave + 
-            "\ntotal: " + (numberOfZombiesInWave + remainingZombiesToSpawn + numberOfDeadZombiesInWave));*/
         waveCleanPercentage.Value = 1f - (numberOfZombiesInWave + remainingZombiesToSpawn) / (float)(numberOfZombiesInWave + remainingZombiesToSpawn + numberOfDeadZombiesInWave);
         onWaveClearPercentChanged.Invoke();
         if (IsWaveCleared)
             OnWaveCleared();
     }
-    /*
-    private List<int> GenerateZombieTable(int power, int maxZombieLevel, out int numberOfZombies)
-    {
-        //Debug.Log("GenerateZombieTable", this);
-        numberOfZombies = 0;
-        List<int> zombieTable = new() { -1, power / maxZombieLevel };
-        for (int i = 2; i < maxZombieLevel + 1; i++)
-            zombieTable.Add(zombieTable[1] / i);
-        int currentPower = 0;
-        for (int i = 1; i < zombieTable.Count; i++)
-            currentPower += i * zombieTable[i];
-        zombieTable[1] += power - currentPower;
-        for (int i = 1; i < zombieTable.Count; i++)
-            numberOfZombies += zombieTable[i];
-        List<int> result = new();
-        for (int i = 1; i < zombieTable.Count; i++)
-        {
-            int zombieCount = zombieTable[i];
-            for (int j = 0; j < zombieCount; j++)
-            {
-                result.Add(i);
-            }
-        }
-        result.Shuffle();
-        return result;
-    }
-    */
+
     public void OnWaveCleared()
     {
         waveState.Value = WaveState.CLEARED;
@@ -349,8 +268,6 @@ public class WaveController : MonoBehaviour
         int count = 0;
         do
         {
-            if (count > 0)
-                print(count);
             position = Quaternion.Euler(0, Random.Range(0f, 360f), 0) * Vector3.right * spawnCircleRadius;
             position += position.normalized * Random.Range(0, spawnCircleWidth);
         } while (count++ < 100 && !NavMesh.SamplePosition(position, out NavMeshHit hit, 0.5f, NavMesh.AllAreas));
