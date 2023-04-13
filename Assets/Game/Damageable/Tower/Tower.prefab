@@ -142,7 +142,7 @@ MonoBehaviour:
         m_CallState: 2
   lastAchievedSoldierLevel: {fileID: 11400000, guid: e5a5881e4b5b5914b945cc9ed85d9c52,
     type: 2}
-  soldierUnlockTable: {fileID: 11400000, guid: df5ed0cc3542d1843969275cd6c71e8c, type: 2}
+  canMergeLevel: {fileID: 11400000, guid: c650cd648e55a5b4b819422499b2d1fb, type: 2}
   pointContainer: {fileID: 1237794159947781251}
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   OnMergeAvailable:
