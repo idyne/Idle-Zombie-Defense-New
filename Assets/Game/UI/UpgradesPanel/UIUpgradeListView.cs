@@ -13,29 +13,36 @@ public class UIUpgradeListView : UIElement
     protected override void Awake()
     {
         base.Awake();
-        upgradeEntitySet.OnChange.AddListener(Rebuild);
+        upgradeEntitySet.OnChange.AddListener(RebuildSorted);
     }
 
     private void Start()
     {
-        Rebuild();
+        RebuildSorted();
     }
 
-    public void Rebuild()
+    public void RebuildSorted() => Rebuild(true);
+    public void RebuildUnsorted() => Rebuild();
+
+    public void Rebuild(bool sort = false)
     {
         Clear();
         int count = upgradeEntitySet.Items.Count;
         PreparationUpgradeEntity[] upgradeEntities = new PreparationUpgradeEntity[count];
         upgradeEntitySet.Items.CopyTo(upgradeEntities, 0);
-        upgradeEntities = upgradeEntities.OrderBy((item) => item.Locked).ThenBy((item) => item.MaxedOut).ThenBy((item) => item.Cost).ToArray();
+        if (sort)
+            upgradeEntities = upgradeEntities.OrderBy((item) => item.Locked).ThenBy((item) => item.MaxedOut).ThenBy((item) => item.Cost).ToArray();
         for (int i = 0; i < count; i++)
         {
             PreparationUpgradeEntity upgradeEntity = upgradeEntities[i];
-            //if (upgradeEntity.Locked) break;
+            if (!upgradeEntity.PrerequisitesMet || upgradeEntity.MaxedOut || upgradeEntity.Locked)
+            {
+                continue;
+            }
             UpgradeItem item = listView.AddItem<UpgradeItem>(upgradeItemPrefab);
             item.Set(upgradeEntity);
         }
-        listView.GoToUp();
+        //listView.GoToUp();
     }
 
     public void Clear()

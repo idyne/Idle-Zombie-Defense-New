@@ -8,7 +8,7 @@ public class UIElement : FateMonoBehaviour
 {
     [SerializeField] private Canvas canvas;
     private List<UIElement> children = new();
-    private List<(UIElement, bool)> childrenStatesBeforeHide = new();
+    private Dictionary<UIElement, bool> childrenStatesBeforeHide = new();
     private UIElement parentUIElement = null;
     [SerializeField] private bool hideOnStart = false;
     public bool Hidden => !canvas.enabled;
@@ -42,6 +42,11 @@ public class UIElement : FateMonoBehaviour
     {
         children.Add(child);
     }
+    public void RemoveChild(UIElement child)
+    {
+        children.Remove(child);
+        childrenStatesBeforeHide.Remove(child);
+    }
 
     public Canvas Canvas { get => canvas; }
 
@@ -53,7 +58,7 @@ public class UIElement : FateMonoBehaviour
         childrenStatesBeforeHide.Clear();
         foreach (UIElement child in children)
         {
-            childrenStatesBeforeHide.Add((child, !child.Hidden));
+            childrenStatesBeforeHide.Add(child, !child.Hidden);
             child.Hide();
         }
     }
@@ -63,11 +68,17 @@ public class UIElement : FateMonoBehaviour
         //Debug.Log("Show " + name, this);
         if (parentUIElement && parentUIElement.Hidden) return;
         canvas.enabled = true;
-        for (int i = 0; i < childrenStatesBeforeHide.Count; i++)
+        foreach (UIElement child in childrenStatesBeforeHide.Keys)
         {
-            (UIElement, bool) childState = childrenStatesBeforeHide[i];
-            if (childState.Item2) childState.Item1.Show();
+            if (childrenStatesBeforeHide[child]) child.Show();
         }
         childrenStatesBeforeHide.Clear();
+    }
+
+    private void OnDestroy()
+    {
+        if (parentUIElement)
+            parentUIElement.RemoveChild(this);
+        parentUIElement = null;
     }
 }

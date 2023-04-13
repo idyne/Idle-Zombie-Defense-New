@@ -404,6 +404,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 6918829554326343749}
+  hideOnStart: 0
   upgradeItemPrefab: {fileID: 8942810526086870947, guid: d48c7660d9ce6954289f5fc76f38b28c,
     type: 3}
   upgradeEntitySet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
@@ -415,18 +416,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4378290793255807397}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: bc996635b8f79ba44a55a38215ffab27, type: 2}
+  Event: {fileID: 11400000, guid: 8d60edc172d118345a78c9a6bbc04766, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1004469001078712900}
         m_TargetAssemblyTypeName: UIUpgradeListView, Assembly-CSharp
-        m_MethodName: Rebuild
+        m_MethodName: RebuildUnsorted
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

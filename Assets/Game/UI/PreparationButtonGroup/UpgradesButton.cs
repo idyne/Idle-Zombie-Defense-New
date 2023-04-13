@@ -6,9 +6,11 @@ public class UpgradesButton : UIElement
 {
     [SerializeField] private UIElement notification;
     [SerializeField] private UpgradeListEntityRuntimeSet set;
+    private bool isNotificationLocked = false;
 
     public void CheckNotification()
     {
+        if (isNotificationLocked) return;
         notification.Hide();
         for (int i = 0; i < set.Items.Count; i++)
         {
@@ -20,4 +22,6 @@ public class UpgradesButton : UIElement
             }
         }
     }
+    public void LockNotification() => isNotificationLocked = true;
+    public void UnlockNotification() => isNotificationLocked = false;
 }
