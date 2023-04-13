@@ -91,13 +91,14 @@ public class Bullet : FateMonoBehaviour, IPooledObject
     {
         Hit(damageable, damage);
     }
-    protected void Hit(Damageable damageable, int damage)
+    protected void Hit(Damageable damageable, int damage, bool pierce = true)
     {
         Log("Hit", false);
         if (hitDamageables.Contains(damageable)) return;
         damageable.Hit(damage, out int remainingDamage);
         hitDamageables.Add(damageable);
-        this.damage = remainingDamage;
+        if (pierce)
+            this.damage = remainingDamage;
     }
 
     public virtual void Release()

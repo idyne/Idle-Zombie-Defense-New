@@ -82,7 +82,7 @@ public class ExplosiveBullet : Bullet, IPooledObject
         soundManager.PlaySound(sound, transform.position);
         DeactivateMesh();
         DetachTrail();
-        int maxColliders = 30;
+        int maxColliders = 10;
         Collider[] hitColliders = new Collider[maxColliders];
         int numColliders = Physics.OverlapSphereNonAlloc(transform.position, areaOfEffectRadius, hitColliders, damageableLayerMask);
         if (numColliders > 0)
@@ -90,7 +90,7 @@ public class ExplosiveBullet : Bullet, IPooledObject
             for (int i = 0; i < numColliders; i++)
             {
                 Damageable damageable = hitColliders[i].GetComponent<Damageable>();
-                Hit(damageable, damage / numColliders);
+                Hit(damageable, damage / numColliders, false);
             }
 
         }
