@@ -16,10 +16,8 @@ public class UIListView : FateMonoBehaviour
     {
         RectTransform rectTransform = GetComponent<RectTransform>();
         Vector2 position = rectTransform.anchoredPosition;
-        Debug.Log(position, this);
         position.y = 0;
         rectTransform.anchoredPosition = position;
-        Debug.Log(rectTransform.anchoredPosition, this);
     }
     public void AddItem(RectTransform rectTransform)
     {

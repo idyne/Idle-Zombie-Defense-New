@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 7876717425999811573}
   m_Layer: 7
   m_Name: ZoneBoss
-  m_TagString: Untagged
+  m_TagString: Zombie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -124,48 +124,48 @@ MonoBehaviour:
   deadZombiePool: {fileID: 11400000, guid: bb7cd5b345e4ac146bfd6fabf9b7eef8, type: 2}
   levelData:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
-  - {fileID: 11400000, guid: c2fbaac61b65f8340b2d4e66be216885, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 8393d915b603bff4fb39f9fa9dc70701, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 1ee02e8e24b61864ba8277160376a7fc, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: e756244a44f9a654791208b734dc29fb, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: ad4e023cfd379464aaeb87c24d4388b2, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 93f7f1a0ad4c76e4d8da3b27c6c9cc46, type: 2}
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   zombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c, type: 2}
   enemyLayerMask:
@@ -178,8 +178,6 @@ MonoBehaviour:
   meshAnimator: {fileID: 0}
   moneyBurster: {fileID: 11400000, guid: a7e2b78f74b35d4428d1c70bd1838f46, type: 2}
   bloodSplash: {fileID: 11400000, guid: 1bf97326a80e9754da1d4d8f186b965d, type: 2}
-  towerPower: {fileID: 11400000, guid: f89f100a05bb58f4bb7daed24bb1a572, type: 2}
-  towerPowerEffect: 1
 --- !u!136 &1551445368567017565
 CapsuleCollider:
   m_ObjectHideFlags: 0

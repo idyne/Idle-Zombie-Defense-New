@@ -152,7 +152,7 @@ PrefabInstance:
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: dps
-      value: 1080
+      value: 5145
       objectReference: {fileID: 0}
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
@@ -165,6 +165,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: d2a2217d31c39ee4587b9aa3fdfd80b5,
         type: 2}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: shootPeriod
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: hipsTransform

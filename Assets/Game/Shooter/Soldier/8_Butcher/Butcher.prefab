@@ -62,6 +62,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3782793973286864046, guid: 5ae51306385e3d94a934154fc0725a98,
+        type: 3}
+      propertyPath: shotSize
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7892615209185785116, guid: 5ae51306385e3d94a934154fc0725a98,
         type: 3}
       propertyPath: m_Name
@@ -152,13 +157,18 @@ PrefabInstance:
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: dps
-      value: 3240
+      value: 63000
       objectReference: {fileID: 0}
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: animator
       value: 
       objectReference: {fileID: 1922163111198961135}
+    - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
+        type: 3}
+      propertyPath: dpsDivider
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2339560753220366019, guid: 80a689825b672384a8185ba45d19f58b,
         type: 3}
       propertyPath: soldierSet

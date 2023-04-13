@@ -19,7 +19,7 @@ public class Bullet : FateMonoBehaviour, IPooledObject
     [SerializeField] protected float speed = 40;
     [SerializeField] protected float radius = 0.5f;
     [SerializeField] protected LayerMask damageableLayerMask, groundLayerMask;
-    private int damage = 1;
+    protected int damage = 1;
     private List<Damageable> hitDamageables = new();
     protected Vector3 direction;
     public event Action OnRelease;
@@ -84,6 +84,10 @@ public class Bullet : FateMonoBehaviour, IPooledObject
 
 
     protected void Hit(Damageable damageable)
+    {
+        Hit(damageable, damage);
+    }
+    protected void Hit(Damageable damageable, int damage)
     {
         Log("Hit", false);
         if (hitDamageables.Contains(damageable)) return;

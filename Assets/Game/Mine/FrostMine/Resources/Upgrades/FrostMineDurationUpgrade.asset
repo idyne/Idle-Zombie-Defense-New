@@ -12,14 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9512591eee7324844a29be7ff790efcb, type: 3}
   m_Name: FrostMineDurationUpgrade
   m_EditorClassIdentifier: 
-  prerequisites: []
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
+  baseCost: 10
+  increasePerLevel: 10
+  prerequisites:
+  - Entity: {fileID: 11400000, guid: 746e5bc5e3c35714f9ef73053209c50c, type: 2}
+    Level: 1
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Frost Mine Duration
   OnUpgrade:
     m_PersistentCalls:
       m_Calls: []
-  Limit: -1
-  dayLimits: []
+  limit: 10
+  dayLimits:
+  - Day: 15
+    Limit: 1
+  - Day: 20
+    Limit: 3
+  - Day: 30
+    Limit: 7
   runtimeSet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
   icon: {fileID: 21300000, guid: f0b1dead813d21d4a8d938c51d70e606, type: 3}
   description: -2s duration

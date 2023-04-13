@@ -90,7 +90,7 @@ public class ExplosiveBullet : Bullet, IPooledObject
             for (int i = 0; i < numColliders; i++)
             {
                 Damageable damageable = hitColliders[i].GetComponent<Damageable>();
-                Hit(damageable);
+                Hit(damageable, damage / numColliders);
             }
 
         }

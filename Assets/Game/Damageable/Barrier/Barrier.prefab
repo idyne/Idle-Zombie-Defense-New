@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 2232973866263172082}
   - component: {fileID: 5007976884285260895}
   - component: {fileID: 3933493720860467770}
+  - component: {fileID: 8599695943131582631}
   m_Layer: 10
   m_Name: Barrier
   m_TagString: Untagged
@@ -149,14 +150,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6979c5fc5b64b8847a4641864de9d8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaxHealth: 10
+  baseMaxHealth: 60
   shotPoint: {fileID: 0}
   healthBar: {fileID: 1680437619498238836}
   OnDied:
     m_PersistentCalls:
       m_Calls: []
   healthUpgrade: {fileID: 11400000, guid: 3923aa7ccd100024883b1efb77f28498, type: 2}
+  healthIncrease: 30
   collider: {fileID: 2673517743626739002}
+  obstacle: {fileID: 5007976884285260895}
   parts:
   - {fileID: 1763628786127630529}
   - {fileID: 4115686641027655224}
@@ -198,7 +201,7 @@ NavMeshObstacle:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1310720244882566648}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
   m_Extents: {x: 1.545, y: 1.54, z: 0.635}
@@ -220,6 +223,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: fc7b558fab1305d40b5cda144921ed37, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 805807893283904116}
+        m_TargetAssemblyTypeName: Barrier, Assembly-CSharp
+        m_MethodName: Repair
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8599695943131582631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1310720244882566648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 3e33e5e4e8dfa4e47b4758500a3b2aaa, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:

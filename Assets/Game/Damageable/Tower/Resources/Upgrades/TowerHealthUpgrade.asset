@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b46d878649a740c4c9728a3bef0cb16e, type: 3}
   m_Name: TowerHealthUpgrade
   m_EditorClassIdentifier: 
+  zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
+  baseCost: 10
+  increasePerLevel: 10
   prerequisites: []
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   upgradeName: Tower Health
@@ -30,7 +33,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Limit: -1
+  limit: -1
   dayLimits: []
   runtimeSet: {fileID: 11400000, guid: 2b2117f1d0060ab4aa564d071ab084e7, type: 2}
   icon: {fileID: 21300000, guid: cdba3a402fe129544a206c928c805c83, type: 3}

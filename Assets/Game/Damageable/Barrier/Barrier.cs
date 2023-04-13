@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using FateGames.Core;
+using UnityEngine.AI;
 
 public class Barrier : DamageableStructure
 {
 #pragma warning disable CS0108
     [SerializeField] private Collider collider;
 #pragma warning restore CS0108 
+    [SerializeField] private NavMeshObstacle obstacle;
     [SerializeField] private Transform[] parts;
     [SerializeField] private ObjectPool effectPool;
 
@@ -34,8 +36,16 @@ public class Barrier : DamageableStructure
             }
         }
     }
-    private void ActivateCollider() => collider.enabled = true;
-    private void DeactivateCollider() => collider.enabled = false;
+    private void ActivateCollider()
+    {
+        collider.enabled = true;
+        obstacle.enabled = true;
+    }
+    private void DeactivateCollider()
+    {
+        collider.enabled = false;
+        obstacle.enabled = false;
+    }
 
     public override void Die()
     {

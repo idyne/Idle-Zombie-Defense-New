@@ -84,7 +84,8 @@ MonoBehaviour:
   duration: 6
   hitPeriod: 0.5
   radius: 2.5
-  baseDamagePerSecond: 5
+  baseDamagePerSecond: 500
+  damageIncreaseRate: 2.14
   damageableLayerMask:
     serializedVersion: 2
     m_Bits: 128

@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 6358354483413586104}
   - component: {fileID: 8349919556700474230}
   - component: {fileID: 1507455133936593126}
+  - component: {fileID: 2136068718054070753}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -281,6 +282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6203383ee29894c8ba4107211eab94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dpsDivider: 1
+  dps: 100000
   shootFrequencyMultiplier: {fileID: 11400000, guid: becf32ad1cc6833499d19004b05c085f,
     type: 2}
   range: 25
@@ -289,8 +292,11 @@ MonoBehaviour:
   targetableZombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c,
     type: 2}
   fireRateUpgrade: {fileID: 11400000, guid: b348925356b9e7f41947cfb13e874e57, type: 2}
+  towerDPS: {fileID: 11400000, guid: 9f0f23f54ccf73040800604e63f83467, type: 2}
   animator: {fileID: 1507455133936593126}
   head: {fileID: 1963795762702045850}
+  damageUpgrade: {fileID: 11400000, guid: d327e3468f51a344f92fc510dc65a610, type: 2}
+  damageIncreaseRate: 1.2
 --- !u!114 &956924746491354935
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +401,34 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &2136068718054070753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6565389056049834153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 1a318a8baede4b54a9fa695ab49aa3b3, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8219654145316800482}
+        m_TargetAssemblyTypeName: Turret, Assembly-CSharp
+        m_MethodName: UpdateGunDamage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7048272387647019921
 GameObject:
   m_ObjectHideFlags: 0

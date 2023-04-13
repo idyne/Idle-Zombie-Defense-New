@@ -18,5 +18,5 @@ MonoBehaviour:
   Speed: 1.5
   Scale: 1.2
   BaseMaxHealth: 10
-  BaseDamage: 10
-  BaseMoney: 5
+  BaseDamage: 1
+  BaseMoney: 10
