@@ -22,6 +22,7 @@ public class PooledEffect : FateMonoBehaviour, IPooledObject
     public void OnObjectSpawn()
     {
         Activate();
+        particleSystem.Stop();
         particleSystem.Play();
         Release();
     }
