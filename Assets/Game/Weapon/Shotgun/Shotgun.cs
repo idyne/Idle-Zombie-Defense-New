@@ -17,6 +17,7 @@ public class Shotgun : Gun
         }
         shotCount++;
         muzzleFire.Get<Transform>(muzzleFireEffectPoint.position, muzzleFireEffectPoint.rotation);
+        soundManager.PlaySound(shootSound, Muzzle.position);
     }
 
     private Vector3 RandomPointOnPlane(Vector3 position, Vector3 normal, float radius)

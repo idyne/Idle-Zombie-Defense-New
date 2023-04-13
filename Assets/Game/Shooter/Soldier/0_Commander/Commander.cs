@@ -55,6 +55,7 @@ public class Commander : Soldier
     {
         Log("StartCooldown", false);
         StopCooldown();
+        remainingCooldownPercent.Value = 1;
         FateGames.Tweening.FaTween.To(() => remainingCooldownPercent.Value, (x) => remainingCooldownPercent.Value = x, 0, SkillCooldown);
     }
     public void StopCooldown()
@@ -65,7 +66,7 @@ public class Commander : Soldier
             cooldownTween.Kill();
             cooldownTween = null;
         }
-        remainingCooldownPercent.Value = 1;
+        remainingCooldownPercent.Value = 0;
     }
     public void ThrowWeapon()
     {

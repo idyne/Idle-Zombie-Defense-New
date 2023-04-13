@@ -150,14 +150,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6979c5fc5b64b8847a4641864de9d8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaxHealth: 60
+  baseMaxHealth: 10
   shotPoint: {fileID: 0}
   healthBar: {fileID: 1680437619498238836}
   OnDied:
     m_PersistentCalls:
       m_Calls: []
   healthUpgrade: {fileID: 11400000, guid: 3923aa7ccd100024883b1efb77f28498, type: 2}
-  healthIncrease: 30
+  healthIncrease: 5
   collider: {fileID: 2673517743626739002}
   obstacle: {fileID: 5007976884285260895}
   parts:

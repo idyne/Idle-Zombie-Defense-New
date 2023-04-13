@@ -365,6 +365,34 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2199617509678111420}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &238341045673010621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8420011667890961608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 3e8d4dcc20f32bc4db915916f5987aa5, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5751345838036609883}
+        m_TargetAssemblyTypeName: Commander, Assembly-CSharp
+        m_MethodName: StopCooldown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5751345838036609883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,7 +422,7 @@ MonoBehaviour:
   hipsTransform: {fileID: 8491609197574631353}
   rewindDuration: {fileID: 11400000, guid: 0b602d74b8e0971409db89ef52e6fcec, type: 2}
   damageIncreaseRate: 1.4
-  baseSkillCooldown: 10
+  baseSkillCooldown: 35
   skillCooldownReductionPerLevel: 2
   throwableWeaponPool: {fileID: 11400000, guid: 1947140f79c8f4d44960066203c85593,
     type: 2}
@@ -423,34 +451,6 @@ MonoBehaviour:
       - m_Target: {fileID: 5751345838036609883}
         m_TargetAssemblyTypeName: Commander, Assembly-CSharp
         m_MethodName: UpdateGunDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &238341045673010621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8420011667890961608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 3e8d4dcc20f32bc4db915916f5987aa5, type: 2}
-  Response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5751345838036609883}
-        m_TargetAssemblyTypeName: Commander, Assembly-CSharp
-        m_MethodName: StopCooldown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

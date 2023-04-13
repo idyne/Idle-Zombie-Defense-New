@@ -195,7 +195,7 @@ public class AreaClearHandler : UIElement
 
     private void SpreadTool(Vector2 spawnPosition, int amount)
     {
-        int count = 20;
+        int count = Mathf.Clamp(20, 1, amount);
         int valueOfSingleMoneyImage = amount / count;
         int remainder = amount % valueOfSingleMoneyImage;
         if (remainder > 0) count++;
