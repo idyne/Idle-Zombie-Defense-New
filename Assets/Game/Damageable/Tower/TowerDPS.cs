@@ -22,6 +22,7 @@ public class TowerDPS : ScriptableObject
     public void Unregister(IDPSObject obj)
     {
         if (!dpsObjects.Contains(obj)) return;
+        Debug.Log("Unregister: " + obj);
         dpsObjects.Remove(obj);
     }
     public void Unregister(IDamageObject obj)
@@ -32,9 +33,11 @@ public class TowerDPS : ScriptableObject
 
     public int CalculateDamage(int seconds)
     {
+        Debug.Log(dpsObjects.Count);
         int damage = 0;
         for (int i = 0; i < dpsObjects.Count; i++)
         {
+            Debug.Log(dpsObjects[i] + " " + dpsObjects[i].GetDPS());
             damage += Mathf.CeilToInt(dpsObjects[i].GetDPS() * seconds);
         }
         for (int i = 0; i < damageObjects.Count; i++)

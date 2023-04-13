@@ -198,6 +198,7 @@ public class Zombie : Damageable, IPooledObject
         Log("Stop", false);
         if (Stopped) return;
         agent.isStopped = true;
+        agent.obstacleAvoidanceType = ObstacleAvoidanceType.NoObstacleAvoidance;
         //StopCheckingEnemies();
     }
 
@@ -330,6 +331,7 @@ public class Zombie : Damageable, IPooledObject
         else destination = Vector3.zero;
         Debug.DrawRay(destination, Vector3.up, Color.white, 10);
         agent.isStopped = false;
+        agent.obstacleAvoidanceType = ObstacleAvoidanceType.LowQualityObstacleAvoidance;
         agent.SetDestination(Vector3.zero);
         PlayAnimation("Walk");
     }

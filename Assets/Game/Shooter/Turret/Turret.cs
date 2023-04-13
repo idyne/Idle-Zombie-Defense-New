@@ -41,15 +41,20 @@ public class Turret : Shooter
         gun.BaseDamage = Mathf.CeilToInt(dps * Cooldown / dpsDivider * Mathf.Pow(damageIncreaseRate, damageUpgrade.Level));
     }
 
+    public override float GetDPS()
+    {
+        return dps * Mathf.Pow(damageIncreaseRate, damageUpgrade.Level);
+    }
 
-    private void OnEnable()
+    public void RegisterSelfToTowerDPS()
     {
         towerDPS.Register(this);
     }
-    private void OnDisable()
+    public void UnregisterSelfToTowerDPS()
     {
         towerDPS.Unregister(this);
     }
+
 
     public override void StartShooting()
     {

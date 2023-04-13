@@ -45,7 +45,7 @@ public abstract class Shooter : FateMonoBehaviour, IDPSObject
         FaceTarget();
     }
 
-    public float GetDPS()
+    public virtual float GetDPS()
     {
         return dps;
     }
