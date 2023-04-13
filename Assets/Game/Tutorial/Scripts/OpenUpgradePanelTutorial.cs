@@ -25,5 +25,5 @@ public class OpenUpgradePanelTutorial : TutorialData
 
 public partial class SaveData
 {
-    public bool OpenUpgradePanelTutorialPassed = true;
+    public bool OpenUpgradePanelTutorialPassed = false;
 }

@@ -316,6 +316,7 @@ MonoBehaviour:
   impactDuration: 1.5
   waitingDuration: 4
   multiplier: 2
+  hapticPlayer: {fileID: 11400000, guid: b7ecbe832a862d34dba6fe48afd7513d, type: 2}
 --- !u!114 &5788250419000171897
 MonoBehaviour:
   m_ObjectHideFlags: 0

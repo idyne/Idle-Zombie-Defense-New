@@ -290,7 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 8176581414904603007}
-  deactivateOnHide: 1
+  hideOnStart: 1
 --- !u!114 &7252915072845700291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,7 +511,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8543211732816800362}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -572,6 +572,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1358514964304490931}
     m_Modifications:
+    - target: {fileID: 539162556654285090, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: anchorCenter
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 539162556654285090, guid: a75496d976d579748925b504b6261e88,
         type: 3}
       propertyPath: tutorialData
@@ -748,27 +753,27 @@ PrefabInstance:
     - target: {fileID: 4587308148675483930, guid: d48c7660d9ce6954289f5fc76f38b28c,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4587308148675483930, guid: d48c7660d9ce6954289f5fc76f38b28c,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4587308148675483930, guid: d48c7660d9ce6954289f5fc76f38b28c,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4587308148675483930, guid: d48c7660d9ce6954289f5fc76f38b28c,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4587308148675483930, guid: d48c7660d9ce6954289f5fc76f38b28c,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -40
+      value: 922
       objectReference: {fileID: 0}
     - target: {fileID: 4587308148675483930, guid: d48c7660d9ce6954289f5fc76f38b28c,
         type: 3}
@@ -818,7 +823,7 @@ PrefabInstance:
     - target: {fileID: 4587308148675483930, guid: d48c7660d9ce6954289f5fc76f38b28c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -249
+      value: 322
       objectReference: {fileID: 0}
     - target: {fileID: 4587308148675483930, guid: d48c7660d9ce6954289f5fc76f38b28c,
         type: 3}
@@ -873,22 +878,22 @@ PrefabInstance:
     - target: {fileID: 3374359104222470082, guid: 942f651b7c8985c47940a7d3008ecb53,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3374359104222470082, guid: 942f651b7c8985c47940a7d3008ecb53,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3374359104222470082, guid: 942f651b7c8985c47940a7d3008ecb53,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3374359104222470082, guid: 942f651b7c8985c47940a7d3008ecb53,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3374359104222470082, guid: 942f651b7c8985c47940a7d3008ecb53,
         type: 3}
@@ -938,12 +943,12 @@ PrefabInstance:
     - target: {fileID: 3374359104222470082, guid: 942f651b7c8985c47940a7d3008ecb53,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -99
+      value: 382
       objectReference: {fileID: 0}
     - target: {fileID: 3374359104222470082, guid: 942f651b7c8985c47940a7d3008ecb53,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -113
+      value: 459
       objectReference: {fileID: 0}
     - target: {fileID: 3374359104222470082, guid: 942f651b7c8985c47940a7d3008ecb53,
         type: 3}
@@ -985,6 +990,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5054508970173276575}
     m_Modifications:
+    - target: {fileID: 539162556654285090, guid: a75496d976d579748925b504b6261e88,
+        type: 3}
+      propertyPath: anchorCenter
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 539162556654285090, guid: a75496d976d579748925b504b6261e88,
         type: 3}
       propertyPath: tutorialData
