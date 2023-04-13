@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 8624235142157889911}
-  deactivateOnHide: 0
+  hideOnStart: 0
   animator: {fileID: 7727487936928669211}
   targetVariable:
     UseConstant: 0
@@ -314,7 +314,7 @@ MonoBehaviour:
     Variable: {fileID: 11400000, guid: becf32ad1cc6833499d19004b05c085f, type: 2}
   onTappedToSpeedUp: {fileID: 11400000, guid: 2c293df68ddcfe04484530e3a06836a6, type: 2}
   impactDuration: 1.5
-  waitingDuration: 5
+  waitingDuration: 4
   multiplier: 2
 --- !u!114 &5788250419000171897
 MonoBehaviour:

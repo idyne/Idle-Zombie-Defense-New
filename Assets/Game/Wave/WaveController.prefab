@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseWavePower: 50
-  powerIncreasePerDay: 50
+  powerIncreasePerDay: 30
   baseSpawnPeriod: 0.1
   morningMultiplier: 0.5
   noonMultiplier: 0.7
@@ -110,6 +110,7 @@ MonoBehaviour:
   spawnPointContainer: {fileID: 0}
   spawnCircleRadius: 30
   spawnCircleWidth: 5
+  baseMaxHealth: {fileID: 11400000, guid: 33cf2bfc594e83b40b69a5658e82725b, type: 2}
   waveCleanPercentage: {fileID: 11400000, guid: e830386b94b6a3f42b2ba75e072da906,
     type: 2}
   towerDPS: {fileID: 11400000, guid: 9f0f23f54ccf73040800604e63f83467, type: 2}

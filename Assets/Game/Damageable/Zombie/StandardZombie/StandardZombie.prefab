@@ -70,38 +70,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9fbfec2d4f1394a45869f4fd7424df88, type: 2}
   - {fileID: 11400000, guid: d50ea1cad05f9144685d1c0879814656, type: 2}
   - {fileID: 11400000, guid: 714fee83da191994583f6104afbf6d2b, type: 2}
-  - {fileID: 11400000, guid: 86f38c2f380d38c4cbd3b6e890233455, type: 2}
-  - {fileID: 11400000, guid: 228c55cd1497b4a45949e1943e95461f, type: 2}
-  - {fileID: 11400000, guid: 6163d50bebba56944b95d18fff4a7150, type: 2}
-  - {fileID: 11400000, guid: a0438f474958d7e49a1e9c278f04cf8c, type: 2}
-  - {fileID: 11400000, guid: f877242285e7fc642bef2a46c2e4323f, type: 2}
-  - {fileID: 11400000, guid: 44f943a2171d5054c88ae5b89bd543b0, type: 2}
-  - {fileID: 11400000, guid: 1135e98f4291b374780b2bc4c1d26693, type: 2}
-  - {fileID: 11400000, guid: d2b675a495d7a56499282bed45c9302a, type: 2}
-  - {fileID: 11400000, guid: b93d6cc9a44546d42b96481fa9d69cc5, type: 2}
-  - {fileID: 11400000, guid: d7dc6913b5a959e46aac496d75d656c0, type: 2}
-  - {fileID: 11400000, guid: 2520db21dd4b9b04ca232bea4f5ac875, type: 2}
-  - {fileID: 11400000, guid: 0257731178c343c44aeb25d09b2e181f, type: 2}
-  - {fileID: 11400000, guid: bfea0be45d0528b42b94c576cdd25453, type: 2}
-  - {fileID: 11400000, guid: 00198d43f3812f5428e0b97fd67aac74, type: 2}
-  - {fileID: 11400000, guid: 66422dbc09c238a46bd0ae8f0672a60d, type: 2}
-  - {fileID: 11400000, guid: df9e1ac261515a04b91d568de3bed65a, type: 2}
-  - {fileID: 11400000, guid: e5c3b525a4ea8044286ce970bdb0bddf, type: 2}
-  - {fileID: 11400000, guid: 3e01c9ea1256e7549a446ec536bb4ac5, type: 2}
-  - {fileID: 11400000, guid: 73683301e94561f4dba92c3dac7bae39, type: 2}
-  - {fileID: 11400000, guid: 8f5f2d60a6a55fd448ef0905dc61daf7, type: 2}
-  - {fileID: 11400000, guid: bc4814a4c3d8453439cccc8c7dace750, type: 2}
-  - {fileID: 11400000, guid: c3eb56aa1d1d6604e8a17062c74d48d4, type: 2}
-  - {fileID: 11400000, guid: e71b66d6e4fc3d641b60ac89f01bbaa7, type: 2}
-  - {fileID: 11400000, guid: 7ea2facb9beda0f4d8813bb3c7133cff, type: 2}
-  - {fileID: 11400000, guid: 95749604d21343448b8be460bd26b4de, type: 2}
-  - {fileID: 11400000, guid: f65d7440fcf593b4bb5be0b03981a6a2, type: 2}
-  - {fileID: 11400000, guid: c0825c66a3d94b845956327800249d91, type: 2}
-  - {fileID: 11400000, guid: 0b19ae396a77a8f4c8bd148aa6167dae, type: 2}
-  - {fileID: 11400000, guid: 0339c256ba49843419fdb12d6e70b969, type: 2}
-  - {fileID: 11400000, guid: c9cf383e74a9077409d58fd21fa83ec2, type: 2}
-  - {fileID: 11400000, guid: a4127b74615f5f64f989314d59b29a9a, type: 2}
-  - {fileID: 11400000, guid: 094dd6ebfafb000489f7dad91873775d, type: 2}
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   zombieSet: {fileID: 11400000, guid: a98c2c789068f6f4c9d10d4bf995000c, type: 2}
   enemyLayerMask:
