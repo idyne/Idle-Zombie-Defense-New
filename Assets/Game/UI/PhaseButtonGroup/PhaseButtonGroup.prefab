@@ -271,6 +271,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 10d9a89e8acf7bd4680c596e4720d328, type: 2}
+        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1458903425935029867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,7 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1793547845924633139}
-  deactivateOnHide: 0
+  hideOnStart: 0
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
 --- !u!1001 &1503302831975607869
 PrefabInstance:
