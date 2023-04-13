@@ -25,6 +25,7 @@ public class Zombie : Damageable, IPooledObject
     [SerializeField] private MoneyBurster moneyBurster;
     [SerializeField] private ObjectPool bloodSplash, levitatingTextPool;
     private ZombieLevelData currentLevelData;
+    private Color currentColor;
     private int money = 1;
 
     private IEnumerator flashCoroutine = null;
@@ -73,6 +74,7 @@ public class Zombie : Damageable, IPooledObject
         SetCooldown(data.Cooldown * 2f);
         Color originalColor = data.Color;
         Color frozenColor = new Color(originalColor.r, originalColor.g, originalColor.b + 10f, 1);
+        currentColor = frozenColor;
         SetColor(frozenColor);
         freezeTween = DOVirtual.DelayedCall(duration, Unfreeze);
     }
@@ -83,6 +85,7 @@ public class Zombie : Damageable, IPooledObject
         freezeTween = null;
         ZombieLevelData data = currentLevelData;
         SetSpeed(data.Speed);
+        currentColor = currentLevelData.Color;
         SetColor(data.Color);
         SetCooldown(data.Cooldown);
     }
@@ -108,6 +111,7 @@ public class Zombie : Damageable, IPooledObject
         SetCooldown(data.Cooldown);
         damage = data.BaseDamage.Value * level;
         SetColor(data.Color);
+        currentColor = data.Color;
         money = data.BaseMoney.Value * level;
         baseMaxHealth = data.BaseMaxHealth.Value;
         ResetHealth();
@@ -224,7 +228,7 @@ public class Zombie : Damageable, IPooledObject
         {
             SetColor(Color.white);
             yield return new WaitForSeconds(0.05f);
-            SetColor(currentLevelData.Color);
+            SetColor(currentColor);
         }
         flashCoroutine = flash();
         StartCoroutine(flashCoroutine);

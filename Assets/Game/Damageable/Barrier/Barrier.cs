@@ -13,7 +13,7 @@ public class Barrier : DamageableStructure
     [SerializeField] private NavMeshObstacle obstacle;
     [SerializeField] private Transform[] parts;
     [SerializeField] private ObjectPool effectPool;
-
+    private int breakLevel = 0;
     private void Awake()
     {
         onSetHealth += CheckParts;
@@ -21,11 +21,15 @@ public class Barrier : DamageableStructure
 
     private void CheckParts()
     {
+        int breakLevel = 0;
         float percent = (float)health / maxHealth;
         for (int i = 0; i < parts.Length; i++)
         {
             if (percent <= 1 - (1f / parts.Length * (i + 1)))
             {
+                breakLevel++;
+                if (breakLevel <= this.breakLevel) continue;
+                this.breakLevel = breakLevel;
                 Transform part = parts[i];
                 part.DOScale(Vector3.zero, 0.2f);
                 effectPool.Get<Transform>(part.position, part.rotation);
@@ -54,6 +58,7 @@ public class Barrier : DamageableStructure
     }
     public override void Repair()
     {
+        breakLevel = 0;
         SetHealth(maxHealth);
         for (int i = 0; i < parts.Length; i++)
         {
