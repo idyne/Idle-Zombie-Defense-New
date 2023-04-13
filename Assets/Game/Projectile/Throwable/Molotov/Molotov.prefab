@@ -91,6 +91,7 @@ MonoBehaviour:
     m_Bits: 128
   meshObject: {fileID: 5759858717506780878}
   effectPool: {fileID: 11400000, guid: 312bc383f52db694aae9befe7e71ae0b, type: 2}
+  trailEffect: {fileID: 253906816646389507}
   crackSound: {fileID: 11400000, guid: fe866b4e4bac4bb48be3a95e9c724759, type: 2}
   burningSound: {fileID: 11400000, guid: b7f8e0a5c201f7846af66687750a1227, type: 2}
   soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
@@ -294,6 +295,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d97a41d6598a5954f9071caf9ecf6f0e, type: 3}
+--- !u!198 &253906816646389507 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6488457431615140128, guid: d97a41d6598a5954f9071caf9ecf6f0e,
+    type: 3}
+  m_PrefabInstance: {fileID: 6453006597410778659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &253906816665803973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6488457431595725542, guid: d97a41d6598a5954f9071caf9ecf6f0e,

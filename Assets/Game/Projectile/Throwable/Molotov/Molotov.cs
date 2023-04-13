@@ -15,6 +15,7 @@ public class Molotov : Throwable, IPooledObject
     [SerializeField] private LayerMask damageableLayerMask;
     [SerializeField] private GameObject meshObject;
     [SerializeField] protected ObjectPool effectPool;
+    [SerializeField] private ParticleSystem trailEffect;
     private WaitForSeconds waitForHitPeriod;
     private IEnumerator burnRoutine = null;
     private bool levelFinished = false;
@@ -110,11 +111,14 @@ public class Molotov : Throwable, IPooledObject
         levelFinished = false;
         ActivateMesh();
         Activate();
+
+        trailEffect.Play();
     }
 
     public void Release()
     {
         StopBurningSound();
+        trailEffect.Stop();
         Deactivate();
         OnRelease.Invoke();
     }
