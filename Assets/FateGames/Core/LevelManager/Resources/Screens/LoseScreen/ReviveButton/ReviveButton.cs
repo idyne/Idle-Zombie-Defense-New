@@ -36,10 +36,11 @@ public class ReviveButton : UIElement
             button.interactable = false;
             adIcon.SetActive(false);
             loading.SetActive(true);
-            yield return new WaitUntil(AdvertisementManager.IsRewardedAdReady);
+            //yield return new WaitUntil(AdvertisementManager.IsRewardedAdReady);
             button.interactable = true;
             adIcon.SetActive(true);
             loading.SetActive(false);
+            yield break;
         }
         StartCoroutine(routine());
     }

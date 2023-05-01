@@ -10,16 +10,17 @@ public class AdManager : ScriptableObject
     public IEnumerator ShowInterstitial()
     {
         yield break;
-        if (AdvertisementManager.IsCanShowInterstital && AdvertisementManager.IsInterstitialdAdReady())
+        /*if (AdvertisementManager.IsCanShowInterstital && AdvertisementManager.IsInterstitialdAdReady())
         {
             bool isAdDone = false;
             void ContinueAfterAd() { isAdDone = true; gameManager.ResumeGame(); }
             AdvertisementManager.ShowInterstitial(OnStartAdEvent: gameManager.PauseGame, OnFinishAdEvent: ContinueAfterAd, OnFailedAdEvent: ContinueAfterAd);
             yield return new WaitUntil(() => isAdDone);
-        }
+        }*/
     }
     public IEnumerator ShowRewardedAd(System.Action OnSuccess, System.Action OnFail)
     {
+        yield break;/*
         if (AdvertisementManager.IsRewardedAdReady())
         {
             bool isAdDone = false;
@@ -33,16 +34,16 @@ public class AdManager : ScriptableObject
         {
             Debug.Log("Not Ready");
             OnFail();
-        }
+        }*/
     }
     public void ShowBannerAd()
     {
         return;
-        AdvertisementManager.ShowBanner();
+        //AdvertisementManager.ShowBanner();
     }
     public void HideBannerAd()
     {
         return;
-        AdvertisementManager.HideBanner();
+        //AdvertisementManager.HideBanner();
     }
 }
