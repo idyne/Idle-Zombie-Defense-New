@@ -37,7 +37,7 @@ public class TowerDPS : ScriptableObject
         int damage = 0;
         for (int i = 0; i < dpsObjects.Count; i++)
         {
-            Debug.Log(dpsObjects[i] + " " + dpsObjects[i].GetDPS());
+            //Debug.Log(dpsObjects[i] + " " + dpsObjects[i].GetDPS());
             damage += Mathf.CeilToInt(dpsObjects[i].GetDPS() * seconds);
         }
         for (int i = 0; i < damageObjects.Count; i++)

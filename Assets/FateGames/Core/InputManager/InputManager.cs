@@ -31,37 +31,6 @@ namespace FateGames.Core
             return listener.AddKeyUpListener(keyCode);
         }
 
-        public static Swerve GetSwerve(float size)
-        {
-            Swerve swerve;
-            if (swerveTable.ContainsKey(size)) swerve = swerveTable[size];
-            else
-            {
-                swerve = new Swerve(size);
-                swerveTable.Add(size, swerve);
-            }
-            return swerve;
-        }
-        public static Swerve GetSwerve()
-        {
-            return GetSwerve(defaultSwerveSize);
-        }
-
-        public static FloatingSwerve GetFloatingSwerve(float size)
-        {
-            FloatingSwerve floatingSwerve;
-            if (floatingSwerveTable.ContainsKey(size)) floatingSwerve = floatingSwerveTable[size];
-            else
-            {
-                floatingSwerve = new FloatingSwerve(size);
-                floatingSwerveTable.Add(size, floatingSwerve);
-            }
-            return floatingSwerve;
-        }
-        public static FloatingSwerve GetFloatingSwerve()
-        {
-            return GetFloatingSwerve(defaultSwerveSize);
-        }
     }
 
 }

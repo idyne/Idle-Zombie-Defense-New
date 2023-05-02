@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.Events;
+using GameAnalyticsSDK;
+
 namespace FateGames.Core
 {
     [CreateAssetMenu(menuName = "Fate/Manager/LevelManager")]
@@ -19,12 +21,15 @@ namespace FateGames.Core
 
         public void StartLevel()
         {
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Level_Progress", saveData.Value.WaveLevel);
             gameState.Value = GameState.IN_GAME;
             OnLevelStarted.Invoke();
         }
 
         public void FinishLevel(bool success)
         {
+            GameAnalytics.NewProgressionEvent(success ? GAProgressionStatus.Complete : GAProgressionStatus.Fail, "Level_Progress", saveData.Value.WaveLevel);
+            Debug.Log("Level: " + saveData.Value.Level);
             OnLevelFinished.Invoke();
             if (success)
             {

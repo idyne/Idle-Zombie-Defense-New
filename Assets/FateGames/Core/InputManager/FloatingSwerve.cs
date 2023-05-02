@@ -7,10 +7,6 @@ namespace FateGames.Core
 {
     public class FloatingSwerve : Swerve
     {
-        public FloatingSwerve(float size) : base(size)
-        {
-        }
-
         protected override void OnMouseButton()
         {
             MousePosition = Input.mousePosition;

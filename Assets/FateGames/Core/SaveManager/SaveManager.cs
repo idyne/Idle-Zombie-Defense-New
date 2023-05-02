@@ -12,15 +12,15 @@ namespace FateGames.Core
     public class SaveManager : ScriptableObject
     {
         /* [HideInInspector]*/
-        public bool OverrideSave = false;
+        [SerializeField] public bool OverrideSave = false;
         /*[HideInInspector]*/
-        public SaveDataVariable SaveData;
+        [SerializeField] public SaveDataVariable SaveData;
         /* [HideInInspector]*/
-        public SaveDataVariable OverrideSaveData = null;
+        [SerializeField] public SaveDataVariable OverrideSaveData = null;
         /* [HideInInspector]*/
-        public bool AutoSave = false;
+        [SerializeField] public bool AutoSave = true;
         /* [HideInInspector]*/
-        public float AutoSavePeriod = 10;
+        [SerializeField] public float AutoSavePeriod = 10;
 
 
         public void Initialize()

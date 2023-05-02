@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3694548167356144150}
   - component: {fileID: 7940396808085545897}
+  - component: {fileID: 8860324875806484361}
   m_Layer: 0
   m_Name: CameraController
   m_TagString: Untagged
@@ -46,10 +47,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetCamera: {fileID: 4817115965454602051}
+  lockYAxis: 0
   cameraDistance: {fileID: 11400000, guid: 58dae4a4e6721ee40a60caaa97b381c2, type: 2}
   cameraForwardRange: 10
   cameraBackwardRange: -10
   cameraZoomSpeed: 10
+  swerve: {fileID: 8860324875806484361}
+--- !u!114 &8860324875806484361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3694548167356144151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f5a566b86eaf34a905fbd736a7375f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Size: 820
 --- !u!1001 &3694548167408196987
 PrefabInstance:
   m_ObjectHideFlags: 0

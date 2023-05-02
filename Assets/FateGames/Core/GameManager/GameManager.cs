@@ -36,5 +36,15 @@ namespace FateGames.Core
             gameState.Value = stateBeforePaused;
             OnResume.Invoke();
         }
+
+        public void ShowInterstitial()
+        {
+            SDKManager.Instance.ShowInterstitial();
+        }
+
+        public void ShowBannerAd()
+        {
+            //SDKManager.Instance.ShowBannerAd();
+        }
     }
 }

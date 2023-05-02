@@ -30,14 +30,14 @@ public class NewSoldierAchivedScreenController : UIElement
 
     public void RewardedClaim()
     {
-        StartCoroutine(adManager.ShowRewardedAd(() =>
-        {
-            Close();
-            onRewardGranted.Invoke();
-        }, () =>
-        {
-            Close();
-        }));
+        SDKManager.Instance.ShowRewardedAd(() =>
+       {
+           Close();
+       }, () =>
+         {
+           Close();
+           onRewardGranted.Invoke();
+       });
     }
 
     public void Close()

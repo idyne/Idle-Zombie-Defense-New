@@ -92,7 +92,6 @@ public class AreaClearHandler : UIElement
                 if (CheckSoldierUnlocked())
                     yield return new WaitUntil(() => soldierUnlockedScreenClosed);
                 zoneManager.IncrementWaveLevel();
-                yield return adManager.ShowInterstitial();
                 sceneManager.LoadCurrentLevel();
             }
 

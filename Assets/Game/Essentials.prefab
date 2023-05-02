@@ -1602,7 +1602,7 @@ PrefabInstance:
     - target: {fileID: 2245971241210905557, guid: 8338eb30ef7023542b69b6a661aa953e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 45435.547
+      value: 48236.453
       objectReference: {fileID: 0}
     - target: {fileID: 4429980471980597325, guid: 8338eb30ef7023542b69b6a661aa953e,
         type: 3}
@@ -1943,6 +1943,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Spot Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 1580324798581801290, guid: 188c40b8a0c0083428c431b60d78098c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1580324798581801302, guid: 188c40b8a0c0083428c431b60d78098c,
         type: 3}

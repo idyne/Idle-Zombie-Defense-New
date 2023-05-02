@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "98501371747",
+    "project_id": "idle-zombie-invasion",
+    "storage_bucket": "idle-zombie-invasion.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:98501371747:android:620bcc0a5b64e3b62b9556",
+        "android_client_info": {
+          "package_name": "com.voyager.idlezombieinvasion"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "98501371747-3aoq4r1ji4nvoe1fcp564di5avis1jjb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkEEcin079LjNukBLCmN1CQWJDMbTQfwE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "98501371747-3aoq4r1ji4nvoe1fcp564di5avis1jjb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -25,8 +25,7 @@ public class ReviveButton : UIElement
         {
             onRewardFailed.Invoke();
         }
-
-        StartCoroutine(adManager.ShowRewardedAd(Success, Fail));
+        SDKManager.Instance.ShowRewardedAd(Fail, Success);
     }
 
     public void Prepare()
@@ -36,11 +35,10 @@ public class ReviveButton : UIElement
             button.interactable = false;
             adIcon.SetActive(false);
             loading.SetActive(true);
-            //yield return new WaitUntil(AdvertisementManager.IsRewardedAdReady);
+            yield return new WaitUntil(() => SDKManager.Instance.IsRewardedAdReady());
             button.interactable = true;
             adIcon.SetActive(true);
             loading.SetActive(false);
-            yield break;
         }
         StartCoroutine(routine());
     }

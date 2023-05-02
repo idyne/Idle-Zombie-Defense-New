@@ -39,7 +39,6 @@ namespace FateGames.Core
 
         public void LoadCurrentLevel(bool async = true)
         {
-            Debug.Log("Current Level: " + currentLevelSceneIndex, this);
             zoneManager.Initialize();
             LoadLevel(currentLevelSceneIndex, async);
         }

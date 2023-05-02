@@ -15,36 +15,67 @@ public class CircleCameraController : CameraController
     [SerializeField] private float cameraZoomSpeed = 10;
     private Vector3 direction;
     private Vector3 initialCameraPosition;
+    private float lastAngle = 270;
+    private float startDriftSpeed = 0;
+    private bool drift = false;
+    private float totalDriftTime = 0.2f, driftStartTime;
 
     private float zoomDistance = 0;
     private float anchorDistance = 0;
     private bool onUI = false;
 
-    private Swerve swerve;
+    [SerializeField] private Swerve swerve;
     private float anchorAngle = 0;
     private float angle = 270;
+    private bool swerving = false;
+    private bool pausedOnStart = false;
+    private bool pausedOnSwerve = false;
+    private bool pausedOnRelease = false;
 
     protected override void Awake()
     {
         base.Awake();
+        swerve.Size = Screen.height;
         Init();
-        swerve = InputManager.GetSwerve(Screen.height);
-        swerve.OnStart.AddListener(SetAnchorAngle);
-        swerve.OnStart.AddListener(SetAnchorDistance);
-        swerve.OnStart.AddListener(() => { onUI = EventSystem.current.IsPointerOverGameObject(); });
-        swerve.OnSwerve.AddListener(() =>
+        swerve.OnStart.AddListener(() =>
         {
-            if (zoomingOut || onUI) return;
-            zoomDistance = Mathf.Clamp(anchorDistance - swerve.YRate * cameraZoomSpeed, cameraBackwardRange, cameraForwardRange);
-            //DayCycler.Instance.ChangeFogOffset(-zoomDistance);
-            cameraTransform.localPosition = initialCameraPosition + direction * zoomDistance;
-            if (!lockYAxis)
-            {
-                angle = anchorAngle + swerve.XRate * 180;
-                transform.rotation = Quaternion.LookRotation(Quaternion.Euler(0, angle, 0) * Vector3.right);
-            }
-            UpdateCameraDistance();
+
+            pausedOnStart = Time.timeScale < 0.1f;
+            if (pausedOnStart) return;
+            SetAnchorAngle(); SetAnchorDistance(); drift = false; onUI = EventSystem.current.IsPointerOverGameObject() || EventSystem.current.currentSelectedGameObject != null; OnSwerve();
+
         });
+        swerve.OnSwerve.AddListener(OnSwerve);
+        swerve.OnRelease.AddListener(() =>
+        {
+            pausedOnRelease = Time.timeScale < 0.1f;
+            if (pausedOnStart || pausedOnSwerve || pausedOnRelease) return;
+            if (!swerving) return;
+            swerving = false;
+            startDriftSpeed = (angle - lastAngle) / Time.deltaTime;
+            if (startDriftSpeed == 0) return;
+
+            drift = true;
+            driftStartTime = Time.time;
+        });
+    }
+
+    private void OnSwerve()
+    {
+        pausedOnSwerve = Time.timeScale < 0.1f;
+        if (pausedOnStart || pausedOnSwerve) return;
+        if (zoomingOut || onUI) return;
+        swerving = true;
+        lastAngle = angle;
+        zoomDistance = Mathf.Clamp(anchorDistance - swerve.YRate * cameraZoomSpeed, cameraBackwardRange, cameraForwardRange);
+        //DayCycler.Instance.ChangeFogOffset(-zoomDistance);
+        cameraTransform.localPosition = initialCameraPosition + direction * zoomDistance;
+        if (!lockYAxis)
+        {
+            angle = (anchorAngle + swerve.XRate * 180) % 360f;
+            transform.eulerAngles = new Vector3(0, angle, 0);
+        }
+        UpdateCameraDistance();
     }
 
     private void Start()
@@ -56,7 +87,19 @@ public class CircleCameraController : CameraController
             cameraTransform.localPosition = initialCameraPosition + direction * zoomDistance;
             UpdateCameraDistance();
         }
+        transform.eulerAngles = new Vector3(0, angle, 0);
 
+    }
+
+    private void Update()
+    {
+        if (drift)
+        {
+            float targetAngle = angle + (1 - (Time.time - driftStartTime) / totalDriftTime) * Time.deltaTime * startDriftSpeed;
+            angle = targetAngle % 360f;
+            transform.eulerAngles = new Vector3(0, angle, 0);
+            if (Time.time > driftStartTime + totalDriftTime) drift = false;
+        }
     }
 
     private void SetAnchorAngle()
