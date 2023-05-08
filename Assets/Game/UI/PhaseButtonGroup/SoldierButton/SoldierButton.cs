@@ -9,6 +9,7 @@ public class SoldierButton : PhaseButton
     [SerializeField] private SaveDataVariable saveData;
     [SerializeField] private BoolVariable isTowerFull;
     [SerializeField] private UnityEvent onSoldierCanBeBought;
+    [SerializeField] private GameObject freeField;
 
     
 
@@ -48,5 +49,11 @@ public class SoldierButton : PhaseButton
         {
             SwitchToCost(phaseUpgrade.Cost, phaseUpgrade.Affordable);
         }
+    }
+
+    public override void SwitchToCost(int cost, bool affordable)
+    {
+        base.SwitchToCost(cost, affordable);
+        freeField.SetActive(!affordable && saveData.Value.SoldierBuyingTutorialPassed);
     }
 }

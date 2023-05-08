@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using FateGames.Core;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Barrier : DamageableStructure
 {
@@ -13,6 +14,7 @@ public class Barrier : DamageableStructure
     [SerializeField] private NavMeshObstacle obstacle;
     [SerializeField] private Transform[] parts;
     [SerializeField] private ObjectPool effectPool;
+    [SerializeField] private UnityEvent onDestroyed;
     private int breakLevel = 0;
     private void Awake()
     {
@@ -55,6 +57,7 @@ public class Barrier : DamageableStructure
     {
         //Deactivate();
         DeactivateCollider();
+        onDestroyed.Invoke();
     }
     public override void Repair()
     {

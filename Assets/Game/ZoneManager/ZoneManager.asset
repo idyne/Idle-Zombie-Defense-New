@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ZoneManager
   m_EditorClassIdentifier: 
   saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
-  zoneLengths: 070000000700000007000000070000000700000007000000
-  Day: 0
-  Zone: 0
+  zoneLengths: 070000000e0000000e000000070000000e00000007000000
+  Day: 16
+  Zone: 2
+  NormalizedDay: 9
+  NumberOfDays: 77

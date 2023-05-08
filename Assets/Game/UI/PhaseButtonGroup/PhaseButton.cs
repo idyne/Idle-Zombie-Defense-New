@@ -44,7 +44,7 @@ public class PhaseButton : DynamicUIElement
         infoField.SetActive(true);
         costField.SetActive(false);
     }
-    public void SwitchToCost(int cost, bool affordable)
+    public virtual void SwitchToCost(int cost, bool affordable)
     {
         button.interactable = affordable;
         costText.text = MoneyField.numberFormat(cost);

@@ -133,7 +133,7 @@ public partial class Tower
     {
         if (NumberOfSoldiers >= points.Count)
         {
-            Debug.LogError("Cannot add soldier. Max number of soldiers reached!");
+            Debug.LogWarning("Cannot add soldier. Max number of soldiers reached!");
             return;
         }
         Vector3 position = GetPoint(NumberOfSoldiers).position;
