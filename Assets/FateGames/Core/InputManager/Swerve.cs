@@ -5,9 +5,9 @@ using UnityEngine.Events;
 
 namespace FateGames.Core
 {
-    public class Swerve
+    public class Swerve : FateMonoBehaviour
     {
-        public readonly float Size;
+        public float Size = Screen.width * 2;
         public Vector2 AnchorPosition { get; protected set; } = Vector2.zero;
         public Vector2 MousePosition { get; protected set; } = Vector2.zero;
         public Vector2 Difference { get => MousePosition - AnchorPosition; }
@@ -19,28 +19,70 @@ namespace FateGames.Core
         public readonly UnityEvent OnSwerve = new();
         public readonly UnityEvent OnRelease = new();
 
-        public Swerve(float size)
-        {
-            Size = size;
-            UnityEvent mouseButtonDownEvent = InputManager.GetKeyDownEvent(KeyCode.Mouse0);
-            UnityEvent mouseButtonEvent = InputManager.GetKeyEvent(KeyCode.Mouse0);
-            UnityEvent mouseButtonUpEvent = InputManager.GetKeyUpEvent(KeyCode.Mouse0);
 
-            mouseButtonDownEvent.AddListener(OnMouseButtonDown);
-            mouseButtonEvent.AddListener(OnMouseButton);
-            mouseButtonUpEvent.AddListener(OnMouseButtonUp);
+        private void Update()
+        {
+            if (Input.touchSupported && Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+                switch (touch.phase)
+                {
+                    case TouchPhase.Began:
+                        OnMouseButtonDown();
+                        break;
+                    case TouchPhase.Moved:
+                        OnMouseButton();
+                        break;
+                    case TouchPhase.Stationary:
+                        OnMouseButton();
+                        break;
+                    case TouchPhase.Ended:
+                        OnMouseButtonUp();
+                        break;
+                    case TouchPhase.Canceled:
+                        OnMouseButtonUp();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else if (!Input.touchSupported)
+            {
+                if (Input.GetMouseButtonDown(0)) OnMouseButtonDown();
+                else if (Input.GetMouseButton(0)) OnMouseButton();
+                else if (Input.GetMouseButtonUp(0)) OnMouseButtonUp();
+            }
         }
 
         protected virtual void OnMouseButtonDown()
         {
-            AnchorPosition = Input.mousePosition;
-            MousePosition = Input.mousePosition;
+            if (Input.touchSupported)
+            {
+                if (Input.touchCount == 0) return;
+                AnchorPosition = Input.GetTouch(0).position;
+                MousePosition = Input.GetTouch(0).position;
+            }
+            else
+            {
+                AnchorPosition = Input.mousePosition;
+                MousePosition = Input.mousePosition;
+            }
+
             OnStart.Invoke();
         }
 
         protected virtual void OnMouseButton()
         {
-            Vector2 mousePosition = Input.mousePosition;
+            Vector2 mousePosition;
+            if (Input.touchSupported)
+            {
+                if (Input.touchCount == 0) return;
+                mousePosition = Input.GetTouch(0).position;
+            }
+            else
+            {
+                mousePosition = Input.mousePosition;
+            }
             Vector2 direction = (mousePosition - AnchorPosition).normalized;
             MousePosition = AnchorPosition + direction * Mathf.Clamp((mousePosition - AnchorPosition).magnitude, 0, Size);
             OnSwerve.Invoke();

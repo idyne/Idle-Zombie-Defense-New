@@ -46,6 +46,7 @@ namespace FateGames.Core
                 commanderUpgrades.InitializeItems();
                 fogController.Init();
                 onLevelFinishedLoading.Invoke();
+                //SDKManager.Instance.ShowBannerAd();
                 if (levelManager.AutoStart)
                     levelManager.StartLevel();
             }

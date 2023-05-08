@@ -14,26 +14,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Level: 1
-    BarrierHealthLevel: 1
+    BarrierHealthLevel: 0
     SoldierBuyingLevel: 1
-    SoldierTable: 0100000002000000020000000000000000000000000000000000000000000000
-    TowerHealthLevel: 1
-    ExplosiveMineCount: 1
-    ExplosiveMineDamageLevel: 1
-    FrostMineCount: 1
-    FrostMineDurationLevel: 1
-    MolotovCooldownLevel: 1
-    MolotovDamageLevel: 1
+    SoldierTable: 01000000020000000100000001000000000000000000000000000000000000000000000000000000000000000000000000000000
+    TowerHealthLevel: 0
+    ExplosiveMineCount: 0
+    ExplosiveMineDamageLevel: 0
+    FrostMineCount: 0
+    FrostMineDurationLevel: 0
+    MolotovCooldownLevel: 0
+    MolotovDamageLevel: 0
     MolotovUnlocked: 0
-    CommanderDamageLevel: 1
-    TurretCount: 1
-    TurretDamageLevel: 1
-    Money: 310
-    FireRateLevel: 5
-    IncomeLevel: 5
-    SoldierBuyingCount: 8
-    Tools: 17
-    WaveLevel: 2
+    CommanderDamageLevel: 0
+    TurretCount: 0
+    TurretDamageLevel: 0
+    CloseBaseUpgradesPanelTutorialPassed: 0
+    OpenUpgradePanelTutorialPassed: 0
+    SoldierBuyingTutorialPassed: 1
+    StartTutorialPassed: 1
+    UpgradeBaseHealthTutorialPassed: 0
+    Money: 5787
+    FireRateLevel: 1
+    IncomeLevel: 1
+    MergeCount: 5
+    SoldierBuyingCount: 14
+    Tools: 0
+    WaveLevel: 100
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

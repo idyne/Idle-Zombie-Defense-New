@@ -41,8 +41,6 @@ namespace FateGames.Core
             zoneManager.Initialize();
             sceneManager.Initialize();
             ObjectPooler.Initialize();
-            if (!sceneManager.IsLevel(UnityEngine.SceneManagement.SceneManager.GetActiveScene()))
-                sceneManager.LoadCurrentLevel();
             booted = true;
         }
 

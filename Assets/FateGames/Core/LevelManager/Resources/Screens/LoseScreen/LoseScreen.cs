@@ -20,13 +20,7 @@ public class LoseScreen : UIElement
     }
     public void Continue()
     {
-        IEnumerator routine()
-        {
-            zoneManager.ResetWaveLevelToDay();
-            if (RemoteConfigValues.show_int_if_fail)
-                yield return adManager.ShowInterstitial();
-            sceneManager.LoadCurrentLevel();
-        }
-        StartCoroutine(routine());
+        zoneManager.ResetWaveLevelToDay();
+        sceneManager.LoadCurrentLevel();
     }
 }
