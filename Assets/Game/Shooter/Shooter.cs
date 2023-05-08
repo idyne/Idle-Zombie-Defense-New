@@ -9,7 +9,7 @@ public abstract class Shooter : FateMonoBehaviour, IDPSObject
 {
     [SerializeField] protected int dpsDivider = 1;
     [SerializeField] protected float dps = 10;
-    [SerializeField] protected FloatVariable shootFrequencyMultiplier;
+    [SerializeField] protected FloatVariable shootFrequencyMultiplier, boostMultiplier;
     [SerializeField] protected float range = 25;
     [SerializeField] protected float shootPeriod = 0.5f;
     [SerializeField] protected WaveStateVariable waveState;
@@ -26,7 +26,7 @@ public abstract class Shooter : FateMonoBehaviour, IDPSObject
     protected IEnumerator shootCoroutine;
     protected IEnumerator targetingRoutine;
     protected float lastShootTime = float.MinValue;
-    protected float Cooldown => (shootPeriod / ((float)fireRateUpgrade.Level / fireRateUpgrade.Limit * 3 + 1)) / shootFrequencyMultiplier.Value;
+    protected float Cooldown => (shootPeriod / ((float)fireRateUpgrade.Level / fireRateUpgrade.Limit * 3 + 1)) / shootFrequencyMultiplier.Value / boostMultiplier.Value;
     protected bool InCooldown { get => Time.time < lastShootTime + Cooldown; }
     protected bool Shooting { get => shootCoroutine != null; }
     protected bool Targeting { get => targetingRoutine != null; }

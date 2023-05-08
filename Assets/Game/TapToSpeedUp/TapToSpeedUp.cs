@@ -16,16 +16,24 @@ public class TapToSpeedUp : UIElement
     [SerializeField] private float impactDuration = 1.5f;
     [SerializeField] private float waitingDuration = 4;
     [SerializeField] private float multiplier = 2;
+    [SerializeField] private float multiplierStep = 0.5f;
     [SerializeField] private HapticPlayer hapticPlayer;
 
     private bool isGameStarted = false;
 
     private Tween speedUpTween = null, countdownTween = null;
+    private float desiredValue = 1;
 
 
     private void Start()
     {
         Init();
+    }
+
+    private void Update()
+    {
+        if (desiredValue == targetVariable.Value) return;
+        targetVariable.Value = Mathf.Clamp(Mathf.Lerp(targetVariable.Value, desiredValue, Time.deltaTime / impactDuration), 1, multiplier);
     }
 
     public void OnGameStarted()
@@ -59,8 +67,12 @@ public class TapToSpeedUp : UIElement
     public void SpeedUp()
     {
         CancelSpeedUp();
-        targetVariable.Value = multiplier;
-        speedUpTween = DOTween.To(() => targetVariable.Value, (float x) => targetVariable.Value = x, 1, impactDuration).OnComplete(() => speedUpTween = null);
+        desiredValue = Mathf.Clamp(desiredValue + multiplierStep, 1, multiplier * 2);
+        speedUpTween = DOVirtual.DelayedCall(impactDuration, () => { desiredValue = 1; }, false).OnComplete(() => { speedUpTween = null; });
+        /*Sequence sequence = DOTween.Sequence();
+        sequence.Append(DOTween.To(() => targetVariable.Value, (float x) => targetVariable.Value = x, multiplier, impactDuration / 3f).SetEase(Ease.InCubic).OnComplete(() => speedUpTween = null));
+        sequence.Append(DOTween.To(() => targetVariable.Value, (float x) => targetVariable.Value = x, 1, impactDuration).SetEase(Ease.OutCubic).OnComplete(() => speedUpTween = null));
+        speedUpTween = sequence;*/
     }
     public void CancelSpeedUp()
     {

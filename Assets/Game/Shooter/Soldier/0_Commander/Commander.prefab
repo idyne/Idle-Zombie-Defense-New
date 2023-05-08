@@ -409,6 +409,7 @@ MonoBehaviour:
   dps: 13
   shootFrequencyMultiplier: {fileID: 11400000, guid: becf32ad1cc6833499d19004b05c085f,
     type: 2}
+  boostMultiplier: {fileID: 11400000, guid: 3c4ba6da8f686f643ac1f630823a1fe1, type: 2}
   range: 25
   shootPeriod: 1
   waveState: {fileID: 11400000, guid: 78954a394483f5142a29563686aa9316, type: 2}
