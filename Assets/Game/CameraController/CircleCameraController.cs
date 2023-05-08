@@ -87,7 +87,8 @@ public class CircleCameraController : CameraController
             cameraTransform.localPosition = initialCameraPosition + direction * zoomDistance;
             UpdateCameraDistance();
         }
-        transform.eulerAngles = new Vector3(0, angle, 0);
+        if (!lockYAxis)
+            transform.eulerAngles = new Vector3(0, angle, 0);
 
     }
 

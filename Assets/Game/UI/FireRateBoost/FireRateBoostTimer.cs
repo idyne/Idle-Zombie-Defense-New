@@ -9,13 +9,23 @@ public class FireRateBoostTimer : MonoBehaviour
     [SerializeField] private float time = 60;
     [SerializeField] private TextMeshProUGUI timeText;
     private float currentTime = 60;
+    private Tween timerTween = null;
 
     public void StartTimer()
     {
+        CancelTimer();
         currentTime = time;
-        DOTween.To(() => currentTime, (float x) => currentTime = x, 0, time).OnUpdate(() =>
+        timerTween = DOTween.To(() => currentTime, (float x) => currentTime = x, 0, time).OnUpdate(() =>
         {
             timeText.text = string.Format("{0:0.0}", currentTime).Replace(',', '.');
-        });
+        }).OnComplete(() => { timerTween = null; });
+    }
+    public void CancelTimer()
+    {
+        if (timerTween != null)
+        {
+            timerTween.Kill();
+            timerTween = null;
+        }
     }
 }
