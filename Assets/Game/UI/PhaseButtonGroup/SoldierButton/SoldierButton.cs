@@ -54,6 +54,6 @@ public class SoldierButton : PhaseButton
     public override void SwitchToCost(int cost, bool affordable)
     {
         base.SwitchToCost(cost, affordable);
-        freeField.SetActive(!affordable && saveData.Value.SoldierBuyingTutorialPassed);
+        //freeField.SetActive(!affordable && saveData.Value.SoldierBuyingTutorialPassed);
     }
 }

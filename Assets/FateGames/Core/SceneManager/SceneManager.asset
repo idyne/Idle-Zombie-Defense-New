@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d2995db63aed8741b6dd53864e5751c, type: 3}
   m_Name: SceneManager
   m_EditorClassIdentifier: 
+  soundManager: {fileID: 11400000, guid: d1ac0bd1ad58a87438e2a6a8399f579f, type: 2}
   zoneManager: {fileID: 11400000, guid: e4ba58336b2bf6c48873dbe4702582de, type: 2}
   firstLevelSceneIndex: 1
   loop: 1

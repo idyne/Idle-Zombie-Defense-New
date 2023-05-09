@@ -314,6 +314,7 @@ public class SDKManager : MonoBehaviour
 
     public void ShowInterstitial()
     {
+        return;
         Debug.Log("ShowInterstitial");
         if (MaxSdk.IsInterstitialReady(InterstitialAdUnitId) && canShowInterstitial)
         {
@@ -407,6 +408,7 @@ public class SDKManager : MonoBehaviour
 
     public void ShowRewardedAd(Action onFailed, Action onSucceed)
     {
+        return;
         if (MaxSdk.IsRewardedAdReady(RewardedAdUnitId))
         {
             onRewardedAdSucceed = onSucceed;
@@ -539,6 +541,7 @@ public class SDKManager : MonoBehaviour
     */
     public void ShowBannerAd()
     {
+        return;
         Debug.Log("ShowBannerAd");
         //if (Time.time < firstInterstitialTime) return;
         MaxSdk.ShowBanner(BannerAdUnitId);

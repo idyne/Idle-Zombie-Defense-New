@@ -25,6 +25,12 @@ namespace FateGames.Core
             Value.Money += money;
             OnMoneyChanged.Invoke(previousMoney, Value.Money);
         }
+        public void SetMoney(int money)
+        {
+            int previousMoney = Value.Money;
+            Value.Money = money;
+            OnMoneyChanged.Invoke(previousMoney, Value.Money);
+        }
         public bool CanAffordMoney(int cost)
         {
             return Value.Money >= cost;
@@ -42,6 +48,12 @@ namespace FateGames.Core
         {
             int previousTools = Value.Tools;
             Value.Tools += tools;
+            OnToolsChanged.Invoke(previousTools, Value.Tools);
+        }
+        public void SetTools(int tools)
+        {
+            int previousTools = Value.Tools;
+            Value.Tools = tools;
             OnToolsChanged.Invoke(previousTools, Value.Tools);
         }
         public bool CanAffordTools(int cost)

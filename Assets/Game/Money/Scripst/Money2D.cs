@@ -5,16 +5,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Money2D : FateMonoBehaviour, IPooledObject
+public class Money2D : UIElement, IPooledObject
 {
     [SerializeField] private Money2DRuntimeSet runtimeSet;
     [SerializeField] private RectTransform imageTransform;
     [SerializeField] private Vector2 target;
     public event Action OnRelease;
     [HideInInspector] public Action OnFinish;
+    [SerializeField] private BoolVariable developmentUIOn;
 
     public void OnObjectSpawn()
     {
+        if (developmentUIOn.Value) Show();
+        else Hide();
         Activate();
         runtimeSet.Add(this);
     }

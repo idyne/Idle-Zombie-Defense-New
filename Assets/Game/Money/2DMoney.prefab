@@ -121,9 +121,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10040367775dc854fa8b8018d9fa9a48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 5596023042878218961}
+  hideOnStart: 0
   runtimeSet: {fileID: 11400000, guid: 224f7ed6d72d6a14a91fd5554eed0551, type: 2}
   imageTransform: {fileID: 5596023040853283487}
   target: {x: 60.2, y: -77}
+  developmentUIOn: {fileID: 11400000, guid: 0a299c0420a68c742859c69bffbb02f9, type: 2}
 --- !u!1 &5596023042878218989
 GameObject:
   m_ObjectHideFlags: 0

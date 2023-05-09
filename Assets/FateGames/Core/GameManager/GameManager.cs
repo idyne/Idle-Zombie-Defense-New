@@ -39,6 +39,7 @@ namespace FateGames.Core
 
         public void ShowInterstitial()
         {
+            return;
             SDKManager.Instance.ShowInterstitial();
         }
 

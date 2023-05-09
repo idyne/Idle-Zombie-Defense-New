@@ -9,6 +9,7 @@ namespace FateGames.Core
     [CreateAssetMenu(menuName = "Fate/Manager/SceneManager")]
     public class SceneManager : ScriptableObject
     {
+        [SerializeField] private SoundManager soundManager;
         [SerializeField] private ZoneManager zoneManager;
         [SerializeField] private int firstLevelSceneIndex = 1;
         [SerializeField] private bool loop;
@@ -45,6 +46,7 @@ namespace FateGames.Core
 
         public void LoadLevel(int level, bool async = true)
         {
+            soundManager.StopWorkers();
             DG.Tweening.DOTween.KillAll();
             LoadScene(level, async);
             onLevelStartedLoading.Invoke();
