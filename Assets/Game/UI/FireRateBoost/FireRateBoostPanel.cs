@@ -13,7 +13,7 @@ public class FireRateBoostPanel : MonoBehaviour
     public static bool isShown = false;
     public void Show()
     {
-        if (isShown) return;
+        if (!SDKManager.Instance.IsGraceTimePassed || isShown) return;
         gameManager.PauseGame();
         isShown = true;
         uiElement.Show();

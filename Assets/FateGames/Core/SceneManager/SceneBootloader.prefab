@@ -62,6 +62,8 @@ GameObject:
   - component: {fileID: 2179638450464430352}
   - component: {fileID: 4683009664439335825}
   - component: {fileID: 2783846015367708821}
+  - component: {fileID: 5595257155254954498}
+  - component: {fileID: 7469977148242040692}
   m_Layer: 0
   m_Name: SceneBootloader
   m_TagString: Untagged
@@ -350,6 +352,62 @@ MonoBehaviour:
       - m_Target: {fileID: 11400000, guid: 9b5baa968179c554aa03b8aeae4310b3, type: 2}
         m_TargetAssemblyTypeName: RewardManager, Assembly-CSharp
         m_MethodName: CancelFireRateBoost
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5595257155254954498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468232153951217328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 7d2f71b048522ba40a8af51bd75069b0, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 9b5baa968179c554aa03b8aeae4310b3, type: 2}
+        m_TargetAssemblyTypeName: RewardManager, Assembly-CSharp
+        m_MethodName: FreeIncomeLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7469977148242040692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468232153951217328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 06a2e0147d42ebd41961982b2786752a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 9b5baa968179c554aa03b8aeae4310b3, type: 2}
+        m_TargetAssemblyTypeName: RewardManager, Assembly-CSharp
+        m_MethodName: FreeFireRateLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

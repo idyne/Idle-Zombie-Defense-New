@@ -25,13 +25,16 @@ public class SDKManager : MonoBehaviour
         }
     }
     [SerializeField] private SceneManager sceneManager;
+    [SerializeField] private SaveDataVariable saveData;
     [Header("AD SETTINGS")]
     [SerializeField] float defaultTimeIntervalBetweenInterstitial = 60;
     [SerializeField] public float defaultFirstInterstitialTime = 60;
+    [SerializeField] public float defaultGraceTime = 180;
     private float lastInterstitialShowTime = float.MinValue;
     float timeIntervalBetweenInterstitial => Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.GetValue("time_interval_between_interstitial").LongValue;
     float firstInterstitialTime => Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.GetValue("first_interstitial_time").LongValue;
-    public bool canShowInterstitial => Time.time >= lastInterstitialShowTime + timeIntervalBetweenInterstitial && Time.time >= firstInterstitialTime;
+    float graceTime => Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.GetValue("grace_time").LongValue;
+    public bool canShowInterstitial => IsGraceTimePassed && Time.time >= lastInterstitialShowTime + timeIntervalBetweenInterstitial && Time.time >= firstInterstitialTime;
     [SerializeField] private UnityEvent onInitialized;
     private bool facebookInitialized = false;
     private bool interstitialInitialized = false;
@@ -42,6 +45,7 @@ public class SDKManager : MonoBehaviour
     private Action onRewardedAdSucceed;
     private Action onRewardedAdFailed;
     private bool rewardedAdSucceed = false;
+    public bool IsGraceTimePassed { get => saveData.Value.TotalPlaytime >= graceTime; }
 
 #if UNITY_STANDALONE || UNITY_IOS
     private const string BannerAdUnitId = "fdda5b43d1149b6a";
@@ -156,6 +160,7 @@ public class SDKManager : MonoBehaviour
         // yet, or if we ask for values that the server doesn't have:
         defaults.Add("first_interstitial_time", defaultFirstInterstitialTime);
         defaults.Add("time_interval_between_interstitial", defaultTimeIntervalBetweenInterstitial);
+        defaults.Add("grace_time", defaultGraceTime);
 
         Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.SetDefaultsAsync(defaults)
           .ContinueWithOnMainThread(task =>
@@ -539,6 +544,7 @@ public class SDKManager : MonoBehaviour
     */
     public void ShowBannerAd()
     {
+        if (!IsGraceTimePassed) return;
         Debug.Log("ShowBannerAd");
         //if (Time.time < firstInterstitialTime) return;
         MaxSdk.ShowBanner(BannerAdUnitId);

@@ -16,30 +16,30 @@ MonoBehaviour:
     Level: 1
     BarrierHealthLevel: 0
     SoldierBuyingLevel: 1
-    SoldierTable: 01000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000001000000
-    TowerHealthLevel: 2
+    SoldierTable: 01000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    TowerHealthLevel: 0
     ExplosiveMineCount: 0
     ExplosiveMineDamageLevel: 0
     FrostMineCount: 0
     FrostMineDurationLevel: 0
     MolotovCooldownLevel: 0
     MolotovDamageLevel: 0
-    MolotovUnlocked: 1
-    CommanderDamageLevel: 3
+    MolotovUnlocked: 0
+    CommanderDamageLevel: 0
     TurretCount: 0
     TurretDamageLevel: 0
-    CloseBaseUpgradesPanelTutorialPassed: 1
+    CloseBaseUpgradesPanelTutorialPassed: 0
     OpenUpgradePanelTutorialPassed: 0
-    SoldierBuyingTutorialPassed: 1
-    StartTutorialPassed: 1
-    UpgradeBaseHealthTutorialPassed: 1
-    Money: 66168
-    FireRateLevel: 50
-    IncomeLevel: 1
-    MergeCount: 9
-    SoldierBuyingCount: 23
-    Tools: 1211
-    WaveLevel: 86
+    SoldierBuyingTutorialPassed: 0
+    StartTutorialPassed: 0
+    UpgradeBaseHealthTutorialPassed: 0
+    Money: 0
+    FireRateLevel: 0
+    IncomeLevel: 0
+    MergeCount: 0
+    SoldierBuyingCount: 0
+    Tools: 0
+    WaveLevel: 1
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

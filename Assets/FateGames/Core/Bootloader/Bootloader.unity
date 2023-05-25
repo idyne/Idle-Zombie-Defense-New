@@ -331,8 +331,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneManager: {fileID: 11400000, guid: 30f4fb8e342857543a5c7983051b6c66, type: 2}
+  saveData: {fileID: 11400000, guid: 2fbe29c554af5d84b9bdecaab48fec86, type: 2}
   defaultTimeIntervalBetweenInterstitial: 60
   defaultFirstInterstitialTime: 60
+  defaultGraceTime: 180
   onInitialized:
     m_PersistentCalls:
       m_Calls: []

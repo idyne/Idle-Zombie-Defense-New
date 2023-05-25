@@ -9,6 +9,8 @@ using UnityEngine.Events;
 public class RewardManager : ScriptableObject
 {
     [SerializeField] private SoldierBuyUpgradeEntity soldierBuyUpgradeEntity;
+    [SerializeField] private IncomeUpgradeEntity incomeUpgradeEntity;
+    [SerializeField] private FireRateUpgradeEntity fireRateUpgradeEntity;
     [SerializeField] private FloatVariable boostMultiplier;
     [SerializeField] private UnityEvent onFireRateBoostStarted, onFireRateBoostFinished;
     private Tween fireRateBoostTween;
@@ -20,6 +22,22 @@ public class RewardManager : ScriptableObject
             {
                 soldierBuyUpgradeEntity.Upgrade();
             }
+        });
+    }
+
+    public void FreeIncomeLevel()
+    {
+        SDKManager.Instance.ShowRewardedAd(() => { }, () =>
+        {
+            incomeUpgradeEntity.Upgrade();
+        });
+    }
+
+    public void FreeFireRateLevel()
+    {
+        SDKManager.Instance.ShowRewardedAd(() => { }, () =>
+        {
+            fireRateUpgradeEntity.Upgrade();
         });
     }
 

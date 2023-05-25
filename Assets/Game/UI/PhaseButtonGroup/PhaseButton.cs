@@ -11,6 +11,7 @@ public class PhaseButton : DynamicUIElement
     [SerializeField] protected GameObject infoField, costField;
     [SerializeField] protected TextMeshProUGUI infoText, costText, nameText;
     [SerializeField] protected Button button;
+    [SerializeField] protected GameObject freeField;
 
     protected override void Awake()
     {
@@ -50,5 +51,6 @@ public class PhaseButton : DynamicUIElement
         costText.text = MoneyField.numberFormat(cost);
         infoField.SetActive(false);
         costField.SetActive(true);
+        freeField.SetActive(SDKManager.Instance.IsGraceTimePassed && !affordable);
     }
 }

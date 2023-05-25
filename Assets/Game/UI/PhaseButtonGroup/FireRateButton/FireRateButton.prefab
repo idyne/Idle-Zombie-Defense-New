@@ -43,6 +43,47 @@ PrefabInstance:
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 469066642654860777, guid: 1ad009be1d3fd394da6648f95826b2df,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 469066642654860777, guid: 1ad009be1d3fd394da6648f95826b2df,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 469066642654860777, guid: 1ad009be1d3fd394da6648f95826b2df,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 06a2e0147d42ebd41961982b2786752a,
+        type: 2}
+    - target: {fileID: 469066642654860777, guid: 1ad009be1d3fd394da6648f95826b2df,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 469066642654860777, guid: 1ad009be1d3fd394da6648f95826b2df,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 469066642654860777, guid: 1ad009be1d3fd394da6648f95826b2df,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: FateGames.Core.GameEvent, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 469066642654860777, guid: 1ad009be1d3fd394da6648f95826b2df,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1831766932378128375, guid: 1ad009be1d3fd394da6648f95826b2df,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2307467618875311693, guid: 1ad009be1d3fd394da6648f95826b2df,
         type: 3}
       propertyPath: m_SizeDelta.x

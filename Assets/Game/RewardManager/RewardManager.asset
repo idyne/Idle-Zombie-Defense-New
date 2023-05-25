@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soldierBuyUpgradeEntity: {fileID: 11400000, guid: 1a5dc05abf9f6cf47ad1096024bcf796,
     type: 2}
+  incomeUpgradeEntity: {fileID: 11400000, guid: c3d785351fd60634293470886b5a7594,
+    type: 2}
+  fireRateUpgradeEntity: {fileID: 11400000, guid: b348925356b9e7f41947cfb13e874e57,
+    type: 2}
   boostMultiplier: {fileID: 11400000, guid: 3c4ba6da8f686f643ac1f630823a1fe1, type: 2}
   onFireRateBoostStarted:
     m_PersistentCalls:

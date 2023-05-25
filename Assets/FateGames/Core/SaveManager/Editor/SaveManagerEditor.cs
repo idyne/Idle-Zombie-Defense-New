@@ -17,8 +17,8 @@ namespace FateGames.Core
         }
         public override void OnInspectorGUI()
         {
-            //DrawDefaultInspector();
-            bool overrideSave = EditorGUILayout.ToggleLeft("Override Save", saveManager.OverrideSave);
+            DrawDefaultInspector();
+            /*bool overrideSave = EditorGUILayout.ToggleLeft("Override Save", saveManager.OverrideSave);
             saveManager.OverrideSave = overrideSave;
             EditorGUI.BeginDisabledGroup(!overrideSave);
             EditorGUI.indentLevel++;
@@ -36,7 +36,7 @@ namespace FateGames.Core
 
 
             EditorGUI.EndDisabledGroup();
-            saveManager.SaveData = EditorGUILayout.ObjectField("Save Data", saveManager.SaveData, typeof(SaveDataVariable), false) as SaveDataVariable;
+            saveManager.SaveData = EditorGUILayout.ObjectField("Save Data", saveManager.SaveData, typeof(SaveDataVariable), false) as SaveDataVariable;*/
 
         }
     }
