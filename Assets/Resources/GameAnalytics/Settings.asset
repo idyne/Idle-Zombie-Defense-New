@@ -27,20 +27,26 @@ MonoBehaviour:
   CustomArea: 
   gameKey:
   - 9fbe5ee9ea085b3ec30e423e803ce041
+  - 6c4548f3419e7afa1544a43fa9bc3a16
   secretKey:
   - a49f6920f4595291d70473dbf6ad21a9d36d5a0c
+  - 5b963c58553580c60d78dc0eec3ea2c35664d78c
   Build:
   - 0.4
+  - 0.5
   SelectedPlatformOrganization:
+  - 
   - 
   SelectedPlatformStudio:
   - 
+  - 
   SelectedPlatformGame:
   - 
-  SelectedPlatformGameID: ffffffff
-  SelectedOrganization: 00000000
-  SelectedStudio: 00000000
-  SelectedGame: 00000000
+  - 
+  SelectedPlatformGameID: ffffffffffffffff
+  SelectedOrganization: 0000000000000000
+  SelectedStudio: 0000000000000000
+  SelectedGame: 0000000000000000
   NewVersion: 7.3.24
   Changes: '7.3.24
 
@@ -64,7 +70,7 @@ MonoBehaviour:
   ResourceItemTypes: []
   ResourceCurrencies: []
   LastCreatedGamePlatform: 0
-  Platforms: 0b000000
+  Platforms: 0b00000008000000
   CurrentInspectorState: 1
   ClosedHints: 
   DisplayHints: 0
@@ -92,7 +98,7 @@ MonoBehaviour:
   IncludeGooglePlay: 1
   FpsCriticalThreshold: 20
   FpsCirticalSubmitInterval: 1
-  PlatformFoldOut: 01
+  PlatformFoldOut: 0101
   CustomDimensions01FoldOut: 0
   CustomDimensions02FoldOut: 0
   CustomDimensions03FoldOut: 0

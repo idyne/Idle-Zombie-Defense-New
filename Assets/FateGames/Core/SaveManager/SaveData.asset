@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     Level: 1
+    TotalPlaytime: 20.015387
     BarrierHealthLevel: 0
     SoldierBuyingLevel: 1
-    SoldierTable: 01000000020000000100000001000000000000000000000000000000000000000000000000000000000000000000000000000000
+    SoldierTable: 01000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     TowerHealthLevel: 0
     ExplosiveMineCount: 0
     ExplosiveMineDamageLevel: 0
@@ -30,16 +31,16 @@ MonoBehaviour:
     TurretDamageLevel: 0
     CloseBaseUpgradesPanelTutorialPassed: 0
     OpenUpgradePanelTutorialPassed: 0
-    SoldierBuyingTutorialPassed: 1
+    SoldierBuyingTutorialPassed: 0
     StartTutorialPassed: 1
     UpgradeBaseHealthTutorialPassed: 0
-    Money: 5787
-    FireRateLevel: 1
-    IncomeLevel: 1
-    MergeCount: 5
-    SoldierBuyingCount: 14
+    Money: 20
+    FireRateLevel: 0
+    IncomeLevel: 0
+    MergeCount: 0
+    SoldierBuyingCount: 0
     Tools: 0
-    WaveLevel: 100
+    WaveLevel: 1
   OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
