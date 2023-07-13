@@ -25,16 +25,16 @@ public class SDKManager : MonoBehaviour
         }
     }
     [SerializeField] private SceneManager sceneManager;
-    [SerializeField] private SaveDataVariable saveData;
+    [SerializeField] private SaveManager saveManager;
     [Header("AD SETTINGS")]
     [SerializeField] float defaultTimeIntervalBetweenInterstitial = 60;
     [SerializeField] public float defaultFirstInterstitialTime = 60;
-    [SerializeField] public float defaultGraceTime = 180;
+    [SerializeField] public float defaultGraceTime = 60;
     private float lastInterstitialShowTime = float.MinValue;
     float timeIntervalBetweenInterstitial => Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.GetValue("time_interval_between_interstitial").LongValue;
     float firstInterstitialTime => Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.GetValue("first_interstitial_time").LongValue;
-    float graceTime => Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.GetValue("grace_time").LongValue;
-    public bool canShowInterstitial => IsGraceTimePassed && Time.time >= lastInterstitialShowTime + timeIntervalBetweenInterstitial && Time.time >= firstInterstitialTime;
+    public float graceTime => Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.GetValue("grace_time").LongValue;
+    public bool canShowInterstitial => Time.time >= lastInterstitialShowTime + timeIntervalBetweenInterstitial && Time.time >= firstInterstitialTime && saveManager.TotalPlaytime >= graceTime;
     [SerializeField] private UnityEvent onInitialized;
     private bool facebookInitialized = false;
     private bool interstitialInitialized = false;
@@ -45,7 +45,6 @@ public class SDKManager : MonoBehaviour
     private Action onRewardedAdSucceed;
     private Action onRewardedAdFailed;
     private bool rewardedAdSucceed = false;
-    public bool IsGraceTimePassed { get => saveData.Value.TotalPlaytime >= graceTime; }
 
 #if UNITY_STANDALONE || UNITY_IOS
     private const string BannerAdUnitId = "87dad85ce022cb39";
@@ -86,8 +85,6 @@ public class SDKManager : MonoBehaviour
 
     private void OnEnable()
     {
-
-
 
         // Firebase SDK is initialized
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
@@ -233,10 +230,10 @@ public class SDKManager : MonoBehaviour
 
     public void TenjinConnect()
     {
-        BaseTenjin instance = Tenjin.getInstance("VSGFVVVMXTFLPXSB64TTEDC6O5Q2YQKJ");
+        /*BaseTenjin instance = Tenjin.getInstance("VSGFVVVMXTFLPXSB64TTEDC6O5Q2YQKJ");
 
         // Sends install/open event to Tenjin
-        instance.Connect();
+        instance.Connect();*/
     }
 
 
@@ -320,6 +317,7 @@ public class SDKManager : MonoBehaviour
     public void ShowInterstitial()
     {
         Debug.Log("ShowInterstitial");
+        if (RevenueCatManager.Instance.IsRemoveAdsPurchased()) return;
         if (MaxSdk.IsInterstitialReady(InterstitialAdUnitId) && canShowInterstitial)
         {
             Debug.Log("Showing");
@@ -542,10 +540,17 @@ public class SDKManager : MonoBehaviour
         }
     }
     */
+    public void CheckEntitlementForBanner()
+    {
+        if (RevenueCatManager.Instance.IsRemoveAdsPurchased())
+        {
+            HideBannerAd();
+        }
+    }
     public void ShowBannerAd()
     {
-        if (!IsGraceTimePassed) return;
         Debug.Log("ShowBannerAd");
+        if (RevenueCatManager.Instance.IsRemoveAdsPurchased() || saveManager.TotalPlaytime <= graceTime) return;
         //if (Time.time < firstInterstitialTime) return;
         MaxSdk.ShowBanner(BannerAdUnitId);
     }
@@ -562,7 +567,8 @@ public class SDKManager : MonoBehaviour
         // If you have already called MaxSdk.ShowBanner(BannerAdUnitId) it will automatically be shown on the next ad refresh.
         Debug.Log("Banner ad loaded");
         bannerInitialized = true;
-        ShowBannerAd();
+        if (!RevenueCatManager.Instance.IsRemoveAdsPurchased())
+            ShowBannerAd();
     }
 
     private void OnBannerAdFailedEvent(string adUnitId, MaxSdkBase.ErrorInfo errorInfo)

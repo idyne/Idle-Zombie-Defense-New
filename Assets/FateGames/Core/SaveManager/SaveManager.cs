@@ -5,12 +5,6 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Events;
-
-public partial class SaveData
-{
-    public float TotalPlaytime = 0;
-}
 
 namespace FateGames.Core
 {
@@ -27,15 +21,11 @@ namespace FateGames.Core
         [SerializeField] public bool AutoSave = true;
         /* [HideInInspector]*/
         [SerializeField] public float AutoSavePeriod = 10;
-        [SerializeField] private UnityEvent onGraceTimePassed;
-
-
         private float lastTotalPlaytimeSaveTime = 0;
-
+        public float TotalPlaytime { get => PlayerPrefs.GetFloat("total_playtime"); set => PlayerPrefs.SetFloat("total_playtime", value); }
 
         public void Initialize()
         {
-            lastTotalPlaytimeSaveTime = 0;
             Load();
             if (!OverrideSave && AutoSave)
                 RoutineRunner.StartRoutine(SaveRoutine());
@@ -48,16 +38,17 @@ namespace FateGames.Core
             yield return SaveRoutine();
         }
 
+        private void SaveTotalPlaytime()
+        {
+            float difference = Time.time - lastTotalPlaytimeSaveTime;
+            TotalPlaytime += difference;
+            lastTotalPlaytimeSaveTime = Time.time;
+        }
+
         public void Save(SaveData data)
         {
+            SaveTotalPlaytime();
             if (OverrideSave) return;
-            bool graceTimeWasNotPassed = !SDKManager.Instance.IsGraceTimePassed;
-            Debug.Log($"Time.time {Time.time}");
-            Debug.Log($"lastTotalPlaytimeSaveTime {lastTotalPlaytimeSaveTime}");
-            Debug.Log($"data.TotalPlaytime {data.TotalPlaytime}");
-            data.TotalPlaytime += Time.time - lastTotalPlaytimeSaveTime;
-            lastTotalPlaytimeSaveTime = Time.time;
-            if (graceTimeWasNotPassed && SDKManager.Instance.IsGraceTimePassed) onGraceTimePassed.Invoke();
             BinaryFormatter formatter = new();
             string path = Application.persistentDataPath + "/saveData.fate";
             FileStream stream = new(path, FileMode.Create);
