@@ -63,6 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiElement: {fileID: 441035454433462341}
+  saveManager: {fileID: 11400000, guid: c8a736951a67f0c40a538d98f5806301, type: 2}
   gameManager: {fileID: 11400000, guid: d81455aed306ccd4c8e8a87a55b5def5, type: 2}
   animator: {fileID: 3428582186453801480}
   onHidden:

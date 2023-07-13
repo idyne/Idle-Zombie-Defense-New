@@ -7,13 +7,14 @@ using UnityEngine.Events;
 public class FireRateBoostPanel : MonoBehaviour
 {
     [SerializeField] private UIElement uiElement;
+    [SerializeField] private SaveManager saveManager;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Animator animator;
     [SerializeField] private UnityEvent onHidden, onShowed;
     public static bool isShown = false;
     public void Show()
     {
-        if (isShown) return;
+        if (isShown || Time.time <= 120 || saveManager.TotalPlaytime <= SDKManager.Instance.graceTime) return;
         gameManager.PauseGame();
         isShown = true;
         uiElement.Show();

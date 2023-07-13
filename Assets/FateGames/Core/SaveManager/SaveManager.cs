@@ -21,7 +21,8 @@ namespace FateGames.Core
         [SerializeField] public bool AutoSave = true;
         /* [HideInInspector]*/
         [SerializeField] public float AutoSavePeriod = 10;
-
+        private float lastTotalPlaytimeSaveTime = 0;
+        public float TotalPlaytime { get => PlayerPrefs.GetFloat("total_playtime"); set => PlayerPrefs.SetFloat("total_playtime", value); }
 
         public void Initialize()
         {
@@ -37,8 +38,16 @@ namespace FateGames.Core
             yield return SaveRoutine();
         }
 
+        private void SaveTotalPlaytime()
+        {
+            float difference = Time.time - lastTotalPlaytimeSaveTime;
+            TotalPlaytime += difference;
+            lastTotalPlaytimeSaveTime = Time.time;
+        }
+
         public void Save(SaveData data)
         {
+            SaveTotalPlaytime();
             if (OverrideSave) return;
             BinaryFormatter formatter = new();
             string path = Application.persistentDataPath + "/saveData.fate";
