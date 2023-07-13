@@ -18,10 +18,10 @@ public class RevenueCatManager : Purchases.UpdatedCustomerInfoListener
         }
     }
     Purchases purchases;
-    [SerializeField] string adjustId;
     public Package RemoveAdsPackage { get; private set; }
     public CustomerInfo CustomerInfo { get; private set; }
     [SerializeField] private UnityEvent OnCustomerInfoUpdated = new();
+    [SerializeField] private UnityEvent OnRemoveAdsPackageLoaded = new();
 
 
     private void Awake()
@@ -34,7 +34,7 @@ public class RevenueCatManager : Purchases.UpdatedCustomerInfoListener
 
 
     }
-    private void Start()
+    public void CollectData()
     {
         try
         {
@@ -58,6 +58,9 @@ public class RevenueCatManager : Purchases.UpdatedCustomerInfoListener
 
             Debug.LogError("SetAdjustID error");
         }
+    }
+    public void GetOfferings()
+    {
         purchases.GetOfferings((offerings, error) =>
         {
             if (error != null)
@@ -69,11 +72,13 @@ public class RevenueCatManager : Purchases.UpdatedCustomerInfoListener
                 Debug.Log("test2");
                 Debug.Log(offerings.Current.AvailablePackages[0]);
                 RemoveAdsPackage = offerings.Current.AvailablePackages[0];
+                OnRemoveAdsPackageLoaded.Invoke();
                 Debug.Log(RemoveAdsPackage.StoreProduct.PriceString);
                 // show offering
             }
         });
     }
+
     public override void CustomerInfoReceived(Purchases.CustomerInfo customerInfo)
     {
         SetCustomerInfo(customerInfo);

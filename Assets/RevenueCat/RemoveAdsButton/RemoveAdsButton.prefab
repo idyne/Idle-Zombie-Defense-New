@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1519077200492705092}
   - component: {fileID: 6259370717195222234}
   - component: {fileID: 8723701050435955650}
+  - component: {fileID: 213144694259150557}
   m_Layer: 0
   m_Name: RemoveAdsButton
   m_TagString: Untagged
@@ -75,6 +76,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Event: {fileID: 11400000, guid: 330bc137dc9d79d4db2f78e0976f5008, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1519077200492705092}
+        m_TargetAssemblyTypeName: RemoveAdsButton, Assembly-CSharp
+        m_MethodName: CheckEntitlement
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &213144694259150557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4276500100080048489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72ded4bbe29d9648a4cace73085bbf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 22ead0db549976141b770c5d632c773f, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:

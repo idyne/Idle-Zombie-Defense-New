@@ -47,9 +47,9 @@ public class SDKManager : MonoBehaviour
     private bool rewardedAdSucceed = false;
 
 #if UNITY_STANDALONE || UNITY_IOS
-    private const string BannerAdUnitId = "fdda5b43d1149b6a";
-    private const string InterstitialAdUnitId = "5e77c66e430b532d";
-    private const string RewardedAdUnitId = "4dea8718e5ae7b39";
+    private const string BannerAdUnitId = "87dad85ce022cb39";
+    private const string InterstitialAdUnitId = "94e78e440a380f97";
+    private const string RewardedAdUnitId = "1a49b0ced6375beb";
     
 #endif
 

@@ -491,6 +491,11 @@ PrefabInstance:
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4429980471980597325, guid: 4f74f9f35c4e2f246ac585f131bd6526,
+        type: 3}
+      propertyPath: m_Value
+      value: 0.99999905
+      objectReference: {fileID: 0}
     - target: {fileID: 4952778900518241216, guid: 4f74f9f35c4e2f246ac585f131bd6526,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1844,7 +1849,7 @@ PrefabInstance:
     - target: {fileID: 2245971241210905557, guid: 8338eb30ef7023542b69b6a661aa953e,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 157074.05
+      value: 162243.19
       objectReference: {fileID: 0}
     - target: {fileID: 4429980471980597325, guid: 8338eb30ef7023542b69b6a661aa953e,
         type: 3}
@@ -3533,6 +3538,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RemoveAdsButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889302668491603308, guid: 3f5227e05dbbbea42aebdffce20ff938,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f5227e05dbbbea42aebdffce20ff938, type: 3}
