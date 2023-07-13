@@ -992,6 +992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priceText: {fileID: 2588437386610535615}
   uiElement: {fileID: 6259370717195222234}
+  gameManager: {fileID: 11400000, guid: d81455aed306ccd4c8e8a87a55b5def5, type: 2}
 --- !u!114 &948460274260632287
 MonoBehaviour:
   m_ObjectHideFlags: 0

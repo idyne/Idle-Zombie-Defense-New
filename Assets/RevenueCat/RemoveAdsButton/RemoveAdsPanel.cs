@@ -7,6 +7,7 @@ public class RemoveAdsPanel : MonoBehaviour
 {
     [SerializeField] TMPro.TextMeshProUGUI priceText;
     [SerializeField] UIElement uiElement;
+    [SerializeField] GameManager gameManager;
     public void UpdatePrice()
     {
         priceText.text = RevenueCatManager.Instance.RemoveAdsPackage.StoreProduct.PriceString;
@@ -20,6 +21,7 @@ public class RemoveAdsPanel : MonoBehaviour
         if (RevenueCatManager.Instance.IsRemoveAdsPurchased())
         {
             uiElement.Hide();
+            gameManager.ResumeGame();
         }
     }
 }

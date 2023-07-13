@@ -1,3 +1,4 @@
+using com.adjust.sdk;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,9 +30,9 @@ public class RevenueCatManager : Purchases.UpdatedCustomerInfoListener
         DontDestroyOnLoad(gameObject);
 
         purchases = GetComponent<Purchases>();
-        
-        
-        
+
+
+
     }
     private void Start()
     {
@@ -47,7 +48,9 @@ public class RevenueCatManager : Purchases.UpdatedCustomerInfoListener
         }
         try
         {
-            purchases.SetAdjustID(adjustId);
+            string adid = Adjust.getAdid();
+            Debug.Log(adid);
+            purchases.SetAdjustID(adid);
 
         }
         catch (System.Exception)
