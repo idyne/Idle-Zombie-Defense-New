@@ -86,7 +86,7 @@ public class RevenueCatManager : Purchases.UpdatedCustomerInfoListener
 
     public bool IsRemoveAdsPurchased()
     {
-        if (CustomerInfo == null) return false;
+        if (CustomerInfo == null || RemoveAdsPackage == null) return false;
         return CustomerInfo.Entitlements.Active.ContainsKey("remove_ads");
     }
 
