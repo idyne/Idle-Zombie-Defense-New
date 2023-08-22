@@ -12,6 +12,7 @@ using Firebase.Extensions;
 using UnityEngine.Events;
 using System.Threading.Tasks;
 using FateGames.Core;
+using com.adjust.sdk;
 
 public class SDKManager : MonoBehaviour
 {
@@ -301,6 +302,7 @@ public class SDKManager : MonoBehaviour
         MaxSdkCallbacks.Interstitial.OnAdLoadFailedEvent += OnInterstitialFailedEvent;
         MaxSdkCallbacks.Interstitial.OnAdDisplayFailedEvent += InterstitialFailedToDisplayEvent;
         MaxSdkCallbacks.Interstitial.OnAdHiddenEvent += OnInterstitialDismissedEvent;
+        MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent; // Adjust
 
 
         // Load the first interstitial
@@ -396,6 +398,7 @@ public class SDKManager : MonoBehaviour
         MaxSdkCallbacks.Rewarded.OnAdClickedEvent += OnRewardedAdClickedEvent;
         MaxSdkCallbacks.Rewarded.OnAdHiddenEvent += OnRewardedAdDismissedEvent;
         MaxSdkCallbacks.Rewarded.OnAdReceivedRewardEvent += OnRewardedAdReceivedRewardEvent;
+        MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent; // Adjust
 
 
         // Load the first RewardedAd
@@ -496,7 +499,15 @@ public class SDKManager : MonoBehaviour
 
 
     #endregion
-
+    private void OnAdRevenuePaidEvent(string arg1, MaxSdkBase.AdInfo arg2)
+    {
+        AdjustAdRevenue adjustAdRevenue = new(AdjustConfig.AdjustAdRevenueSourceAppLovinMAX);
+        adjustAdRevenue.setRevenue(arg2.Revenue, "USD");
+        adjustAdRevenue.setAdRevenueNetwork(arg2.NetworkName);
+        adjustAdRevenue.setAdRevenueUnit(arg2.AdUnitIdentifier);
+        adjustAdRevenue.setAdRevenuePlacement(arg2.Placement);
+        Adjust.trackAdRevenue(adjustAdRevenue);
+    }
     #region Banner Ad Methods
 
     private void InitializeBannerAds()
@@ -506,7 +517,7 @@ public class SDKManager : MonoBehaviour
         MaxSdkCallbacks.Banner.OnAdLoadedEvent += OnBannerAdLoadedEvent;
         MaxSdkCallbacks.Banner.OnAdLoadFailedEvent += OnBannerAdFailedEvent;
         MaxSdkCallbacks.Banner.OnAdClickedEvent += OnBannerAdClickedEvent;
-
+        MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent; // Adjust
 
         // Banners are automatically sized to 320x50 on phones and 728x90 on tablets.
         // You may use the utility method `MaxSdkUtils.isTablet()` to help with view sizing adjustments.
