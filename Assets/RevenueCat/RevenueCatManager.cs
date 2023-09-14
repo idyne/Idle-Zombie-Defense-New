@@ -32,33 +32,42 @@ public class RevenueCatManager : Purchases.UpdatedCustomerInfoListener
         purchases = GetComponent<Purchases>();
 
 
-
     }
+
+    public void OnSDKsInitialized()
+    {
+        Configure();
+        CollectData();
+        GetOfferings();
+    }
+
+    public void RestorePurchases()
+    {
+        purchases.RestorePurchases((info, error) =>
+        {
+            SetCustomerInfo(info);
+        });
+    }
+
     public void CollectData()
     {
-        try
-        {
-            purchases.CollectDeviceIdentifiers();
+        purchases.CollectDeviceIdentifiers();
+        string adid = Adjust.getAdid();
+        Debug.Log($"adjust adid: {adid}");
+        purchases.SetAdjustID(adid);
 
-        }
-        catch (System.Exception)
-        {
-
-            Debug.LogError("CollectDeviceIdentifiers error");
-        }
-        try
-        {
-            string adid = Adjust.getAdid();
-            Debug.Log(adid);
-            purchases.SetAdjustID(adid);
-
-        }
-        catch (System.Exception)
-        {
-
-            Debug.LogError("SetAdjustID error");
-        }
     }
+
+    public void Configure()
+    {
+        purchases.SetLogLevel(LogLevel.Debug);
+        Purchases.PurchasesConfiguration.Builder builder = Purchases.PurchasesConfiguration.Builder.Init("appl_vuOKWotExaxxXzSEfVWSmCUvkkl");
+        Purchases.PurchasesConfiguration purchasesConfiguration =
+            builder
+                .Build();
+        purchases.Configure(purchasesConfiguration);
+    }
+    
     public void GetOfferings()
     {
         purchases.GetOfferings((offerings, error) =>
@@ -69,12 +78,9 @@ public class RevenueCatManager : Purchases.UpdatedCustomerInfoListener
             }
             else
             {
-                Debug.Log("test2");
-                Debug.Log(offerings.Current.AvailablePackages[0]);
+
                 RemoveAdsPackage = offerings.Current.AvailablePackages[0];
                 OnRemoveAdsPackageLoaded.Invoke();
-                Debug.Log(RemoveAdsPackage.StoreProduct.PriceString);
-                // show offering
             }
         });
     }
@@ -104,6 +110,7 @@ public class RevenueCatManager : Purchases.UpdatedCustomerInfoListener
                 else
                 {
                     Debug.Log(customerInfo);
+                    purchases.SyncPurchases();
                     SetCustomerInfo(customerInfo);
                 }
             }

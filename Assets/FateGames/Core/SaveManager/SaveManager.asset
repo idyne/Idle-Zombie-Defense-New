@@ -17,18 +17,3 @@ MonoBehaviour:
   OverrideSaveData: {fileID: 11400000, guid: b5d6f087333e7a046997d6bebf2f27b2, type: 2}
   AutoSave: 1
   AutoSavePeriod: 10
-  onGraceTimePassed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: aeb9ef825f4ad3546b432f76b5cbd0ff, type: 2}
-        m_TargetAssemblyTypeName: FateGames.Core.GameEvent, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2

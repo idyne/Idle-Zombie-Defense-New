@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   qualityServiceEnabled: 1
   sdkKey: 09mBPe6fn7Tg_xo6p4-shNiAaXlBrtK4zAFXmPKNwdK3df-td8R7o5CgUWUpH3LQb2Mxxmp8AKngmcXgROmQJV
-  setAttributionReportEndpoint: 0
+  setAttributionReportEndpoint: 1
   consentFlowEnabled: 1
   consentFlowPlatform: 0
   consentFlowPrivacyPolicyUrl: https://voyagerapplication.com/privacy-policy/
-  consentFlowTermsOfServiceUrl: https://voyagerapplication.com/terms-of-service/
+  consentFlowTermsOfServiceUrl: 
   userTrackingUsageDescriptionEn: This uses device info for more personalized ads
     and content
   userTrackingUsageLocalizationEnabled: 1

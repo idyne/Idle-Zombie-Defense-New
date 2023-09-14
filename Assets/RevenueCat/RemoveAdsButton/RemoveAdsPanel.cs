@@ -24,4 +24,8 @@ public class RemoveAdsPanel : MonoBehaviour
             gameManager.ResumeGame();
         }
     }
+    public void RestorePurchases()
+    {
+        RevenueCatManager.Instance.RestorePurchases();
+    }
 }

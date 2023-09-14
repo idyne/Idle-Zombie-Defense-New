@@ -28,11 +28,11 @@ MonoBehaviour:
     CommanderDamageLevel: 0
     TurretCount: 0
     TurretDamageLevel: 0
-    CloseBaseUpgradesPanelTutorialPassed: 0
-    OpenUpgradePanelTutorialPassed: 0
-    SoldierBuyingTutorialPassed: 0
-    StartTutorialPassed: 0
-    UpgradeBaseHealthTutorialPassed: 0
+    CloseBaseUpgradesPanelTutorialPassed: 1
+    OpenUpgradePanelTutorialPassed: 1
+    SoldierBuyingTutorialPassed: 1
+    StartTutorialPassed: 1
+    UpgradeBaseHealthTutorialPassed: 1
     Money: 0
     FireRateLevel: 0
     IncomeLevel: 0

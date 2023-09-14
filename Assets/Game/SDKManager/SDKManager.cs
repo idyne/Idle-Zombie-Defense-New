@@ -12,6 +12,7 @@ using Firebase.Extensions;
 using UnityEngine.Events;
 using System.Threading.Tasks;
 using FateGames.Core;
+using com.adjust.sdk;
 
 public class SDKManager : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class SDKManager : MonoBehaviour
     float firstInterstitialTime => Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.GetValue("first_interstitial_time").LongValue;
     public float graceTime => Firebase.RemoteConfig.FirebaseRemoteConfig.DefaultInstance.GetValue("grace_time").LongValue;
     public bool canShowInterstitial => Time.time >= lastInterstitialShowTime + timeIntervalBetweenInterstitial && Time.time >= firstInterstitialTime && saveManager.TotalPlaytime >= graceTime;
+    public bool IsGraceTimePassed => saveManager.TotalPlaytime >= graceTime;
     [SerializeField] private UnityEvent onInitialized;
     private bool facebookInitialized = false;
     private bool interstitialInitialized = false;
@@ -50,7 +52,7 @@ public class SDKManager : MonoBehaviour
     private const string BannerAdUnitId = "87dad85ce022cb39";
     private const string InterstitialAdUnitId = "94e78e440a380f97";
     private const string RewardedAdUnitId = "1a49b0ced6375beb";
-    
+
 #endif
 
 
@@ -59,7 +61,7 @@ public class SDKManager : MonoBehaviour
 
 
     private const string BannerAdUnitId = "76c9011ced4d64d6";
-    private const string InterstitialAdUnitId = "9c38eb8f88f6ed71";
+    private const string InterstitialAdUnitId = "f18f62d03a5fb454";
     private const string RewardedAdUnitId = "2490be4e9d1d7e09";
 
 #endif
@@ -85,7 +87,8 @@ public class SDKManager : MonoBehaviour
 
     private void OnEnable()
     {
-
+        AdjustConfig adjustConfig = new AdjustConfig("9brxgv32p3i8", AdjustEnvironment.Production);
+        Adjust.start(adjustConfig);
         // Firebase SDK is initialized
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
@@ -109,6 +112,7 @@ public class SDKManager : MonoBehaviour
 
         MaxSdkCallbacks.OnSdkInitializedEvent += (MaxSdkBase.SdkConfiguration sdkConfiguration) =>
         {
+
             // AppLovin SDK is initialized
             TenjinConnect();
 
@@ -122,6 +126,8 @@ public class SDKManager : MonoBehaviour
             InitializeBannerAds();
             InitializeInterstitialAds();
             InitializeRewardedAds();
+
+
 
 
         };
@@ -292,6 +298,16 @@ public class SDKManager : MonoBehaviour
 
     #endregion
 
+    private void OnAdRevenuePaidEvent(string arg1, MaxSdkBase.AdInfo arg2)
+    {
+        AdjustAdRevenue adjustAdRevenue = new(AdjustConfig.AdjustAdRevenueSourceAppLovinMAX);
+        adjustAdRevenue.setRevenue(arg2.Revenue, "USD");
+        adjustAdRevenue.setAdRevenueNetwork(arg2.NetworkName);
+        adjustAdRevenue.setAdRevenueUnit(arg2.AdUnitIdentifier);
+        adjustAdRevenue.setAdRevenuePlacement(arg2.Placement);
+        Adjust.trackAdRevenue(adjustAdRevenue);
+    }
+
     #region Interstitial Ad Methods
 
     private void InitializeInterstitialAds()
@@ -301,6 +317,8 @@ public class SDKManager : MonoBehaviour
         MaxSdkCallbacks.Interstitial.OnAdLoadFailedEvent += OnInterstitialFailedEvent;
         MaxSdkCallbacks.Interstitial.OnAdDisplayFailedEvent += InterstitialFailedToDisplayEvent;
         MaxSdkCallbacks.Interstitial.OnAdHiddenEvent += OnInterstitialDismissedEvent;
+        MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent; // Adjust
+
 
 
         // Load the first interstitial
@@ -396,6 +414,8 @@ public class SDKManager : MonoBehaviour
         MaxSdkCallbacks.Rewarded.OnAdClickedEvent += OnRewardedAdClickedEvent;
         MaxSdkCallbacks.Rewarded.OnAdHiddenEvent += OnRewardedAdDismissedEvent;
         MaxSdkCallbacks.Rewarded.OnAdReceivedRewardEvent += OnRewardedAdReceivedRewardEvent;
+        MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent; // Adjust
+
 
 
         // Load the first RewardedAd
@@ -506,6 +526,8 @@ public class SDKManager : MonoBehaviour
         MaxSdkCallbacks.Banner.OnAdLoadedEvent += OnBannerAdLoadedEvent;
         MaxSdkCallbacks.Banner.OnAdLoadFailedEvent += OnBannerAdFailedEvent;
         MaxSdkCallbacks.Banner.OnAdClickedEvent += OnBannerAdClickedEvent;
+        MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent += OnAdRevenuePaidEvent; // Adjust
+
 
 
         // Banners are automatically sized to 320x50 on phones and 728x90 on tablets.
