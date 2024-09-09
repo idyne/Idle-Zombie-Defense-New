@@ -12,6 +12,10 @@
 /[Ss]creenshots/
 /[Rr]ecordings/
 
+/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-9_1_0.bundle
+/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-9_3_0.bundle
+/Assets/Firebase/Plugins/x86_64/FirebaseCppApp-10_7_0.bundle
+
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
